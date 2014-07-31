@@ -1,0 +1,5 @@
+G:\new cmp\CRM\CRM_Project\CRM_BAL\bin\Debug\CRM_BAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_BAL\bin\Debug\CRM_BAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.csprojResolveAssemblyReference.cache

@@ -1,0 +1,508 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="CRM_User_Interface.CRM_MainForm"
+        Title="CRM_Admin_Dashbord" Height="655" Width="1200"  WindowStartupLocation="CenterScreen"  Margin="0,0,0,0" WindowState="Normal"  AllowsTransparency="True" WindowStyle="None"  ShowInTaskbar="False" Background="Transparent">
+    <Border BorderBrush="Transparent"   BorderThickness="1" Height="655" VerticalAlignment="Top" CornerRadius="15" Background="Black">
+        <Grid Margin="-1,-1,1,-1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Margin="19,10,0,0" TextWrapping="Wrap" FontSize="14px" Text="Customer  Relationship Management" VerticalAlignment="Top" Width="230" Height="21" Foreground="#FFF7EDED"/>
+            <Button x:Name="btnmainexit" Content="X" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="40" Background="WhiteSmoke" Height="20" FontWeight="Bold" Click="btnmainexit_Click" Margin="1105,0,0,625"  />
+            <Menu HorizontalAlignment="Left" Height="25" Margin="20,35,0,0"  VerticalAlignment="Top" Width="1160" Foreground="#FF212121" Background="#FF302D2D">
+                <MenuItem  Header="Home" x:Name="mhome" Foreground="White" Width="55" />
+                <MenuItem Width="65">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" Content="Sales" />
+                            <Border>
+                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
+									BorderBrush="{TemplateBinding Border.BorderBrush}"
+									Background="{TemplateBinding Panel.Background}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="OverridesDefaultStyle" Value="True" />
+
+                                            <Setter Property="Focusable" Value="False" />
+                                            <Setter Property="IsTabStop" Value="False" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  x:Name="Arrow"
+															Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                            </Border>
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Name="smaddfolloup" Header="Follow_up " Click="smaddfolloup_Click"/>
+                    <MenuItem  x:Name="smnewwalkin" Header="Open New Walk-In"/>
+                    <MenuItem Header=" View Walkins" x:Name="smviewwalkin"/>
+                    <MenuItem Header=" View Sales" x:Name="smviewsale"/>
+                    <MenuItem Header=" View Reports" x:Name="smviewreports"/>
+                    <MenuItem Header=" Import/Export" x:Name="smiport_export"/>
+                </MenuItem>
+                <MenuItem Width="105">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" Content="Procurements" />
+                            <Border>
+                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
+									BorderBrush="{TemplateBinding Border.BorderBrush}"
+									Background="{TemplateBinding Panel.Background}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="OverridesDefaultStyle" Value="True" />
+
+                                            <Setter Property="Focusable" Value="False" />
+                                            <Setter Property="IsTabStop" Value="False" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  x:Name="Arrow"
+															Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                            </Border>
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Header="ADD Products" x:Name="smaddproduct" Click="smaddproduct_Click"/>
+                    <MenuItem Header="Open New Procurement" x:Name="smnewprocurement" Click="smnewprocurement_Click"/>
+
+                    <!--<MenuItem Header=" View Sales"/>
+                    <MenuItem Header=" View Reports"/>
+                    <MenuItem Header=" Import/Export"/>-->
+                </MenuItem>
+
+                <MenuItem Width="85">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" Content="Warranty" />
+                            <Border>
+                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
+									BorderBrush="{TemplateBinding Border.BorderBrush}"
+									Background="{TemplateBinding Panel.Background}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="OverridesDefaultStyle" Value="True" />
+
+                                            <Setter Property="Focusable" Value="False" />
+                                            <Setter Property="IsTabStop" Value="False" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  x:Name="Arrow"
+															Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                            </Border>
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Header="View Warranty On Sale " x:Name="smviewwarranty"/>
+                    <MenuItem Header=" Check Status" x:Name="smchksataus"/>
+                    <MenuItem Header=" Extend Particular Warranty" x:Name="smextendwarranty"/>
+
+                </MenuItem>
+                <MenuItem Width="85">
+                    <MenuItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" Content="Insurance" />
+                            <Border>
+                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
+									BorderBrush="{TemplateBinding Border.BorderBrush}"
+									Background="{TemplateBinding Panel.Background}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="{x:Type ToggleButton}">
+                                            <Setter Property="OverridesDefaultStyle" Value="True" />
+
+                                            <Setter Property="Focusable" Value="False" />
+                                            <Setter Property="IsTabStop" Value="False" />
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  x:Name="Arrow"
+															Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                            </Border>
+                        </StackPanel>
+                    </MenuItem.Header>
+                    <MenuItem Header="Open New Insurance" x:Name="sminsurance"/>
+                    <MenuItem Header=" View All Insurance" x:Name="smviewinsurance"/>
+                    <MenuItem Header=" Check Status" x:Name="smchkstatusinsurance"/>
+
+                </MenuItem>
+                <MenuItem Header="Calender"  Foreground="White" Width="70" x:Name="mcalender"/>
+                <MenuItem Header="Alerts"  Foreground="White" Width="55" x:Name="malerts" />
+                <MenuItem Header="Forecast"  Foreground="White" Width="70" x:Name="mforcast" />
+                <TextBox Height="23" x:Name="txtsearch" TextWrapping="Wrap" Margin="200,0,0,0" Text="" Foreground="White"  Width="245" Background="#FF302D2D"/>
+                <Button Content="Search" HorizontalAlignment="Left" x:Name="btnsearch" Margin="0,0,0,0" VerticalAlignment="Top"  Width="75" Background="#FF1AAE1A"/>
+
+            </Menu>
+            <Grid HorizontalAlignment="Left"  Height="5" Margin="20,60,0,0" VerticalAlignment="Top" Width="1160" Background="#FF1AAE1A">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="224*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" HorizontalAlignment="Left" Height="100" Margin="90,45,0,0" VerticalAlignment="Top" Width="100"/>
+            </Grid>
+            <TextBlock HorizontalAlignment="Left" Margin="45,85,0,0" TextWrapping="Wrap" Text="HOME : OVERVIEW OF PAST 30 DAYS" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Height="21" Width="279"/>
+            <Grid HorizontalAlignment="Left" Height="254" Margin="40,141,0,0" VerticalAlignment="Top" Width="1120" Background="White">
+                <Button HorizontalAlignment="Left" x:Name="btnsales" Margin="15,37,0,0"  VerticalAlignment="Top" Width="160" Height="157"  Background="#FF302D2D">
+                    <!--<Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="Green"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>-->
+                    <StackPanel Width="145" Height="152">
+                        <TextBlock Text="SALE MADE" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold" Height="19"/>
+                        <Separator Height="6" Margin="21,2,23,2"/>
+                        <Grid Height="10"/>
+
+                        <Image Source="DASHBOARD IMAGES/sales made.png" Width="80" Margin="32,0,33,0" Height="76"/>
+                        <Label x:Name="lblsaleMode" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="48,0,40,0" Content="40" />
+                    </StackPanel>
+
+                </Button>
+                <Button HorizontalAlignment="Left" x:Name="btnwalkin" Margin="195,38,0,0"  VerticalAlignment="Top" Width="160" Height="157"  Background="#FF302D2D">
+                    <StackPanel Width="145" Height="152">
+                        <TextBlock Text="WALK-IN" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold" Height="18"/>
+                        <Separator Height="13" Margin="27,2,28,2"/>
+                        <Grid Height="11" Margin="0,0,3,0"/>
+
+                        <Image Source="DASHBOARD IMAGES/walk ins.png" Margin="13,0,15,0" Height="75"/>
+                        <Label x:Name="LBLWALKIN" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0" Content="66" Height="35" />
+                    </StackPanel>
+
+                </Button>
+                <Button HorizontalAlignment="Left" x:Name="btnearning" Margin="386,39,0,0"  VerticalAlignment="Top " Width="160" Height="157" Background="#FF302D2D">
+                    <StackPanel Width="124" Height="165">
+                        <TextBlock Text="EARNING" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
+                        <Separator Height="9" Margin="32,2"/>
+                        <Grid Height="10"/>
+
+                        <Image Source="DASHBOARD IMAGES/earnings png.png" Margin="25,0,14,0" Width="80" Height="76"/>
+                        <Label x:Name="lblearning" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="45,0,43,0" Content="50" />
+                    </StackPanel>
+
+                </Button>
+                <Button HorizontalAlignment="Left" x:Name="btnprogress" Margin="568,39,0,0"  VerticalAlignment="Top"  Width="160" Height="157" Background="#FF302D2D">
+                    <StackPanel Width="134" Height="155">
+                        <TextBlock Text="PROGRESS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
+                        <Separator Height="9" Margin="21,2,23,2"/>
+                        <Grid Height="10"/>
+
+                        <Image Source="DASHBOARD IMAGES/progress.png" Margin="19,0,20,0" Width="80" Height="76"/>
+                        <Label x:Name="lblprogress" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="80" />
+                    </StackPanel>
+
+                </Button>
+                <Button HorizontalAlignment="Left" x:Name="btnpfprocurement" Margin="751,39,0,0"  VerticalAlignment="Top" Width="160" Height="157" Background="#FF302D2D">
+                    <StackPanel Width="134" Height="155">
+                        <TextBlock TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold" Height="42" Margin="2,0,-3,0"><Run Text="FINALIZED "/><LineBreak/><Run Text="PROCUREMENT"/></TextBlock>
+                        <Separator Height="8" Margin="21,2,12,2"/>
+                        <!--<Grid Height="10"/>-->
+                        <Image Source="DASHBOARD IMAGES/finalized procurements.png" Margin="19,0,12,0"  Width="80" Height="70"/>
+                        <Label x:Name="lblfproc" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0,39,0" Content="40" />
+                    </StackPanel>
+
+                </Button>
+                <Button HorizontalAlignment="Left" x:Name="btnalerts" Margin="935,39,0,0"  VerticalAlignment="Top" Width="160" Height="157" Background="#FF302D2D">
+                    <StackPanel Width="134" Height="155">
+                        <TextBlock Text="ALERTS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
+                        <Separator Height="9" Margin="21,2,23,2"/>
+                        <Grid Height="10"/>
+
+                        <Image Source="DASHBOARD IMAGES/alerts.png" Margin="19,0,20,0" Height="76"/>
+                        <Label x:Name="lblalerts" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="10" />
+                    </StackPanel>
+
+                </Button>
+                <Grid HorizontalAlignment="Left" Height="100" Margin="160,234,0,-80" VerticalAlignment="Top" Width="100"/>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="200"  x:Name="grid_graph" Margin="40,415,0,0" VerticalAlignment="Top" Width="1120" Background="White"/>
+            <!--<Button x:Name="btnadminlogin" Content="Admin" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="80" Background="White"  Height="20" FontWeight="Bold"  Foreground="#FFF9F9F" FontSize="14" Grid.Column="1" Click="btnadminlogin_Click"  />-->
+            <Grid HorizontalAlignment="Left" Height="560" Visibility="Hidden"   x:Name="grd_U_AddProducts" Margin="20,70,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" Loaded="grd_U_AddProducts_Loaded">
+                <GroupBox Header="ADD PRODUCTS"  x:Name="grbaddproducts" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Width="1100" Height="510" Background="White">
+                    <Grid Name="grdMainFormGrid" Height="430" Margin="150,25,13,0" VerticalAlignment="Top" Background="White" Loaded="grdMainFormGrid_Loaded">
+                        <Label Content="Domain :" HorizontalAlignment="Left" Margin="49,29,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Products :" HorizontalAlignment="Left" Margin="49,60,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Brand :" HorizontalAlignment="Left" Margin="49,93,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Product Category :" HorizontalAlignment="Left" Margin="49,124,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Model No :" HorizontalAlignment="Left" Margin="49,154,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Color :" HorizontalAlignment="Left" Margin="49,183,0,0" VerticalAlignment="Top" Width="130"/>
+                        <Label Content="Narration :" HorizontalAlignment="Left" Margin="49,209,0,0" VerticalAlignment="Top" Width="105"/>
+                        <TextBox x:Name="txtP_Narration" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" Margin="194,216,0,0"/>
+                        <Label Content="Price(MRP) :" HorizontalAlignment="Left" Margin="49,244,0,0" VerticalAlignment="Top" Width="105"/>
+                        <TextBox x:Name="txtP_Price" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" Margin="194,249,0,0"/>
+                        <Button x:Name="btnP_AddDomain" Content="...." HorizontalAlignment="Left" Margin="404,34,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddDomain_Click"/>
+                        <Button x:Name="btnP_AddProduct" Content="...." HorizontalAlignment="Left" Margin="405,66,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddProduct_Click_1"/>
+                        <Button x:Name="btnP_AddBrand" Content="...." HorizontalAlignment="Left" Margin="406,97,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddBrand_Click"/>
+                        <Button x:Name="btnP_AddPCategory" Content="...." HorizontalAlignment="Left" Margin="406,128,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddPCategory_Click"/>
+                        <Button x:Name="btnP_AddModelNo" Content="...." HorizontalAlignment="Left" Margin="406,159,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddModelNo_Click"/>
+                        <Button x:Name="btnP_AddColor" Content="...." HorizontalAlignment="Left" Margin="405,188,0,0" VerticalAlignment="Top" Width="30"/>
+                        <Button x:Name="btnP_AddColor1" Content="...." HorizontalAlignment="Left" Margin="405,188,0,0" VerticalAlignment="Top" Width="30" Click="btnP_AddColor1_Click_1" />
+                        <ComboBox x:Name="cmbP_domain" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,34,0,0" DropDownClosed="cmbP_domain_DropDownClosed" SelectionChanged="cmbP_domain_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbP_Product" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,64,0,0" DropDownClosed="cmbP_Product_DropDownClosed" SelectionChanged="cmbP_Product_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbP_Brand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,94,0,0" DropDownClosed="cmbP_Brand_DropDownClosed" SelectionChanged="cmbP_Brand_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbP_PCategory" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,129,0,0" DropDownClosed="cmbP_PCategory_DropDownClosed" SelectionChanged="cmbP_PCategory_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbP_ModelNo" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,159,0,0" DropDownClosed="cmbP_ModelNo_DropDownClosed" SelectionChanged="cmbP_ModelNo_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbP_Color" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" Margin="194,189,0,0" IsEditable="True"/>
+                        <Button x:Name="btnP_Save" Content="Save" HorizontalAlignment="Left" Margin="144,354,0,0" VerticalAlignment="Top" Width="90" Click="btnP_Save_Click"/>
+                        <Button x:Name="btnP_Clear" Content="Clear" HorizontalAlignment="Left" Margin="254,355,0,0" VerticalAlignment="Top" Width="90" Click="btnP_Clear_Click"/>
+                        <Button x:Name="btnP_Exit" Content="Exit" HorizontalAlignment="Left" Margin="361,355,0,0" VerticalAlignment="Top" Width="90" Click="btnP_Exit_Click"/>
+                        <Grid HorizontalAlignment="Left" x:Name="grd_Domain" Visibility="Hidden" Height="263" Margin="444,36,0,0" VerticalAlignment="Top" Width="335" Background="#FFEAEAEA">
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,15,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtdomain" HorizontalAlignment="Left" Height="23" Margin="100,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btndomainsave" Content="Save" HorizontalAlignment="Left" Margin="75,225,0,0" VerticalAlignment="Top" Width="75" Click="btndomainsave_Click"/>
+                            <Button x:Name="btndomainexit" Content="Exit" HorizontalAlignment="Left" Margin="175,225,0,0" VerticalAlignment="Top" Width="75" Click="btndomainexit_Click"/>
+                            <Label Content="Add Documents" HorizontalAlignment="Left" Margin="3,50,0,0" VerticalAlignment="Top"/>
+                            <CheckBox Content="PAN Card" Name="chkpancard" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,60,0,0"/>
+                            <CheckBox Content="Adhar Card" Name="chkadharcard" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="213,60,0,0"/>
+                            <CheckBox Content="Passport" Name="chkPassport" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,85,0,0"/>
+                            <CheckBox Content="Address Proof" x:Name="chkaddress" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,85,0,0"/>
+                            <CheckBox Content="7/12" x:Name="chkseventwelve" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,112,0,0"/>
+                            <CheckBox Content="Form 16" x:Name="chkform16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,112,0,0"/>
+                            <CheckBox Content="Dealer Lisence" x:Name="chkdealerlisence" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="116,139,0,0"/>
+                            <CheckBox Content="Other ID Proof" x:Name="chkotherid" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="220,140,0,0"/>
+                            <CheckBox Content="No Doument" x:Name="chknodocument" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="117,189,0,0"/>
+                            <CheckBox Content="Company ID Proof" x:Name="chkcidproof" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,167,0,0"/>
+
+
+
+
+
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Name="grd_Product" Height="110" Visibility="Hidden"  Margin="449,59,0,0" VerticalAlignment="Top" Width="270" Background="#FFEAEAEA">
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,15,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Product Name :" HorizontalAlignment="Left" Margin="8,40,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtProductName" HorizontalAlignment="Left" Height="23" Margin="100,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btnProductSave" Content="Save" HorizontalAlignment="Left" Margin="65,80,0,0" VerticalAlignment="Top" Width="75" Click="btnProductSave_Click"/>
+                            <Button x:Name="btnProduct_Exit" Content="Exit" HorizontalAlignment="Left" Margin="160,80,0,0" VerticalAlignment="Top" Width="75" Click="btnProduct_Exit_Click"/>
+                            <ComboBox x:Name="cmb_DomainProduct" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,15,0,0"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Name="grd_Brand" Visibility="Hidden" Height="130" Margin="454,99,0,0" VerticalAlignment="Top" Width="270" Background="#FFEAEAEA"  >
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Product Name :" HorizontalAlignment="Left" Margin="7,29,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Brand Name :" HorizontalAlignment="Left" Margin="8,55,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="cmbDomainBrand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,6,0,0" DropDownClosed="cmbDomainBrand_DropDownClosed" SelectionChanged="cmbDomainBrand_SelectionChanged"/>
+                            <ComboBox x:Name="cmbProductBrand" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,33,0,0"/>
+                            <TextBox x:Name="txtBrand" HorizontalAlignment="Left" Height="23" Margin="101,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btnBrandSave" Content="Save" HorizontalAlignment="Left" Margin="55,95,0,0" VerticalAlignment="Top" Width="75" Click="btnBrandSave_Click"/>
+                            <Button x:Name="btnBrandExit" Content="Exit" HorizontalAlignment="Left" Margin="155,95,0,0" VerticalAlignment="Top" Width="75" Click="btnBrandExit_Click"/>
+
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Name="grd_ProductCategory" Visibility="Hidden" Height="160" Margin="449,134,0,0" VerticalAlignment="Top" Width="285" Background="#FFEAEAEA">
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Product Name :" HorizontalAlignment="Left" Margin="7,29,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Brand Name :" HorizontalAlignment="Left" Margin="8,61,0,0" VerticalAlignment="Top"/>
+                            <Label Content="P Category :" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Width="85"/>
+                            <ComboBox x:Name="cmbDomainPCategory" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,6,0,0" DropDownClosed="cmbDomainPCategory_DropDownClosed" SelectionChanged="cmbDomainPCategory_SelectionChanged"/>
+                            <ComboBox x:Name="cmbProductPCategoryy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,33,0,0" DropDownClosed="cmbProductPCategoryy_DropDownClosed" SelectionChanged="cmbProductPCategoryy_SelectionChanged"/>
+                            <ComboBox x:Name="cmbBrandPCategory" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="100,63,0,0"/>
+                            <TextBox x:Name="txtPCategoy" HorizontalAlignment="Left" Height="23" Margin="100,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btnPCategorySave" Content="Save" HorizontalAlignment="Left" Margin="60,125,0,0" VerticalAlignment="Top" Width="75" Click="btnPCategorySave_Click"/>
+                            <Button x:Name="btnPCategoryExit" Content="Exit" HorizontalAlignment="Left" Margin="150,125,0,0" VerticalAlignment="Top" Width="75" Click="btnPCategoryExit_Click"/>
+
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Name="grd_ModelNo" Visibility="Hidden" Height="195" Margin="450,153,0,0" VerticalAlignment="Top" Width="289" Background="#FFEAEAEA">
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Product Name :" HorizontalAlignment="Left" Margin="7,34,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Brand Name :" HorizontalAlignment="Left" Margin="8,65,0,0" VerticalAlignment="Top"/>
+                            <Label Content="P Category :" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="85"/>
+                            <Label Content="Model No :" HorizontalAlignment="Left" Margin="9,123,0,0" VerticalAlignment="Top" Width="85"/>
+                            <ComboBox x:Name="cmbDomainModelno" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="109,8,0,0" DropDownClosed="cmbDomainModelno_DropDownClosed" SelectionChanged="cmbDomainModelno_SelectionChanged"/>
+                            <ComboBox x:Name="cmbProductModelno" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="109,38,0,0" DropDownClosed="cmbProductModelno_DropDownClosed" SelectionChanged="cmbProductModelno_SelectionChanged"/>
+                            <ComboBox x:Name="cmbBrandModelno" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="109,68,0,0" DropDownClosed="cmbBrandModelno_DropDownClosed" SelectionChanged="cmbBrandModelno_SelectionChanged"/>
+                            <ComboBox x:Name="cmbPCategoryModelno" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="109,98,0,0" SelectionChanged="cmbPCategoryModelno_SelectionChanged"/>
+                            <TextBox x:Name="txtmodelno" HorizontalAlignment="Left" Height="23" Margin="109,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btnModelNoSave" Content="Save" HorizontalAlignment="Left" Margin="69,160,0,0" VerticalAlignment="Top" Width="75" Click="btnModelNoSave_Click"/>
+                            <Button x:Name="btnmodelnoexie" Content="Exit" HorizontalAlignment="Left" Margin="159,160,0,0" VerticalAlignment="Top" Width="75" Click="btnmodelnoexie_Click"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Name="grd_Color" Height="225" Visibility="Hidden" Margin="449,189,0,0" VerticalAlignment="Top" Width="280" Background="#FFEAEAEA">
+                            <Label Content="Domain Name :" HorizontalAlignment="Left" Margin="5,4,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Product Name :" HorizontalAlignment="Left" Margin="7,34,0,0" VerticalAlignment="Top"/>
+                            <Label Content="Brand Name :" HorizontalAlignment="Left" Margin="8,65,0,0" VerticalAlignment="Top"/>
+                            <Label Content="P Category :" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="85"/>
+                            <Label Content="Model No :" HorizontalAlignment="Left" Margin="9,123,0,0" VerticalAlignment="Top" Width="85"/>
+                            <Label Content="Color:" HorizontalAlignment="Left" Margin="10,150,0,0" VerticalAlignment="Top" Width="85"/>
+                            <ComboBox x:Name="cmbDomainColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="103,10,0,0" DropDownClosed="cmbDomainColor_DropDownClosed" SelectionChanged="cmbDomainColor_SelectionChanged"/>
+                            <ComboBox x:Name="cmbProductColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="105,38,0,0" DropDownClosed="cmbProductColor_DropDownClosed" SelectionChanged="cmbProductColor_SelectionChanged"/>
+                            <ComboBox x:Name="cmbBrandColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="105,67,0,0" DropDownClosed="cmbBrandColor_DropDownClosed" SelectionChanged="cmbBrandColor_SelectionChanged"/>
+                            <ComboBox x:Name="cmbPCategoryColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="105,98,0,0" DropDownClosed="cmbPCategoryColor_DropDownClosed" SelectionChanged="cmbPCategoryColor_SelectionChanged"/>
+                            <ComboBox x:Name="cmbModelColor" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="105,128,0,0"/>
+                            <TextBox x:Name="txtcolor" HorizontalAlignment="Left" Height="23" Margin="105,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <Button x:Name="btnColorSave" Content="Save" HorizontalAlignment="Left" Margin="65,190,0,0" VerticalAlignment="Top" Width="75" Click="btnColorSave_Click"/>
+                            <Button x:Name="btnColorExit" Content="Exit" HorizontalAlignment="Left" Margin="160,190,0,0" VerticalAlignment="Top" Width="75" Click="btnColorExit_Click"/>
+
+                        </Grid>
+
+                    </Grid>
+
+
+
+                </GroupBox>
+
+            </Grid>
+            <Button Content="Admin" Name="btnadminl" Foreground="White"  HorizontalAlignment="Left" Margin="980,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF302D2D" Click="btnadminl_Click"/>
+            <Grid HorizontalAlignment="Left" Visibility="Hidden"   Name="GRD_NewProcurement" Height="560" Margin="25,68,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
+                <GroupBox Header="New Procurement " HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" Width="1070" Height="520" Background="White">
+                    <Grid HorizontalAlignment="Left" Height="470" Margin="195,10,0,0" VerticalAlignment="Top" Width="725" Background="White" >
+                        <Label Content="Pre-Procurement Number :" HorizontalAlignment="Left" Margin="24,18,0,0" VerticalAlignment="Top" Width="160"/>
+                        <Label Content="Saler Name :" HorizontalAlignment="Left" Margin="29,48,0,0" VerticalAlignment="Top" Width="85"/>
+                        <Label Content="Phone No :" HorizontalAlignment="Left" Margin="364,49,0,0" VerticalAlignment="Top" Width="80"/>
+                        <Label Content="Domain" HorizontalAlignment="Left" Margin="29,82,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Product :" HorizontalAlignment="Left" Margin="369,79,0,0" VerticalAlignment="Top" Width="85"/>
+                        <Label Content="P_Category :" HorizontalAlignment="Left" Margin="369,119,0,0" VerticalAlignment="Top" Width="80"/>
+                        <Label Content="Brand :" HorizontalAlignment="Left" Margin="29,119,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Model No :" HorizontalAlignment="Left" Margin="29,152,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Color :" HorizontalAlignment="Left" Margin="369,149,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Price :" HorizontalAlignment="Left" Margin="31,189,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Registration Documents :" HorizontalAlignment="Left" Margin="354,189,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="29,229,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Re-Ferb Cost :" HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Label Content="Follow-up :" HorizontalAlignment="Left" Margin="29,298,0,0" VerticalAlignment="Top" Width="135"/>
+                        <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="134,402,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click"/>
+                        <Button x:Name="btnPro_Clear" Content="Clear" HorizontalAlignment="Left" Margin="249,402,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Clear_Click"/>
+                        <Button x:Name="btnPro_Exit" Content="Exit" HorizontalAlignment="Left" Margin="359,400,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Exit_Click"/>
+                        <Label x:Name="lblPro_no" Content=" zz" HorizontalAlignment="Left" Margin="204,19,0,0" VerticalAlignment="Top" Width="175"/>
+                        <StackPanel Orientation="Vertical"  Height="Auto" Margin="469,214,106,76">
+                            <CheckBox x:Name="chkPANCARD" FontSize="13" Content="Pan Card"  IsEnabled="False" Click="Check_Click"/>
+                            <CheckBox x:Name="chkform_16" FontSize="13" Content="Form 16" Click="Check_Click"  IsEnabled="False"/>
+                            <CheckBox Content="Adhar Card"  FontSize="13" x:Name="CHKADHARC" Click="Check_Click" IsEnabled="False"/>
+                            <CheckBox Content="Passport" FontSize="13" x:Name="chkPASSPORT" Click="Check_Click"     IsEnabled="False"/>
+                            <CheckBox x:Name="chkaddressproof" FontSize="13" Content="Address Proof" Click="Check_Click" IsEnabled="False"/>
+                            <CheckBox x:Name="chk7_12" FontSize="13" Content="7/12" Click="Check_Click"  IsEnabled="False"/>
+                            <CheckBox Content="Dealer Lisence"  FontSize="13" x:Name="chkDEALERL" Click="Check_Click"   IsEnabled="False"/>
+                            <CheckBox Content="Other Id Proof" FontSize="13" x:Name="chkOTHERID" Click="Check_Click"  IsEnabled="False"/>
+                            <CheckBox Content="No Document" FontSize="13" x:Name="chkNODOCS" Click="Check_Click" IsEnabled="False"/>
+                            <CheckBox Content="Cmp ID Proof"  FontSize="13" x:Name="chkcmpid" Click="Check_Click" IsEnabled="False"/>
+                        </StackPanel>
+                        <ComboBox x:Name="cmbPre_Saler" HorizontalAlignment="Left" Margin="186,54,0,0" VerticalAlignment="Top" Width="145"/>
+                        <ComboBox x:Name="cmbPreDomain" HorizontalAlignment="Left" Margin="186,84,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreDomain_SelectionChanged" IsEditable="True"/>
+                        <ComboBox x:Name="cmbPrePCategory" HorizontalAlignment="Left" Margin="459,117,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPrePCategory_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                        <ComboBox x:Name="cmbPreModel" HorizontalAlignment="Left" Margin="187,154,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreModel_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                        <ComboBox x:Name="cmbPreProduct" HorizontalAlignment="Left" Margin="459,84,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreProduct_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                        <ComboBox x:Name="cmbPreBrand" HorizontalAlignment="Left" Margin="184,119,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreBrand_SelectionChanged" IsEditable="True" IsReadOnly="True" Height="22"/>
+                        <ComboBox x:Name="cmd_PreColor" HorizontalAlignment="Left" Margin="459,152,0,0" VerticalAlignment="Top" Width="145" IsReadOnly="True" IsEditable="True" SelectionChanged="cmd_PreColor_SelectionChanged"/>
+                        <ComboBox x:Name="cmbPreFollowup" HorizontalAlignment="Left" Margin="190,304,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
+                        <ComboBox x:Name="cmbPreInsurance" HorizontalAlignment="Left" Margin="188,234,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
+                        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="23" Margin="189,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                        <TextBox x:Name="txtPreFerbcost" HorizontalAlignment="Left" Height="23" Margin="190,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                        <TextBox x:Name="txtprephone" HorizontalAlignment="Left" Height="23" Margin="458,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+
+
+                        <TextBox x:Name="txtsalername" HorizontalAlignment="Left" Height="23" Margin="104,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+                        <Label Content="Narration :" HorizontalAlignment="Left" Margin="29,333,0,0" VerticalAlignment="Top" Width="135"/>
+                        <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="23" Margin="189,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                        <!--<StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical"  Height="Auto" Margin="523,184,6,26">
+                            <CheckBox x:Name="chkPANCARD" FontSize="13" Margin="5" Content="ID Proof" Click="Check_Click"/>
+                            <CheckBox x:Name="chkAddress__Proof" FontSize="13" Margin="5" Content="Address Proof" Click="Check_Click"/>
+                            <CheckBox x:Name="chk7_12" FontSize="13" Margin="5" Content="7 / 12" Click="Check_Click"/>
+                            <CheckBox x:Name="chkForm16" FontSize="13" Margin="5" Content="Form 16" Click="Check_Click"/>
+                            <CheckBox x:Name="chkNodoc_Copy" FontSize="13" Margin="5" Content="No Documents" Click="Check_Click"/>
+                            <CheckBox x:Name="chketc" FontSize="13" Margin="5" Content="etc.." Click="Check_Click"/>
+                            <CheckBox x:Name="chkNodoc" FontSize="13" Margin="5" Content="No Documents" Click="Check_Click"/>
+                        </StackPanel>-->
+                        <Label Content="Pre Procurement" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,-32,0,0" FontSize="14"/>
+
+                        <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
+                        </StackPanel>-->
+                    </Grid>
+
+                </GroupBox>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"   VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" Loaded="GRD_Follwup_Loaded">
+                <Grid HorizontalAlignment="Left" Height="485" Name="grd_addfollowupandwalkin" Margin="206,40,0,0" VerticalAlignment="Top" Width="720" Background="White">
+                    <Label Content="Follow up" HorizontalAlignment="Left" Margin="293,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
+                    <Label Content="Walk_In No :" HorizontalAlignment="Left" Margin="95,47,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Name :" HorizontalAlignment="Left" Margin="95,83,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Mobile No :" HorizontalAlignment="Left" Margin="95,119,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Date Of Birth :" HorizontalAlignment="Left" Margin="95,154,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Email ID :" HorizontalAlignment="Left" Margin="95,191,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Address :" HorizontalAlignment="Left" Margin="95,237,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Occupation :" HorizontalAlignment="Left" Margin="95,339,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label x:Name="lblwalkin" Content="n" HorizontalAlignment="Left" Margin="274,50,0,0" VerticalAlignment="Top" Width="210"/>
+                    <TextBox x:Name="txtCName" HorizontalAlignment="Left" Height="23" Margin="274,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+                    <TextBox x:Name="txtCMobile" HorizontalAlignment="Left" Height="23" Margin="275,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+                    <DatePicker x:Name="dp_Dob" HorizontalAlignment="Left" Margin="275,154,0,0" VerticalAlignment="Top" Width="260"/>
+                    <TextBox x:Name="txtCEmailid" HorizontalAlignment="Left" Height="23" Margin="277,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+                    <TextBox x:Name="txtCAddress" HorizontalAlignment="Left" Height="50" Margin="275,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+                    <RadioButton x:Name="rdoBusiness" Content="Business " HorizontalAlignment="Left" Margin="280,349,0,0" VerticalAlignment="Top" GroupName="bb"/>
+                    <RadioButton x:Name="rdoCPrivate" Content="Private Employee" HorizontalAlignment="Left" Margin="367,349,0,0" VerticalAlignment="Top" GroupName="bb"/>
+                    <RadioButton x:Name="rdoCgovt" Content="GOVT Employee" HorizontalAlignment="Left" Margin="497,349,0,0" VerticalAlignment="Top" GroupName="bb"/>
+                    <RadioButton x:Name="rdoCFolloup" Content="Default" HorizontalAlignment="Left" Margin="230,374,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.353,-0.667" GroupName="ne" Height="14" Width="81" Checked="rdoCFolloup_Checked"/>
+                    <Label Content="Date :" HorizontalAlignment="Left" Margin="103,396,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Message :" HorizontalAlignment="Left" Margin="390,395,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="dp_Cdate" HorizontalAlignment="Left" Margin="172,400,0,0" VerticalAlignment="Top" Width="155" IsEnabled="True" />
+                    <TextBox x:Name="txtCMessage" HorizontalAlignment="Left" Height="40" Margin="475,395,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="155"/>
+                    <Button x:Name="btnCSave" Content="Save" HorizontalAlignment="Left" Margin="377,449,0,0" VerticalAlignment="Top" Width="75" Click="btnCSave_Click"/>
+                    <Button x:Name="btnCClear" Content="Clear" HorizontalAlignment="Left" Margin="477,449,0,0" VerticalAlignment="Top" Width="75" Click="btnCClear_Click"/>
+                    <Button x:Name="btnCExit" Content="Exit" HorizontalAlignment="Left" Margin="575,448,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.2,0.5" Click="btnCExit_Click"/>
+                    <TextBox x:Name="txtCProductDetails" HorizontalAlignment="Left" Height="45" Margin="274,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="258"/>
+                    <Label Content="Product Details :" HorizontalAlignment="Left" Margin="94,289,0,0" VerticalAlignment="Top" Width="90"/>
+                    <Label Content="Follow_up_By :" HorizontalAlignment="Left" Margin="100,364,0,0" VerticalAlignment="Top" Width="90"/>
+                    <RadioButton x:Name="rdoCCustom" Content="Custom :" HorizontalAlignment="Left" Margin="344,377,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.353,-0.667" GroupName="ne" Height="14" Width="81" Checked="rdoCCustom_Checked"/>
+
+                </Grid>
+
+
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Visible"    VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" Loaded="GRD_Follwup_Loaded">
+                <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
+                    <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
+                    <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
+                    <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="671,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust"/>
+                    <DataGrid x:Name="GRSD_SaleFollowup" HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top" Height="165" Width="1110" SelectionChanged="DataGrid_SelectionChanged"/>
+                    <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="30" Margin="155,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                    <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
+                    <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
+                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="30" Margin="590,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                    <DataGrid x:Name="GRD_SaleCustDetails" HorizontalAlignment="Left" Margin="15,275,0,0" VerticalAlignment="Top" Height="265" Width="1110"/>
+
+
+
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+    </Border>
+</Window>

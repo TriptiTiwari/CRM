@@ -1,0 +1,33 @@
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe.config
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.pdb
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.csprojResolveAssemblyReference.cache
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\MainWindow.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\MainWindow.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\App.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface_MarkupCompile.cache
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.g.resources
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.Properties.Resources.resources
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.csproj.GenerateResource.Cache
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\AdminLogin.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\Admin_Dashbord.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\AdminLogin.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\Admin_Dashbord.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CSS.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\App.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_BAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_DAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_BAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_DAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\Add Product\Add_Products.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\Add Product\Add_Products.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_Main_Login.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_Main_Login.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_AdminDashbord.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_AdminDashbord.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainDashbord.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainForm.baml
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainDashbord.g.cs
+G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainForm.g.cs

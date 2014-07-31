@@ -1,0 +1,7 @@
+G:\new cmp\CRM\CRM_Project\CRM_DAL\bin\Debug\CRM_DAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_DAL\bin\Debug\CRM_DAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_DAL\obj\Debug\CRM_DAL.csprojResolveAssemblyReference.cache
+G:\new cmp\CRM\CRM_Project\CRM_DAL\obj\Debug\CRM_DAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_DAL\obj\Debug\CRM_DAL.pdb
+G:\new cmp\CRM\CRM_Project\CRM_DAL\bin\Debug\CRM_BAL.dll
+G:\new cmp\CRM\CRM_Project\CRM_DAL\bin\Debug\CRM_BAL.pdb
