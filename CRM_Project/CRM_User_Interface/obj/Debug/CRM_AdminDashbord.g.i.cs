@@ -519,6 +519,150 @@ namespace CRM_User_Interface {
         #line default
         #line hidden
         
+        
+        #line 407 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Grid grd_DealerEntry;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 409 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox cmbAdm_Emp_YearExp1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 410 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ComboBox cmbAdm_Emp_Months1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 411 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnAdm_Emp_Exit1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 416 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_DealerFirstName;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 418 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DatePicker dtpAdm_Emp_DOB1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 420 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_Emp_Address1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 422 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_Emp_Designation1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 424 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.DatePicker dtpAdm_Emp_DOJ1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 426 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_Emp_MobileNo1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 427 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label Phone_No_1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 428 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_Emp_PhoneNo1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 431 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBox txtAdm_Emp_Salary1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 432 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnAdm_Emp_Save1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 433 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnAdm_Emp_Clear1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 434 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblYears1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 435 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblMonths1;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 436 "..\..\CRM_AdminDashbord.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblDealerID;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -770,6 +914,84 @@ namespace CRM_User_Interface {
             return;
             case 60:
             this.lblEmpID = ((System.Windows.Controls.Label)(target));
+            return;
+            case 61:
+            this.grd_DealerEntry = ((System.Windows.Controls.Grid)(target));
+            return;
+            case 62:
+            this.cmbAdm_Emp_YearExp1 = ((System.Windows.Controls.ComboBox)(target));
+            
+            #line 409 "..\..\CRM_AdminDashbord.xaml"
+            this.cmbAdm_Emp_YearExp1.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cmbAdm_Emp_YearExp_SelectionChanged);
+            
+            #line default
+            #line hidden
+            return;
+            case 63:
+            this.cmbAdm_Emp_Months1 = ((System.Windows.Controls.ComboBox)(target));
+            return;
+            case 64:
+            this.btnAdm_Emp_Exit1 = ((System.Windows.Controls.Button)(target));
+            
+            #line 411 "..\..\CRM_AdminDashbord.xaml"
+            this.btnAdm_Emp_Exit1.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Exit_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 65:
+            this.txtAdm_DealerFirstName = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 66:
+            this.dtpAdm_Emp_DOB1 = ((System.Windows.Controls.DatePicker)(target));
+            return;
+            case 67:
+            this.txtAdm_Emp_Address1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 68:
+            this.txtAdm_Emp_Designation1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 69:
+            this.dtpAdm_Emp_DOJ1 = ((System.Windows.Controls.DatePicker)(target));
+            return;
+            case 70:
+            this.txtAdm_Emp_MobileNo1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 71:
+            this.Phone_No_1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 72:
+            this.txtAdm_Emp_PhoneNo1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 73:
+            this.txtAdm_Emp_Salary1 = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 74:
+            this.btnAdm_Emp_Save1 = ((System.Windows.Controls.Button)(target));
+            
+            #line 432 "..\..\CRM_AdminDashbord.xaml"
+            this.btnAdm_Emp_Save1.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Save_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 75:
+            this.btnAdm_Emp_Clear1 = ((System.Windows.Controls.Button)(target));
+            
+            #line 433 "..\..\CRM_AdminDashbord.xaml"
+            this.btnAdm_Emp_Clear1.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Clear_Click);
+            
+            #line default
+            #line hidden
+            return;
+            case 76:
+            this.lblYears1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 77:
+            this.lblMonths1 = ((System.Windows.Controls.Label)(target));
+            return;
+            case 78:
+            this.lblDealerID = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;
