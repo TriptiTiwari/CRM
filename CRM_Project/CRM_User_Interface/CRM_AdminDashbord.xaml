@@ -407,35 +407,35 @@
             <Grid x:Name="grd_DealerEntry" Visibility="Visible" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="87,56,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_Months1" HorizontalAlignment="Left" Margin="615,358,0,0" VerticalAlignment="Top" Width="110" Visibility="Hidden"/>
-                    <Button x:Name="btnAdm_Dealer_Exit" Content="Exit" HorizontalAlignment="Left" Margin="596,444,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Exit_Click" />
-                    <Label Content="Company Name:" HorizontalAlignment="Left" Margin="309,81,0,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="txtAdm_CompanyName" HorizontalAlignment="Left" Height="23" Margin="439,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
+                    <Button x:Name="btnAdm_Dealer_Exit" Content="Exit" HorizontalAlignment="Left" Margin="569,444,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Exit_Click" />
+                    <Label Content="Company Name:" HorizontalAlignment="Left" Margin="305,81,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtAdm_CompanyName" HorizontalAlignment="Left" Height="23" Margin="435,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
                 </Grid>
-                <Label Content="Dealer Entry" HorizontalAlignment="Left" Margin="483,68,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-                <Label Content="Dealer ID:" HorizontalAlignment="Left" Margin="399,112,0,0" VerticalAlignment="Top"/>
-                <Label Content="First Name:" HorizontalAlignment="Left" Margin="395,166,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_DealerFirstName" HorizontalAlignment="Left" Height="23" Margin="525,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="395,221,0,0" VerticalAlignment="Top"/>
-                <DatePicker x:Name="dtpAdm_Dealer_DOB" HorizontalAlignment="Left" Margin="525,223,0,0" VerticalAlignment="Top" Width="155"/>
-                <Label Content="Address:" HorizontalAlignment="Left" Margin="399,305,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_Address" HorizontalAlignment="Left" Height="50" Margin="525,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="395,249,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_MobileNo" HorizontalAlignment="Left" Height="23" Margin="525,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label x:Name="Phone_No_1" Content="Phone No:" HorizontalAlignment="Left" Margin="395,277,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_PhoneNo" HorizontalAlignment="Left" Height="23" Margin="525,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label Content="City:" HorizontalAlignment="Left" Margin="395,360,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_City" HorizontalAlignment="Left" Height="23" Margin="525,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Button x:Name="btnAdm_Dealer_Save" Content="Save" HorizontalAlignment="Left" Margin="475,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Save_Click"/>
-                <Button x:Name="btnAdm_Dealer_Clear" Content="Clear" HorizontalAlignment="Left" Margin="575,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Clear_Click"/>
-                <Label Content="DealerID" x:Name="lblDealerID" HorizontalAlignment="Left" Margin="530,113,0,0" VerticalAlignment="Top"/>
-                <Label Content="Last Name:" HorizontalAlignment="Left" Margin="395,194,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_DealerLastName" HorizontalAlignment="Left" Height="23" Margin="525,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label Content="Zip:" HorizontalAlignment="Left" Margin="395,390,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_Zip" HorizontalAlignment="Left" Height="23" Margin="525,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Label Content="Sate:" HorizontalAlignment="Left" Margin="396,420,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_State" HorizontalAlignment="Left" Height="23" Margin="525,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="Maharashtra"/>
-                <Label Content="Country:" HorizontalAlignment="Left" Margin="396,449,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="525,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
+                <Label Content="Dealer Entry" HorizontalAlignment="Left" Margin="479,68,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+                <Label Content="Dealer ID:" HorizontalAlignment="Left" Margin="395,112,0,0" VerticalAlignment="Top"/>
+                <Label Content="First Name:" HorizontalAlignment="Left" Margin="391,166,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_DealerFirstName" HorizontalAlignment="Left" Height="23" Margin="521,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="391,221,0,0" VerticalAlignment="Top"/>
+                <DatePicker x:Name="dtpAdm_Dealer_DOB" HorizontalAlignment="Left" Margin="521,223,0,0" VerticalAlignment="Top" Width="155"/>
+                <Label Content="Address:" HorizontalAlignment="Left" Margin="395,305,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_Address" HorizontalAlignment="Left" Height="50" Margin="521,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="391,249,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_MobileNo" HorizontalAlignment="Left" Height="23" Margin="521,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label x:Name="Phone_No_1" Content="Phone No:" HorizontalAlignment="Left" Margin="391,277,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_PhoneNo" HorizontalAlignment="Left" Height="23" Margin="521,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label Content="City:" HorizontalAlignment="Left" Margin="391,360,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_City" HorizontalAlignment="Left" Height="23" Margin="521,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Button x:Name="btnAdm_Dealer_Save" Content="Save" HorizontalAlignment="Left" Margin="448,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Save_Click"/>
+                <Button x:Name="btnAdm_Dealer_Clear" Content="Clear" HorizontalAlignment="Left" Margin="548,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Clear_Click"/>
+                <Label Content="DealerID" x:Name="lblDealerID" HorizontalAlignment="Left" Margin="526,113,0,0" VerticalAlignment="Top"/>
+                <Label Content="Last Name:" HorizontalAlignment="Left" Margin="391,194,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_DealerLastName" HorizontalAlignment="Left" Height="23" Margin="521,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label Content="Zip:" HorizontalAlignment="Left" Margin="391,390,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_Zip" HorizontalAlignment="Left" Height="23" Margin="521,392,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                <Label Content="Sate:" HorizontalAlignment="Left" Margin="392,420,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_State" HorizontalAlignment="Left" Height="23" Margin="521,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="Maharashtra"/>
+                <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
         </Grid>
 
