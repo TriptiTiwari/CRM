@@ -407,7 +407,7 @@
             <Grid x:Name="grd_DealerEntry" Visibility="Visible" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="87,56,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_Months1" HorizontalAlignment="Left" Margin="615,358,0,0" VerticalAlignment="Top" Width="110" Visibility="Hidden"/>
-                    <Button x:Name="btnAdm_Emp_Exit1" Content="Exit" HorizontalAlignment="Left" Margin="596,444,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Exit_Click" />
+                    <Button x:Name="btnAdm_Dealer_Exit" Content="Exit" HorizontalAlignment="Left" Margin="596,444,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Exit_Click" />
                     <Label Content="Company Name:" HorizontalAlignment="Left" Margin="309,81,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtAdm_CompanyName" HorizontalAlignment="Left" Height="23" Margin="439,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
                 </Grid>
@@ -425,8 +425,8 @@
                 <TextBox x:Name="txtAdm_Emp_PhoneNo1" HorizontalAlignment="Left" Height="23" Margin="525,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
                 <Label Content="City:" HorizontalAlignment="Left" Margin="395,360,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_City" HorizontalAlignment="Left" Height="23" Margin="525,362,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-                <Button x:Name="btnAdm_Emp_Save1" Content="Save" HorizontalAlignment="Left" Margin="475,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Save_Click"/>
-                <Button x:Name="btnAdm_Emp_Clear1" Content="Clear" HorizontalAlignment="Left" Margin="575,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Clear_Click"/>
+                <Button x:Name="btnAdm_Dealer_Save" Content="Save" HorizontalAlignment="Left" Margin="475,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Save_Click"/>
+                <Button x:Name="btnAdm_Dealer_Clear" Content="Clear" HorizontalAlignment="Left" Margin="575,502,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Emp_Clear_Click"/>
                 <Label Content="DealerID" x:Name="lblDealerID" HorizontalAlignment="Left" Margin="530,113,0,0" VerticalAlignment="Top"/>
                 <Label Content="Last Name:" HorizontalAlignment="Left" Margin="395,194,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_DealerLastName" HorizontalAlignment="Left" Height="23" Margin="525,196,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
