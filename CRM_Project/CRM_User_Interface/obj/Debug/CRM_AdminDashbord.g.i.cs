@@ -925,7 +925,7 @@ namespace CRM_User_Interface {
             this.btnAdm_Dealer_Exit = ((System.Windows.Controls.Button)(target));
             
             #line 410 "..\..\CRM_AdminDashbord.xaml"
-            this.btnAdm_Dealer_Exit.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Exit_Click);
+            this.btnAdm_Dealer_Exit.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Dealer_Exit_Click);
             
             #line default
             #line hidden
@@ -958,7 +958,7 @@ namespace CRM_User_Interface {
             this.btnAdm_Dealer_Save = ((System.Windows.Controls.Button)(target));
             
             #line 428 "..\..\CRM_AdminDashbord.xaml"
-            this.btnAdm_Dealer_Save.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Save_Click);
+            this.btnAdm_Dealer_Save.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Dealer_Save_Click);
             
             #line default
             #line hidden
@@ -967,7 +967,7 @@ namespace CRM_User_Interface {
             this.btnAdm_Dealer_Clear = ((System.Windows.Controls.Button)(target));
             
             #line 429 "..\..\CRM_AdminDashbord.xaml"
-            this.btnAdm_Dealer_Clear.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Emp_Clear_Click);
+            this.btnAdm_Dealer_Clear.Click += new System.Windows.RoutedEventHandler(this.btnAdm_Dealer_Clear_Click);
             
             #line default
             #line hidden

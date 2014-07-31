@@ -236,6 +236,22 @@ namespace CRM_User_Interface
         #endregion EmployeeEntry Function
         #endregion Employee Function
 
+        #region Button Event
+        private void btnAdm_Dealer_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        private void btnAdm_Dealer_Clear_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnAdm_Dealer_Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion Button Event
     }
 }
 
