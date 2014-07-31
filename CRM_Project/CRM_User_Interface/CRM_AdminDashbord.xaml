@@ -417,7 +417,7 @@
                 <TextBox x:Name="txtAdm_DealerFirstName" HorizontalAlignment="Left" Height="23" Margin="521,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
                 <Label Content="Date Of Birth:" HorizontalAlignment="Left" Margin="391,221,0,0" VerticalAlignment="Top"/>
                 <DatePicker x:Name="dtpAdm_Dealer_DOB" HorizontalAlignment="Left" Margin="521,223,0,0" VerticalAlignment="Top" Width="155"/>
-                <Label Content="Address:" HorizontalAlignment="Left" Margin="395,305,0,0" VerticalAlignment="Top"/>
+                <Label Content="Address:" HorizontalAlignment="Left" Margin="393,305,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Address" HorizontalAlignment="Left" Height="50" Margin="521,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
                 <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="391,249,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_MobileNo" HorizontalAlignment="Left" Height="23" Margin="521,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
