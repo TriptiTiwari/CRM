@@ -489,7 +489,7 @@
                     <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
                     <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
                     <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="671,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked"/>
-                    <DataGrid x:Name="GRSD_SaleFollowup" HorizontalAlignment="Left" Margin="15,100,0,0" VerticalAlignment="Top" Height="195" Width="1110" SelectionChanged="DataGrid_SelectionChanged"/>
+                    <DataGrid x:Name="GRSD_SaleFollowup" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="195" Width="1110" SelectionChanged="DataGrid_SelectionChanged"/>
                     <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="30" Margin="155,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
                     <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
                     <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
