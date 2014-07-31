@@ -31,3 +31,6 @@ G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainDashbord.baml
 G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainForm.baml
 G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainDashbord.g.cs
 G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_MainForm.g.cs
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe.config
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
