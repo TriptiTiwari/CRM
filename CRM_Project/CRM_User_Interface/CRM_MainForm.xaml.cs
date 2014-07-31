@@ -2058,9 +2058,13 @@ namespace CRM_User_Interface
         {
             if(rdosalefollowupcustomer .IsChecked==true )
             {
-                txtsalesearchcname.IsEnabled = true;
-                txtSalecustomerno.IsEnabled = true;
+               
             }
+        }
+
+        private void rdoSaleNewcustomer_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
       //===========================end followup code=========================
     }
