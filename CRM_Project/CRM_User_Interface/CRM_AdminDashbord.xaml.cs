@@ -143,16 +143,16 @@ namespace CRM_User_Interface
                 result = true;
                 MessageBox.Show("Please Select Employee Joining Date", caption, MessageBoxButton.OK);
             }
-            //else if (cmbAdm_Emp_YearExp.SelectedItem == null)
-            //{
-            //    result = true;
-            //    MessageBox.Show("Please Select Employee Experience Year", caption, MessageBoxButton.OK);
-            //}
-            //else if (cmbAdm_Emp_Months.SelectedItem == null)
-            //{
-            //    result = true;
-            //    MessageBox.Show("Please Select Employee Experience Month", caption, MessageBoxButton.OK);
-            //}
+            else if (cmbAdm_Emp_YearExp.SelectedItem == null)
+            {
+                result = true;
+                MessageBox.Show("Please Select Employee Experience Year", caption, MessageBoxButton.OK);
+            }
+            else if (cmbAdm_Emp_Months.SelectedItem == null)
+            {
+                result = true;
+                MessageBox.Show("Please Select Employee Experience Month", caption, MessageBoxButton.OK);
+            }
             else if (txtAdm_Emp_Salary.Text == "")
             {
                 result = true;
@@ -236,7 +236,7 @@ namespace CRM_User_Interface
         #endregion EmployeeEntry Function
         #endregion Employee Function
 
-        #region Button Event
+        #region Dealer Button Event
         private void btnAdm_Dealer_Save_Click(object sender, RoutedEventArgs e)
         {
 
@@ -249,9 +249,64 @@ namespace CRM_User_Interface
 
         private void btnAdm_Dealer_Exit_Click(object sender, RoutedEventArgs e)
         {
-
+            grd_DealerEntry.Visibility = System.Windows.Visibility.Hidden;
         }
-        #endregion Button Event
+        #endregion Dealer Button Event
+
+        public bool Dealer_Validation()
+        {
+            bool result = false;
+            if(txtAdm_CompanyName.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Company Name", caption, MessageBoxButton.OK);
+            }
+            if (txtAdm_DealerFirstName.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Dealer First Name", caption, MessageBoxButton.OK);
+            }
+            else if (txtAdm_DealerLastName.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Dealer Last Name", caption, MessageBoxButton.OK);
+            }
+            else if (dtpAdm_Dealer_DOB.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Select Dealer Date Of Birth", caption, MessageBoxButton.OK);
+            }
+            else if (txtAdm_Dealer_MobileNo.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Dealer Mobile No", caption, MessageBoxButton.OK);
+            }
+            else if(txtAdm_Dealer_PhoneNo.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Dealer Phone No", caption, MessageBoxButton.OK);
+            }
+            else if (txtAdm_Dealer_Address.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Dealer Address", caption, MessageBoxButton.OK);
+            }
+            return result;
+        }
+
+        public void Dealer_ResetText()
+        {
+            txtAdm_CompanyName.Text = "";
+            txtAdm_DealerFirstName.Text = "";
+            txtAdm_DealerLastName.Text = "";
+            dtpAdm_Dealer_DOB.SelectedDate = null;
+            txtAdm_Dealer_MobileNo.Text = "";
+            txtAdm_Dealer_PhoneNo.Text = "";
+            txtAdm_Dealer_Address.Text = "";
+            txtAdm_Dealer_City.Text = "";
+            txtAdm_Dealer_Zip.Text = "";
+        }
+
     }
 }
 
