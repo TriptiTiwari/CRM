@@ -4,16 +4,28 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\
+=======
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\
+>>>>>>> origin/master
 CRM_User_Interface
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
 9523877564
 
 12844989022
 14-578148526
+=======
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
+9523877564
+
+12844989022
+1439060675
+>>>>>>> origin/master
 Add Product\Add_Products.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
 
 False

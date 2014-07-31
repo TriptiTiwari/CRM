@@ -2046,22 +2046,57 @@ namespace CRM_User_Interface
         {
             dp_Cdate.Visibility = Visibility.Hidden ;
             txtCMessage.Visibility = Visibility.Hidden ;
-
+            fetch_FollowupDetails();
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
-
+        //===========================end followup code=========================
         private void rdosalefollowupcustomer_Checked(object sender, RoutedEventArgs e)
         {
             if(rdosalefollowupcustomer .IsChecked==true )
             {
                 txtsalesearchcname.IsEnabled = true;
                 txtSalecustomerno.IsEnabled = true;
+                DGRD_SaleFollowup.IsEnabled = true;
+                GRD_SaleCustomer.Visibility = Visibility.Hidden ;
             }
         }
-      //===========================end followup code=========================
+
+        private void rdoSaleNewcustomer_Checked(object sender, RoutedEventArgs e)
+        {
+            txtsalesearchcname.IsEnabled = false ;
+            txtSalecustomerno.IsEnabled = false;
+            DGRD_SaleFollowup.IsEnabled = false;
+            GRD_SaleCustomer.Visibility = Visibility;
+        }
+        public void fetch_FollowupDetails()
+        {
+            try
+            {
+  con.Open();
+                DataSet ds = new DataSet();
+                cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp LIKE where S_Status='Active' and Name=LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%' ORDER BY Name ASC", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                }
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            finally { con.Close(); }
+          
+
+        }
+     
     }
 }
