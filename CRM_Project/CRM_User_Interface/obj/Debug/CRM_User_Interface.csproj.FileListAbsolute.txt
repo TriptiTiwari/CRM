@@ -40,6 +40,7 @@ C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CR
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.exe
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.pdb
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.pdb
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_BAL.dll
@@ -71,6 +72,8 @@ C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CR
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.Properties.Resources.resources
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.csproj.GenerateResource.Cache
 =======
+=======
+>>>>>>> 8b9cf38c795d4183f309c65e2a8afbb5c429e3ba
 >>>>>>> origin/master
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.exe
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\bin\Debug\CRM_User_Interface.pdb
@@ -102,4 +105,7 @@ C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.g.resources
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.Properties.Resources.resources
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> 8b9cf38c795d4183f309c65e2a8afbb5c429e3ba
