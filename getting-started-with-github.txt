@@ -1,0 +1,4 @@
+1) Open Github from shortcut on your desktop
+2) Click "Byte-Machines", the organization you are part of
+3) The click "CRM" and click "clone". This will make a directory called "CRM" in your "C:/Documents/Github/"
+4) Any Changes in that folder will reflect to your Github S/W as well as in your www.github.com account
