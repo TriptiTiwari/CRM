@@ -5,19 +5,14 @@ winexe
 C#
 .cs
 <<<<<<< HEAD
-<<<<<<< HEAD
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\
 =======
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\
 >>>>>>> origin/master
-=======
-G:\new cmp\CRM\CRM_Project\CRM_User_Interface\obj\Debug\
->>>>>>> parent of b897c33... DataBase
 CRM_User_Interface
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 <<<<<<< HEAD
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
 9523877564
@@ -31,13 +26,6 @@ C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
 16-260840451
 14-578148526
 >>>>>>> origin/master
-=======
-G:\new cmp\CRM\CRM_Project\CRM_User_Interface\App.xaml
-9523877564
-
-16824016604
-14-515412089
->>>>>>> parent of b897c33... DataBase
 Add Product\Add_Products.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
 
 False
