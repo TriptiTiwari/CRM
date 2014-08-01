@@ -82,7 +82,10 @@
                     <MenuItem Header="Default Messages" x:Name="smdmessages"/>
                     <MenuItem Header="Default Timespan" x:Name="smdtime"/>
                     <MenuItem Header="Employee Details" x:Name="smemployee" Click="smemployee_Click"/>
-                    <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
+                    <MenuItem Header="Dealer">
+                        <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
+                        <MenuItem Header="Dealer Details" x:Name="smdealerDetails" Click="smdealerDetails_Click"  />
+                    </MenuItem>
                     <MenuItem Header=" Import/Export" x:Name="smimport_export"/>
                     <MenuItem Header=" Extend Particular Warranty" x:Name="smextendwarranty"/>
                 </MenuItem>
@@ -446,16 +449,16 @@
                     <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
                     <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="485,11,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <TextBox x:Name="txtAdm_DealerMobNo_Search" HorizontalAlignment="Left" Height="30" Margin="567,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
-                    <DataGrid HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105">
+                    <DataGrid x:Name="grdAdm_DealerDetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID}" />
-                            <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID}"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Company Name" Width="200" x:Name="grdDealerDetails_CompName" SortMemberPath="CompanyName"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Dealer Name" Width="200" x:Name="grdDealerDetails_Name" SortMemberPath="DealerFirstName"></DataGridTextColumn>
-                            <DataGridTextColumn Header="DateOfBirth" Width="100" x:Name="grdDealerDetails_DateOBirth" SortMemberPath="DateOfBirth"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Mobile No" Width="150" x:Name="grdDealerDetails_MobileNo" SortMemberPath="MobileNo"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Phone No" Width="120" x:Name="grdDealerDetails_PhoneNo" SortMemberPath="PhoneNo"></DataGridTextColumn>
-                            <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress"></DataGridTextColumn>
+                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Company Name" Width="200" x:Name="grdDealerDetails_CompName" SortMemberPath="CompanyName" Binding="{Binding CompanyName, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Dealer Name" Width="200" x:Name="grdDealerDetails_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="DateOfBirth" Width="100" x:Name="grdDealerDetails_DateOBirth" SortMemberPath="DateOfBirth" Binding="{Binding DateOfBirth, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Mobile No" Width="150" x:Name="grdDealerDetails_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Phone No" Width="120" x:Name="grdDealerDetails_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=OneWay}"/>
+                            <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress" Binding="{Binding DealerAddress, Mode=OneWay}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
