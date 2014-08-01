@@ -290,9 +290,14 @@ namespace CRM_User_Interface
         
         private void btnAdm_Dealer_Clear_Click(object sender, RoutedEventArgs e)
         {
-
+            Dealer_ResetText();
         }
 
+        private void smdealerentry_Click(object sender, RoutedEventArgs e)
+        {
+            grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
+            Dealerid();
+        }
         private void btnAdm_Dealer_Exit_Click(object sender, RoutedEventArgs e)
         {
             grd_DealerEntry.Visibility = System.Windows.Visibility.Hidden;
@@ -353,6 +358,22 @@ namespace CRM_User_Interface
             txtAdm_Dealer_Zip.Text = "";
         }
 
+        public void Dealerid()
+        {
+
+            int id1 = 0;
+            // SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tbl_DealerEntry", con);
+            id1 = Convert.ToInt32(cmd.ExecuteScalar());
+            id1 = id1 + 1;
+            lblDealerID.Content = "# Dealer /" + id1.ToString();
+            con.Close();
+
+
+        }
+
+        
     }
 }
 
