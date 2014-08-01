@@ -2188,16 +2188,16 @@ namespace CRM_User_Interface
         }
         public void loadbyallfield_Followup()
         {//txtsalesearchcname,txtSalecustomerno,cmbsalecustomerftype
-            if(txtsalesearchcname.Text != "")
-      { 
-                //fetch_FollowupDetails();
-          if (txtsalesearchcname.Text != "" && txtSalecustomerno.Text == "" )//&& cmbsalecustomerftype.SelectedValue.ToString() =="null"
+            if (txtsalesearchcname.Text != "")
             {
-                fetch_FollowupDetails();
-                load_Followup_type();
-                // load_Followup_type();
-            }
-          else if (txtsalesearchcname.Text != "" && txtSalecustomerno.Text != "")// && cmbsalecustomerftype.Text == "--Select-- "
+                //fetch_FollowupDetails();
+                if (txtsalesearchcname.Text != "" && txtSalecustomerno.Text == "")//&& cmbsalecustomerftype.Text == "--Select--"
+                {
+                    fetch_FollowupDetails();
+                    // load_Followup_type();
+                    // load_Followup_type();
+                }
+                else if (txtsalesearchcname.Text != "" && txtSalecustomerno.Text != "" && cmbsalecustomerftype.Text == "--Select--" )
                 {
                     try
                     {
@@ -2222,74 +2222,96 @@ namespace CRM_User_Interface
 
                         throw;
                     }
-                    finally { con.Close(); load_Followup_type(); }
+                    finally
+                    {
+                        con.Close(); //load_Followup_type();
+                    }
                 }
-          else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
-          {
-              FetchallDetails();
+                    else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
+                {
+                    FetchallDetails();
                 }
-          //else if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() != "")
-          //{
-          //    try
-          //    {
-          //        con.Open();
-          //        DataSet ds = new DataSet();
-          //        cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp  where Followup_Type LIKE ISNULL ('" + cmbsalecustomerftype.SelectedValue.ToString() + "',Followup_Type) + '%'  and Name LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%' and   S_Status='Active' ORDER BY Name ASC ", con);
-          //        SqlDataAdapter da = new SqlDataAdapter(cmd);
-          //        con.Open();
-          //        da.Fill(ds);
+                
+          
+                //2nd
 
-          //        if (ds.Tables[0].Rows.Count > 0)
-          //        {
-          //            DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
-          //        }
-          //    }
-          //    catch (Exception)
-          //    {
+                else if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedItem .ToString() != null)
+                {
+                    try
+                    {
+                        con.Open();
+                        DataSet ds = new DataSet();
+                        cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp  where Followup_Type LIKE ISNULL ('" + cmbsalecustomerftype.SelectedItem.ToString() + "',Followup_Type) + '%'  and Name LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%' and   S_Status='Active' ORDER BY Name ASC ", con);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        con.Open();
+                        da.Fill(ds);
 
-          //        throw;
-          //    }
-          //    finally { con.Close(); load_Followup_type(); }
-          }
-          else if (txtSalecustomerno.Text != "")
-          {
-              if (txtSalecustomerno.Text == "" &&  txtSalecustomerno.Text != "")
-              {
-                  fetch_FollowupDetailsbymobile();
-              }
-              else if (txtSalecustomerno.Text != "" && txtSalecustomerno.Text != "")
-              {
-                  try
-                  {
-                      con.Open();
-                      DataSet ds = new DataSet();
-                      cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp  where Name LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%'  and Mobile_No LIKE ISNULL ('" + txtSalecustomerno.Text.Trim() + "',Mobile_No) + '%' and   S_Status='Active' ORDER BY Name ASC ", con);
-                      SqlDataAdapter da = new SqlDataAdapter(cmd);
-                      // con.Open();
-                      da.Fill(ds);
+                        if (ds.Tables[0].Rows.Count > 0)
+                        {
+                            DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Name And Type Not Match ", caption, MessageBoxButton.OK);
+                        }
+                    }
+                    catch (Exception)
+                    {
 
-                      if (ds.Tables[0].Rows.Count > 0)
-                      {
-                          DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
-                      }
-                      else
-                      {
-                          MessageBox.Show("Name And Number Not Match ", caption, MessageBoxButton.OK);
-                      }
-                  }
-                  catch (Exception)
-                  {
+                        throw;
+                    }
+                    finally
+                    {
+                        con.Close(); //load_Followup_type();
+                    }
+                }
+                else if (txtSalecustomerno.Text != "")
+                {
+                    if (txtSalecustomerno.Text == "" && txtSalecustomerno.Text != "")
+                    {
+                        fetch_FollowupDetailsbymobile();
+                    }
+                    else if (txtSalecustomerno.Text != "" && txtSalecustomerno.Text != "")
+                    {
+                        try
+                        {
+                            con.Open();
+                            DataSet ds = new DataSet();
+                            cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp  where Name LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%'  and Mobile_No LIKE ISNULL ('" + txtSalecustomerno.Text.Trim() + "',Mobile_No) + '%' and   S_Status='Active' ORDER BY Name ASC ", con);
+                            SqlDataAdapter da = new SqlDataAdapter(cmd);
+                            // con.Open();
+                            da.Fill(ds);
 
-                      throw;
-                  }
-                  finally { con.Close(); load_Followup_type(); }
-              }
-              else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
-              {
-                  FetchallDetails();
-              }
-          }
-      }
+                            if (ds.Tables[0].Rows.Count > 0)
+                            {
+                                DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Name And Number Not Match ", caption, MessageBoxButton.OK);
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+                        finally
+                        {
+                            con.Close();// load_Followup_type();
+                        }
+                    }
+                    else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
+                    {
+                        FetchallDetails();
+                    }
+                }
+                //else if()
+                //{
+
+                //}
+            }
+        }
 
 
 
@@ -2385,7 +2407,7 @@ namespace CRM_User_Interface
            // }
            // else
            // {
-           //     loadbyallfield_Followup();
+             loadbyallfield_Followup();
            //}
         }
 
