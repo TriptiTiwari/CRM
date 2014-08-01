@@ -35,6 +35,9 @@ namespace CRM_User_Interface
         }
         BAL_EmployeeEntry bempetr = new BAL_EmployeeEntry();
         DAL_EmployeeEntry dempetr = new DAL_EmployeeEntry();
+        BAL_DealerEntry bdealeretr = new BAL_DealerEntry();
+        DAL_DealerEntry ddealeretr = new DAL_DealerEntry();
+
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -239,7 +242,50 @@ namespace CRM_User_Interface
         #region Dealer Button Event
         private void btnAdm_Dealer_Save_Click(object sender, RoutedEventArgs e)
         {
+            if (Dealer_Validation() == true)
+                return;
 
+            try
+            {
+                bdealeretr.Flag = 1;
+                bdealeretr.DealerEntryID = lblDealerID.Content.ToString();
+                bdealeretr.CompanyName = txtAdm_CompanyName.Text;
+                bdealeretr.DealerFirstName = txtAdm_DealerFirstName.Text;
+                bdealeretr.DealerLaseName = txtAdm_DealerLastName.Text;
+                bdealeretr.DateOfBirth = Convert.ToDateTime(dtpAdm_Dealer_DOB.SelectedDate);
+                bdealeretr.MobileNo = txtAdm_Dealer_MobileNo.Text;
+                bdealeretr.PhoneNo = txtAdm_Dealer_PhoneNo.Text;
+                bdealeretr.DealerAddress = txtAdm_Dealer_Address.Text;
+                bdealeretr.City = txtAdm_Dealer_City.Text;
+                bdealeretr.Zip = txtAdm_Dealer_Zip.Text;
+                bdealeretr.DState = txtAdm_Dealer_State.Text;
+                bdealeretr.Country = txtAdm_Dealer_Country.Text;
+                bdealeretr.S_Status = "Active";
+
+                //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                //string time = System.DateTime.Now.ToShortTimeString();
+                //string[] STRVAL = STRTODAYDATE.Split('-');
+                //string STR_DATE1 = STRVAL[0];
+                //string STR_MONTH = STRVAL[1];
+                //string STR_YEAR = STRVAL[2];
+                //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                ////txtdate.Text = DATE;
+                ////txttime.Text = time;
+
+                //baddprd.C_Date =Convert .ToDateTime( DATE);
+                bdealeretr.C_Date = Convert.ToDateTime(System.DateTime.Now.ToShortDateString());
+                ddealeretr.EmployeeEntry_Insert_Update_Delete(bdealeretr);
+                MessageBox.Show("Data Save Successfully");
+                Dealer_ResetText();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
         
         private void btnAdm_Dealer_Clear_Click(object sender, RoutedEventArgs e)
