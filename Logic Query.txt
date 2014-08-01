@@ -1,0 +1,53 @@
+        private void GetData()
+        {
+            qry = "SELECT D.[ID],D.[GroupID],D.[MakeID],D.[ProductName],D.[ProductType],D.[CapacityLS] " +
+                  ",D.[Model],D.[PartNo],D.[Grade],D.[GarantyWarnty],D.[ProductAppliction],D.[PurchaseRate],D.[SaleRate] " +
+                  ",G.GroupName,M.MakeName " +
+                  "FROM [ProductDetails] D " +
+                  "INNER JOIN GroupDetails G ON G.ID = D.GroupID " +
+                  "INNER JOIN Makes M ON M.ID = D.MakeID "  +
+                  "WHERE ";
+            if (cmbGroupName_Search.SelectedIndex >= 0)
+            {
+                qry = qry + "G.[ID] = '" + cmbGroupName_Search.SelectedValue.GetHashCode() + "' AND ";
+            }
+            if (cmbMakeName_Search.SelectedIndex >= 0)
+            {
+                qry = qry + "M.[ID] = '" + cmbMakeName_Search.SelectedValue.GetHashCode() + "' AND ";
+            }
+            if (cmbProductModel_Search.Text.Trim() != string.Empty)
+            {
+                qry = qry + "D.[ProductName] LIKE ISNULL('" + cmbProductModel_Search.Text.Trim() + "',ProductName) + '%' AND ";
+            }
+            if (txtPartNo_Search.Text.Trim() != string.Empty)
+            {
+                qry = qry + "D.[PartNo] LIKE ISNULL('" + txtPartNo_Search.Text.Trim() + "',PartNo) + '%' AND ";
+            }
+            if (txtProductName_Search.Text.Trim() != string.Empty)
+            {
+                qry = qry + "D.[ProductName] LIKE ISNULL('" + txtProductName_Search.Text.Trim() + "',ProductName) + '%' AND ";
+            }
+            if (txtPartApplication_Search.Text.Trim() != string.Empty)
+            {
+                qry = qry + "D.[ProductAppliction] LIKE ISNULL('" + txtPartApplication_Search.Text.Trim() + "',ProductAppliction) + '%' AND ";
+            }
+            qry = qry + " D.Deleted = 0 ORDER BY G.GroupName ASC ";
+            tbl = "ProductDetails";
+            DataTable dt = DataAccess.GetDataTable(qry, tbl);
+            if (dt.Rows.Count > 0)
+            {
+                this.Enabled = false;
+                this.Cursor = Cursors.WaitCursor;
+                dgvDetails.AutoGenerateColumns = false;
+                dgvDetails.DataSource = dt;
+                dgvDetails.ClearSelection();
+                this.Enabled = true;
+                this.Cursor = Cursors.Default;
+            }
+            else
+            {
+                dgvDetails.AutoGenerateColumns = false;
+                dgvDetails.DataSource = dt;
+            }
+            
+        }
