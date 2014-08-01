@@ -2062,7 +2062,7 @@ namespace CRM_User_Interface
                 txtSalecustomerno.IsEnabled = true;
                 DGRD_SaleFollowup.IsEnabled = true;
                 GRD_SaleCustomer.Visibility = Visibility.Hidden ;
-                fetch_FollowupDetails();
+               
             }
         }
 
@@ -2079,7 +2079,7 @@ namespace CRM_User_Interface
             {
   con.Open();
                 DataSet ds = new DataSet();
-                cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp LIKE where S_Status='Active' and Name=LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%' ORDER BY Name ASC", con);
+                cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp LIKE where Name LIKE ISNULL ('" + txtsalesearchcname.Text.Trim() + "',Name) + '%' ORDER BY Name ASC and S_Status='Active'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(ds);
@@ -2097,6 +2097,11 @@ namespace CRM_User_Interface
             finally { con.Close(); }
           
 
+        }
+
+        private void txtsalesearchcname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            fetch_FollowupDetails();
         }
      
     }
