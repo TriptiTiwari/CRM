@@ -380,15 +380,43 @@ namespace CRM_User_Interface
         #endregion Fun
         #endregion Function
 
-        public void ClientDetails_ListLoad_Data()
+        public void DealerDetails_LoadData()
         {
-            con.Open();
-            DataSet ds = new DataSet();
-            SqlCommand cmd = new SqlCommand();
-            String str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + '' + [DealerLaseName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
-                         "FROM [tbl_DealerEntry] " +
-                         "WHERE ";
-            cmd.CommandText = str;
+            try
+            {
+                String str;
+                con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                             "FROM [tbl_DealerEntry] " +
+                             "WHERE ";
+                if (txtAdm_DealerName_Search.Text.Trim() != string.Empty)
+                {
+                    str = str + "[DealerName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',DealerName) + '%' AND ";
+                }
+                if (txtAdm_DealerMN_Search.Text.Trim() != string.Empty)
+                {
+                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_DealerMN_Search.Text.Trim() + "',MobileNo) + '%' AND ";
+                    //str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                    //         "FROM [tbl_DealerEntry] " +
+                    //         "WHERE [MobileNo] LIKE ISNULL('" + txtAdm_DealerMobNo_Search.Text.Trim() + "',MobileNo) + '%' AND ";
+                }
+                str = str + " S_Status = 'Active' ORDER BY DealerName ASC ";
+                SqlCommand cmd = new SqlCommand(str,con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgvAdm_Dealerdetails.ItemsSource = ds.Tables[0].DefaultView;
+                }
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally { con.Close(); }
+            //cmd.CommandText = str;
             //ad.SelectCommand = cmd;
             ////con.ConnectionString = @"Data Source=VS\SQLEXPRESS;Initial Catalog=DB_RealBuilders;Integrated Security=True";
             //cmd.Connection = con;
@@ -396,6 +424,22 @@ namespace CRM_User_Interface
             //ad.Fill(ds);
             //dgvClientDetails.ItemsSource = ds.Tables[0].DefaultView;
             //con.Close();
+        }
+
+        private void smdealerDetails_Click(object sender, RoutedEventArgs e)
+        {
+            grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
         }
 
     }

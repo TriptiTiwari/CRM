@@ -1,5 +1,6 @@
 Create Database DB_CRM
 
+use DB_CRM
 
 Create Table tbl_DealerEntry
 (
