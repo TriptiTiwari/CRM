@@ -98,6 +98,8 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
+
+            EEMPLOYEEid();
         }
 
         private void btnAdm_Emp_Clear_Click(object sender, RoutedEventArgs e)
@@ -239,6 +241,7 @@ namespace CRM_User_Interface
         #endregion EmployeeEntry Function
         #endregion Employee Function
 
+        #region Dealer Function
         #region Dealer Button Event
         private void btnAdm_Dealer_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -305,6 +308,7 @@ namespace CRM_User_Interface
         }
         #endregion Dealer Button Event
 
+        #region Dealer Fun
         public bool Dealer_Validation()
         {
             bool result = false;
@@ -373,8 +377,9 @@ namespace CRM_User_Interface
 
 
         }
+        #endregion Fun
+        #endregion Function
 
-        
     }
 }
 
