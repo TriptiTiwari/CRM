@@ -2277,16 +2277,17 @@ namespace CRM_User_Interface
         }
         private void txtsalesearchcname_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() == " ")
-            //{
-            //  fetch_FollowupDetails();
-            //   // load_Followup_type();
-            //}
-            //else
-            //{
+           // if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() == " ")
+         //   {
+               // fetch_FollowupDetails();
+                // load_Followup_type();
+          //  }
+          //  else
+           // {
                // loadbyallfield_Followup();
-            //}
+            
             loadbyallfield_Followup();
+           // }
         }
 
         private void txtSalecustomerno_TextChanged(object sender, TextChangedEventArgs e)
@@ -2314,6 +2315,11 @@ namespace CRM_User_Interface
            // {
            //     loadbyallfield_Followup();
            //}
+        }
+
+        private void txtsalesearchcname_KeyDown(object sender, KeyEventArgs e)
+        {
+            //loadbyallfield_Followup();
         }
      
     }
