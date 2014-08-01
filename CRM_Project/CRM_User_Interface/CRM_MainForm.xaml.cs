@@ -2412,6 +2412,23 @@ namespace CRM_User_Interface
         {
             //loadbyallfield_Followup();
         }
+
+        private void DGRD_SaleFollowup_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            object item = DGRD_SaleFollowup .SelectedItem;
+            string ID = (DGRD_SaleFollowup.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            //MessageBox.Show(ID);
+
+            //qry = "SELECT [ID],[VisitorName],[MobileNo],[PhoneNo],[VisitorAddress],[AvgBuget],[IsInterested] " +
+            //              "FROM [VisitorDetails] " +
+            //              "WHERE [ID] = " + Convert.ToInt32(ID);
+            //tbl = "VisitorDetails";
+            //DataTable dt = DBConnection.GetDataTable(qry, tbl);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    txtVisitorID.Text = dt.Rows[0]["ID"].ToString();
+            //}
+        }
      
     }
 

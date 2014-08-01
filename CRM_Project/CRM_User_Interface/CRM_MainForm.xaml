@@ -489,7 +489,7 @@
                     <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
                     <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="148" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
                     <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="671,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked"/>
-                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False">
+                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False" SelectedCellsChanged="DGRD_SaleFollowup_SelectedCellsChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID"  x:Name="grdid" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Followup_ID"  x:Name="grdfid" SortMemberPath="VisitorName" Binding="{Binding Followup_ID, Mode=TwoWay}" />
@@ -503,7 +503,7 @@
                             <DataGridTextColumn Header="F_Date" x:Name="grdfdate" SortMemberPath="AvgBuget" Binding="{Binding F_Date, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Issude_Date" x:Name="grdcdate" SortMemberPath="AvgBuget" Binding="{Binding C_Date, Mode=TwoWay}" />
                             <DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />
-                            
+
                         </DataGrid.Columns>
                     </DataGrid>
                     <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="25" Margin="156,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged" KeyDown="txtsalesearchcname_KeyDown"/>
@@ -521,6 +521,9 @@
 
 
 
+                </Grid>
+                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="553" VerticalAlignment="Top"  Visibility="Hidden" Width="1155" Margin="1,12,0,0" Background="#FFF0F0F0">
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="405,118,0,0" TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="120"/>
                 </Grid>
 
             </Grid>
