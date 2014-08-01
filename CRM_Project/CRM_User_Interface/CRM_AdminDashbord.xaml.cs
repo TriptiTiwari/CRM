@@ -380,6 +380,24 @@ namespace CRM_User_Interface
         #endregion Fun
         #endregion Function
 
+        public void ClientDetails_ListLoad_Data()
+        {
+            con.Open();
+            DataSet ds = new DataSet();
+            SqlCommand cmd = new SqlCommand();
+            String str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + '' + [DealerLaseName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                         "FROM [tbl_DealerEntry] " +
+                         "WHERE ";
+            cmd.CommandText = str;
+            //ad.SelectCommand = cmd;
+            ////con.ConnectionString = @"Data Source=VS\SQLEXPRESS;Initial Catalog=DB_RealBuilders;Integrated Security=True";
+            //cmd.Connection = con;
+            //DataSet ds = new DataSet();
+            //ad.Fill(ds);
+            //dgvClientDetails.ItemsSource = ds.Tables[0].DefaultView;
+            //con.Close();
+        }
+
     }
 }
 
