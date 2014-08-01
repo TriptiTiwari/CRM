@@ -387,16 +387,19 @@ namespace CRM_User_Interface
                 String str;
                 con.Open();
                 DataSet ds = new DataSet();
-                str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + '' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
                              "FROM [tbl_DealerEntry] " +
                              "WHERE ";
-                if (txtAdm_DealerName_Search.Text.Trim() != "")
+                if (txtAdm_DealerName_Search.Text.Trim() != string.Empty)
                 {
-                    str = str + "[DealerName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',DealerName) + '%' AND ";
+                    str = str + "[CompanyName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',CompanyName) + '%' AND ";
                 }
-                if (txtAdm_DealerMobNo_Search.Text.Trim() != "")
+                if (txtAdm_DealerMN_Search.Text.Trim() != string.Empty)
                 {
-                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_DealerMobNo_Search.Text.Trim() + "',MobileNo) + '%' AND ";
+                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_DealerMN_Search.Text.Trim() + "',MobileNo) + '%' AND ";
+                    //str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                    //         "FROM [tbl_DealerEntry] " +
+                    //         "WHERE [MobileNo] LIKE ISNULL('" + txtAdm_DealerMobNo_Search.Text.Trim() + "',MobileNo) + '%' AND ";
                 }
                 str = str + " S_Status = 'Active' ORDER BY DealerName ASC ";
                 SqlCommand cmd = new SqlCommand(str,con);
@@ -405,7 +408,7 @@ namespace CRM_User_Interface
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    grdAdm_DealerDetails.ItemsSource = ds.Tables[0].DefaultView;
+                    dgvAdm_Dealerdetails.ItemsSource = ds.Tables[0].DefaultView;
                 }
             }
             catch(Exception)
@@ -426,6 +429,16 @@ namespace CRM_User_Interface
         private void smdealerDetails_Click(object sender, RoutedEventArgs e)
         {
             grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
             DealerDetails_LoadData();
         }
 
