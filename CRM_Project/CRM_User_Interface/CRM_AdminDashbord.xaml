@@ -405,7 +405,7 @@
                 <Label x:Name="lblMonths" Content="Months" HorizontalAlignment="Left" Margin="814,415,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
                 <Label Content="EmployeeID" x:Name="lblEmpID" HorizontalAlignment="Left" Margin="530,130,0,0" VerticalAlignment="Top"/>
             </Grid>
-            
+
             <Grid x:Name="grd_DealerEntry" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="87,56,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_Months1" HorizontalAlignment="Left" Margin="615,358,0,0" VerticalAlignment="Top" Width="110" Visibility="Hidden"/>
@@ -438,6 +438,15 @@
                 <TextBox x:Name="txtAdm_Dealer_State" HorizontalAlignment="Left" Height="23" Margin="521,422,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="Maharashtra"/>
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
+            </Grid>
+            <Grid x:Name="grd_DealerDetails" HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6">
+                <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
+                    <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="27,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="127,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
+                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="495,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBox x:Name="txtAdm_DealerMobNo_Search" HorizontalAlignment="Left" Height="30" Margin="577,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348"/>
+                </Grid>
             </Grid>
         </Grid>
 

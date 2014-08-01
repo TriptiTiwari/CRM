@@ -317,7 +317,7 @@ namespace CRM_User_Interface
                 result = true;
                 MessageBox.Show("Please Enter Company Name", caption, MessageBoxButton.OK);
             }
-            if (txtAdm_DealerFirstName.Text == "")
+            else if (txtAdm_DealerFirstName.Text == "")
             {
                 result = true;
                 MessageBox.Show("Please Enter Dealer First Name", caption, MessageBoxButton.OK);
