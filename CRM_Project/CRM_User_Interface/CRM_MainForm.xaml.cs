@@ -2293,27 +2293,27 @@ namespace CRM_User_Interface
         {
             //if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
             //{ 
-            fetch_FollowupDetailsbymobile();
+          //  fetch_FollowupDetailsbymobile();
            // load_Followup_type();
             //}
             //else
             //{
-                loadbyallfield_Followup();
+               // loadbyallfield_Followup();
           // }
 
         }
 
         private void cmbsalecustomerftype_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
-            { 
-            fetch_FollowupDetailsbyfollowuptype();
-           // load_Followup_type();
-            }
-            else
-            {
-                loadbyallfield_Followup();
-           }
+           // if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
+           // { 
+           // fetch_FollowupDetailsbyfollowuptype();
+           //// load_Followup_type();
+           // }
+           // else
+           // {
+           //     loadbyallfield_Followup();
+           //}
         }
      
     }
