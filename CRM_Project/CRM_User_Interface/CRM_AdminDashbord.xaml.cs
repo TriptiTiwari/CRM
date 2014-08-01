@@ -286,6 +286,7 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
+            Dealerid();
         }
         
         private void btnAdm_Dealer_Clear_Click(object sender, RoutedEventArgs e)
