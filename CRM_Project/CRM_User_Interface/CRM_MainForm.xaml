@@ -489,12 +489,12 @@
                     <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
                     <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
                     <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="671,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked"/>
-                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False">
+                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID"  x:Name="grdid" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Followup_ID"  x:Name="grdfid" SortMemberPath="VisitorName" Binding="{Binding Followup_ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Name" x:Name="grdName" SortMemberPath="MobileNo" Binding="{Binding Name, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Mobile_No"  x:Name="grdmobile" SortMemberPath="PhoneNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Mobile_No"  x:Name="grdmobile" SortMemberPath="PhoneNo" Binding="{Binding Mobile_No, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Date_Of_Birth"  x:Name="grddob" SortMemberPath="VisitorAddress" Binding="{Binding Date_Of_Birth, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Email_ID" x:Name="grdeid" SortMemberPath="AvgBuget" Binding="{Binding Email_ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Address" x:Name="grdaddress" SortMemberPath="AvgBuget" Binding="{Binding Address, Mode=TwoWay}" />
@@ -509,10 +509,12 @@
                     <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="30" Margin="156,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged"/>
                     <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
                     <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
-                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="30" Margin="590,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False"/>
+                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="30" Margin="590,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
                     <Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
                         
                     </Grid>
+                    <Label Content="Select Followup Type :" HorizontalAlignment="Left" Margin="800,60,0,0" VerticalAlignment="Top" Width="155"/>
+                    <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged"/>
 
 
 
