@@ -2235,43 +2235,43 @@ namespace CRM_User_Interface
         }
         private void txtsalesearchcname_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
-            //{
-            //    fetch_FollowupDetails();
-            //   // load_Followup_type();
-            //}
-            //else
-            //{
+            if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
+            {
+                fetch_FollowupDetails();
+               // load_Followup_type();
+            }
+            else
+            {
                 loadbyallfield_Followup();
-          //  }
+            }
 
         }
 
         private void txtSalecustomerno_TextChanged(object sender, TextChangedEventArgs e)
         {
-           // if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
-           // { 
-           // fetch_FollowupDetailsbymobile();
-           //// load_Followup_type();
-           // }
-           // else
-           // {
+            if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
+            { 
+            fetch_FollowupDetailsbymobile();
+           // load_Followup_type();
+            }
+            else
+            {
                 loadbyallfield_Followup();
-          //  }
+           }
 
         }
 
         private void cmbsalecustomerftype_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           // if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
-           // { 
-           // fetch_FollowupDetailsbyfollowuptype();
-           //// load_Followup_type();
-           // }
-           // else
-           // {
+            if (txtsalesearchcname.Text == "" || txtSalecustomerno.Text != "" || cmbsalecustomerftype.SelectedValue.ToString() == "--Select--")
+            { 
+            fetch_FollowupDetailsbyfollowuptype();
+           // load_Followup_type();
+            }
+            else
+            {
                 loadbyallfield_Followup();
-          //  }
+           }
         }
      
     }
