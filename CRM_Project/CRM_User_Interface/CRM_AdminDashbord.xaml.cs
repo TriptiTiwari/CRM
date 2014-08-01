@@ -392,7 +392,7 @@ namespace CRM_User_Interface
                              "WHERE ";
                 if (txtAdm_DealerName_Search.Text.Trim() != string.Empty)
                 {
-                    str = str + "[CompanyName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',CompanyName) + '%' AND ";
+                    str = str + "[DealerName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',DealerName) + '%' AND ";
                 }
                 if (txtAdm_DealerMN_Search.Text.Trim() != string.Empty)
                 {
