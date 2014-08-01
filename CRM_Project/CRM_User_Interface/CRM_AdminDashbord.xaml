@@ -82,6 +82,7 @@
                     <MenuItem Header="Default Messages" x:Name="smdmessages"/>
                     <MenuItem Header="Default Timespan" x:Name="smdtime"/>
                     <MenuItem Header="Employee Details" x:Name="smemployee" Click="smemployee_Click"/>
+                    <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
                     <MenuItem Header=" Import/Export" x:Name="smimport_export"/>
                     <MenuItem Header=" Extend Particular Warranty" x:Name="smextendwarranty"/>
                 </MenuItem>
