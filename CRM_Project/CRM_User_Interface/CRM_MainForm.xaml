@@ -506,13 +506,15 @@
                             
                         </DataGrid.Columns>
                     </DataGrid>
-                    <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="30" Margin="156,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged" KeyDown="txtsalesearchcname_KeyDown"/>
+                    <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="25" Margin="156,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged" KeyDown="txtsalesearchcname_KeyDown"/>
                     <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
                     <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
-                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="30" Margin="590,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
-                    <Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
+                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="25" Margin="590,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
+                    <DataGrid x:Name="DGRD_SaleCustomer" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" Visibility="Hidden"  AutoGenerateColumns="False">
+                    </DataGrid>
+                    <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
                         
-                    </Grid>
+                    </Grid>-->
                     <Label Content="Select Followup Type :" HorizontalAlignment="Left" Margin="800,60,0,0" VerticalAlignment="Top" Width="155"/>
                     <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged"/>
 
