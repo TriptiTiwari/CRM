@@ -2064,6 +2064,7 @@ namespace CRM_User_Interface
                 cmbsalecustomerftype.IsEnabled = true;
                 GRD_SaleCustomer.Visibility = Visibility.Hidden ;
                 load_Followup_type();
+                FetchallDetails();
 
                
             }
@@ -2077,6 +2078,31 @@ namespace CRM_User_Interface
             cmbsalecustomerftype.IsEnabled = false;
             GRD_SaleCustomer.Visibility = Visibility;
             load_Followup_type();
+        }
+        public void FetchallDetails()
+        {
+            try
+            {
+                con.Open();
+                DataSet ds = new DataSet();
+                cmd = new SqlCommand("select ID, Followup_ID,Name,Mobile_No,Date_Of_Birth,Email_ID,Address,Product_Details,Followup_Type,F_Date,C_Date from tlb_FollowUp  where  S_Status='Active'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+          
+
         }
         public void fetch_FollowupDetails()
         {
@@ -2186,6 +2212,10 @@ namespace CRM_User_Interface
                         {
                             DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
                         }
+                        else
+                        {
+                            MessageBox.Show("Name And Number Not Match ", caption, MessageBoxButton.OK);
+                        }
                     }
                     catch (Exception)
                     {
@@ -2193,6 +2223,10 @@ namespace CRM_User_Interface
                         throw;
                     }
                     finally { con.Close(); load_Followup_type(); }
+                }
+          else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
+          {
+              FetchallDetails();
                 }
           //else if (txtsalesearchcname.Text != "" || txtSalecustomerno.Text == "" || cmbsalecustomerftype.SelectedValue.ToString() != "")
           //{
@@ -2238,6 +2272,10 @@ namespace CRM_User_Interface
                       {
                           DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
                       }
+                      else
+                      {
+                          MessageBox.Show("Name And Number Not Match ", caption, MessageBoxButton.OK);
+                      }
                   }
                   catch (Exception)
                   {
@@ -2245,6 +2283,10 @@ namespace CRM_User_Interface
                       throw;
                   }
                   finally { con.Close(); load_Followup_type(); }
+              }
+              else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
+              {
+                  FetchallDetails();
               }
           }
       }
