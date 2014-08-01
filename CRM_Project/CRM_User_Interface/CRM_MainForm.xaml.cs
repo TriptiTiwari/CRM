@@ -2062,7 +2062,7 @@ namespace CRM_User_Interface
                 txtSalecustomerno.IsEnabled = true;
                 DGRD_SaleFollowup.IsEnabled = true;
                 cmbsalecustomerftype.IsEnabled = true;
-                GRD_SaleCustomer.Visibility = Visibility.Hidden ;
+                DGRD_SaleCustomer.Visibility = Visibility.Hidden ;
                 load_Followup_type();
                 FetchallDetails();
 
@@ -2227,7 +2227,7 @@ namespace CRM_User_Interface
                         con.Close(); //load_Followup_type();
                     }
                 }
-<<<<<<< HEAD
+
           else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
           {
               FetchallDetails();
@@ -2293,8 +2293,8 @@ namespace CRM_User_Interface
                   FetchallDetails();
               }
           }
-      }
-=======
+      
+
                     else if (txtsalesearchcname.Text == "" && txtSalecustomerno.Text == "")
                 {
                     FetchallDetails();
@@ -2312,7 +2312,6 @@ namespace CRM_User_Interface
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         con.Open();
                         da.Fill(ds);
->>>>>>> origin/master
 
                         if (ds.Tables[0].Rows.Count > 0)
                         {
@@ -2333,7 +2332,7 @@ namespace CRM_User_Interface
                         con.Close(); //load_Followup_type();
                     }
                 }
-            }
+            
                 //2nd
 
                 else if (txtSalecustomerno.Text != "")
@@ -2486,7 +2485,7 @@ namespace CRM_User_Interface
         {
             object item = DGRD_SaleFollowup .SelectedItem;
             string ID = (DGRD_SaleFollowup.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-            //MessageBox.Show(ID);
+            MessageBox.Show(ID);
 
             //qry = "SELECT [ID],[VisitorName],[MobileNo],[PhoneNo],[VisitorAddress],[AvgBuget],[IsInterested] " +
             //              "FROM [VisitorDetails] " +
