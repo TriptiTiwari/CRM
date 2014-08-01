@@ -497,11 +497,11 @@
                             <DataGridTextColumn Header="Mobile_No"  x:Name="grdmobile" SortMemberPath="PhoneNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Date_Of_Birth"  x:Name="grddob" SortMemberPath="VisitorAddress" Binding="{Binding Date_Of_Birth, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Email_ID" x:Name="grdeid" SortMemberPath="AvgBuget" Binding="{Binding Email_ID, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Address" x:Name="grdaddress" SortMemberPath="AvgBuget" Binding="{Binding AvgBuget, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Product_Details" x:Name="grdprodetails" SortMemberPath="AvgBuget" Binding="{Binding AvgBuget, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Followup_Type" x:Name="grdfollowuptype" SortMemberPath="AvgBuget" Binding="{Binding AvgBuget, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="F_Date" x:Name="grdfdate" SortMemberPath="AvgBuget" Binding="{Binding AvgBuget, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="C_Date" x:Name="grdcdate" SortMemberPath="AvgBuget" Binding="{Binding AvgBuget, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Address" x:Name="grdaddress" SortMemberPath="AvgBuget" Binding="{Binding Address, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Product_Details" x:Name="grdprodetails" SortMemberPath="AvgBuget" Binding="{Binding Product_Details, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Followup_Type" x:Name="grdfollowuptype" SortMemberPath="AvgBuget" Binding="{Binding Followup_Type, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="F_Date" x:Name="grdfdate" SortMemberPath="AvgBuget" Binding="{Binding F_Date, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Issude_Date" x:Name="grdcdate" SortMemberPath="AvgBuget" Binding="{Binding C_Date, Mode=TwoWay}" />
                             <DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />
                             
                         </DataGrid.Columns>

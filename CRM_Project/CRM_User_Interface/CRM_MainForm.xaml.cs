@@ -2062,6 +2062,7 @@ namespace CRM_User_Interface
                 txtSalecustomerno.IsEnabled = true;
                 DGRD_SaleFollowup.IsEnabled = true;
                 GRD_SaleCustomer.Visibility = Visibility.Hidden ;
+                fetch_FollowupDetails();
             }
         }
 
