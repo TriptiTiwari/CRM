@@ -445,10 +445,10 @@
             <Grid x:Name="grd_DealerDetails" HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6">
                 <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
-                    <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="17,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
-                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="485,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="567,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
+                    <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="463,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
+                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="714,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="796,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
                     <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
@@ -461,6 +461,9 @@
                             <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress" Binding="{Binding DealerAddress, Mode=TwoWay}"/>
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Label Content="Company Name:" HorizontalAlignment="Left" Margin="2,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                    <TextBox x:Name="txtAdm_CompName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_CompName_Search_TextChanged"/>
+                    <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>
                 </Grid>
             </Grid>
         </Grid>
