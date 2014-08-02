@@ -455,26 +455,20 @@ namespace CRM_User_Interface
 
         private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
         {
-            //var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
-            //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-            //con.Open();
-            //string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
-            //SqlCommand cmd = new SqlCommand(sqlquery, con);
-            //SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            //DataTable dt = new DataTable();
-            //adp.Fill(dt);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    txtname.Text = dt.Rows[0]["name"].ToString();
-            //    txtaddress.Text = dt.Rows[0]["address"].ToString();
-            //    if (dt.Rows[0]["gender"].ToString() == "Male")
-            //    {
-            //        rdmale.IsChecked = true;
-            //    }
-            //    else
-            //    {
-            //        rdfemale.IsChecked = true;
-            //    }
+            ////var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+            ////PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+            ////con.Open();
+            ////string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
+            ////SqlCommand cmd = new SqlCommand(sqlquery, con);
+            ////SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            ////DataTable dt = new DataTable();
+            ////adp.Fill(dt);
+            ////if (dt.Rows.Count > 0)
+            ////{
+            ////    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
+            ////    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
+            ////    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
+            ////    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
             //    combobox1.SelectedValue = dt.Rows[0]["country"].ToString();
             //    combobox2.SelectedValue = dt.Rows[0]["state"].ToString();
             //    txtcity.Text = dt.Rows[0]["city"].ToString();
