@@ -500,7 +500,7 @@
                     <DataGrid Margin="7,70,8,0" VerticalAlignment="Top" Height="435">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                            
+                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_Name" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
