@@ -455,20 +455,58 @@ namespace CRM_User_Interface
 
         private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            //var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+            //PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+            //con.Open();
+            //string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
+            //SqlCommand cmd = new SqlCommand(sqlquery, con);
+            //SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            //DataTable dt = new DataTable();
+            //adp.Fill(dt);
+            //if (dt.Rows.Count > 0)
+            //{
+            //    txtname.Text = dt.Rows[0]["name"].ToString();
+            //    txtaddress.Text = dt.Rows[0]["address"].ToString();
+            //    if (dt.Rows[0]["gender"].ToString() == "Male")
+            //    {
+            //        rdmale.IsChecked = true;
+            //    }
+            //    else
+            //    {
+            //        rdfemale.IsChecked = true;
+            //    }
+            //    combobox1.SelectedValue = dt.Rows[0]["country"].ToString();
+            //    combobox2.SelectedValue = dt.Rows[0]["state"].ToString();
+            //    txtcity.Text = dt.Rows[0]["city"].ToString();
+            //    txtcontactno.Text = dt.Rows[0]["contactno"].ToString();
+            //}
+            //btnsubmit.Content = "Update";
         }
 
         private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
         {
-            var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem;  //Get specific ID From                DataGrid after click on Delete Button.
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
 
-            PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-            //SqlConnection con = new SqlConnection(sqlstring);
-            con.Open();
-            string sqlquery = "Delete From tbl_DealerEntry where ID='" + PK_ID + "' ";
-            SqlCommand cmd = new SqlCommand(sqlquery, con);
-            cmd.ExecuteNonQuery();
-            MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                //SqlConnection con = new SqlConnection(sqlstring);
+                con.Open();
+                string sqlquery = "UPDATE tbl_DealerEntry SET S_Status='DeActive' where ID='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
+                
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
             DealerDetails_LoadData();
         }
 
