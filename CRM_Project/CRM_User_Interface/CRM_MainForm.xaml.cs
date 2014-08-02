@@ -2483,19 +2483,37 @@ namespace CRM_User_Interface
             MessageBox.Show(ID);
            // DGRD_SaleFollowup;
             GRD_Customer_Billing .Visibility = Visibility;
-     
-            txtvalueid.Text = ID;
-            string fetchfdetails = "Select Name ,Mobile_No,Email_ID,Address";
 
-            //qry = "SELECT [ID],[VisitorName],[MobileNo],[PhoneNo],[VisitorAddress],[AvgBuget],[IsInterested] " +
-            //              "FROM [VisitorDetails] " +
-            //              "WHERE [ID] = " + Convert.ToInt32(ID);
-            //tbl = "VisitorDetails";
-            //DataTable dt = DBConnection.GetDataTable(qry, tbl);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    txtVisitorID.Text = dt.Rows[0]["ID"].ToString();
-            //}
+            txtvalueid.Text = ID;
+          
+
+           try
+           {
+               con.Open();
+               DataSet ds = new DataSet();
+               cmd = new SqlCommand("Select Name ,Mobile_No,Date_Of_Birth,Email_ID,Address,Occupation from tlb_FollowUp where ID='"+ID+"'", con);
+               SqlDataAdapter da = new SqlDataAdapter(cmd);
+               // con.Open();
+               da.Fill(ds);
+
+               if (ds.Tables[0].Rows.Count > 0)
+               {
+                  // DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                   txtSalecustomerName.Text = ds.Tables[0].ToString();
+                   txtSaleCustomerMobileno.Text = ds.Tables[0].ToString();
+                   dpSaleCustomerDOB .Text  = ds.Tables[0].ToString();
+                   txtSaleCustomerEmailID.Text = ds.Tables[0].ToString();
+                   txtSaleCustomerAddress.Text = ds.Tables[0].ToString();
+                   txtSaleCustomerOccupation.Text = ds.Tables[0].ToString();
+                  
+               }
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+           finally { con.Close(); }
         }
 
         private void btnsaleExit_Click(object sender, RoutedEventArgs e)
@@ -2515,6 +2533,14 @@ namespace CRM_User_Interface
 
         private void rdoSaleOldCustomer(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void btnSaleCustomerEditoccu_Click(object sender, RoutedEventArgs e)
+        {
+            rdoSaleCustomerBusiness.IsEnabled = true;
+            rdoSaleCustomergovt.IsEnabled = true;
+            rdoSaleCustomerPrivate.IsEnabled = true;
 
         }
      
