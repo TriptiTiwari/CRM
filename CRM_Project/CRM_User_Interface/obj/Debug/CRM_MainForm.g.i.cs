@@ -1416,7 +1416,7 @@ namespace CRM_User_Interface {
         #line hidden
         
         
-        #line 519 "..\..\CRM_MainForm.xaml"
+        #line 518 "..\..\CRM_MainForm.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ComboBox cmbsalecustomerftype;
         
@@ -1424,7 +1424,7 @@ namespace CRM_User_Interface {
         #line hidden
         
         
-        #line 520 "..\..\CRM_MainForm.xaml"
+        #line 519 "..\..\CRM_MainForm.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button btnsaleExit;
         
@@ -1432,7 +1432,7 @@ namespace CRM_User_Interface {
         #line hidden
         
         
-        #line 521 "..\..\CRM_MainForm.xaml"
+        #line 520 "..\..\CRM_MainForm.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.RadioButton rdoSaleOldCustomer;
         
@@ -1440,7 +1440,7 @@ namespace CRM_User_Interface {
         #line hidden
         
         
-        #line 527 "..\..\CRM_MainForm.xaml"
+        #line 526 "..\..\CRM_MainForm.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid GRD_Customer_Billing;
         
@@ -1448,11 +1448,7 @@ namespace CRM_User_Interface {
         #line hidden
         
         
-<<<<<<< HEAD
         #line 527 "..\..\CRM_MainForm.xaml"
-=======
-        #line 528 "..\..\CRM_MainForm.xaml"
->>>>>>> origin/master
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox txtvalueid;
         
@@ -2670,7 +2666,7 @@ namespace CRM_User_Interface {
             case 173:
             this.cmbsalecustomerftype = ((System.Windows.Controls.ComboBox)(target));
             
-            #line 519 "..\..\CRM_MainForm.xaml"
+            #line 518 "..\..\CRM_MainForm.xaml"
             this.cmbsalecustomerftype.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.cmbsalecustomerftype_SelectionChanged);
             
             #line default
@@ -2679,7 +2675,7 @@ namespace CRM_User_Interface {
             case 174:
             this.btnsaleExit = ((System.Windows.Controls.Button)(target));
             
-            #line 520 "..\..\CRM_MainForm.xaml"
+            #line 519 "..\..\CRM_MainForm.xaml"
             this.btnsaleExit.Click += new System.Windows.RoutedEventHandler(this.btnsaleExit_Click);
             
             #line default
@@ -2688,7 +2684,7 @@ namespace CRM_User_Interface {
             case 175:
             this.rdoSaleOldCustomer = ((System.Windows.Controls.RadioButton)(target));
             
-            #line 521 "..\..\CRM_MainForm.xaml"
+            #line 520 "..\..\CRM_MainForm.xaml"
             this.rdoSaleOldCustomer.Checked += new System.Windows.RoutedEventHandler(this.rdoSaleOldCustomer_Checked);
             
             #line default
