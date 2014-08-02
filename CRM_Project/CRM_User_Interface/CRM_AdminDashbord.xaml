@@ -442,7 +442,12 @@
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
+<<<<<<< HEAD
             <Grid x:Name="grd_DealerDetails" Visibility="Hidden"   HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+=======
+            <Grid x:Name="grd_DealerDetails" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+                <Button x:Name="btnAdm_DealerExit" Content="Exit" HorizontalAlignment="Left" Margin="1083,3,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_DealerExit_Click" />
+>>>>>>> origin/master
                 <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
                     <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
@@ -462,14 +467,14 @@
                             <DataGridTemplateColumn Header="Edit">
                                 <DataGridTemplateColumn.CellTemplate >
                                     <DataTemplate>
-                                        <Button Content="Edit" x:Name="btndgv_DealerEdit" Click="btndgv_DealerEdit_Click" CommandParameter="{Binding id}"></Button>
+                                        <Button Content="Edit" x:Name="btndgv_DealerEdit" Click="btndgv_DealerEdit_Click" CommandParameter="{Binding id}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="Delete">
                                 <DataGridTemplateColumn.CellTemplate >
                                     <DataTemplate>
-                                        <Button Content="Delete" x:Name="btndgv_DealerDelete" Click="btndgv_DealerDelete_Click" ></Button>
+                                        <Button Content="Delete" x:Name="btndgv_DealerDelete" Click="btndgv_DealerDelete_Click" />
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
