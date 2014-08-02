@@ -83,8 +83,8 @@
                     <MenuItem Header="Default Timespan" x:Name="smdtime"/>
                     <MenuItem Header="Employee Details" x:Name="smemployee" Click="smemployee_Click"/>
                     <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
-                        
-                  
+
+
                     <MenuItem Header=" Import/Export" x:Name="smimport_export"/>
                     <MenuItem Header=" Extend Particular Warranty" x:Name="smextendwarranty"/>
                 </MenuItem>
@@ -442,50 +442,50 @@
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
-<<<<<<< HEAD
-            <Grid x:Name="grd_DealerDetails" Visibility="Hidden"   HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
-=======
-            <Grid x:Name="grd_DealerDetails" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
-                <Button x:Name="btnAdm_DealerExit" Content="Exit" HorizontalAlignment="Left" Margin="1083,3,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_DealerExit_Click" />
->>>>>>> origin/master
-                <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-                <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
-                    <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="463,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
-                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="714,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="796,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
-                    <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="Company Name" Width="200" x:Name="grdDealerDetails_CompName" SortMemberPath="CompanyName" Binding="{Binding CompanyName, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Dealer Name" Width="200" x:Name="grdDealerDetails_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="DateOfBirth" Width="100" x:Name="grdDealerDetails_DateOBirth" SortMemberPath="DateOfBirth" Binding="{Binding DateOfBirth, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="Mobile No" Width="150" x:Name="grdDealerDetails_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="Phone No" Width="120" x:Name="grdDealerDetails_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress" Binding="{Binding DealerAddress, Mode=TwoWay}"/>
-                            <DataGridTemplateColumn Header="Edit">
-                                <DataGridTemplateColumn.CellTemplate >
-                                    <DataTemplate>
-                                        <Button Content="Edit" x:Name="btndgv_DealerEdit" Click="btndgv_DealerEdit_Click" CommandParameter="{Binding id}"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Delete">
-                                <DataGridTemplateColumn.CellTemplate >
-                                    <DataTemplate>
-                                        <Button Content="Delete" x:Name="btndgv_DealerDelete" Click="btndgv_DealerDelete_Click" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Label Content="Company Name:" HorizontalAlignment="Left" Margin="2,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_CompName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_CompName_Search_TextChanged"/>
-                    <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>
+
+            <Grid x:Name="grd_DealerDetails" Visibility="Hidden"     HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+
+                <Grid x:Name="grd_DealerDetails1" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="-2,7,0,-7" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+                    <Button x:Name="btnAdm_DealerExit" Content="Exit" HorizontalAlignment="Left" Margin="1055,3,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_DealerExit_Click" />
+                    <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                    <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
+                        <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="463,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
+                        <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="714,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="796,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
+                        <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Company Name" Width="200" x:Name="grdDealerDetails_CompName" SortMemberPath="CompanyName" Binding="{Binding CompanyName, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Dealer Name" Width="200" x:Name="grdDealerDetails_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="DateOfBirth" Width="100" x:Name="grdDealerDetails_DateOBirth" SortMemberPath="DateOfBirth" Binding="{Binding DateOfBirth, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Mobile No" Width="150" x:Name="grdDealerDetails_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Phone No" Width="120" x:Name="grdDealerDetails_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}"/>
+                                <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress" Binding="{Binding DealerAddress, Mode=TwoWay}"/>
+                                <DataGridTemplateColumn Header="Edit">
+                                    <DataGridTemplateColumn.CellTemplate >
+                                        <DataTemplate>
+                                            <Button Content="Edit" x:Name="btndgv_DealerEdit" Click="btndgv_DealerEdit_Click" CommandParameter="{Binding id}"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Delete">
+                                    <DataGridTemplateColumn.CellTemplate >
+                                        <DataTemplate>
+                                            <Button Content="Delete" x:Name="btndgv_DealerDelete" Click="btndgv_DealerDelete_Click" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Label Content="Company Name:" HorizontalAlignment="Left" Margin="2,11,0,0" VerticalAlignment="Top" FontSize="14"/>
+                        <TextBox x:Name="txtAdm_CompName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_CompName_Search_TextChanged"/>
+                        <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>
+                    </Grid>
                 </Grid>
             </Grid>
-        </Grid>
 
+        </Grid>
     </Border>
 </Window>
