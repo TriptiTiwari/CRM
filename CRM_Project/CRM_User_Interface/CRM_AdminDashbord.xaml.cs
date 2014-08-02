@@ -304,9 +304,90 @@ namespace CRM_User_Interface
             grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
             Dealerid();
         }
+
         private void btnAdm_Dealer_Exit_Click(object sender, RoutedEventArgs e)
         {
             grd_DealerEntry.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void btnAdm_DealerRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            txtAdm_CompName_Search.Text = "";
+            txtAdm_DealerMN_Search.Text = "";
+            txtAdm_DealerName_Search.Text = "";
+            DealerDetails_LoadData();
+        }
+
+        private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
+                    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
+                    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
+                    dtpAdm_Dealer_DOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"].ToString());
+                    txtAdm_Dealer_MobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
+                    txtAdm_Dealer_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
+                    txtAdm_Dealer_Address.Text = dt.Rows[0]["DealerAddress"].ToString();
+                    txtAdm_Dealer_City.Text = dt.Rows[0]["City"].ToString();
+                    txtAdm_Dealer_Zip.Text = dt.Rows[0]["Zip"].ToString();
+                    txtAdm_Dealer_State.Text = dt.Rows[0]["DState"].ToString();
+                    txtAdm_Dealer_Country.Text = dt.Rows[0]["Country"].ToString();
+                }
+
+                btnAdm_Dealer_Save.Content = "Update";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
+
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                //SqlConnection con = new SqlConnection(sqlstring);
+                con.Open();
+                string sqlquery = "UPDATE tbl_DealerEntry SET S_Status='DeActive' where ID='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            DealerDetails_LoadData();
+        }
+
+        private void btnAdm_DealerExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_DealerDetails.Visibility = System.Windows.Visibility.Hidden;
         }
         #endregion Dealer Button Event
 
@@ -379,9 +460,7 @@ namespace CRM_User_Interface
 
 
         }
-        #endregion Fun
-        #endregion Function
-
+       
         public void DealerDetails_LoadData()
         {
             try
@@ -423,7 +502,9 @@ namespace CRM_User_Interface
                 con.Close(); 
             }
         }
+        #endregion Fun
 
+        #region Dealer Event
         private void smdealerDetails_Click(object sender, RoutedEventArgs e)
         {
             grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
@@ -445,89 +526,16 @@ namespace CRM_User_Interface
             DealerDetails_LoadData();
         }
 
-        private void btnAdm_DealerRefresh_Click(object sender, RoutedEventArgs e)
-        {
-            txtAdm_CompName_Search.Text = "";
-            txtAdm_DealerMN_Search.Text = "";
-            txtAdm_DealerName_Search.Text = "";
-            DealerDetails_LoadData();
-        }
-
-        private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
-        {
-            try 
-            {
-                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
-                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-                con.Open();
-                string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-                grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
-                if (dt.Rows.Count > 0)
-                {
-                    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
-                    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
-                    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
-                    dtpAdm_Dealer_DOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"].ToString());
-                    txtAdm_Dealer_MobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
-                    txtAdm_Dealer_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
-                    txtAdm_Dealer_Address.Text = dt.Rows[0]["DealerAddress"].ToString();
-                    txtAdm_Dealer_City.Text = dt.Rows[0]["City"].ToString();
-                    txtAdm_Dealer_Zip.Text = dt.Rows[0]["Zip"].ToString();
-                    txtAdm_Dealer_State.Text = dt.Rows[0]["DState"].ToString();
-                    txtAdm_Dealer_Country.Text = dt.Rows[0]["Country"].ToString();
-                }
-                
-                btnAdm_Dealer_Save.Content = "Update";    
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
-        private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
-
-                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-                //SqlConnection con = new SqlConnection(sqlstring);
-                con.Open();
-                string sqlquery = "UPDATE tbl_DealerEntry SET S_Status='DeActive' where ID='" + PK_ID + "' ";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                cmd.ExecuteNonQuery();
-                
-                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
-                
-            }
-            catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-            DealerDetails_LoadData();
-        }
-
         private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            
-        }
 
-        private void btnAdm_DealerExit_Click(object sender, RoutedEventArgs e)
+        }
+        #endregion Dealer Event
+        #endregion Function
+
+        private void btnAdm_FinalProcurment_Click(object sender, RoutedEventArgs e)
         {
-            grd_DealerDetails.Visibility = System.Windows.Visibility.Hidden;
+            grd_FinalProcurment.Visibility = System.Windows.Visibility.Visible;
         }
 
     }

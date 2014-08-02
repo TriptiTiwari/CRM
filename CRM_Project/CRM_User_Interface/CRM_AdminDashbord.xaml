@@ -525,6 +525,14 @@
 
                 </Grid>
             </Grid>
+            <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+                <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
+                <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+                <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="-1,36,0,0" VerticalAlignment="Top" Width="1161" Height="83">
+                    <Label Content="Date:" HorizontalAlignment="Left" Margin="11,9,0,0" VerticalAlignment="Top"/>
+                </GroupBox>
+                <DatePicker x:Name="dtpAdm_dealerDate_Search" HorizontalAlignment="Left" Margin="67,61,0,0" VerticalAlignment="Top" Width="133"/>
+            </Grid>
         </Grid>
     </Border>
 </Window>
