@@ -449,7 +449,7 @@
                     <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="463,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
                     <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="714,11,0,0" VerticalAlignment="Top" FontSize="14"/>
                     <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="796,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
-                    <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False" RowHeight="30">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID, Mode=TwoWay}"/>
@@ -459,6 +459,20 @@
                             <DataGridTextColumn Header="Mobile No" Width="150" x:Name="grdDealerDetails_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Phone No" Width="120" x:Name="grdDealerDetails_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Dealer Address" Width="150" x:Name="grdDealerDetails_Address" SortMemberPath="DealerAddress" Binding="{Binding DealerAddress, Mode=TwoWay}"/>
+                            <DataGridTemplateColumn Header="Edit">
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Button Content="Edit" x:Name="btndgv_DealerEdit" Click="btndgv_DealerEdit_Click" CommandParameter="{Binding id}"></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Button Content="Delete" x:Name="btndgv_DealerDelete" Click="btndgv_DealerDelete_Click" ></Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                     <Label Content="Company Name:" HorizontalAlignment="Left" Margin="2,11,0,0" VerticalAlignment="Top" FontSize="14"/>
