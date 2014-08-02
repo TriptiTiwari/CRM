@@ -477,6 +477,11 @@ namespace CRM_User_Interface
             DealerDetails_LoadData();
         }
 
+        private void btnAdm_DealerExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_DealerDetails.Visibility = System.Windows.Visibility.Hidden;
+        }
+
     }
 }
 
