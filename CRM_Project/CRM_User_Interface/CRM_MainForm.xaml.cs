@@ -2485,6 +2485,7 @@ namespace CRM_User_Interface
             GRD_Customer_Billing .Visibility = Visibility;
      
             txtvalueid.Text = ID;
+            string fetchfdetails = "Select Name ,Mobile_No,Email_ID,Address";
 
             //qry = "SELECT [ID],[VisitorName],[MobileNo],[PhoneNo],[VisitorAddress],[AvgBuget],[IsInterested] " +
             //              "FROM [VisitorDetails] " +
@@ -2510,6 +2511,11 @@ namespace CRM_User_Interface
             cmbsalecustomerftype.IsEnabled = false;
             DGRD_SaleCustomer.Visibility = Visibility;
             load_Followup_type();
+        }
+
+        private void rdoSaleOldCustomer(object sender, RoutedEventArgs e)
+        {
+
         }
      
     }
