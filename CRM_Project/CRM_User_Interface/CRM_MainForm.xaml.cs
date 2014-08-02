@@ -2479,42 +2479,7 @@ namespace CRM_User_Interface
 
         private void DGRD_SaleFollowup_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            object item = DGRD_SaleFollowup .SelectedItem;
-            string ID = (DGRD_SaleFollowup.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
-            MessageBox.Show(ID);
-           // DGRD_SaleFollowup;
-            GRD_Customer_Billing .Visibility = Visibility;
-
-            txtvalueid.Text = ID;
-          
-
-           try
-           {
-               con.Open();
-               DataSet ds = new DataSet();
-               cmd = new SqlCommand("Select Name ,Mobile_No,Date_Of_Birth,Email_ID,Address,Occupation from tlb_FollowUp where ID='"+ID+"'", con);
-               SqlDataAdapter da = new SqlDataAdapter(cmd);
-               // con.Open();
-               da.Fill(ds);
-
-               if (ds.Tables[0].Rows.Count > 0)
-               {
-                  // DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
-                   txtSalecustomerName.Text = ds.Tables[0].ToString();
-                   txtSaleCustomerMobileno.Text = ds.Tables[0].ToString();
-                   dpSaleCustomerDOB .Text  = ds.Tables[0].ToString();
-                   txtSaleCustomerEmailID.Text = ds.Tables[0].ToString();
-                   txtSaleCustomerAddress.Text = ds.Tables[0].ToString();
-                   txtSaleCustomerOccupation.Text = ds.Tables[0].ToString();
-                  
-               }
-           }
-           catch (Exception)
-           {
-
-               throw;
-           }
-           finally { con.Close(); }
+            
         }
 
         private void btnsaleExit_Click(object sender, RoutedEventArgs e)
@@ -2553,6 +2518,66 @@ namespace CRM_User_Interface
             cmbsalecustomerftype.IsEnabled = false;
             DGRD_SaleCustomer.Visibility = Visibility;
             load_Followup_type();
+        }
+
+        private void btnSaleCustomerEdit_Click(object sender, RoutedEventArgs e)
+        {
+            btnSaleCustomerEditoccu.IsEnabled = true;
+            btnSaleCustomerUpdate.IsEnabled = true;
+            btnSaleCustomerDelete.IsEnabled = true;
+        }
+
+        private void btnSaleCustomerBack_Click(object sender, RoutedEventArgs e)
+        {
+            GRD_Customer_Billing.Visibility = Visibility.Hidden;
+            DGRD_SaleFollowup.Visibility = Visibility;
+        }
+
+        private void DGRD_SaleFollowup_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            object item = DGRD_SaleFollowup.SelectedItem;
+            string ID = (DGRD_SaleFollowup.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            MessageBox.Show(ID);
+            // DGRD_SaleFollowup;
+            GRD_Customer_Billing.Visibility = Visibility;
+
+            txtvalueid.Text = ID;
+
+
+            try
+            {
+                con.Open();
+                // DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("Select Name ,Mobile_No,Date_Of_Birth,Email_ID,Address,Occupation from tlb_FollowUp where ID='" + ID + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    // DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                    txtSalecustomerName.Text = dt.Rows[0]["Name"].ToString();
+                    txtSaleCustomerMobileno.Text = dt.Rows[0]["Mobile_No"].ToString();
+                    dpSaleCustomerDOB.Text = dt.Rows[0]["Date_Of_Birth"].ToString();
+                    txtSaleCustomerEmailID.Text = dt.Rows[0]["Email_ID"].ToString();
+                    txtSaleCustomerAddress.Text = dt.Rows[0]["Address"].ToString();
+                    txtSaleCustomerOccupation.Text = dt.Rows[0]["Occupation"].ToString();
+
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
         }
      
     }
