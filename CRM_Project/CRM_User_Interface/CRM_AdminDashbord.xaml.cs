@@ -451,6 +451,16 @@ namespace CRM_User_Interface
             DealerDetails_LoadData();
         }
 
+        private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
 
