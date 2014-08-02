@@ -455,26 +455,42 @@ namespace CRM_User_Interface
 
         private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
         {
-            ////var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
-            ////PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-            ////con.Open();
-            ////string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
-            ////SqlCommand cmd = new SqlCommand(sqlquery, con);
-            ////SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            ////DataTable dt = new DataTable();
-            ////adp.Fill(dt);
-            ////if (dt.Rows.Count > 0)
-            ////{
-            ////    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
-            ////    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
-            ////    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
-            ////    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
-            //    combobox1.SelectedValue = dt.Rows[0]["country"].ToString();
-            //    combobox2.SelectedValue = dt.Rows[0]["state"].ToString();
-            //    txtcity.Text = dt.Rows[0]["city"].ToString();
-            //    txtcontactno.Text = dt.Rows[0]["contactno"].ToString();
-            //}
-            //btnsubmit.Content = "Update";
+            try 
+            {
+                var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
+                    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
+                    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
+                    dtpAdm_Dealer_DOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"].ToString());
+                    txtAdm_Dealer_MobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
+                    txtAdm_Dealer_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
+                    txtAdm_Dealer_Address.Text = dt.Rows[0]["DealerAddress"].ToString();
+                    txtAdm_Dealer_City.Text = dt.Rows[0]["City"].ToString();
+                    txtAdm_Dealer_Zip.Text = dt.Rows[0]["Zip"].ToString();
+                    txtAdm_Dealer_State.Text = dt.Rows[0]["DState"].ToString();
+                    txtAdm_Dealer_Country.Text = dt.Rows[0]["Country"].ToString();
+                }
+                
+                btnAdm_Dealer_Save.Content = "Update";    
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
@@ -489,7 +505,7 @@ namespace CRM_User_Interface
                 string sqlquery = "UPDATE tbl_DealerEntry SET S_Status='DeActive' where ID='" + PK_ID + "' ";
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
                 cmd.ExecuteNonQuery();
-                con.Close();
+                
                 MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
                 
             }
