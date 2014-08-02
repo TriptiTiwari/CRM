@@ -2072,12 +2072,7 @@ namespace CRM_User_Interface
 
         private void rdoSaleNewcustomer_Checked(object sender, RoutedEventArgs e)
         {
-            txtsalesearchcname.IsEnabled = false ;
-            txtSalecustomerno.IsEnabled = false;
-            DGRD_SaleFollowup.IsEnabled = false;
-            cmbsalecustomerftype.IsEnabled = false;
-            DGRD_SaleCustomer.Visibility = Visibility;
-            load_Followup_type();
+           
         }
         public void FetchallDetails()
         {
@@ -2486,6 +2481,10 @@ namespace CRM_User_Interface
             object item = DGRD_SaleFollowup .SelectedItem;
             string ID = (DGRD_SaleFollowup.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
             MessageBox.Show(ID);
+           // DGRD_SaleFollowup;
+            GRD_Customer_Billing .Visibility = Visibility;
+     
+            txtvalueid.Text = ID;
 
             //qry = "SELECT [ID],[VisitorName],[MobileNo],[PhoneNo],[VisitorAddress],[AvgBuget],[IsInterested] " +
             //              "FROM [VisitorDetails] " +
@@ -2496,6 +2495,21 @@ namespace CRM_User_Interface
             //{
             //    txtVisitorID.Text = dt.Rows[0]["ID"].ToString();
             //}
+        }
+
+        private void btnsaleExit_Click(object sender, RoutedEventArgs e)
+        {
+            GRD_Sales.Visibility =Visibility .Hidden ;
+        }
+
+        private void rdoSaleOldCustomer_Checked(object sender, RoutedEventArgs e)
+        {
+            txtsalesearchcname.IsEnabled = false;
+            txtSalecustomerno.IsEnabled = false;
+            DGRD_SaleFollowup.IsEnabled = false;
+            cmbsalecustomerftype.IsEnabled = false;
+            DGRD_SaleCustomer.Visibility = Visibility;
+            load_Followup_type();
         }
      
     }
