@@ -46,7 +46,7 @@
                         </StackPanel>
                     </MenuItem.Header>
                     <MenuItem Name="smaddfolloup" Header="Follow_up " Click="smaddfolloup_Click"/>
-                    <MenuItem  x:Name="smnewwalkin" Header="Open New Walk-In"/>
+                    <MenuItem  x:Name="smnewwalkin" Header="Open New Walk-In" Click="smnewwalkin_Click"/>
                     <MenuItem Header=" View Walkins" x:Name="smviewwalkin"/>
                     <MenuItem Header=" View Sales" x:Name="smviewsale"/>
                     <MenuItem Header=" View Reports" x:Name="smviewreports"/>
@@ -445,10 +445,10 @@
                         <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
                         </StackPanel>-->
                     </Grid>
-
+                    <!--Loaded="GRD_Follwup_Loaded"-->
                 </GroupBox>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"  VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" Loaded="GRD_Follwup_Loaded">
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"      VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" >
                 <Grid HorizontalAlignment="Left" Height="485" Name="grd_addfollowupandwalkin" Margin="206,40,0,0" VerticalAlignment="Top" Width="720" Background="White">
                     <Label Content="Follow up Details" HorizontalAlignment="Left" Margin="293,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
                     <Label Content="Follow_up ID :" HorizontalAlignment="Left" Margin="95,47,0,0" VerticalAlignment="Top" Width="90"/>
@@ -484,7 +484,7 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Visible"      VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" Loaded="GRD_Follwup_Loaded">
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"  VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
                     <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
                     <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="148" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>

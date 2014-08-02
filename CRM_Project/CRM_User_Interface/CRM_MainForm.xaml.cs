@@ -1834,7 +1834,7 @@ namespace CRM_User_Interface
 
         private void GRD_Follwup_Loaded(object sender, RoutedEventArgs e)
         {
-            GRD_Follwupandnew.Visibility = Visibility;
+          //  GRD_Follwupandnew.Visibility = Visibility;
             load_Followup();
            FolloupID_fetch();
              
@@ -1936,6 +1936,7 @@ namespace CRM_User_Interface
 
         private void smaddfolloup_Click(object sender, RoutedEventArgs e)
         {
+            GRD_Follwupandnew.Visibility = Visibility;
             FolloupID_fetch();
         }
         //public void AddCustomerWalkin()
@@ -2542,6 +2543,11 @@ namespace CRM_User_Interface
             rdoSaleCustomergovt.IsEnabled = true;
             rdoSaleCustomerPrivate.IsEnabled = true;
 
+        }
+
+        private void smnewwalkin_Click(object sender, RoutedEventArgs e)
+        {
+            GRD_Sales.Visibility = Visibility;
         }
      
     }
