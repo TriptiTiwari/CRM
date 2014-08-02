@@ -82,10 +82,9 @@
                     <MenuItem Header="Default Messages" x:Name="smdmessages"/>
                     <MenuItem Header="Default Timespan" x:Name="smdtime"/>
                     <MenuItem Header="Employee Details" x:Name="smemployee" Click="smemployee_Click"/>
-                    <MenuItem Header="Dealer">
-                        <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
-                        <MenuItem Header="Dealer Details" x:Name="smdealerDetails" Click="smdealerDetails_Click"  />
-                    </MenuItem>
+                    <MenuItem Header="Dealer Entry" x:Name="smdealerentry" Click="smdealerentry_Click" />
+                        
+                  
                     <MenuItem Header=" Import/Export" x:Name="smimport_export"/>
                     <MenuItem Header=" Extend Particular Warranty" x:Name="smextendwarranty"/>
                 </MenuItem>
@@ -126,8 +125,9 @@
                     <MenuItem Header="View Warranty On Sale " x:Name="smviewwarranty"/>
                     <MenuItem Header="View Insurance List" x:Name="smviewinsurancelist"/>
                     <MenuItem Header=" Check Status" x:Name="smchksataus"/>
-                    <MenuItem Header="Employee Details" x:Name="smemployeedetails"/>
-                    <MenuItem Header=" Stock" x:Name="smstock"/>
+                    <MenuItem Header=" View Dealer Details" x:Name="smdealerDetails" Click="smdealerDetails_Click" />
+                    <MenuItem Header=" View Employee Details" x:Name="smemployeedetails"/>
+                    <MenuItem Header="View Stock" x:Name="smstock"/>
 
                 </MenuItem>
                 <MenuItem Width="85">
@@ -442,7 +442,7 @@
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
-            <Grid x:Name="grd_DealerDetails" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+            <Grid x:Name="grd_DealerDetails" Visibility="Hidden"   HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
                 <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
                     <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
