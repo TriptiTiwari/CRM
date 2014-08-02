@@ -29,6 +29,8 @@ namespace CRM_User_Interface
         SqlCommand cmd;
         SqlDataReader dr;
         string caption = "Green Future Glob";
+        static int PK_ID;
+
         public CRM_AdminDashbord()
         {
             InitializeComponent();
@@ -456,19 +458,23 @@ namespace CRM_User_Interface
 
         }
 
-        static int PK_ID;
-
         private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var id1 = (DataRowView)dgvAdm_Dealerdetails.SelectedItem;  //Get specific ID From                DataGrid after click on Delete Button.
 
             PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
             //SqlConnection con = new SqlConnection(sqlstring);
             con.Open();
-            string sqlquery = "Delete From dsh_wpfCRUD where id='" + PK_ID + "' ";
+            string sqlquery = "Delete From tbl_DealerEntry where ID='" + PK_ID + "' ";
             SqlCommand cmd = new SqlCommand(sqlquery, con);
             cmd.ExecuteNonQuery();
-            //filldatagrid();
+            MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK);
+            DealerDetails_LoadData();
         }
 
     }
