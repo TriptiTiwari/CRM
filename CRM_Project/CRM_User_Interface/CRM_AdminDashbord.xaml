@@ -528,10 +528,19 @@
             <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                 <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-                <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="-1,36,0,0" VerticalAlignment="Top" Width="1161" Height="83">
-                    <Label Content="Date:" HorizontalAlignment="Left" Margin="11,9,0,0" VerticalAlignment="Top"/>
-                </GroupBox>
-                <DatePicker x:Name="dtpAdm_dealerDate_Search" HorizontalAlignment="Left" Margin="67,61,0,0" VerticalAlignment="Top" Width="133"/>
+                <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
+                    <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0"/>
+                    <Grid HorizontalAlignment="Left" Height="40" Margin="5,22,-30,0" VerticalAlignment="Top" Width="1145">
+                        <Label Content="Date:" HorizontalAlignment="Left" Margin="17,7,0,0" VerticalAlignment="Top"/>
+                        <Label Content="To" HorizontalAlignment="Left" Margin="61,7,0,0" VerticalAlignment="Top" Width="22"/>
+                        <Label Content="Between" HorizontalAlignment="Left" Margin="224,7,0,0" VerticalAlignment="Top" Width="57"/>
+                    </Grid>
+                    <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="294,30,0,0" VerticalAlignment="Top" Width="131"/>
+                    <Label Content="Filter By:" HorizontalAlignment="Left" Margin="480,29,0,0" VerticalAlignment="Top" Width="57"/>
+                    <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="543,30,0,0" VerticalAlignment="Top" Width="217"/>
+                    <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="96,30,0,0" VerticalAlignment="Top" Width="131"/>
+                    <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="775,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+                </Grid>
             </Grid>
         </Grid>
     </Border>

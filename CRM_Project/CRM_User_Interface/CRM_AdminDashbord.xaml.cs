@@ -535,7 +535,7 @@ namespace CRM_User_Interface
 
         private void btnAdm_FinalProcurment_Click(object sender, RoutedEventArgs e)
         {
-            grd_FinalProcurment.Visibility = System.Windows.Visibility.Visible;
+            grd_FinalProcurment.Visibility = System.Windows.Visibility.Hidden;
         }
 
     }
