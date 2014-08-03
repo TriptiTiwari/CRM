@@ -407,6 +407,7 @@
                         </Grid>
                     </GroupBox>
                 </Grid>
+                <TextBox x:Name="txtAdm_DealerID1" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
             </Grid>
 
             <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Visibility="Hidden" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
@@ -434,5 +435,6 @@
                 </Grid>
             </Grid>
         </Grid>
+
     </Border>
 </Window>
