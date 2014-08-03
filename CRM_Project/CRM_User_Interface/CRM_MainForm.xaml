@@ -394,7 +394,7 @@
                     <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="159,268,0,0" VerticalAlignment="Top" Width="135"/>
                     <Label Content="Re-Ferb Cost :" HorizontalAlignment="Left" Margin="155,294,0,0" VerticalAlignment="Top" Width="135"/>
                     <Label Content="Follow-up :" HorizontalAlignment="Left" Margin="156,323,0,0" VerticalAlignment="Top" Width="135"/>
-                    <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="316,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click" Height="25"/>
+                    <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="315,432,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click" Height="25"/>
                     <Button x:Name="btnPro_Clear" Content="Clear" HorizontalAlignment="Left" Margin="416,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Clear_Click" Height="25"/>
                     <Button x:Name="btnPro_Exit" Content="Exit" HorizontalAlignment="Left" Margin="516,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Exit_Click" Height="25"/>
                     <Label x:Name="lblPro_no" Content=" zz" HorizontalAlignment="Left" Margin="315,11,0,0" VerticalAlignment="Top" Width="175"/>
@@ -410,7 +410,6 @@
                         <CheckBox Content="No Document" FontSize="13" x:Name="chkNODOCS" Click="Check_Click" IsEnabled="False"/>
                         <CheckBox Content="Cmp ID Proof"  FontSize="13" x:Name="chkcmpid" Click="Check_Click" IsEnabled="False"/>
                     </StackPanel>
-                    <ComboBox x:Name="cmbPro_Saler" HorizontalAlignment="Left" Margin="317,46,0,0" VerticalAlignment="Top" Width="414" IsEditable="True"/>
                     <ComboBox x:Name="cmbPreDomain" HorizontalAlignment="Left" Margin="317,74,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreDomain_SelectionChanged" IsEditable="True"/>
                     <ComboBox x:Name="cmbPrePCategory" HorizontalAlignment="Left" Margin="318,154,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPrePCategory_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
                     <ComboBox x:Name="cmbPreModel" HorizontalAlignment="Left" Margin="318,181,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreModel_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
@@ -424,6 +423,7 @@
 
                     <Label Content="Narration :" HorizontalAlignment="Left" Margin="161,357,0,0" VerticalAlignment="Top" Width="135"/>
                     <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="65" Margin="315,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
+                    <ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreDomain_SelectionChanged" IsEditable="True"/>
 
                     <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
                         </StackPanel>-->

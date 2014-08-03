@@ -90,7 +90,7 @@ namespace CRM_User_Interface
                 bdealerupd.DealerEntryID = lbl_Edit_DealerID.Content.ToString();
                 bdealerupd.CompanyName = txtAdmEdit_CompanyName.Text;
                 bdealerupd.DealerFirstName = txtAdmEdit_DealerFirstName.Text;
-                bdealerupd.DealerLaseName = txtAdmEdit_DealerLastName.Text;
+                bdealerupd.DealerLastName = txtAdmEdit_DealerLastName.Text;
                 bdealerupd.DateOfBirth = Convert.ToDateTime(dtpAdmEdit_Dealer_DOB.SelectedDate);
                 bdealerupd.MobileNo = txtAdmEdit_Dealer_MobileNo.Text;
                 bdealerupd.PhoneNo = txtAdmEdit_Dealer_PhoneNo.Text;

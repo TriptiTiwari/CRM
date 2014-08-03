@@ -30,7 +30,7 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@DealerEntryID", badealerentry.DealerEntryID);
                 cmd.Parameters.AddWithValue("@CompanyName", badealerentry.CompanyName);
                 cmd.Parameters.AddWithValue("@DealerFirstName", badealerentry.DealerFirstName);
-                cmd.Parameters.AddWithValue("@DealerLaseName", badealerentry.DealerLaseName);
+                cmd.Parameters.AddWithValue("@DealerLastName", badealerentry.DealerLastName);
                 cmd.Parameters.AddWithValue("@DateOfBirth", badealerentry.DateOfBirth);
                 cmd.Parameters.AddWithValue("@MobileNo", badealerentry.MobileNo);
                 cmd.Parameters.AddWithValue("@PhoneNo", badealerentry.PhoneNo);
