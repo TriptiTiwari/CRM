@@ -1771,7 +1771,7 @@ namespace CRM_User_Interface
             cmbPreBrand.SelectedValue = null;
             cmbPreModel.SelectedValue = null;
             cmd_PreColor.SelectedValue = null;
-            txtprephone.Text = "";
+            //txtprephone.Text = "";
             txtPreFerbcost.Text = "";
             txtnarration.Text = "";
             //chkidproof.IsChecked = false;

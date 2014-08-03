@@ -379,74 +379,55 @@
 
             </Grid>
             <Button Content="Admin" Name="btnadminl" Foreground="White"  HorizontalAlignment="Left" Margin="980,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF302D2D" Click="btnadminl_Click"/>
-            <Grid HorizontalAlignment="Left" Visibility="Hidden"   Name="GRD_NewProcurement" Height="560" Margin="25,68,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
-                <GroupBox Header="New Procurement " HorizontalAlignment="Left" Margin="35,17,0,0" VerticalAlignment="Top" Width="1070" Height="520" Background="White">
-                    <Grid HorizontalAlignment="Left" Height="470" Margin="195,10,0,0" VerticalAlignment="Top" Width="725" Background="White" >
-                        <Label Content="Pre-Procurement Number :" HorizontalAlignment="Left" Margin="24,18,0,0" VerticalAlignment="Top" Width="160"/>
-                        <Label Content="Saler Name :" HorizontalAlignment="Left" Margin="29,48,0,0" VerticalAlignment="Top" Width="85"/>
-                        <Label Content="Phone No :" HorizontalAlignment="Left" Margin="364,49,0,0" VerticalAlignment="Top" Width="80"/>
-                        <Label Content="Domain" HorizontalAlignment="Left" Margin="29,82,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Product :" HorizontalAlignment="Left" Margin="369,79,0,0" VerticalAlignment="Top" Width="85"/>
-                        <Label Content="P_Category :" HorizontalAlignment="Left" Margin="369,119,0,0" VerticalAlignment="Top" Width="80"/>
-                        <Label Content="Brand :" HorizontalAlignment="Left" Margin="29,119,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Model No :" HorizontalAlignment="Left" Margin="29,152,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Color :" HorizontalAlignment="Left" Margin="369,149,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Price :" HorizontalAlignment="Left" Margin="31,189,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Registration Documents :" HorizontalAlignment="Left" Margin="354,189,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="29,229,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Re-Ferb Cost :" HorizontalAlignment="Left" Margin="29,265,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Label Content="Follow-up :" HorizontalAlignment="Left" Margin="29,298,0,0" VerticalAlignment="Top" Width="135"/>
-                        <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="134,402,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click"/>
-                        <Button x:Name="btnPro_Clear" Content="Clear" HorizontalAlignment="Left" Margin="249,402,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Clear_Click"/>
-                        <Button x:Name="btnPro_Exit" Content="Exit" HorizontalAlignment="Left" Margin="359,400,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Exit_Click"/>
-                        <Label x:Name="lblPro_no" Content=" zz" HorizontalAlignment="Left" Margin="204,19,0,0" VerticalAlignment="Top" Width="175"/>
-                        <StackPanel Orientation="Vertical"  Height="Auto" Margin="469,214,106,76">
-                            <CheckBox x:Name="chkPANCARD" FontSize="13" Content="Pan Card"  IsEnabled="False" Click="Check_Click"/>
-                            <CheckBox x:Name="chkform_16" FontSize="13" Content="Form 16" Click="Check_Click"  IsEnabled="False"/>
-                            <CheckBox Content="Adhar Card"  FontSize="13" x:Name="CHKADHARC" Click="Check_Click" IsEnabled="False"/>
-                            <CheckBox Content="Passport" FontSize="13" x:Name="chkPASSPORT" Click="Check_Click"     IsEnabled="False"/>
-                            <CheckBox x:Name="chkaddressproof" FontSize="13" Content="Address Proof" Click="Check_Click" IsEnabled="False"/>
-                            <CheckBox x:Name="chk7_12" FontSize="13" Content="7/12" Click="Check_Click"  IsEnabled="False"/>
-                            <CheckBox Content="Dealer Lisence"  FontSize="13" x:Name="chkDEALERL" Click="Check_Click"   IsEnabled="False"/>
-                            <CheckBox Content="Other Id Proof" FontSize="13" x:Name="chkOTHERID" Click="Check_Click"  IsEnabled="False"/>
-                            <CheckBox Content="No Document" FontSize="13" x:Name="chkNODOCS" Click="Check_Click" IsEnabled="False"/>
-                            <CheckBox Content="Cmp ID Proof"  FontSize="13" x:Name="chkcmpid" Click="Check_Click" IsEnabled="False"/>
-                        </StackPanel>
-                        <ComboBox x:Name="cmbPre_Saler" HorizontalAlignment="Left" Margin="186,54,0,0" VerticalAlignment="Top" Width="145"/>
-                        <ComboBox x:Name="cmbPreDomain" HorizontalAlignment="Left" Margin="186,84,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreDomain_SelectionChanged" IsEditable="True"/>
-                        <ComboBox x:Name="cmbPrePCategory" HorizontalAlignment="Left" Margin="459,117,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPrePCategory_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
-                        <ComboBox x:Name="cmbPreModel" HorizontalAlignment="Left" Margin="187,154,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreModel_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
-                        <ComboBox x:Name="cmbPreProduct" HorizontalAlignment="Left" Margin="459,84,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreProduct_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
-                        <ComboBox x:Name="cmbPreBrand" HorizontalAlignment="Left" Margin="184,119,0,0" VerticalAlignment="Top" Width="145" SelectionChanged="cmbPreBrand_SelectionChanged" IsEditable="True" IsReadOnly="True" Height="22"/>
-                        <ComboBox x:Name="cmd_PreColor" HorizontalAlignment="Left" Margin="459,152,0,0" VerticalAlignment="Top" Width="145" IsReadOnly="True" IsEditable="True" SelectionChanged="cmd_PreColor_SelectionChanged"/>
-                        <ComboBox x:Name="cmbPreFollowup" HorizontalAlignment="Left" Margin="190,304,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
-                        <ComboBox x:Name="cmbPreInsurance" HorizontalAlignment="Left" Margin="188,234,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
-                        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="23" Margin="189,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
-                        <TextBox x:Name="txtPreFerbcost" HorizontalAlignment="Left" Height="23" Margin="190,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
-                        <TextBox x:Name="txtprephone" HorizontalAlignment="Left" Height="23" Margin="458,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+            <Grid HorizontalAlignment="Left" Visibility="Visible"   Name="GRD_NewProcurement" Height="560" Margin="25,68,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
+                <Grid HorizontalAlignment="Left" Height="470" Margin="125,42,0,0" VerticalAlignment="Top" Width="910" Background="White" >
+                    <Label Content="Pre-Procurement No :" HorizontalAlignment="Left" Margin="160,10,0,0" VerticalAlignment="Top" Width="146"/>
+                    <Label Content="Dealer Name :" HorizontalAlignment="Left" Margin="160,40,0,0" VerticalAlignment="Top" Width="85"/>
+                    <Label Content="Domain:" HorizontalAlignment="Left" Margin="160,72,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Product :" HorizontalAlignment="Left" Margin="162,98,0,0" VerticalAlignment="Top" Width="85"/>
+                    <Label Content="P_Category :" HorizontalAlignment="Left" Margin="161,151,0,0" VerticalAlignment="Top" Width="80"/>
+                    <Label Content="Brand :" HorizontalAlignment="Left" Margin="160,128,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Model No :" HorizontalAlignment="Left" Margin="160,179,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Color :" HorizontalAlignment="Left" Margin="161,207,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Price :" HorizontalAlignment="Left" Margin="162,241,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Registration Documents :" HorizontalAlignment="Left" Margin="485,240,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="159,268,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Re-Ferb Cost :" HorizontalAlignment="Left" Margin="155,294,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Follow-up :" HorizontalAlignment="Left" Margin="156,323,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="316,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click" Height="25"/>
+                    <Button x:Name="btnPro_Clear" Content="Clear" HorizontalAlignment="Left" Margin="416,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Clear_Click" Height="25"/>
+                    <Button x:Name="btnPro_Exit" Content="Exit" HorizontalAlignment="Left" Margin="516,433,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Exit_Click" Height="25"/>
+                    <Label x:Name="lblPro_no" Content=" zz" HorizontalAlignment="Left" Margin="315,11,0,0" VerticalAlignment="Top" Width="175"/>
+                    <StackPanel Orientation="Vertical"  Height="Auto" Margin="622,248,161,59">
+                        <CheckBox x:Name="chkPANCARD" FontSize="13" Content="Pan Card"  IsEnabled="False" Click="Check_Click"/>
+                        <CheckBox x:Name="chkform_16" FontSize="13" Content="Form 16" Click="Check_Click"  IsEnabled="False"/>
+                        <CheckBox Content="Adhar Card"  FontSize="13" x:Name="CHKADHARC" Click="Check_Click" IsEnabled="False"/>
+                        <CheckBox Content="Passport" FontSize="13" x:Name="chkPASSPORT" Click="Check_Click"     IsEnabled="False"/>
+                        <CheckBox x:Name="chkaddressproof" FontSize="13" Content="Address Proof" Click="Check_Click" IsEnabled="False"/>
+                        <CheckBox x:Name="chk7_12" FontSize="13" Content="7/12" Click="Check_Click"  IsEnabled="False"/>
+                        <CheckBox Content="Dealer Lisence"  FontSize="13" x:Name="chkDEALERL" Click="Check_Click"   IsEnabled="False"/>
+                        <CheckBox Content="Other Id Proof" FontSize="13" x:Name="chkOTHERID" Click="Check_Click"  IsEnabled="False"/>
+                        <CheckBox Content="No Document" FontSize="13" x:Name="chkNODOCS" Click="Check_Click" IsEnabled="False"/>
+                        <CheckBox Content="Cmp ID Proof"  FontSize="13" x:Name="chkcmpid" Click="Check_Click" IsEnabled="False"/>
+                    </StackPanel>
+                    <ComboBox x:Name="cmbPre_Saler" HorizontalAlignment="Left" Margin="317,46,0,0" VerticalAlignment="Top" Width="414"/>
+                    <ComboBox x:Name="cmbPreDomain" HorizontalAlignment="Left" Margin="317,74,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreDomain_SelectionChanged" IsEditable="True"/>
+                    <ComboBox x:Name="cmbPrePCategory" HorizontalAlignment="Left" Margin="318,154,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPrePCategory_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                    <ComboBox x:Name="cmbPreModel" HorizontalAlignment="Left" Margin="318,181,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreModel_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                    <ComboBox x:Name="cmbPreProduct" HorizontalAlignment="Left" Margin="317,101,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreProduct_SelectionChanged" IsEditable="True" IsReadOnly="True"/>
+                    <ComboBox x:Name="cmbPreBrand" HorizontalAlignment="Left" Margin="318,128,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPreBrand_SelectionChanged" IsEditable="True" IsReadOnly="True" Height="22"/>
+                    <ComboBox x:Name="cmd_PreColor" HorizontalAlignment="Left" Margin="317,208,0,0" VerticalAlignment="Top" Width="414" IsReadOnly="True" IsEditable="True" SelectionChanged="cmd_PreColor_SelectionChanged"/>
+                    <ComboBox x:Name="cmbPreFollowup" HorizontalAlignment="Left" Margin="316,327,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
+                    <ComboBox x:Name="cmbPreInsurance" HorizontalAlignment="Left" Margin="316,271,0,0" VerticalAlignment="Top" Width="145" IsEditable="True" IsReadOnly="True"/>
+                    <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="23" Margin="317,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
+                    <TextBox x:Name="txtPreFerbcost" HorizontalAlignment="Left" Height="23" Margin="316,299,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
 
+                    <Label Content="Narration :" HorizontalAlignment="Left" Margin="161,357,0,0" VerticalAlignment="Top" Width="135"/>
+                    <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="65" Margin="315,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
 
-                        <TextBox x:Name="txtsalername" HorizontalAlignment="Left" Height="23" Margin="104,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-
-                        <Label Content="Narration :" HorizontalAlignment="Left" Margin="29,333,0,0" VerticalAlignment="Top" Width="135"/>
-                        <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="23" Margin="189,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="145"/>
-                        <!--<StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Vertical"  Height="Auto" Margin="523,184,6,26">
-                            <CheckBox x:Name="chkPANCARD" FontSize="13" Margin="5" Content="ID Proof" Click="Check_Click"/>
-                            <CheckBox x:Name="chkAddress__Proof" FontSize="13" Margin="5" Content="Address Proof" Click="Check_Click"/>
-                            <CheckBox x:Name="chk7_12" FontSize="13" Margin="5" Content="7 / 12" Click="Check_Click"/>
-                            <CheckBox x:Name="chkForm16" FontSize="13" Margin="5" Content="Form 16" Click="Check_Click"/>
-                            <CheckBox x:Name="chkNodoc_Copy" FontSize="13" Margin="5" Content="No Documents" Click="Check_Click"/>
-                            <CheckBox x:Name="chketc" FontSize="13" Margin="5" Content="etc.." Click="Check_Click"/>
-                            <CheckBox x:Name="chkNodoc" FontSize="13" Margin="5" Content="No Documents" Click="Check_Click"/>
+                    <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
                         </StackPanel>-->
-                        <Label Content="Pre Procurement" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="310,-32,0,0" FontSize="14"/>
-
-                        <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
-                        </StackPanel>-->
-                    </Grid>
-                    <!--Loaded="GRD_Follwup_Loaded"-->
-                </GroupBox>
+                </Grid>
             </Grid>
             <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"      VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" >
                 <Grid HorizontalAlignment="Left" Height="485" Name="grd_addfollowupandwalkin" Margin="206,40,0,0" VerticalAlignment="Top" Width="720" Background="White">
@@ -484,12 +465,16 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Visible"     VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"     VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="191*"/>
+                        <ColumnDefinition Width="38*"/>
+                    </Grid.ColumnDefinitions>
                     <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
                     <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="148" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
-                    <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="840,21,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked"/>
-                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" IsReadOnly="False" Margin="10,100,0,0" VerticalAlignment="Top" Height="435" Width="1125" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False" SelectedCellsChanged="DGRD_SaleFollowup_SelectedCellsChanged" MouseDoubleClick="DGRD_SaleFollowup_MouseDoubleClick">
+                    <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="840,21,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked" Grid.ColumnSpan="2"/>
+                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" IsReadOnly="False" Margin="10,100,0,0" VerticalAlignment="Top" Height="435" Width="1125" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False" SelectedCellsChanged="DGRD_SaleFollowup_SelectedCellsChanged" MouseDoubleClick="DGRD_SaleFollowup_MouseDoubleClick" Grid.ColumnSpan="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID"  x:Name="grdid" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Followup_ID"  x:Name="grdfid" SortMemberPath="VisitorName" Binding="{Binding Followup_ID, Mode=TwoWay}" />
@@ -516,13 +501,13 @@
                     <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
                     <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
                     <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="25" Margin="590,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
-                    <DataGrid x:Name="DGRD_SaleCustomer" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" Visibility="Hidden"  AutoGenerateColumns="False"/>
+                    <DataGrid x:Name="DGRD_SaleCustomer" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" Visibility="Hidden"  AutoGenerateColumns="False" Grid.ColumnSpan="2"/>
                     <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
                         
                     </Grid>-->
                     <Label Content="Select Followup Type :" HorizontalAlignment="Left" Margin="800,60,0,0" VerticalAlignment="Top" Width="155"/>
-                    <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged"/>
-                    <Button x:Name="btnsaleExit" Content="Exit" HorizontalAlignment="Left" Margin="1050,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.867,0.75" Click="btnsaleExit_Click"/>
+                    <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged" Grid.ColumnSpan="2"/>
+                    <Button x:Name="btnsaleExit" Content="Exit" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.867,0.75" Click="btnsaleExit_Click" Grid.Column="1"/>
                     <RadioButton x:Name="rdoSaleOldCustomer1" Content="Old Customer" HorizontalAlignment="Left" Margin="665,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleOldCustomer1_Checked"/>
 
 
