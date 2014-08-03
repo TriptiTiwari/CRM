@@ -112,6 +112,7 @@ namespace CRM_User_Interface
         private void smemployee_Click(object sender, RoutedEventArgs e)
         {
             grd_EmployeeDetails.Visibility = System.Windows.Visibility.Visible;
+            EEMPLOYEEid();
         }
 
         private void btnAdm_Emp_Exit_Click(object sender, RoutedEventArgs e)
@@ -317,7 +318,7 @@ namespace CRM_User_Interface
             txtAdm_DealerName_Search.Text = "";
             DealerDetails_LoadData();
         }
-
+        
         private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -330,23 +331,17 @@ namespace CRM_User_Interface
                 SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 adp.Fill(dt);
-                grd_DealerEntry.Visibility = System.Windows.Visibility.Visible;
                 if (dt.Rows.Count > 0)
                 {
-                    txtAdm_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
-                    txtAdm_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
-                    txtAdm_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
-                    dtpAdm_Dealer_DOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"].ToString());
-                    txtAdm_Dealer_MobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
-                    txtAdm_Dealer_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
-                    txtAdm_Dealer_Address.Text = dt.Rows[0]["DealerAddress"].ToString();
-                    txtAdm_Dealer_City.Text = dt.Rows[0]["City"].ToString();
-                    txtAdm_Dealer_Zip.Text = dt.Rows[0]["Zip"].ToString();
-                    txtAdm_Dealer_State.Text = dt.Rows[0]["DState"].ToString();
-                    txtAdm_Dealer_Country.Text = dt.Rows[0]["Country"].ToString();
+                    txtAdm_DealerID1.Text = dt.Rows[0]["ID"].ToString();
                 }
 
-                btnAdm_Dealer_Save.Content = "Update";
+                frmCRM_DealerDetailsEdit obj = new frmCRM_DealerDetailsEdit();
+                obj.DealerID(txtAdm_DealerID1.Text.Trim());
+                obj.FillData();
+                obj.ShowDialog();
+                
+               // con.Close();
             }
             catch (Exception)
             {
@@ -356,6 +351,7 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
+            DealerDetails_LoadData();
         }
 
         private void btndgv_DealerDelete_Click(object sender, RoutedEventArgs e)
@@ -466,7 +462,7 @@ namespace CRM_User_Interface
             try
             {
                 String str;
-                con.Open();
+                //con.Open();
                 DataSet ds = new DataSet();
                 str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
                              "FROM [tbl_DealerEntry] " +

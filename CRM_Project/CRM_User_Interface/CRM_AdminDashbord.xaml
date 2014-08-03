@@ -13,40 +13,7 @@
             <Button x:Name="btnadminexit" Content="X" HorizontalAlignment="Left" Margin="1138,7,0,0" VerticalAlignment="Top" Width="40" Background="WhiteSmoke" Height="20" FontWeight="Bold" Click="btnadminexit_Click"  />
             <Menu HorizontalAlignment="Left" Height="25" Margin="20,35,0,0"  VerticalAlignment="Top" Width="1160" Foreground="#FF212121" Background="#FF302D2D">
                 <MenuItem  Header="Home" x:Name="mhome" Foreground="White" Width="55" />
-                <!--<MenuItem Width="65">
-                    <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" >Procurement</Label>
-                            <Border>
-                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
-                    BorderBrush="{TemplateBinding Border.BorderBrush}"
-                    Background="{TemplateBinding Panel.Background}">
-                                    <ToggleButton.Style>
-                                        <Style TargetType="ToggleButton">
-                                            <Setter Property="OverridesDefaultStyle" Value="True" />
-
-                                            <Setter Property="Focusable" Value="False" />
-                                            <Setter Property="IsTabStop" Value="False" />
-                                            <Setter Property="Control.Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="ToggleButton">
-                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  Name="Arrow"
-                                    Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                </ToggleButton>
-                            </Border>
-                        </StackPanel>
-                    </MenuItem.Header>
-                    <MenuItem  Name="smnewwalkin" Header="Open New Walk-In"/>
-                    <MenuItem Header=" View Walkins" Name="smviewwalkin"/>
-                    <MenuItem Header=" View Sales" Name="smviewsale"/>
-                    <MenuItem Header=" View Reports" Name="smviewreports"/>
-                    <MenuItem Header=" Import/Export" Name="smiport_export"/>
-                </MenuItem>-->
+                
                 <MenuItem Width="105">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
@@ -216,6 +183,7 @@
                 </Grid.ColumnDefinitions>
             </Grid>
             <TextBlock HorizontalAlignment="Left" Margin="45,85,0,0" TextWrapping="Wrap" Text="HOME : OVERVIEW OF PAST 30 DAYS" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+
             <Grid  HorizontalAlignment="Left" Height="254" Margin="40,141,0,0" VerticalAlignment="Top" Width="1120" Background="White">
                 <Button HorizontalAlignment="Left" x:Name="btnsales" Margin="15,37,0,0"  VerticalAlignment="Top" Width="160" Height="157"  Background="#FF302D2D">
                     <!--<Button.Style>
@@ -293,88 +261,9 @@
 
                 </Button>
             </Grid>
-            <!--<Grid HorizontalAlignment="Left" Height="254" Margin="40,141,0,0" VerticalAlignment="Top" Width="1120" Background="White">
-                <Button HorizontalAlignment="Left" x:Name="btnsales" Margin="15,37,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    -->
-            <!--<Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Green"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>-->
-            <!--
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="SALE MADE" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="6" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
 
-                        <Image Source="DASHBOARD IMAGES/sales made.png" Width="80" Margin="10,0"/>
-                        <Label x:Name="lblsaleMode" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="40" />
-                    </StackPanel>
+            <Grid HorizontalAlignment="Left" Height="200" Margin="40,414,0,0" VerticalAlignment="Top" Width="1120" Background="White"/>
 
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnwalkin" Margin="197,38,0,0"  VerticalAlignment="Top" Width="175" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="135" Height="169">
-                        <TextBlock Text="WALK-IN" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="27,2,28,2"/>
-                        <Grid Height="11" Margin="0,0,3,0"/>
-
-                        <Image Source="DASHBOARD IMAGES/walk ins.png" Margin="7,0,8,0" Height="89"/>
-                        <Label x:Name="LBLWALKIN" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0" Content="66" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnearning" Margin="386,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="EARNING" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="32,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/earnings png.png" Margin="25,0,14,0" Height="88"/>
-                        <Label x:Name="lblearning" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="45,0,43,0" Content="50" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnprogress" Margin="568,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="PROGRESS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/progress.png" Margin="19,0,20,0" Height="88"/>
-                        <Label x:Name="lblprogress" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="80" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnpfprocurement" Margin="751,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold" Height="42" Margin="2,0,-3,0"><Run Text="FINALIZED "/><LineBreak/><Run Text="PROCUREMENT"/></TextBlock>
-                        <Separator Height="8" Margin="21,2,12,2"/>
-                        -->
-            <!--<Grid Height="10"/>-->
-            <!--
-                        <Image Source="DASHBOARD IMAGES/finalized procurements.png" Margin="19,0,12,0" Height="75"/>
-                        <Label x:Name="lblfproc" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0,39,0" Content="40" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnalerts" Margin="935,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="ALERTS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/alerts.png" Margin="19,0,20,0" Height="88"/>
-                        <Label x:Name="lblalerts" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="10" />
-                    </StackPanel>
-
-                </Button>
-            </Grid>-->
-            <Grid HorizontalAlignment="Left" Height="200" Margin="40,395,0,0" VerticalAlignment="Top" Width="1120" Background="White"/>
             <Grid x:Name="grd_EmployeeDetails" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="80,60,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_YearExp" HorizontalAlignment="Left" Margin="450,358,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="cmbAdm_Emp_YearExp_SelectionChanged">
@@ -442,15 +331,12 @@
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
-            <Grid x:Name="grd_DealerDetails" Visibility="Hidden"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+
+            <Grid x:Name="grd_DealerDetails" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
                 <Button x:Name="btnAdm_DealerExit" Content="Exit" HorizontalAlignment="Left" Margin="1083,3,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_DealerExit_Click" />
                 <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
-                    <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="365,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="30" Margin="463,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged" FontSize="18"/>
-                    <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="714,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="30" Margin="796,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged" FontSize="18"/>
-                    <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,49,0,0" VerticalAlignment="Top" Height="442" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
+                    <DataGrid x:Name="dgvAdm_Dealerdetails" HorizontalAlignment="Left" Margin="0,56,0,0" VerticalAlignment="Top" Height="435" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Dealer Code" x:Name="grdDealerDetails_Code" SortMemberPath="DealerEntryID" Binding="{Binding DealerEntryID, Mode=TwoWay}"/>
@@ -476,12 +362,26 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Label Content="Company Name:" HorizontalAlignment="Left" Margin="2,11,0,0" VerticalAlignment="Top" FontSize="14"/>
-                    <TextBox x:Name="txtAdm_CompName_Search" HorizontalAlignment="Left" Height="30" Margin="117,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_CompName_Search_TextChanged" FontSize="18"/>
-                    <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>                   
+                    <GroupBox x:Name="grpDealer_Search1" Header="Search" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" Width="1105" Height="55" BorderBrush="#FF161C8B" BorderThickness="1">
+                        <Grid HorizontalAlignment="Left" Height="35" Margin="-4,0,-2,-2" VerticalAlignment="Top" Width="1099" Background="#FFFEFEFE">
+                            <Label Content="Company Name:" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_CompName_Search" HorizontalAlignment="Left" Height="23" Margin="108,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" TextChanged="txtAdm_CompName_Search_TextChanged"/>
+                            <Label Content="Dealer Name:" HorizontalAlignment="Left" Margin="371,5,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_DealerName_Search" HorizontalAlignment="Left" Height="23" Margin="457,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" TextChanged="txtAdm_DealerName_Search_TextChanged"/>
+                            <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="713,5,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_DealerMN_Search" HorizontalAlignment="Left" Height="23" Margin="786,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
+                            <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1019,5,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnAdm_DealerRefresh_Click"/>
+                        </Grid>
+                    </GroupBox>
                 </Grid>
+                <TextBox x:Name="txtAdm_DealerID1" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
             </Grid>
+<<<<<<< HEAD
             <Grid x:Name="grd_FinalProcurment" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+=======
+
+            <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Visibility="Hidden" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+>>>>>>> 911b5e0f4cb7ded97f5bc2beac34a36f58029a82
                 <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                 <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
@@ -506,5 +406,6 @@
                 </Grid>
             </Grid>
         </Grid>
+
     </Border>
 </Window>

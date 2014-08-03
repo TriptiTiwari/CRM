@@ -101,3 +101,5 @@ C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.g.resources
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.Properties.Resources.resources
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\CRM_User_Interface.csproj.GenerateResource.Cache
+C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\frmCRM_DealerDetailsEdit.baml
+C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\obj\Debug\frmCRM_DealerDetailsEdit.g.cs

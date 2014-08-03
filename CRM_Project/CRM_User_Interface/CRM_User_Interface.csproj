@@ -81,6 +81,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="frmCRM_DealerDetailsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -106,6 +110,9 @@
     </Compile>
     <Compile Include="CRM_MainForm.xaml.cs">
       <DependentUpon>CRM_MainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmCRM_DealerDetailsEdit.xaml.cs">
+      <DependentUpon>frmCRM_DealerDetailsEdit.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
