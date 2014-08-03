@@ -19,7 +19,7 @@ namespace CRM_BAL
 
         public string DealerFirstName { get; set; }
 
-        public string DealerLaseName { get; set; }
+        public string DealerLastName { get; set; }
 
         public DateTime DateOfBirth { get; set; }
 

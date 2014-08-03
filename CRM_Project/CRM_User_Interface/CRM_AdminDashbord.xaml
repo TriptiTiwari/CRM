@@ -409,7 +409,7 @@
                 <Label Content="EmployeeID" x:Name="lblEmpID" HorizontalAlignment="Left" Margin="530,130,0,0" VerticalAlignment="Top"/>
             </Grid>
 
-            <Grid x:Name="grd_DealerEntry" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid x:Name="grd_DealerEntry" Visibility="Visible"  HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="87,56,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_Months1" HorizontalAlignment="Left" Margin="615,358,0,0" VerticalAlignment="Top" Width="110" Visibility="Hidden"/>
                     <Button x:Name="btnAdm_Dealer_Exit" Content="Exit" HorizontalAlignment="Left" Margin="617,440,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_Dealer_Exit_Click" Height="25" />
@@ -481,7 +481,7 @@
                     <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>                   
                 </Grid>
             </Grid>
-            <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid x:Name="grd_FinalProcurment" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                 <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">

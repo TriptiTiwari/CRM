@@ -256,7 +256,7 @@ namespace CRM_User_Interface
                 bdealeretr.DealerEntryID = lblDealerID.Content.ToString();
                 bdealeretr.CompanyName = txtAdm_CompanyName.Text;
                 bdealeretr.DealerFirstName = txtAdm_DealerFirstName.Text;
-                bdealeretr.DealerLaseName = txtAdm_DealerLastName.Text;
+                bdealeretr.DealerLastName = txtAdm_DealerLastName.Text;
                 bdealeretr.DateOfBirth = Convert.ToDateTime(dtpAdm_Dealer_DOB.SelectedDate);
                 bdealeretr.MobileNo = txtAdm_Dealer_MobileNo.Text;
                 bdealeretr.PhoneNo = txtAdm_Dealer_PhoneNo.Text;

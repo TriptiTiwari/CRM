@@ -1210,7 +1210,7 @@ namespace CRM_User_Interface
             Fetch_Pre_Domain();
             load_Insurance();
             load_Followup();
-            
+            FetchDealarname();
 
           
 
@@ -1353,6 +1353,47 @@ namespace CRM_User_Interface
                 checkedStuff.Add(s);
             else
                 checkedStuff.Remove(s);
+        }
+        public void FetchDealarname()
+        {
+            try
+            {
+                con.Open();
+                //DataSet ds = new DataSet();
+                cmd = new SqlCommand("Select DealerFirstName,DealerLastName from tbl_DealerEntry  ", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                // con.Open();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    string a = dt.Rows[0]["DealerFirstName"].ToString();
+                    string b = dt.Rows[0]["DealerLastName"].ToString();
+                    cmbPro_Saler.ItemsSource = (dt.Rows[0]["DealerFirstName"].ToString()) + (dt.Rows[0]["DealerLastName"].ToString());
+                        //string.Concat(a, b);
+                  //  cmbPro_Saler.DisplayMemberPath   = string.Concat(a, b);
+                    //// cmbPreDomain.Text = "--Select--";
+                    //cmbPreDomain.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
+                    //cmbPreDomain.ItemsSource = ds.Tables[0].DefaultView;
+                    //cmbPreDomain.DisplayMemberPath = ds.Tables[0].Columns["Domain_Name"].ToString();
+                    //// cmbPreDomain.Items.Insert(0, "--Select--");
+                    //// cmbPreDomain.Items.Insert(0, new ListItem("--Select--", "0"));
+                }
+                //con.Open();
+
+                //cmd = new SqlCommand("Select DealerFirstName,DealerLastName from tbl_DealerEntry ", con);
+
+                //SqlDataReader dr = cmd.ExecuteReader();
+
+                //while (dr.Read())
+                //{ string a=dr["DealerFirstName"].ToString ();
+                //    string b=dr["DealerLastName"].ToString ();
+                //    cmbPro_Saler.Text = string.Concat(a, b);
+                //}
+            }
+            catch { throw; }
+            finally { con.Close(); }
         }
         private void btnPro_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -2531,6 +2572,8 @@ namespace CRM_User_Interface
         {
             GRD_Customer_Billing.Visibility = Visibility.Hidden;
             DGRD_SaleFollowup.Visibility = Visibility;
+        
+
         }
 
         private void DGRD_SaleFollowup_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -2578,6 +2621,11 @@ namespace CRM_User_Interface
                 throw;
             }
             finally { con.Close(); }
+        }
+
+        private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
+        {
+
         }
      
     }
