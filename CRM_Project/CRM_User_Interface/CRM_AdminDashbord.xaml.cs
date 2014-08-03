@@ -112,6 +112,7 @@ namespace CRM_User_Interface
         private void smemployee_Click(object sender, RoutedEventArgs e)
         {
             grd_EmployeeDetails.Visibility = System.Windows.Visibility.Visible;
+            EEMPLOYEEid();
         }
 
         private void btnAdm_Emp_Exit_Click(object sender, RoutedEventArgs e)

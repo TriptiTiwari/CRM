@@ -216,6 +216,7 @@
                 </Grid.ColumnDefinitions>
             </Grid>
             <TextBlock HorizontalAlignment="Left" Margin="45,85,0,0" TextWrapping="Wrap" Text="HOME : OVERVIEW OF PAST 30 DAYS" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+            
             <Grid  HorizontalAlignment="Left" Height="254" Margin="40,141,0,0" VerticalAlignment="Top" Width="1120" Background="White">
                 <Button HorizontalAlignment="Left" x:Name="btnsales" Margin="15,37,0,0"  VerticalAlignment="Top" Width="160" Height="157"  Background="#FF302D2D">
                     <!--<Button.Style>
@@ -293,88 +294,9 @@
 
                 </Button>
             </Grid>
-            <!--<Grid HorizontalAlignment="Left" Height="254" Margin="40,141,0,0" VerticalAlignment="Top" Width="1120" Background="White">
-                <Button HorizontalAlignment="Left" x:Name="btnsales" Margin="15,37,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    -->
-            <!--<Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="Green"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Red"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>-->
-            <!--
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="SALE MADE" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="6" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/sales made.png" Width="80" Margin="10,0"/>
-                        <Label x:Name="lblsaleMode" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="40" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnwalkin" Margin="197,38,0,0"  VerticalAlignment="Top" Width="175" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="135" Height="169">
-                        <TextBlock Text="WALK-IN" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="27,2,28,2"/>
-                        <Grid Height="11" Margin="0,0,3,0"/>
-
-                        <Image Source="DASHBOARD IMAGES/walk ins.png" Margin="7,0,8,0" Height="89"/>
-                        <Label x:Name="LBLWALKIN" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0" Content="66" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnearning" Margin="386,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="EARNING" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="32,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/earnings png.png" Margin="25,0,14,0" Height="88"/>
-                        <Label x:Name="lblearning" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="45,0,43,0" Content="50" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnprogress" Margin="568,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="PROGRESS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/progress.png" Margin="19,0,20,0" Height="88"/>
-                        <Label x:Name="lblprogress" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="80" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnpfprocurement" Margin="751,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold" Height="42" Margin="2,0,-3,0"><Run Text="FINALIZED "/><LineBreak/><Run Text="PROCUREMENT"/></TextBlock>
-                        <Separator Height="8" Margin="21,2,12,2"/>
-                        -->
-            <!--<Grid Height="10"/>-->
-            <!--
-                        <Image Source="DASHBOARD IMAGES/finalized procurements.png" Margin="19,0,12,0" Height="75"/>
-                        <Label x:Name="lblfproc" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="49,0,39,0" Content="40" />
-                    </StackPanel>
-
-                </Button>
-                <Button HorizontalAlignment="Left" x:Name="btnalerts" Margin="935,39,0,0"  VerticalAlignment="Top" Width="170" Height="185"  Background="#FF302D2D">
-                    <StackPanel Width="134" Height="169">
-                        <TextBlock Text="ALERTS" TextAlignment="Center" Foreground="#FFFBFBFB" FontSize="16" FontWeight="Bold"/>
-                        <Separator Height="9" Margin="21,2,23,2"/>
-                        <Grid Height="10"/>
-
-                        <Image Source="DASHBOARD IMAGES/alerts.png" Margin="19,0,20,0" Height="88"/>
-                        <Label x:Name="lblalerts" Foreground="#FFFBF7F7" FontSize="22" FontWeight="Bold" Margin="42,0,46,0" Content="10" />
-                    </StackPanel>
-
-                </Button>
-            </Grid>-->
-            <Grid HorizontalAlignment="Left" Height="200" Margin="40,395,0,0" VerticalAlignment="Top" Width="1120" Background="White"/>
+            
+            <Grid HorizontalAlignment="Left" Height="200" Margin="40,414,0,0" VerticalAlignment="Top" Width="1120" Background="White"/>
+            
             <Grid x:Name="grd_EmployeeDetails" Visibility="Hidden" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="480" Margin="80,60,0,0" VerticalAlignment="Top" Width="995" Background="#FFF6F6F6">
                     <ComboBox x:Name="cmbAdm_Emp_YearExp" HorizontalAlignment="Left" Margin="450,358,0,0" VerticalAlignment="Top" Width="110" SelectionChanged="cmbAdm_Emp_YearExp_SelectionChanged">
@@ -442,6 +364,7 @@
                 <Label Content="Country:" HorizontalAlignment="Left" Margin="392,449,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="txtAdm_Dealer_Country" HorizontalAlignment="Left" Height="23" Margin="521,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Text="India"/>
             </Grid>
+            
             <Grid x:Name="grd_DealerDetails" Visibility="Hidden"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
                 <Button x:Name="btnAdm_DealerExit" Content="Exit" HorizontalAlignment="Left" Margin="1083,3,0,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_DealerExit_Click" />
                 <Label Content="Dealer Details" HorizontalAlignment="Left" Margin="534,7,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
@@ -481,7 +404,8 @@
                     <Button x:Name="btnAdm_DealerRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="1025,11,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_DealerRefresh_Click"/>                   
                 </Grid>
             </Grid>
-            <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            
+            <Grid x:Name="grd_FinalProcurment" HorizontalAlignment="Left" Visibility="Hidden" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                 <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
