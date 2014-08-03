@@ -318,7 +318,6 @@ namespace CRM_User_Interface
             txtAdm_DealerName_Search.Text = "";
             DealerDetails_LoadData();
         }
-
         
         private void btndgv_DealerEdit_Click(object sender, RoutedEventArgs e)
         {

@@ -13,40 +13,7 @@
             <Button x:Name="btnadminexit" Content="X" HorizontalAlignment="Left" Margin="1138,7,0,0" VerticalAlignment="Top" Width="40" Background="WhiteSmoke" Height="20" FontWeight="Bold" Click="btnadminexit_Click"  />
             <Menu HorizontalAlignment="Left" Height="25" Margin="20,35,0,0"  VerticalAlignment="Top" Width="1160" Foreground="#FF212121" Background="#FF302D2D">
                 <MenuItem  Header="Home" x:Name="mhome" Foreground="White" Width="55" />
-                <!--<MenuItem Width="65">
-                    <MenuItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Padding="0" Margin="0 0 0 1" Foreground="White" >Procurement</Label>
-                            <Border>
-                                <ToggleButton IsChecked="False" IsHitTestVisible="False"
-                    BorderBrush="{TemplateBinding Border.BorderBrush}"
-                    Background="{TemplateBinding Panel.Background}">
-                                    <ToggleButton.Style>
-                                        <Style TargetType="ToggleButton">
-                                            <Setter Property="OverridesDefaultStyle" Value="True" />
-
-                                            <Setter Property="Focusable" Value="False" />
-                                            <Setter Property="IsTabStop" Value="False" />
-                                            <Setter Property="Control.Template">
-                                                <Setter.Value>
-                                                    <ControlTemplate TargetType="ToggleButton">
-                                                        <Path Data="M0,0L3.5,4 7,0z" Fill="White"  Name="Arrow"
-                                    Margin="3,1,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                                                    </ControlTemplate>
-                                                </Setter.Value>
-                                            </Setter>
-                                        </Style>
-                                    </ToggleButton.Style>
-                                </ToggleButton>
-                            </Border>
-                        </StackPanel>
-                    </MenuItem.Header>
-                    <MenuItem  Name="smnewwalkin" Header="Open New Walk-In"/>
-                    <MenuItem Header=" View Walkins" Name="smviewwalkin"/>
-                    <MenuItem Header=" View Sales" Name="smviewsale"/>
-                    <MenuItem Header=" View Reports" Name="smviewreports"/>
-                    <MenuItem Header=" Import/Export" Name="smiport_export"/>
-                </MenuItem>-->
+                
                 <MenuItem Width="105">
                     <MenuItem.Header>
                         <StackPanel Orientation="Horizontal">
