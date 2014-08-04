@@ -534,6 +534,58 @@ namespace CRM_User_Interface
             grd_FinalProcurment.Visibility = System.Windows.Visibility.Hidden;
         }
 
+        //public void Final_PreProcurement()
+        //{
+        //    try
+        //    {
+        //        String str;
+        //        //con.Open();
+        //        DataSet ds = new DataSet();
+        //        str = "SELECT P.[ID],P.[DealerID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID] " +
+        //              ",D.[DealerFirstName] + '' + D.[DealerLastName] AS [DealerName],D.[MobileNo],D.[PhoneNo] " +
+        //              ",DM.[Domain_Name] + ',' + PM.[Product_Name] + ',' + B.[Brand_Name] + ',' + PC.[Product_Category] + '' + MN.[Model_No] + '' + C.[Color] AS [Products]" +
+        //              "FROM [Pre_Procurement] P" +
+        //              "INNER JOIN [tbl_DealerEntry] D ON D.[ID] = P.[DealerID] " +
+        //              "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
+        //              "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
+        //              "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
+        //              "INNER JOIN [tlb_P_Category] PC.[ID]=P.[P_Category]" +
+        //              "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
+        //              "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+        //              "WHERE ";
+        //        if (txtAdm_CompName_Search.Text.Trim() != string.Empty)
+        //        {
+        //            str = str + "[CompanyName] LIKE ISNULL('" + txtAdm_CompName_Search.Text.Trim() + "',CompanyName) + '%' AND ";
+        //        }
+        //        if (txtAdm_DealerName_Search.Text.Trim() != string.Empty)
+        //        {
+        //            str = str + "[DealerFirstName] LIKE ISNULL('" + txtAdm_DealerName_Search.Text.Trim() + "',DealerFirstName) + '%' AND ";
+        //        }
+        //        if (txtAdm_DealerMN_Search.Text.Trim() != string.Empty)
+        //        {
+        //            str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_DealerMN_Search.Text.Trim() + "',MobileNo) + '%' AND ";
+        //        }
+        //        str = str + " S_Status = 'Active' ORDER BY DealerName ASC ";
+        //        SqlCommand cmd = new SqlCommand(str, con);
+        //        SqlDataAdapter da = new SqlDataAdapter(cmd);
+        //        da.Fill(ds);
+
+        //        //if (ds.Tables[0].Rows.Count > 0)
+        //        //{
+        //        dgvAdm_Dealerdetails.ItemsSource = ds.Tables[0].DefaultView;
+        //        //}
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
+
+
     }
 }
 
