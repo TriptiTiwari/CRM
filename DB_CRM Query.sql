@@ -8,7 +8,7 @@ Create Table tbl_DealerEntry
 	DealerEntryID nvarchar(MAX) not null,
 	CompanyName nvarchar(MAX) not null,
 	DealerFirstName nvarchar(MAX) not null,
-	DealerLaseName nvarchar(MAX) not null,
+	DealerLastName nvarchar(MAX) not null,
 	DateOfBirth datetime not null,
 	MobileNo nvarchar(MAX) not null,
 	PhoneNo nvarchar(MAX) not null,
