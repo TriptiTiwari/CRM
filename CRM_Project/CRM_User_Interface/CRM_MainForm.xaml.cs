@@ -1359,6 +1359,7 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
+<<<<<<< HEAD
                 String str2 = "Select ID, [DealerFirstName]+''+[DealerLastName] as [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
                 cmd = new SqlCommand(str2, con);
                 DataSet ds = new DataSet();
@@ -1370,6 +1371,21 @@ namespace CRM_User_Interface
                 cmbPreProduct.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
                 cmbPre_Pro_Salename.ItemsSource = ds.Tables[0].DefaultView;
                 cmbPre_Pro_Salename.DisplayMemberPath = ds.Tables[0].Columns["DealerName"].ToString();
+=======
+                String str2 = "Select [ID], [DealerFirstName] + ' ' + [DealerLastName] AS [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
+                cmd = new SqlCommand(str2, con);
+                DataSet   ds = new DataSet();
+                // dt = new DataTable();
+                SqlDataAdapter    adp = new SqlDataAdapter(cmd);
+                adp.Fill(ds);
+
+                cmbPre_Pro_Salename.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
+                cmbPre_Pro_Salename.ItemsSource = ds.Tables[0].DefaultView;
+                //string a = ds.Tables[0].Columns["DealerFirstName"].ToString();
+                //string b = ds.Tables[0].Columns["DealerLastName"].ToString();
+                cmbPre_Pro_Salename.DisplayMemberPath = ds.Tables[0].Columns["DealerName"].ToString();
+
+>>>>>>> origin/master
                 }
 
             }
@@ -1382,7 +1398,11 @@ namespace CRM_User_Interface
             {
 
                 bpreproc.Flag = 1;
+<<<<<<< HEAD
                 bpreproc.DealerID = cmbPre_Pro_Salename.SelectedItem.GetHashCode(); //txtsalername.Text;
+=======
+                bpreproc.DealerID = cmbPre_Pro_Salename.SelectedValue.GetHashCode(); //txtsalername.Text;
+>>>>>>> origin/master
                //bpreproc.Phone_Id = txtprephone .Text ;
                 bpreproc.Domain_ID = Convert.ToInt32(cmbPreDomain .SelectedValue.GetHashCode());
                 bpreproc.Product_ID = Convert.ToInt32(cmbPreProduct .SelectedValue.GetHashCode());
