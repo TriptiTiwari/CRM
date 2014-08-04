@@ -84,7 +84,7 @@
                             </Border>
                         </StackPanel>
                     </MenuItem.Header>
-                    <MenuItem Header="View Procurement List " x:Name="smviewprocurement"/>
+                    <MenuItem Header="View Procurement List " x:Name="smviewprocurement" Click="smviewprocurement_Click"/>
                     <MenuItem Header="View All Products " x:Name="smviewproducts"/>
                     <MenuItem Header="View Sales Records " x:Name="smviewsalerecords"/>
                     <MenuItem Header="View Messages " x:Name="smviewmsg"/>
@@ -393,11 +393,11 @@
                         </Grid>
                         <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="294,30,0,0" VerticalAlignment="Top" Width="131"/>
                         <Label Content="Filter By:" HorizontalAlignment="Left" Margin="467,30,0,0" VerticalAlignment="Top" Width="57"/>
-                        <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217"/>
+                        <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217" IsEditable="True"/>
                         <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="96,30,0,0" VerticalAlignment="Top" Width="131"/>
                         <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                         <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75"/>
-                        <DataGrid Margin="7,70,8,0" VerticalAlignment="Top" Height="435">
+                        <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,70,8,0" VerticalAlignment="Top" Height="435">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Dealer Name" Width="200"  x:Name="grdFinalPro_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}" />
