@@ -400,13 +400,14 @@
                         <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,70,8,0" VerticalAlignment="Top" Height="435">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Proc Date" Width="80"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Dealer Name" Width="200"  x:Name="grdFinalPro_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Mobile No" Width="150"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Phone No" Width="150"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Products" Width="300"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Mobile No" Width="120"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Phone No" Width="120"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Products" Width="280"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Followup Date" Width="100"  x:Name="grdFinalPro_NFDate" SortMemberPath="FollowupDate" Binding="{Binding FollowupDate, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Warranty" Width="100"  x:Name="grdFinalPro_Warranty" SortMemberPath="Warranty" Binding="{Binding Warranty, Mode=TwoWay}" />
-                                <DataGridCheckBoxColumn Header="Add To Sale" Width="100"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
+                                <DataGridCheckBoxColumn Header="Add To Sale" Width="75"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
                             </DataGrid.Columns>
                         </DataGrid>
                     </Grid>
