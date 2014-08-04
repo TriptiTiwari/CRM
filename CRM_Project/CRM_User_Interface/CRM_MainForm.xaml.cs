@@ -2619,6 +2619,11 @@ namespace CRM_User_Interface
         {
 
         }
+
+        private void txtInvoice_InvcTotalAmount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
      
     }
 
