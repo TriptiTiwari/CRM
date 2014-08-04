@@ -549,60 +549,63 @@ namespace CRM_User_Interface
                       "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
                       "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
                       "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
-                      "INNER JOIN [tlb_P_Category] PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
                       "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
                       "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
                       "WHERE ";
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Domain"))
+                if(cmbAdm_DealerFilter_Search.Text.Equals("Select"))
                 {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
-                    { 
-                        str = str + "DM.[Domain_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',DM.[Domain_Name]) + '%' AND ";
-                    }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Product Type")) 
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Domain"))
                     {
-                        str = str + "PM.[Product_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PM.[Product_Name]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "DM.[Domain_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',DM.[Domain_Name]) + '%' AND ";
+                        }
                     }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Brand")) 
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Product Type"))
                     {
-                        str = str + "B.[Brand_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',B.[Brand_Name]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "PM.[Product_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PM.[Product_Name]) + '%' AND ";
+                        }
                     }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Product Category"))
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Brand"))
                     {
-                        str = str + "PC.[Product_Category] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PC.[Product_Category]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "B.[Brand_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',B.[Brand_Name]) + '%' AND ";
+                        }
                     }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Model"))
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Product Category"))
                     {
-                        str = str + "MN.[Model_No] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',MN.[Model_No]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "PC.[Product_Category] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PC.[Product_Category]) + '%' AND ";
+                        }
                     }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Color"))
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Model"))
                     {
-                        str = str + "C.[Color] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',C.[Color]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "MN.[Model_No] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',MN.[Model_No]) + '%' AND ";
+                        }
                     }
-                }
-                if (cmbAdm_DealerFilter_Search.SelectedItem.Equals("Products / Services"))
-                {
-                    if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                    if (cmbAdm_DealerFilter_Search.Text.Equals("Color"))
                     {
-                        str = str + "[Products] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',[Products]) + '%' AND ";
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "C.[Color] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',C.[Color]) + '%' AND ";
+                        }
+                    }
+                   if (cmbAdm_DealerFilter_Search.Text.Equals("Products / Services"))
+                    {
+                        if (txtAdm_Dealer_Filter_Search.Text.Trim() == "")
+                        {
+                            str = str + "[Products] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',[Products]) + '%' AND ";
+                        }
                     }
                 }
-                str = str + " S_Status = 'Active' ORDER BY DealerFirstName ASC ";
+                str = str + " P.S_Status = 'Active' ORDER BY D.DealerFirstName ASC ";
                 //str = str + " S_Status = 'Active' ";
                 SqlCommand cmd = new SqlCommand(str, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -625,7 +628,7 @@ namespace CRM_User_Interface
 
         public void LoadFinal()
         {
-            cmbAdm_DealerFilter_Search.Text = "--Select--";
+            cmbAdm_DealerFilter_Search.Text = "Select";
             cmbAdm_DealerFilter_Search.Items.Add("Domain");
             cmbAdm_DealerFilter_Search.Items.Add("Product Type");
             cmbAdm_DealerFilter_Search.Items.Add("Brand");
