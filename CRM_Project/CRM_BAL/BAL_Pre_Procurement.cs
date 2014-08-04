@@ -9,8 +9,8 @@ namespace CRM_BAL
  public  class BAL_Pre_Procurement
  {
      public int Flag { get; set; }
-     public String Saler_Name { get; set; }
      public int DealerID { get; set; }
+    // public int Domain_ID { get; set; }
      public string Phone { get; set; }
      public String  Phone_Id { get; set; }
      public string Domain_Name { get; set; }
