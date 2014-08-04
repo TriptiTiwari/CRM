@@ -393,7 +393,7 @@
                         </Grid>
                         <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="294,30,0,0" VerticalAlignment="Top" Width="131"/>
                         <Label Content="Filter By:" HorizontalAlignment="Left" Margin="467,30,0,0" VerticalAlignment="Top" Width="57"/>
-                        <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217"/>
+                        <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217" IsEditable="True"/>
                         <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="96,30,0,0" VerticalAlignment="Top" Width="131"/>
                         <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
                         <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75"/>

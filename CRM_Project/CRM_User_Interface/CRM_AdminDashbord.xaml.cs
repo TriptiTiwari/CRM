@@ -549,7 +549,7 @@ namespace CRM_User_Interface
                       "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
                       "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
                       "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
-                      "INNER JOIN [tlb_P_Category] PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
                       "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
                       "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
                       "WHERE ";
@@ -605,7 +605,7 @@ namespace CRM_User_Interface
                         }
                     }
                 }
-                str = str + " S_Status = 'Active' ORDER BY DealerFirstName ASC ";
+                str = str + " P.S_Status = 'Active' ORDER BY D.DealerFirstName ASC ";
                 //str = str + " S_Status = 'Active' ";
                 SqlCommand cmd = new SqlCommand(str, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
