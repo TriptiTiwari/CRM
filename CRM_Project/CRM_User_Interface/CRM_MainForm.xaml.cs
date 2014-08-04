@@ -1359,41 +1359,19 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
-                String str2 = "Select DealerFirstName,DealerLastName from tbl_DealerEntry  where  S_Status='Active' ";
+                String str2 = "Select [ID], [DealerFirstName] + ' ' + [DealerLastName] AS [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
                 cmd = new SqlCommand(str2, con);
-              DataSet   ds = new DataSet();
+                DataSet   ds = new DataSet();
                 // dt = new DataTable();
-             SqlDataAdapter    adp = new SqlDataAdapter(cmd);
+                SqlDataAdapter    adp = new SqlDataAdapter(cmd);
                 adp.Fill(ds);
 
+                cmbPre_Pro_Salename.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
                 cmbPre_Pro_Salename.ItemsSource = ds.Tables[0].DefaultView;
-                string a = ds.Tables[0].Columns["DealerFirstName"].ToString();
-                string b = ds.Tables[0].Columns["DealerLastName"].ToString();
-                cmbPre_Pro_Salename.DisplayMemberPath = string.Concat(a, b);
+                //string a = ds.Tables[0].Columns["DealerFirstName"].ToString();
+                //string b = ds.Tables[0].Columns["DealerLastName"].ToString();
+                cmbPre_Pro_Salename.DisplayMemberPath = ds.Tables[0].Columns["DealerName"].ToString();
 
-               // DealerLastName
-                //con.Open();
-                ////DataSet ds = new DataSet();
-                //cmd = new SqlCommand("Select DealerFirstName,DealerLastName from tbl_DealerEntry  ", con);
-                //SqlDataAdapter da = new SqlDataAdapter(cmd);
-                //DataTable dt = new DataTable();
-                //// con.Open();
-                //da.Fill(dt);
-
-                //if (dt.Rows.Count > 0)
-                //{
-                //    string a = dt.Rows[0]["DealerFirstName"].ToString();
-                //    string b = dt.Rows[0]["DealerLastName"].ToString();
-             
-             
-                    //string.Concat(a, b);
-                  //  cmbPro_Saler.DisplayMemberPath   = string.Concat(a, b);
-                    //// cmbPreDomain.Text = "--Select--";
-                    //cmbPreDomain.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
-                    //cmbPreDomain.ItemsSource = ds.Tables[0].DefaultView;
-                    //cmbPreDomain.DisplayMemberPath = ds.Tables[0].Columns["Domain_Name"].ToString();
-                    //// cmbPreDomain.Items.Insert(0, "--Select--");
-                    //// cmbPreDomain.Items.Insert(0, new ListItem("--Select--", "0"));
                 }
                 //con.Open();
 

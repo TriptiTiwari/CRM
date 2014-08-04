@@ -464,7 +464,7 @@ namespace CRM_User_Interface
                 String str;
                 //con.Open();
                 DataSet ds = new DataSet();
-                str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLaseName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
+                str = "SELECT [ID],[DealerEntryID],[CompanyName],[DealerFirstName] + ' ' + [DealerLastName] AS [DealerName],[DateOfBirth],[MobileNo],[PhoneNo],[DealerAddress] " +
                              "FROM [tbl_DealerEntry] " +
                              "WHERE ";
                 if (txtAdm_CompName_Search.Text.Trim() != string.Empty)
