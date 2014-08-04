@@ -59,7 +59,7 @@ namespace CRM_User_Interface
                     lbl_Edit_DealerID.Content = dt.Rows[0]["DealerEntryID"].ToString();
                     txtAdmEdit_CompanyName.Text = dt.Rows[0]["CompanyName"].ToString();
                     txtAdmEdit_DealerFirstName.Text = dt.Rows[0]["DealerFirstName"].ToString();
-                    txtAdmEdit_DealerLastName.Text = dt.Rows[0]["DealerLaseName"].ToString();
+                    txtAdmEdit_DealerLastName.Text = dt.Rows[0]["DealerLastName"].ToString();
                     dtpAdmEdit_Dealer_DOB.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfBirth"].ToString());
                     txtAdmEdit_Dealer_MobileNo.Text = dt.Rows[0]["MobileNo"].ToString();
                     txtAdmEdit_Dealer_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
@@ -87,6 +87,7 @@ namespace CRM_User_Interface
             try
             {
                 bdealerupd.Flag = 2;
+                bdealerupd.id = Convert.ToInt32(txtDealerID.Text);
                 bdealerupd.DealerEntryID = lbl_Edit_DealerID.Content.ToString();
                 bdealerupd.CompanyName = txtAdmEdit_CompanyName.Text;
                 bdealerupd.DealerFirstName = txtAdmEdit_DealerFirstName.Text;
