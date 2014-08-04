@@ -423,11 +423,9 @@
 
                     <Label Content="Narration :" HorizontalAlignment="Left" Margin="161,357,0,0" VerticalAlignment="Top" Width="135"/>
                     <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="65" Margin="315,358,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270"/>
-<<<<<<< HEAD
+
                     <ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="414" SelectionChanged="cmbPre_Pro_Salename_SelectionChanged" IsEditable="True"/>
-=======
-                    <ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="414" IsEditable="True"/>
->>>>>>> origin/master
+                    <!--<ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="414" IsEditable="True"/>-->
 
                     <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
                         </StackPanel>-->
