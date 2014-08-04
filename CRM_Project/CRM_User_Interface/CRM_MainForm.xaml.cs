@@ -1359,54 +1359,20 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
-                String str2 = "Select DealerFirstName,DealerLastName from tbl_DealerEntry  where  S_Status='Active' ";
+                String str2 = "Select ID, [DealerFirstName]+''+[DealerLastName] as [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
                 cmd = new SqlCommand(str2, con);
-              DataSet   ds = new DataSet();
+                DataSet ds = new DataSet();
                 // dt = new DataTable();
-             SqlDataAdapter    adp = new SqlDataAdapter(cmd);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
                 adp.Fill(ds);
-
+                if(ds.Tables[0].Rows .Count >0)
+                { 
+                cmbPreProduct.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
                 cmbPre_Pro_Salename.ItemsSource = ds.Tables[0].DefaultView;
-                string a = ds.Tables[0].Columns["DealerFirstName"].ToString();
-                string b = ds.Tables[0].Columns["DealerLastName"].ToString();
-                cmbPre_Pro_Salename.DisplayMemberPath = string.Concat(a, b);
-
-               // DealerLastName
-                //con.Open();
-                ////DataSet ds = new DataSet();
-                //cmd = new SqlCommand("Select DealerFirstName,DealerLastName from tbl_DealerEntry  ", con);
-                //SqlDataAdapter da = new SqlDataAdapter(cmd);
-                //DataTable dt = new DataTable();
-                //// con.Open();
-                //da.Fill(dt);
-
-                //if (dt.Rows.Count > 0)
-                //{
-                //    string a = dt.Rows[0]["DealerFirstName"].ToString();
-                //    string b = dt.Rows[0]["DealerLastName"].ToString();
-             
-             
-                    //string.Concat(a, b);
-                  //  cmbPro_Saler.DisplayMemberPath   = string.Concat(a, b);
-                    //// cmbPreDomain.Text = "--Select--";
-                    //cmbPreDomain.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
-                    //cmbPreDomain.ItemsSource = ds.Tables[0].DefaultView;
-                    //cmbPreDomain.DisplayMemberPath = ds.Tables[0].Columns["Domain_Name"].ToString();
-                    //// cmbPreDomain.Items.Insert(0, "--Select--");
-                    //// cmbPreDomain.Items.Insert(0, new ListItem("--Select--", "0"));
+                cmbPre_Pro_Salename.DisplayMemberPath = ds.Tables[0].Columns["DealerName"].ToString();
                 }
-                //con.Open();
 
-                //cmd = new SqlCommand("Select DealerFirstName,DealerLastName from tbl_DealerEntry ", con);
-
-                //SqlDataReader dr = cmd.ExecuteReader();
-
-                //while (dr.Read())
-                //{ string a=dr["DealerFirstName"].ToString ();
-                //    string b=dr["DealerLastName"].ToString ();
-                //    cmbPro_Saler.Text = string.Concat(a, b);
-                //}
-          //  }
+            }
             catch { throw; }
             finally { con.Close(); }
         }
@@ -1416,7 +1382,7 @@ namespace CRM_User_Interface
             {
 
                 bpreproc.Flag = 1;
-                bpreproc.Saler_Name =cmbPre_Pro_Salename .SelectedValue.ToString(); //txtsalername.Text;
+                bpreproc.DealerID = cmbPre_Pro_Salename.SelectedItem.GetHashCode(); //txtsalername.Text;
                //bpreproc.Phone_Id = txtprephone .Text ;
                 bpreproc.Domain_ID = Convert.ToInt32(cmbPreDomain .SelectedValue.GetHashCode());
                 bpreproc.Product_ID = Convert.ToInt32(cmbPreProduct .SelectedValue.GetHashCode());
@@ -1567,7 +1533,7 @@ namespace CRM_User_Interface
         }
         private void cmbPreDomain_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            fetcdoc = cmbPreDomain.SelectedValue.GetHashCode();
+           // fetcdoc = cmbPreDomain.SelectedValue.GetHashCode();
             cmbPreProduct.SelectedValue = null;
             cmbPrePCategory.SelectedValue = null;
             cmbPreBrand.SelectedValue = null;
@@ -2639,6 +2605,11 @@ namespace CRM_User_Interface
         }
 
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cmbPre_Pro_Salename_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
