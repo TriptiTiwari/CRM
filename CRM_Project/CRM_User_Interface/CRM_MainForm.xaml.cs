@@ -1394,7 +1394,7 @@ namespace CRM_User_Interface
             {
 
                 bpreproc.Flag = 1;
-                bpreproc.Saler_Name =cmbPre_Pro_Salename .SelectedValue.ToString(); //txtsalername.Text;
+                bpreproc.DealerID = cmbPre_Pro_Salename.SelectedValue.GetHashCode(); //txtsalername.Text;
                //bpreproc.Phone_Id = txtprephone .Text ;
                 bpreproc.Domain_ID = Convert.ToInt32(cmbPreDomain .SelectedValue.GetHashCode());
                 bpreproc.Product_ID = Convert.ToInt32(cmbPreProduct .SelectedValue.GetHashCode());
