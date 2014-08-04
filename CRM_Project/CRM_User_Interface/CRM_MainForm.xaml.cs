@@ -2624,6 +2624,77 @@ namespace CRM_User_Interface
         {
 
         }
+
+        private void btnInvoice_Cash_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoce_Cash.Visibility = Visibility;
+        }
+
+        private void btnInvoice_Cheque_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoice_Cheque.Visibility = Visibility;
+        }
+
+        private void btnInvoice_CH_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoice_Cheque.Visibility = Visibility.Hidden ;
+        }
+
+        private void btnInvoice_Finance_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoice_Finance.Visibility = Visibility; 
+        }
+
+        private void btnInvoice_InstalExit_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoice_Installment.Visibility = Visibility.Hidden;
+        }
+
+        private void btnInvoice_Installment_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoice_Installment.Visibility = Visibility;
+
+        }
+
+        private void rdo_Invoice_Yearlyinstallment_Checked(object sender, RoutedEventArgs e)
+        {
+            rdo_Invoice_Yearlyinstallment.IsEnabled = true;
+          //  rdoInvoice_rdo_Invoice_Monthlyinstallment.IsEnabled = false ;
+            loadyear();
+        }
+
+        private void rdoInvoice_rdo_Invoice_Monthlyinstallment_Checked(object sender, RoutedEventArgs e)
+        {
+            rdoInvoice_rdo_Invoice_Monthlyinstallment.IsEnabled = true;
+           // rdo_Invoice_Yearlyinstallment.IsEnabled = false ;
+            loadMonth();
+        }
+        public void loadyear()
+        {
+            cmdInvoice_InstalYear.Text = "---Select---";
+            cmdInvoice_InstalYear.Items.Add("1 Year");
+            cmdInvoice_InstalYear.Items.Add("2 Year");
+            cmdInvoice_InstalYear.Items.Add("3 Year");
+            cmdInvoice_InstalYear.Items.Add("4 Year");
+            cmdInvoice_InstalYear.Items.Add("5 Year");
+
+        }
+        public void loadMonth()
+        {
+            cmdInvoice_InstalMonth.Text = "---Select---";
+            cmdInvoice_InstalMonth.Items.Add("1 Month");
+            cmdInvoice_InstalMonth.Items.Add("2 Month");
+            cmdInvoice_InstalMonth.Items.Add("3 Month");
+            cmdInvoice_InstalMonth.Items.Add("4 Month");
+            cmdInvoice_InstalMonth.Items.Add("5 Month");
+            cmdInvoice_InstalMonth.Items.Add("6 Month");
+            cmdInvoice_InstalMonth.Items.Add("7 Month");
+            cmdInvoice_InstalMonth.Items.Add("8 Month");
+            cmdInvoice_InstalMonth.Items.Add("9 Month");
+            cmdInvoice_InstalMonth.Items.Add("10 Month");
+            cmdInvoice_InstalMonth.Items.Add("11 Month");
+
+        }
      
     }
 
