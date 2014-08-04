@@ -11,9 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Globalization;
+
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Microsoft.Win32;
 using CRM_BAL;
 using CRM_DAL;
 
@@ -31,6 +34,8 @@ namespace CRM_User_Interface
 
         string caption = "Green Future Glob";
         int cid;
+        double y1;
+        string year;
       
         public CRM_MainForm()
         {
@@ -2652,22 +2657,46 @@ namespace CRM_User_Interface
 
         private void btnInvoice_Installment_Click(object sender, RoutedEventArgs e)
         {
+            
+            //if(txtInvoice_InstalTotalAmount .Text =="")
+            //{
+            //    MessageBox.Show("Please Select Atleast One Product",caption , MessageBoxButton.OK );
+            //}
+            //else { GRDInvoice_Installment.Visibility = Visibility; }
             GRDInvoice_Installment.Visibility = Visibility;
-
         }
 
         private void rdo_Invoice_Yearlyinstallment_Checked(object sender, RoutedEventArgs e)
         {
-            rdo_Invoice_Yearlyinstallment.IsEnabled = true;
-          //  rdoInvoice_rdo_Invoice_Monthlyinstallment.IsEnabled = false ;
-            loadyear();
+            if (rdo_Invoice_Yearlyinstallment.IsChecked == true)
+            {
+                rdo_Invoice_Yearlyinstallment.IsEnabled = true;
+                //  rdoInvoice_rdo_Invoice_Monthlyinstallment.IsEnabled = false ;
+                loadyear();
+            }
+            else if (rdo_Invoice_Yearlyinstallment.IsChecked == false )
+            {
+                loadyear();
+                txtInvoice_Instal_InstalAmountPermonth.Text = "";
+
+            }
         }
 
         private void rdoInvoice_rdo_Invoice_Monthlyinstallment_Checked(object sender, RoutedEventArgs e)
         {
+            if (rdoInvoice_rdo_Invoice_Monthlyinstallment.IsChecked ==true )
+            {
             rdoInvoice_rdo_Invoice_Monthlyinstallment.IsEnabled = true;
            // rdo_Invoice_Yearlyinstallment.IsEnabled = false ;
             loadMonth();
+            }
+            else if(rdoInvoice_rdo_Invoice_Monthlyinstallment.IsChecked ==false )
+            {
+                loadMonth();
+                txtInvoice_Instal_InstalAmountPermonth.Text = "";
+
+            }
+
         }
         public void loadyear()
         {
@@ -2698,11 +2727,11 @@ namespace CRM_User_Interface
 
         private void txtInvoice_InstalPaidAmount_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (txtInvoice_InstalTotalAmount.Text != null && txtInvoice_InstalPaidAmount.Text ==null)
+            if ( txtInvoice_InstalPaidAmount.Text == "")
             {
                 txtInvoice_InstalBalanceAmount.Text = txtInvoice_InstalTotalAmount.Text;
             }
-            else if (txtInvoice_InstalTotalAmount.Text != null && txtInvoice_InstalPaidAmount.Text != null)
+            else if (txtInvoice_InstalTotalAmount.Text != "" && txtInvoice_InstalPaidAmount.Text != "")
             {
             double invoice_TAmount =Convert .ToDouble ( txtInvoice_InstalTotalAmount.Text);
             double invoice_PAmount = Convert.ToDouble(txtInvoice_InstalPaidAmount .Text);
@@ -2710,7 +2739,41 @@ namespace CRM_User_Interface
             txtInvoice_InstalBalanceAmount.Text = invoice_BAmount.ToString();
                 }
         }
-     
+
+        private void cmdInvoice_InstalYear_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            calculateinstallment_By_Year();
+
+        }
+        public void calculateinstallment_By_Year()
+        {
+            year = cmdInvoice_InstalYear.SelectedItem.ToString();
+            if (year == "1 Year")
+            {
+                 y1=12;
+            }
+             if (year == "2 Year")
+            {
+                 y1=24;
+            }
+             if (year == "3 Year")
+            {
+                 y1=36;
+            }
+             if (year == "4 Year")
+            {
+                 y1=48;
+            }
+             if (year == "5 Year")
+            {
+                 y1=60;
+            }
+           
+             double balamt =Convert .ToDouble ( txtInvoice_InstalBalanceAmount.Text);
+             txtInvoice_Instal_InstalAmountPermonth.Text =Microsoft .VisualBasic .Strings.Format ((balamt / y1).ToString (),"##,###.00");
+           
+        }
+    // Microsoft.VisualBasic.Strings.Format(balAmt, "##,###.00")
     }
 
 }
