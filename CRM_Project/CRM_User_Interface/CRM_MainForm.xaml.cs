@@ -2695,6 +2695,21 @@ namespace CRM_User_Interface
             cmdInvoice_InstalMonth.Items.Add("11 Month");
 
         }
+
+        private void txtInvoice_InstalPaidAmount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtInvoice_InstalTotalAmount.Text != null && txtInvoice_InstalPaidAmount.Text ==null)
+            {
+                txtInvoice_InstalBalanceAmount.Text = txtInvoice_InstalTotalAmount.Text;
+            }
+            else if (txtInvoice_InstalTotalAmount.Text != null && txtInvoice_InstalPaidAmount.Text != null)
+            {
+            double invoice_TAmount =Convert .ToDouble ( txtInvoice_InstalTotalAmount.Text);
+            double invoice_PAmount = Convert.ToDouble(txtInvoice_InstalPaidAmount .Text);
+            double invoice_BAmount = invoice_TAmount - invoice_PAmount;
+            txtInvoice_InstalBalanceAmount.Text = invoice_BAmount.ToString();
+                }
+        }
      
     }
 
