@@ -553,8 +553,13 @@ namespace CRM_User_Interface
                       "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
                       "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
                       "WHERE ";
-                //if(cmbAdm_DealerFilter_Search.Text.Equals("Select"))
-                //{
+                    if ((dtpAdmTo_Dealer_Search.SelectedDate != null) && (dtpAdmBetween_Dealer_Search.SelectedDate != null))
+                    {
+                        DateTime StartDate = Convert.ToDateTime(dtpAdmTo_Dealer_Search.Text.Trim() + " 00:00:00.000");
+                        DateTime EndDate = Convert.ToDateTime(dtpAdmBetween_Dealer_Search.Text.Trim() + " 23:59:59.999");
+                        str = str + "P.[C_Date] Between '" + StartDate + "' AND '" + EndDate + "'  AND ";  
+                    }
+                    
                     if (cmbAdm_DealerFilter_Search.Text.Equals("Domain"))
                     {
                         if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
@@ -604,8 +609,7 @@ namespace CRM_User_Interface
                             str = str + "[Products] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',[Products]) + '%' AND ";
                         }
                     }
-                //}
-                str = str + " P.[S_Status] = 'Active' ORDER BY D.[DealerFirstName] ASC ";
+                   str = str + " P.[S_Status] = 'Active' ORDER BY P.[C_Date] ASC ";
                 //str = str + " S_Status = 'Active' ";
                 SqlCommand cmd = new SqlCommand(str, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -648,6 +652,24 @@ namespace CRM_User_Interface
         private void txtAdm_Dealer_Filter_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
             Final_PreProcurement();
+        }
+
+        private void dtpAdmTo_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_PreProcurement();
+        }
+
+        private void dtpAdmBetween_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_PreProcurement();
+        }
+
+        private void btnAdm_FinalRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            dtpAdmTo_Dealer_Search.SelectedDate = null;
+            dtpAdmBetween_Dealer_Search.SelectedDate = null;
+            cmbAdm_DealerFilter_Search.Text = "Select";
+            txtAdm_Dealer_Filter_Search.Text = "";
         }
     }
 }

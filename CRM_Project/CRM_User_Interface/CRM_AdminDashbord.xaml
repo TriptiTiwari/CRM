@@ -385,26 +385,26 @@
                     <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                     <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                     <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
-                        <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0" BorderBrush="#FF19319C"/>
+                        <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="3,-1,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0" BorderBrush="#FF19319C"/>
                         <Grid HorizontalAlignment="Left" Height="40" Margin="5,22,0,0" VerticalAlignment="Top" Width="1102">
                             <Label Content="Date:" HorizontalAlignment="Left" Margin="17,7,0,0" VerticalAlignment="Top"/>
-                            <Label Content="To" HorizontalAlignment="Left" Margin="61,7,0,0" VerticalAlignment="Top" Width="22"/>
-                            <Label Content="Between" HorizontalAlignment="Left" Margin="224,7,0,0" VerticalAlignment="Top" Width="57"/>
+                            <Label Content="From:" HorizontalAlignment="Left" Margin="61,7,0,0" VerticalAlignment="Top" Width="41"/>
+                            <Label Content="To:" HorizontalAlignment="Left" Margin="235,7,0,0" VerticalAlignment="Top" Width="28"/>
                         </Grid>
-                        <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="294,30,0,0" VerticalAlignment="Top" Width="131"/>
+                        <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="269,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmBetween_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04"/>
                         <Label Content="Filter By:" HorizontalAlignment="Left" Margin="467,30,0,0" VerticalAlignment="Top" Width="57"/>
                         <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217" IsEditable="True"/>
-                        <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="96,30,0,0" VerticalAlignment="Top" Width="131"/>
+                        <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="110,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmTo_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04" SelectedDateFormat="Short" IsTodayHighlighted="True"/>
                         <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
-                        <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75"/>
-                        <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,70,8,0" VerticalAlignment="Top" Height="435">
+                        <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_FinalRefresh_Click"/>
+                        <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,67,8,0" VerticalAlignment="Top" Height="438">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Proc Date" Width="80"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Pro Date" Width="60"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Dealer Name" Width="200"  x:Name="grdFinalPro_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Mobile No" Width="120"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Phone No" Width="120"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Products" Width="280"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Products" Width="300"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Followup Date" Width="100"  x:Name="grdFinalPro_NFDate" SortMemberPath="FollowupDate" Binding="{Binding FollowupDate, Mode=TwoWay}" />
                                 <DataGridTextColumn Header="Warranty" Width="100"  x:Name="grdFinalPro_Warranty" SortMemberPath="Warranty" Binding="{Binding Warranty, Mode=TwoWay}" />
                                 <DataGridCheckBoxColumn Header="Add To Sale" Width="75"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
