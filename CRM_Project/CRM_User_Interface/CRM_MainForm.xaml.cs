@@ -34,8 +34,8 @@ namespace CRM_User_Interface
 
         string caption = "Green Future Glob";
         int cid;
-        double y1;
-        string year;
+        double y1,m1;
+        string year,month;
       
         public CRM_MainForm()
         {
@@ -2624,7 +2624,7 @@ namespace CRM_User_Interface
         {
 
         }
-
+     //========================Invoice=====================================
         private void txtInvoice_InvcTotalAmount_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -2770,10 +2770,67 @@ namespace CRM_User_Interface
             }
            
              double balamt =Convert .ToDouble ( txtInvoice_InstalBalanceAmount.Text);
-             txtInvoice_Instal_InstalAmountPermonth.Text =Microsoft .VisualBasic .Strings.Format ((balamt / y1).ToString (),"##,###.00");
+            double calculateamt=Convert .ToDouble(balamt / y1);
+            txtInvoice_Instal_InstalAmountPermonth.Text = Microsoft.VisualBasic.Strings.Format(calculateamt, "##,###.00");
            
         }
-    // Microsoft.VisualBasic.Strings.Format(balAmt, "##,###.00")
+
+        private void cmdInvoice_InstalMonth_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            calculateinstallment_By_Month();
+        }
+        public void calculateinstallment_By_Month()
+        {
+            month = cmdInvoice_InstalMonth .SelectedItem.ToString();
+            if (month == "1 Month")
+            {
+                m1 = 1;
+            }
+            if (month == "2 Month")
+            {
+                m1 = 2;
+            }
+            if (month == "3 Month")
+            {
+                m1 = 3;
+            }
+            if (month == "4 Month")
+            {
+                m1 = 4;
+            }
+            if (month == "5 Month")
+            {
+                m1 = 5;
+            }
+            if (month == "6 Month")
+            {
+                m1 = 6;
+            }
+            if (month == "7 Month")
+            {
+                m1 = 7;
+            }
+            if (month == "8 Month")
+            {
+                m1 = 8;
+            }
+            if (month == "9 Month")
+            {
+                m1 = 9;
+            }
+            if (month == "10 Month")
+            {
+                m1 = 10;
+            }
+            if (month == "11 Month")
+            {
+                m1 = 11;
+            }
+            double balamt2 = Convert.ToDouble(txtInvoice_InstalBalanceAmount.Text);
+            double calculateamt2 = Convert.ToDouble(balamt2 / m1);
+            txtInvoice_Instal_InstalAmountPermonth.Text = Microsoft.VisualBasic.Strings.Format(calculateamt2, "##,###.00");
+        }
+   
     }
 
 }

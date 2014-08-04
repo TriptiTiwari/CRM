@@ -630,7 +630,7 @@
                             <RadioButton x:Name="rdoInvoice_rdo_Invoice_Monthlyinstallment" Content="Monthly" HorizontalAlignment="Left" Margin="420,120,0,0" VerticalAlignment="Top" GroupName="intal" Checked="rdoInvoice_rdo_Invoice_Monthlyinstallment_Checked"/>
                             <Label Content="Installment Option :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,114,0,0"/>
                             <ComboBox x:Name="cmdInvoice_InstalYear" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="125" Margin="270,115,0,0" IsEditable="True" SelectionChanged="cmdInvoice_InstalYear_SelectionChanged" IsReadOnly="True"/>
-                            <ComboBox x:Name="cmdInvoice_InstalMonth" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Margin="509,115,0,0" IsEditable="True" IsReadOnly="True"/>
+                            <ComboBox x:Name="cmdInvoice_InstalMonth" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Margin="509,115,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmdInvoice_InstalMonth_SelectionChanged"/>
                             <Label Content="Installment Amount Of Per Month :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,154,0,0"/>
                             <TextBox x:Name="txtInvoice_Instal_InstalAmountPermonth" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Margin="225,155,0,0"/>
                             <DatePicker x:Name="dpInvoice_Instalpermonth" HorizontalAlignment="Left" Margin="230,196,0,0" VerticalAlignment="Top" Width="205"/>
