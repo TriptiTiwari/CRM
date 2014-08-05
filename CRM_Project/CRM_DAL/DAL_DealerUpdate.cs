@@ -12,7 +12,7 @@ namespace CRM_DAL
 {
     public class DAL_DealerUpdate
     {
-                public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
+        public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
         BAL_DealerEntry badealer = new BAL_DealerEntry();
 

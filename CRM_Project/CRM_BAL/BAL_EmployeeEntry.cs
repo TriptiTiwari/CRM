@@ -10,6 +10,8 @@ namespace CRM_BAL
     {
         public int Flag { get; set; }
 
+        public int id { get; set; }
+
         public string EmployeeID { get; set; }
 
         public string EmployeeName { get; set; }

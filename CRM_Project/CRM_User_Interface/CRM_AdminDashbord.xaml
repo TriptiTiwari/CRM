@@ -413,7 +413,7 @@
                 <Button x:Name="btnAdm_EmployeeExit" Content="Exit" HorizontalAlignment="Left" Margin="1093,0,-1,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_EmployeeExit_Click" />
                 <Label Content="Employee Details" HorizontalAlignment="Left" Margin="518,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
-                    <DataGrid x:Name="dgvAdm_EmployeeDetails" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Height="435" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
+                    <DataGrid x:Name="dgvAdm_EmployeeDetails" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Height="435" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID1" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Employee Code" x:Name="grdEmployeeDetails_Code" SortMemberPath="EmployeeID" Binding="{Binding EmployeeID, Mode=TwoWay}"/>
@@ -427,7 +427,7 @@
                             <DataGridTemplateColumn Header="Edit">
                                 <DataGridTemplateColumn.CellTemplate >
                                     <DataTemplate>
-                                        <Button Content="Edit" x:Name="btndgv_EmployeeEdit"  CommandParameter="{Binding id}"/>
+                                        <Button Content="Edit" x:Name="btndgv_EmployeeEditUp"    CommandParameter="{Binding id}" Click="btndgv_EmployeeEditUp_Click"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -447,6 +447,7 @@
                             <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top"/>
                             <TextBox x:Name="txtAdm_EmployeeMN_Search" HorizontalAlignment="Left" Height="23" Margin="603,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
                             <Button x:Name="btnAdm_EmployeeRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="989,5,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnAdm_DealerRefresh_Click"/>
+                            <TextBox x:Name="txtAdm_EmployeeID" HorizontalAlignment="Left" Height="23" Margin="943,-51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" TextChanged="txtAdm_DealerMN_Search_TextChanged" Background="White"/>
                         </Grid>
                     </GroupBox>
                 </Grid>

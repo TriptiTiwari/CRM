@@ -741,7 +741,7 @@ namespace CRM_User_Interface
                 SqlCommand cmd = new SqlCommand(sqlquery, con);
                 cmd.ExecuteNonQuery();
 
-                MessageBox.Show("Do You Want To Delete Successfully...", caption, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK, MessageBoxImage.Error);
 
             }
             catch (Exception)
@@ -752,7 +752,44 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
-            DealerDetails_LoadData();
+            GetData_EmployeeDetails();
+        }
+
+        private void btndgv_EmployeeEditUp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM tbl_Employee where Id='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_EmployeeID.Text = dt.Rows[0]["ID"].ToString();
+                }
+
+                frmCRM_EmpDetailsEdit obj = new frmCRM_EmpDetailsEdit();
+                obj.EmployeeID(txtAdm_EmployeeID.Text.Trim());
+                obj.FillData();
+                obj.LoadNoOfYears1();
+                obj.LoadNoOfMonths1();
+                obj.ShowDialog();
+
+                // con.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            GetData_EmployeeDetails();
         }
     }
 }
