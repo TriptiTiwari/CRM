@@ -182,7 +182,11 @@ namespace CRM_User_Interface
             txtAdm_Emp_Salary.Text = "";
             dtpAdm_Emp_DOB.SelectedDate = null;
             dtpAdm_Emp_DOJ.SelectedDate = null;
+            cmbAdm_Emp_YearExp.Text = "Select Year";
+            cmbAdm_Emp_Months.Text = "Select Months";
             txtAdm_Emp_Address.Text = "";
+            cmbAdm_Emp_Months.Visibility = System.Windows.Visibility.Hidden;
+            lblMonths.Visibility = System.Windows.Visibility.Hidden;
         }
 
         public void LoadNoOfYears()
@@ -681,7 +685,7 @@ namespace CRM_User_Interface
                 String str;
                 //con.Open();
                 DataSet ds = new DataSet();
-                str = "SELECT [ID],[EmployeeID],[EmployeeName],[DateOfBirth],[EmpAddress],[MobileNo],[Designation],[DateOfJoining],[NoOfYears] + ' ' + [Years] + ' , ' + [NoOfMonths] + ' ' + [Months] AS [Experience]" +
+                str = "SELECT [ID],[EmployeeID],[EmployeeName],[DateOfBirth],[EmpAddress],[MobileNo],[Designation],[DateOfJoining],[NoOfYears] + ' ' + [Years] + ' , ' + [NoOfMonths] + ' ' + [Months] AS [Experience],[Salary] " +
                       "FROM [tbl_Employee] " +
                       "WHERE ";
                 if (txtAdm_EmployeeName_Search.Text.Trim() != "")
@@ -722,6 +726,70 @@ namespace CRM_User_Interface
         private void btnAdm_EmployeeExit_Click(object sender, RoutedEventArgs e)
         {
             grd_EmployeeDet.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void btndgv_EmployeeDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
+
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                //SqlConnection con = new SqlConnection(sqlstring);
+                con.Open();
+                string sqlquery = "UPDATE tbl_Employee SET S_Status='DeActive' where ID='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            GetData_EmployeeDetails();
+        }
+
+        private void btndgv_EmployeeEditUp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM tbl_Employee where Id='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_EmployeeID.Text = dt.Rows[0]["ID"].ToString();
+                }
+
+                frmCRM_EmpDetailsEdit obj = new frmCRM_EmpDetailsEdit();
+                obj.EmployeeID(txtAdm_EmployeeID.Text.Trim());
+                obj.FillData();
+                obj.LoadNoOfYears1();
+                obj.LoadNoOfMonths1();
+                obj.ShowDialog();
+
+                // con.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            GetData_EmployeeDetails();
         }
     }
 }
