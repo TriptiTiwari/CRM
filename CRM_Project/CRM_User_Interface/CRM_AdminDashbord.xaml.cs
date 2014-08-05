@@ -113,6 +113,8 @@ namespace CRM_User_Interface
         {
             grd_EmployeeDetails.Visibility = System.Windows.Visibility.Visible;
             EEMPLOYEEid();
+            LoadNoOfYears();
+            LoadNoOfMonths();
         }
 
         private void btnAdm_Emp_Exit_Click(object sender, RoutedEventArgs e)
@@ -385,6 +387,41 @@ namespace CRM_User_Interface
         {
             grd_DealerDetails.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        private void btnAdm_FinalProcurment_Click(object sender, RoutedEventArgs e)
+        {
+            grd_FinalProcurment.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void smviewprocurement_Click(object sender, RoutedEventArgs e)
+        {
+            grd_FinalProcurment.Visibility = System.Windows.Visibility.Visible;
+            LoadFinal();
+            Final_PreProcurement();
+        }
+
+        private void txtAdm_Dealer_Filter_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Final_PreProcurement();
+        }
+
+        private void dtpAdmTo_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_PreProcurement();
+        }
+
+        private void dtpAdmBetween_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_PreProcurement();
+        }
+
+        private void btnAdm_FinalRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            dtpAdmTo_Dealer_Search.SelectedDate = null;
+            dtpAdmBetween_Dealer_Search.SelectedDate = null;
+            cmbAdm_DealerFilter_Search.Text = "Select";
+            txtAdm_Dealer_Filter_Search.Text = "";
+        }
         #endregion Dealer Button Event
 
         #region Dealer Fun
@@ -498,41 +535,6 @@ namespace CRM_User_Interface
                 con.Close(); 
             }
         }
-        #endregion Fun
-
-        #region Dealer Event
-        private void smdealerDetails_Click(object sender, RoutedEventArgs e)
-        {
-            grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_CompName_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        #endregion Dealer Event
-        #endregion Function
-
-        private void btnAdm_FinalProcurment_Click(object sender, RoutedEventArgs e)
-        {
-            grd_FinalProcurment.Visibility = System.Windows.Visibility.Hidden;
-        }
 
         public void Final_PreProcurement()
         {
@@ -541,7 +543,7 @@ namespace CRM_User_Interface
                 String str;
                 //con.Open();
                 DataSet ds = new DataSet();
-                str = "SELECT P.[ID],P.[DealerID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[C_Date] " +
+                str = "SELECT P.[ID],P.[DealerID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[Warranty],P.[C_Date] " +
                       ",D.[DealerFirstName] + '' + D.[DealerLastName] AS [DealerName],D.[MobileNo],D.[PhoneNo] " +
                       ",DM.[Domain_Name] + ' , ' +  PM.[Product_Name] + ' , ' + B.[Brand_Name] + ' , ' + PC.[Product_Category] + ' , ' + MN.[Model_No] + ' , ' + C.[Color] AS [Products]" +
                       "FROM [Pre_Procurement] P " +
@@ -553,63 +555,63 @@ namespace CRM_User_Interface
                       "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
                       "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
                       "WHERE ";
-                    if ((dtpAdmTo_Dealer_Search.SelectedDate != null) && (dtpAdmBetween_Dealer_Search.SelectedDate != null))
+                if ((dtpAdmTo_Dealer_Search.SelectedDate != null) && (dtpAdmBetween_Dealer_Search.SelectedDate != null))
+                {
+                    DateTime StartDate = Convert.ToDateTime(dtpAdmTo_Dealer_Search.Text.Trim() + " 00:00:00.000");
+                    DateTime EndDate = Convert.ToDateTime(dtpAdmBetween_Dealer_Search.Text.Trim() + " 23:59:59.999");
+                    str = str + "P.[C_Date] Between '" + StartDate + "' AND '" + EndDate + "'  AND ";
+                }
+
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Domain"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        DateTime StartDate = Convert.ToDateTime(dtpAdmTo_Dealer_Search.Text.Trim() + " 00:00:00.000");
-                        DateTime EndDate = Convert.ToDateTime(dtpAdmBetween_Dealer_Search.Text.Trim() + " 23:59:59.999");
-                        str = str + "P.[C_Date] Between '" + StartDate + "' AND '" + EndDate + "'  AND ";  
+                        str = str + "DM.[Domain_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',DM.[Domain_Name]) + '%' AND ";
                     }
-                    
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Domain"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Product Type"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "DM.[Domain_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',DM.[Domain_Name]) + '%' AND ";
-                        }
+                        str = str + "PM.[Product_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PM.[Product_Name]) + '%' AND ";
                     }
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Product Type"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Brand"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "PM.[Product_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PM.[Product_Name]) + '%' AND ";
-                        }
+                        str = str + "B.[Brand_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',B.[Brand_Name]) + '%' AND ";
                     }
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Brand"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Product Category"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "B.[Brand_Name] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',B.[Brand_Name]) + '%' AND ";
-                        }
+                        str = str + "PC.[Product_Category] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PC.[Product_Category]) + '%' AND ";
                     }
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Product Category"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Model"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "PC.[Product_Category] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',PC.[Product_Category]) + '%' AND ";
-                        }
+                        str = str + "MN.[Model_No] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',MN.[Model_No]) + '%' AND ";
                     }
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Model"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Color"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "MN.[Model_No] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',MN.[Model_No]) + '%' AND ";
-                        }
+                        str = str + "C.[Color] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',C.[Color]) + '%' AND ";
                     }
-                    if (cmbAdm_DealerFilter_Search.Text.Equals("Color"))
+                }
+                if (cmbAdm_DealerFilter_Search.Text.Equals("Products / Services"))
+                {
+                    if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
                     {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "C.[Color] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',C.[Color]) + '%' AND ";
-                        }
+                        str = str + "[Products] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',[Products]) + '%' AND ";
                     }
-                   if (cmbAdm_DealerFilter_Search.Text.Equals("Products / Services"))
-                    {
-                        if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
-                        {
-                            str = str + "[Products] LIKE ISNULL('" + txtAdm_Dealer_Filter_Search.Text.Trim() + "',[Products]) + '%' AND ";
-                        }
-                    }
-                   str = str + " P.[S_Status] = 'Active' ORDER BY P.[C_Date] ASC ";
+                }
+                str = str + " P.[S_Status] = 'Active' ORDER BY P.[C_Date] ASC ";
                 //str = str + " S_Status = 'Active' ";
                 SqlCommand cmd = new SqlCommand(str, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -641,35 +643,85 @@ namespace CRM_User_Interface
             cmbAdm_DealerFilter_Search.Items.Add("Color");
             cmbAdm_DealerFilter_Search.Items.Add("Products / Services");
         }
+        #endregion Fun
 
-        private void smviewprocurement_Click(object sender, RoutedEventArgs e)
+        #region Dealer Event
+        private void smdealerDetails_Click(object sender, RoutedEventArgs e)
         {
-            grd_FinalProcurment.Visibility = System.Windows.Visibility.Visible;
-            LoadFinal();
-            Final_PreProcurement();
+            grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
+            DealerDetails_LoadData();
         }
 
-        private void txtAdm_Dealer_Filter_Search_TextChanged(object sender, TextChangedEventArgs e)
+        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Final_PreProcurement();
+            DealerDetails_LoadData();
         }
 
-        private void dtpAdmTo_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Final_PreProcurement();
+            DealerDetails_LoadData();
         }
 
-        private void dtpAdmBetween_Dealer_Search_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        private void txtAdm_CompName_Search_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Final_PreProcurement();
+            DealerDetails_LoadData();
         }
 
-        private void btnAdm_FinalRefresh_Click(object sender, RoutedEventArgs e)
+        private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            dtpAdmTo_Dealer_Search.SelectedDate = null;
-            dtpAdmBetween_Dealer_Search.SelectedDate = null;
-            cmbAdm_DealerFilter_Search.Text = "Select";
-            txtAdm_Dealer_Filter_Search.Text = "";
+
+        }
+        #endregion Dealer Event
+        #endregion Function
+
+        public void GetData_EmployeeDetails()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[EmployeeID],[EmployeeName],[DateOfBirth],[EmpAddress],[MobileNo],[Designation],[DateOfJoining],[NoOfYears] + ' ' + [Years] + ' , ' + [NoOfMonths] + ' ' + [Months] AS [Experience]" +
+                      "FROM [tbl_Employee] " +
+                      "WHERE ";
+                if (txtAdm_EmployeeName_Search.Text.Trim() != "")
+                {
+                    str = str + "[EmployeeName] LIKE ISNULL('" + txtAdm_EmployeeName_Search.Text.Trim() + "',[EmployeeName]) + '%' AND ";
+                }
+                if (txtAdm_EmployeeMN_Search.Text.Trim() != "")
+                {
+                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_EmployeeMN_Search.Text.Trim() + "',[MobileNo]) + '%' AND ";
+                }
+                str = str + " [S_Status] = 'Active' ORDER BY [EmployeeName] ASC ";
+                //str = str + " S_Status = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvAdm_EmployeeDetails.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void smemployeedetails_Click(object sender, RoutedEventArgs e)
+        {
+            grd_EmployeeDet.Visibility = System.Windows.Visibility.Visible;
+            GetData_EmployeeDetails();
+        }
+
+        private void btnAdm_EmployeeExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_EmployeeDet.Visibility = System.Windows.Visibility.Hidden;
         }
     }
 }

@@ -92,7 +92,7 @@
                     <MenuItem Header="View Warranty On Sale " x:Name="smviewwarranty"/>
                     <MenuItem Header="View Insurance List" x:Name="smviewinsurancelist"/>
                     <MenuItem Header=" Check Status" x:Name="smchksataus"/>
-                    <MenuItem Header="Employee Details" x:Name="smemployeedetails"/>
+                    <MenuItem Header="Employee Details" x:Name="smemployeedetails" Click="smemployeedetails_Click"/>
                     <MenuItem Header="Dealer Details" x:Name="smdealerDetails" Click="smdealerDetails_Click"  />
                     <MenuItem Header=" Stock" x:Name="smstock"/>
 
@@ -377,38 +377,82 @@
                 <TextBox x:Name="txtAdm_DealerID1" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
             </Grid>
 
-            <Grid x:Name="grd_FinalProcurment" Visibility="Visible"   HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
-                    <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
-                    <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
-                    <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
-                        <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="3,-1,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0" BorderBrush="#FF19319C"/>
-                        <Grid HorizontalAlignment="Left" Height="40" Margin="5,22,0,0" VerticalAlignment="Top" Width="1102">
-                            <Label Content="Date:" HorizontalAlignment="Left" Margin="17,7,0,0" VerticalAlignment="Top"/>
-                            <Label Content="From:" HorizontalAlignment="Left" Margin="61,7,0,0" VerticalAlignment="Top" Width="41"/>
-                            <Label Content="To:" HorizontalAlignment="Left" Margin="235,7,0,0" VerticalAlignment="Top" Width="28"/>
-                        </Grid>
-                        <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="269,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmBetween_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04"/>
-                        <Label Content="Filter By:" HorizontalAlignment="Left" Margin="467,30,0,0" VerticalAlignment="Top" Width="57"/>
-                        <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217" IsEditable="True"/>
-                        <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="110,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmTo_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04" SelectedDateFormat="Short" IsTodayHighlighted="True"/>
-                        <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
-                        <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_FinalRefresh_Click"/>
-                        <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,67,8,0" VerticalAlignment="Top" Height="438">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Pro Date" Width="60"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Dealer Name" Width="200"  x:Name="grdFinalPro_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Mobile No" Width="120"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Phone No" Width="120"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Products" Width="300"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Followup Date" Width="100"  x:Name="grdFinalPro_NFDate" SortMemberPath="FollowupDate" Binding="{Binding FollowupDate, Mode=TwoWay}" />
-                                <DataGridTextColumn Header="Warranty" Width="100"  x:Name="grdFinalPro_Warranty" SortMemberPath="Warranty" Binding="{Binding Warranty, Mode=TwoWay}" />
-                                <DataGridCheckBoxColumn Header="Add To Sale" Width="75"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
-                            </DataGrid.Columns>
-                        </DataGrid>
+            <Grid x:Name="grd_FinalProcurment" Visibility="Hidden"   HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+                <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
+                <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+                <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
+                    <GroupBox x:Name="grpDealer_Search" Header="Search" HorizontalAlignment="Left" Margin="3,-1,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0" BorderBrush="#FF19319C"/>
+                    <Grid HorizontalAlignment="Left" Height="40" Margin="5,22,0,0" VerticalAlignment="Top" Width="1102">
+                        <Label Content="Date:" HorizontalAlignment="Left" Margin="17,7,0,0" VerticalAlignment="Top"/>
+                        <Label Content="From:" HorizontalAlignment="Left" Margin="61,7,0,0" VerticalAlignment="Top" Width="41"/>
+                        <Label Content="To:" HorizontalAlignment="Left" Margin="235,7,0,0" VerticalAlignment="Top" Width="28"/>
                     </Grid>
+                    <DatePicker x:Name="dtpAdmBetween_Dealer_Search" HorizontalAlignment="Left" Margin="269,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmBetween_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04"/>
+                    <Label Content="Filter By:" HorizontalAlignment="Left" Margin="467,30,0,0" VerticalAlignment="Top" Width="57"/>
+                    <ComboBox x:Name="cmbAdm_DealerFilter_Search" HorizontalAlignment="Left" Margin="530,31,0,0" VerticalAlignment="Top" Width="217" IsEditable="True"/>
+                    <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="110,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmTo_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04" SelectedDateFormat="Short" IsTodayHighlighted="True"/>
+                    <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
+                    <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_FinalRefresh_Click"/>
+                    <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,67,8,0" VerticalAlignment="Top" Height="438">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Pro Date" Width="60"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Dealer Name" Width="200"  x:Name="grdFinalPro_Name" SortMemberPath="DealerName" Binding="{Binding DealerName, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Mobile No" Width="120"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Phone No" Width="120"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Products" Width="300"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Followup Date" Width="100"  x:Name="grdFinalPro_NFDate" SortMemberPath="FollowupDate" Binding="{Binding FollowupDate, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Warranty" Width="100"  x:Name="grdFinalPro_Warranty" SortMemberPath="Warranty" Binding="{Binding Warranty, Mode=TwoWay}" />
+                            <DataGridCheckBoxColumn Header="Add To Sale" Width="75"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
-            
+            </Grid>
+
+            <Grid x:Name="grd_EmployeeDet" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+                <Button x:Name="btnAdm_EmployeeExit" Content="Exit" HorizontalAlignment="Left" Margin="1093,0,-1,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_EmployeeExit_Click" />
+                <Label Content="Employee Details" HorizontalAlignment="Left" Margin="518,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+                <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
+                    <DataGrid x:Name="dgvAdm_EmployeeDetails" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Height="435" Width="1105" AutoGenerateColumns="False" RowHeight="25" IsReadOnly="True" MouseDoubleClick="dgvAdm_Dealerdetails_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Width="30"  x:Name="grdDealerDetails_ID1" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Employee Code" x:Name="grdEmployeeDetails_Code" SortMemberPath="EmployeeID" Binding="{Binding EmployeeID, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Employee Name" Width="210" x:Name="grdEmployeeDetails_Name" SortMemberPath="EmployeeName" Binding="{Binding EmployeeName, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="DateOfBirth" Width="80" x:Name="grdEmployeeDetails_DateOfBirth" SortMemberPath="DateOfBirth" Binding="{Binding DateOfBirth, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="MobileNo" Width="100" x:Name="grdEmployeeDetails_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Designation" Width="150" x:Name="grdEmployeeDetails_Designation" SortMemberPath="Designation" Binding="{Binding Designation, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="DateOfJoining" Width="100" x:Name="grdEmployeeDetails_DateOfJoining" SortMemberPath="PhoneNo" Binding="{Binding DateOfJoining, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Experience" Width="160" x:Name="grdEmployeeDetails_Experience" SortMemberPath="Experience" Binding="{Binding DealerAddress, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Salary" Width="100" x:Name="grdEmployeeDetails_Salary" SortMemberPath="Salary" Binding="{Binding Salary, Mode=TwoWay}"/>
+                            <DataGridTemplateColumn Header="Edit">
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Button Content="Edit" x:Name="btndgv_EmployeeEdit"  CommandParameter="{Binding id}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Delete">
+                                <DataGridTemplateColumn.CellTemplate >
+                                    <DataTemplate>
+                                        <Button Content="Delete" x:Name="btndgv_EmployeeDelete" />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <GroupBox x:Name="grpDealer_Search2" Header="Search" HorizontalAlignment="Left" Margin="0,-3,0,0" VerticalAlignment="Top" Width="1105" Height="55" BorderBrush="#FF161C8B" BorderThickness="1">
+                        <Grid HorizontalAlignment="Left" Height="35" Margin="-4,0,-2,-2" VerticalAlignment="Top" Width="1099" Background="#FFFEFEFE">
+                            <Label Content="Employee Name:" HorizontalAlignment="Left" Margin="9,4,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_EmployeeName_Search" HorizontalAlignment="Left" Height="23" Margin="108,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" TextChanged="txtAdm_CompName_Search_TextChanged"/>
+                            <Label Content="Mobile No:" HorizontalAlignment="Left" Margin="530,5,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_EmployeeMN_Search" HorizontalAlignment="Left" Height="23" Margin="603,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="328" TextChanged="txtAdm_DealerMN_Search_TextChanged"/>
+                            <Button x:Name="btnAdm_EmployeeRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="989,5,0,0" VerticalAlignment="Top" Width="75" Height="25" Click="btnAdm_DealerRefresh_Click"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+                <TextBox x:Name="txtAdm_DealerID2" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
+            </Grid>
+
         </Grid>
     </Border>
 </Window>
