@@ -15,6 +15,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Globalization;
+using Microsoft.Win32;
 using CRM_BAL;
 using CRM_DAL;
 
@@ -26,10 +27,12 @@ namespace CRM_User_Interface
     /// </summary>
     public partial class CRM_AdminDashbord : Window
     {
+        NumberFormatInfo nfi = CultureInfo.CurrentCulture.NumberFormat;
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
         SqlDataReader dr;
         string caption = "Green Future Glob";
+
         static int PK_ID;
 
         public CRM_AdminDashbord()
@@ -915,7 +918,21 @@ namespace CRM_User_Interface
           
         }
 
-       
+        private bool FinalPro_Validation()
+        {
+            bool result = false;
+            if (txtPrice.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Price", caption, MessageBoxButton.OK,MessageBoxImage.Information);
+            }
+            else if (txtQuantity.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Quantity", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            return result;
+        }
 
 
 
