@@ -37,27 +37,56 @@ namespace CRM_User_Interface
         string caption = "GREEN FUTURE GLOB";
         private void btnTaxMain_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            object item = dgrd_Tax.SelectedItem;
+            string ID = (dgrd_Tax.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            MessageBox.Show(ID);
 
+            con.Open();
+            cmd = new SqlCommand("Update tlb_AddTax set S_Status='DeActive' where ID='" + ID + "'", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Do You Want to Delete Record?",caption ,MessageBoxButton.YesNo );
+
+          
         }
 
         private void btnTax_AddTax_Click(object sender, RoutedEventArgs e)
         {
-              baltax.Flag = 1;
+            if (btnTax_AddTax.Content == "Add Tax")
+            {
+                baltax.Flag = 1;
                 baltax.Tax_Type = txtTax_TName.Text;
-              double price=  Convert.ToDouble(txtTax_TPercent.Text);
-              baltax.Tax_Percentage = Convert.ToDouble( Microsoft.VisualBasic.Strings.Format(price, "##,###.00"));
-                    
+                double price = Convert.ToDouble(txtTax_TPercent.Text);
+                baltax.Tax_Percentage = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(price, "##,###.00"));
+
                 baltax.S_Status = "Active";
                 baltax.C_Date = System.DateTime.Now.ToShortDateString();
                 daltax.Add_TAX_Save(baltax);
-                MessageBox.Show("Tax Added Successfully",caption , MessageBoxButton.OK );
+                MessageBox.Show("Tax Added Successfully", caption, MessageBoxButton.OK);
                 clear();
                 FetchtaxDetails();
+            }
+
+            else  if (btnTax_AddTax.Content == "Update")
+                {
+                    //Tax_Type ,Tax_Percentage  from tlb_AddTax where ID='" + ID + "'",
+                    object item = dgrd_Tax.SelectedItem;
+                    string ID = (dgrd_Tax.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+                    con.Open();
+                    cmd = new SqlCommand("Update tlb_AddTax set Tax_Type='"+txtTax_TName .Text +"' ,Tax_Percentage='"+txtTax_TPercent .Text +"' where ID='" + ID + "'", con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    MessageBox.Show("Data Updated Successfully", caption, MessageBoxButton.OK );
+                    clear();
+                    FetchtaxDetails();
+                    btnTax_AddTax.Content = "Add Tax";
+            }
             
         }
         public void clear()
@@ -88,6 +117,39 @@ namespace CRM_User_Interface
             }
             finally { con.Close(); }
 
+
+        }
+
+       
+        private void btntaxoptions_Click(object sender, RoutedEventArgs e)
+        {
+            object item = dgrd_Tax.SelectedItem;
+            string ID = (dgrd_Tax.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+            MessageBox.Show(ID);
+            try
+            {
+                con.Open();
+
+
+                // DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("Select Tax_Type ,Tax_Percentage  from tlb_AddTax where ID='" + ID + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    // DGRD_SaleFollowup.ItemsSource = ds.Tables[0].DefaultView;
+                    txtTax_TName.Text = dt.Rows[0]["Tax_Type"].ToString();
+                    txtTax_TPercent.Text = dt.Rows[0]["Tax_Percentage"].ToString();
+
+                }
+            }
+            catch { throw; }
+            finally { con.Close();
+            btnTax_AddTax.Content = "Update";
+            }
 
         }
     }

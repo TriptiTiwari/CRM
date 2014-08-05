@@ -530,7 +530,7 @@
 
 
                 </Grid>
-                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"  Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Visible"   Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="225,75,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
                     <Label Content="Follow_up ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
@@ -557,7 +557,11 @@
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="715,235,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerOccupation" Text="" VerticalAlignment="Top" Width="250"/>
                     <Button x:Name="btnSaleCustomerEditoccu" Content="Edit" HorizontalAlignment="Left" Margin="975,237,0,0" VerticalAlignment="Top" Width="65" Height="28" FontSize="14" Click="btnSaleCustomerEditoccu_Click" IsEnabled="False"/>
                 </Grid>
+<<<<<<< HEAD
+                <Grid HorizontalAlignment="Right" Visibility="Hidden" x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+=======
                 <Grid HorizontalAlignment="Right" Visibility="Hidden"   x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+>>>>>>> origin/master
                     <Grid HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="1140" Background="White" Margin="10,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0*"/>
@@ -633,7 +637,7 @@
                         <Grid x:Name="GRDInvoice_Finance" Visibility="Hidden"  HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="655" Margin="380,305,0,0" Background="#FFF0F0F0" Grid.ColumnSpan="2">
 
                         </Grid>
-                        <Grid x:Name="GRDInvoice_Installment" Visibility="Visible"  HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="715" Margin="380,255,0,0" Background="#FFD8F2D6" Grid.ColumnSpan="2">
+                        <Grid x:Name="GRDInvoice_Installment" Visibility="Hidden"  HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="715" Margin="380,255,0,0" Background="#FFD8F2D6" Grid.ColumnSpan="2">
 
                             <Label Content="Installment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,-1,0,0" FontSize="14" FontWeight="Bold"/>
                             <Label Content="Invoice Total Amount :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>

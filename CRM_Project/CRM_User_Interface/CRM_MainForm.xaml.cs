@@ -2604,6 +2604,8 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
+               
+
                 // DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
                 cmd = new SqlCommand("Select Name ,Mobile_No,Date_Of_Birth,Email_ID,Address,Occupation from tlb_FollowUp where ID='" + ID + "'", con);
@@ -2636,6 +2638,7 @@ namespace CRM_User_Interface
         {
             Grd_genratebill.Visibility = Visibility;
             LoadTax();
+            FetchtaxDetails();
 
         }
 
@@ -2865,10 +2868,39 @@ namespace CRM_User_Interface
         }
         public void LoadTax()
         {
-            cmbInvoice_Tax.Text = "---Select---";
-            cmbInvoice_Tax.Items.Add("+ <ADD Tax>");
+            
+
+        }
+        public void FetchtaxDetails()
+        {
+            try
+            {
+                con.Open();
+                DataSet ds = new DataSet();
+                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where  S_Status='Active'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    cmbInvoice_Tax.Text = "---Select---";
+                    cmbInvoice_Tax.Items.Insert(0,"+ <ADD Tax>");
+                       
+                    cmbInvoice_Tax .ItemsSource = ds.Tables[0].DefaultView;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+
+
         }
 
+       
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             LoadTax();
