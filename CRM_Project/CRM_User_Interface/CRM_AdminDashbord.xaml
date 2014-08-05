@@ -377,7 +377,7 @@
                 <TextBox x:Name="txtAdm_DealerID1" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
             </Grid>
 
-            <Grid x:Name="grd_FinalProcurment" Visibility="Hidden"   HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid x:Name="grd_FinalProcurment" Visibility="Visible"   HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                 <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
@@ -393,7 +393,7 @@
                     <DatePicker x:Name="dtpAdmTo_Dealer_Search" HorizontalAlignment="Left" Margin="110,30,0,0" VerticalAlignment="Top" Width="131" SelectedDateChanged="dtpAdmTo_Dealer_Search_SelectedDateChanged" DisplayDate="2014-08-04" SelectedDateFormat="Short" IsTodayHighlighted="True"/>
                     <TextBox x:Name="txtAdm_Dealer_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="762,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
                     <Button x:Name="btnAdm_FinalRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="992,30,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_FinalRefresh_Click"/>
-                    <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,67,8,0" VerticalAlignment="Top" Height="438">
+                    <DataGrid x:Name="dgvAdm_FinalProcurement" Margin="7,67,8,0" VerticalAlignment="Top" Height="438" AutoGenerateColumns="False" RowHeight="25">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Pro Date" Width="60"  x:Name="grdFinalPro_C_Date" SortMemberPath="C_Date" Binding="{Binding C_Date, Mode=TwoWay}" />
@@ -401,15 +401,16 @@
                             <DataGridTextColumn Header="Mobile No" Width="120"  x:Name="grdFinalPro_MobileNo" SortMemberPath="MobileNo" Binding="{Binding MobileNo, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Phone No" Width="120"  x:Name="grdFinalPro_PhoneNo" SortMemberPath="PhoneNo" Binding="{Binding PhoneNo, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Products" Width="300"  x:Name="grdFinalPro_Products" SortMemberPath="Products" Binding="{Binding Products, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Qty" Width="60"  x:Name="grdFinalPro_Qty" SortMemberPath="Quantity" Binding="{Binding Quantity, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Followup Date" Width="100"  x:Name="grdFinalPro_NFDate" SortMemberPath="FollowupDate" Binding="{Binding FollowupDate, Mode=TwoWay}" />
                             <DataGridTextColumn Header="Warranty" Width="100"  x:Name="grdFinalPro_Warranty" SortMemberPath="Warranty" Binding="{Binding Warranty, Mode=TwoWay}" />
-                            <DataGridCheckBoxColumn Header="Add To Sale" Width="75"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
+                            <DataGridCheckBoxColumn Header="Add To Sale" Width="70"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </Grid>
 
-            <Grid x:Name="grd_EmployeeDet" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,96,0,-4" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" Grid.RowSpan="2" >
+            <Grid x:Name="grd_EmployeeDet" Visibility="Hidden"  HorizontalAlignment="Left" Height="563" Margin="22,66,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
                 <Button x:Name="btnAdm_EmployeeExit" Content="Exit" HorizontalAlignment="Left" Margin="1093,0,-1,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_EmployeeExit_Click" />
                 <Label Content="Employee Details" HorizontalAlignment="Left" Margin="518,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
