@@ -59,6 +59,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ADD_Tax.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AdminLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,9 @@
     </Page>
     <Compile Include="Add Product\Add_Products.xaml.cs">
       <DependentUpon>Add_Products.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ADD_Tax.xaml.cs">
+      <DependentUpon>ADD_Tax.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminLogin.xaml.cs">
       <DependentUpon>AdminLogin.xaml</DependentUpon>
