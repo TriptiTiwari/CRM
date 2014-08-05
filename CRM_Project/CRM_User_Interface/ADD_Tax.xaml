@@ -17,18 +17,18 @@
                         <Label Content="%" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="509,9,0,0"/>
                     </Grid>
                 </GroupBox>
-                <DataGrid HorizontalAlignment="Left" Margin="8,100,0,0" VerticalAlignment="Top" Height="245" Width="667">
+                <DataGrid x:Name="dgrd_Tax" HorizontalAlignment="Left" Margin="8,100,0,0" AutoGenerateColumns="False" VerticalAlignment="Top" Height="245" Width="667">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Sr No."  x:Name="grsrno" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
                         <DataGridTextColumn  Width=" 300" Header="Tax Type"  x:Name="grdTaxType" SortMemberPath="Tax_Type" Binding="{Binding Tax_Type, Mode=TwoWay}" />
-                        <DataGridTextColumn Width=" 200" Header="Tax Percentage" x:Name="grdPercentage" SortMemberPath="Tax_Percentage" Binding="{Binding Tax_Percentage, Mode=TwoWay}" />
+                        <DataGridTextColumn Width=" 200" Header="Tax Percentage"  x:Name="grdPercentage" SortMemberPath="Tax_Percentage" Binding="{Binding Tax_Percentage, Mode=TwoWay}" />
                         
                        
                         <!--<DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />-->
-                        <DataGridTemplateColumn Header="IsInterested" x:Name="isInterested" >
+                        <DataGridTemplateColumn Header="Action" x:Name="Action" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="Button_Click" Name="btntaxoptions"/>
+                                    <Button Click="Button_Click" Content="Delete" Name="btntaxoptions"/>
                                    
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>

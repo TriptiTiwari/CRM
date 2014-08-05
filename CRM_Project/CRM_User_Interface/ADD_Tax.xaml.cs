@@ -30,9 +30,11 @@ namespace CRM_User_Interface
         public ADD_Tax()
         {
             InitializeComponent();
+            FetchtaxDetails();
         }
         BAL_Tax baltax = new BAL_Tax();
         DAL_Tax daltax = new DAL_Tax();
+        string caption = "GREEN FUTURE GLOB";
         private void btnTaxMain_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -45,14 +47,48 @@ namespace CRM_User_Interface
 
         private void btnTax_AddTax_Click(object sender, RoutedEventArgs e)
         {
-            if(btnTax_AddTax .Content =="Add Tax")
-            {
-                baltax.Flag = 1;
+              baltax.Flag = 1;
                 baltax.Tax_Type = txtTax_TName.Text;
-                baltax.Tax_Percentage =Convert.ToDouble ( txtTax_TPercent.Text);
+              double price=  Convert.ToDouble(txtTax_TPercent.Text);
+              baltax.Tax_Percentage = Convert.ToDouble( Microsoft.VisualBasic.Strings.Format(price, "##,###.00"));
+                    
                 baltax.S_Status = "Active";
                 baltax.C_Date = System.DateTime.Now.ToShortDateString();
+                daltax.Add_TAX_Save(baltax);
+                MessageBox.Show("Tax Added Successfully",caption , MessageBoxButton.OK );
+                clear();
+                FetchtaxDetails();
+            
+        }
+        public void clear()
+        {
+            txtTax_TName.Text = "";
+            txtTax_TPercent.Text = "";
+        }
+        public void FetchtaxDetails()
+        {
+            try
+            {
+                con.Open();
+                DataSet ds = new DataSet();
+                cmd = new SqlCommand("select ID, Tax_Type,Tax_Percentage from tlb_AddTax  where  S_Status='Active'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    dgrd_Tax.ItemsSource = ds.Tables[0].DefaultView;
+                }
             }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+
+
         }
     }
 }
