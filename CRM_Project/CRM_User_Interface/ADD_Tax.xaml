@@ -25,14 +25,21 @@
                         
                        
                         <!--<DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />-->
-                        <DataGridTemplateColumn Header="Action" x:Name="Action" >
+                        <DataGridTemplateColumn Header="Edit" x:Name="Action2"  >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="Button_Click" Content="Delete" Name="btntaxoptions"/>
-                                   
+                                    <Button  Content="Edit" Name="btntaxoptions" Click="btntaxoptions_Click"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Delete" x:Name="Action" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="Button_Click" Content="Delete" Name="btntaxoptions"/>
+                                   </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                       
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
