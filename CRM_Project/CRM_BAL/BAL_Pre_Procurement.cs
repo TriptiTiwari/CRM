@@ -29,6 +29,7 @@ namespace CRM_BAL
      public double Procurment_Price { get; set; }
      public double Quantity { get; set; }
      public double Total_Amount { get; set; }
+     public double Net_Amount { get; set; }
      public double Round_Off { get; set; }
      public string Reg_Document{ get; set; }
      

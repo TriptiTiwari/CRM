@@ -1,0 +1,66 @@
+ Create Table Pre_Procurement
+ (
+ ID int IDENTITY(1,1) CONSTRAINT pk_Pro_ID PRIMARY KEY(ID)not null,
+DealerID int CONSTRAINT fk_DealerEntryID FOREIGN KEY REFERENCES tbl_DealerEntry NOT NULL,
+Domain_ID int CONSTRAINT fk_ProDomainID FOREIGN KEY REFERENCES tb_Domain NOT NULL,
+ Product_ID int CONSTRAINT fk_ProProductID FOREIGN KEY REFERENCES tlb_Products NOT NULL,
+ Brand_ID int CONSTRAINT fk_ProBrandID FOREIGN KEY REFERENCES tlb_Brand NOT NULL,
+ P_Category int CONSTRAINT fk_ProPCategoryID FOREIGN KEY REFERENCES tlb_P_Category NOT NULL,
+ Model_No_ID int CONSTRAINT fk_PromodelID FOREIGN KEY REFERENCES tlb_Model NOT NULL,
+ Color_ID int CONSTRAINT fk_ProColorID FOREIGN KEY REFERENCES tlb_Color NOT NULL,
+ Procurment_Price money not null,
+ Quantity money not null,
+ Total_Amount money not null,
+ Net_Amount money not null,
+ Round_Off money not null,
+ Reg_Document  nvarchar(MAX) not null,
+ Have_Insurance nvarchar(MAX) not null,
+Warranty nvarchar(MAX) not null, 
+ re_ferb_cost nvarchar(MAX) not null,
+ Follow_up nvarchar(MAX) not null,
+ Narration nvarchar(MAX) not null,
+ S_Status nvarchar(MAX),
+ C_Date DateTime
+ 
+ )
+ 
+ Drop  table Pre_Procurement
+ Select * from Pre_Procurement
+ 
+
+
+sp
+ALTER PROCEDURE [dbo].[SP_Pre_Procurement_Save]
+	@Flag int=null,
+	@DealerID int=null,
+	@Domain_ID int=null,
+ @Product_ID int=null,
+ @Brand_ID int=null,
+ @P_Category int=null,
+ @Model_No_ID int=null,
+ @Color_ID int=null,
+ 
+ @Procurment_Price money ,
+ @Quantity money ,
+ @Total_Amount money ,
+ @Net_Amount money ,
+ @Round_Off money ,
+ @Reg_Document  nvarchar(MAX),
+ @Have_Insurance  nvarchar(MAX),
+ @Warranty  nvarchar(MAX),
+ @re_ferb_cost nvarchar(MAX),
+ @Follow_up nvarchar(MAX),
+ @Narration nvarchar(MAX),
+ @S_Status nvarchar(MAX),
+	@C_Date DateTime
+	
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+if(@Flag =1)
+   begin
+   insert into Pre_Procurement(DealerID ,Domain_ID,Product_ID,Brand_ID,P_Category,Model_No_ID,Color_ID,Procurment_Price,Quantity,Total_Amount,Net_Amount,Round_Off,Reg_Document,Have_Insurance,Warranty ,re_ferb_cost,Follow_up,Narration,S_Status,C_Date) values(@DealerID  ,@Domain_ID ,@Product_ID ,@Brand_ID ,@P_Category ,@Model_No_ID ,@Color_ID ,@Procurment_Price,@Quantity ,@Total_Amount ,@Net_Amount ,@Round_Off ,@Reg_Document ,@Have_Insurance,@Warranty  ,@re_ferb_cost ,@Follow_up ,@Narration  ,@S_Status,@C_Date  )
+   end
+END

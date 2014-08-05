@@ -46,6 +46,7 @@
     <Compile Include="DAL_EmployeeEntry.cs" />
     <Compile Include="DAL_Followup.cs" />
     <Compile Include="DAL_Pre_Procurement.cs" />
+    <Compile Include="DAL_Tax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

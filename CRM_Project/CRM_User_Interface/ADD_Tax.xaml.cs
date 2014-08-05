@@ -28,5 +28,10 @@ namespace CRM_User_Interface
         {
             this.Close();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -380,7 +380,7 @@
 
             </Grid>
             <Button Content="Admin" Name="btnadminl" Foreground="White"  HorizontalAlignment="Left" Margin="980,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF302D2D" Click="btnadminl_Click"/>
-            <Grid HorizontalAlignment="Left" Visibility="Visible"   Name="GRD_NewProcurement" Height="560" Margin="25,65,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
+            <Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_NewProcurement" Height="560" Margin="25,65,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="530" Margin="70,20,0,0" VerticalAlignment="Top" Width="1035" Background="White" >
                     <Label Content="Pre-Procurement No :" HorizontalAlignment="Left" Margin="85,34,0,0" VerticalAlignment="Top" Width="146"/>
                     <Label Content="Dealer Name :" HorizontalAlignment="Left" Margin="89,63,0,0" VerticalAlignment="Top" Width="85"/>
@@ -392,7 +392,7 @@
                     <Label Content="Color :" HorizontalAlignment="Left" Margin="532,209,0,0" VerticalAlignment="Top" Width="135"/>
                     <Label Content="Price :" HorizontalAlignment="Left" Margin="90,238,0,0" VerticalAlignment="Top" Width="105"/>
                     <Label Content="Registration Documents :" HorizontalAlignment="Left" Margin="530,370,0,0" VerticalAlignment="Top" Width="135"/>
-                    <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="90,334,0,0" VerticalAlignment="Top" Width="135"/>
+                    <Label Content="Have Insurance :" HorizontalAlignment="Left" Margin="90,368,0,0" VerticalAlignment="Top" Width="135"/>
                     <Label Content="Re-Ferb Cost :" HorizontalAlignment="Left" Margin="531,269,0,0" VerticalAlignment="Top" Width="135"/>
                     <Label Content="Follow-up :" HorizontalAlignment="Left" Margin="533,336,0,0" VerticalAlignment="Top" Width="135"/>
                     <Button x:Name="btnPro_Save" Content="Save" HorizontalAlignment="Left" Margin="315,489,0,0" VerticalAlignment="Top" Width="85" Click="btnPro_Save_Click" Height="25"/>
@@ -418,23 +418,25 @@
                     <ComboBox x:Name="cmbPreBrand" HorizontalAlignment="Left" Margin="237,151,0,0" VerticalAlignment="Top" Width="298" SelectionChanged="cmbPreBrand_SelectionChanged" IsEditable="True" IsReadOnly="True" Height="22"/>
                     <ComboBox x:Name="cmd_PreColor" HorizontalAlignment="Left" Margin="687,212,0,0" VerticalAlignment="Top" Width="193" IsReadOnly="True" IsEditable="True" SelectionChanged="cmd_PreColor_SelectionChanged"/>
                     <ComboBox x:Name="cmbPreFollowup" HorizontalAlignment="Left" Margin="689,335,0,0" VerticalAlignment="Top" Width="191" IsEditable="True" IsReadOnly="True"/>
-                    <ComboBox x:Name="cmbPreInsurance" HorizontalAlignment="Left" Margin="242,335,0,0" VerticalAlignment="Top" Width="213" IsEditable="True" IsReadOnly="True"/>
+                    <ComboBox x:Name="cmbPreInsurance" HorizontalAlignment="Left" Margin="242,369,0,0" VerticalAlignment="Top" Width="213" IsEditable="True" IsReadOnly="True"/>
                     <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="23" Margin="238,245,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"/>
                     <TextBox x:Name="txtPreFerbcost" HorizontalAlignment="Left" Height="23" Margin="690,272,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
 
-                    <Label Content="Narration :" HorizontalAlignment="Left" Margin="85,374,0,0" VerticalAlignment="Top" Width="135"/>
-                    <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="75" Margin="240,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+                    <Label Content="Narration :" HorizontalAlignment="Left" Margin="85,400,0,0" VerticalAlignment="Top" Width="135"/>
+                    <TextBox x:Name="txtnarration" HorizontalAlignment="Left" Height="75" Margin="240,397,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
 
                     <ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="239,67,0,0" VerticalAlignment="Top" Width="296" SelectionChanged="cmbPre_Pro_Salename_SelectionChanged" IsEditable="True"/>
                     <TextBox x:Name="txtPreWarranty" HorizontalAlignment="Left" Height="23" Margin="688,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
                     <Label Content="Pre-Procurement :" HorizontalAlignment="Left" Margin="415,0,0,0" VerticalAlignment="Top" Width="146"/>
                     <Label Content="QTY :" HorizontalAlignment="Left" Margin="90,270,0,0" VerticalAlignment="Top" Width="135"/>
                     <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Height="23" Margin="240,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" TextChanged="txtQuantity_TextChanged"/>
-                    <Label Content="Total Price :" HorizontalAlignment="Left" Margin="90,305,0,0" VerticalAlignment="Top" Width="105"/>
+                    <Label Content="Total Amount :" HorizontalAlignment="Left" Margin="90,305,0,0" VerticalAlignment="Top" Width="105"/>
                     <TextBox x:Name="txtTotalPrice" HorizontalAlignment="Left" Height="23" Margin="240,304,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215"/>
                     <ComboBox x:Name="cmbPreWarrantyYM" HorizontalAlignment="Left" Margin="774,243,0,0" VerticalAlignment="Top" Width="106" IsEditable="True" IsReadOnly="True"/>
                     <Label Content="Round-off " HorizontalAlignment="Left" Margin="531,300,0,0" VerticalAlignment="Top" Width="135"/>
-                    <TextBox x:Name="txtpreroundoff" HorizontalAlignment="Left" Height="23" Margin="690,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                    <TextBox x:Name="txtpreroundoff" HorizontalAlignment="Left" Height="23" Margin="689,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="190"/>
+                    <Label Content="Net Amount :" HorizontalAlignment="Left" Margin="90,335,0,0" VerticalAlignment="Top" Width="105"/>
+                    <TextBox x:Name="txtNetAmount" HorizontalAlignment="Left" Height="23" Margin="240,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215"/>
                     <!--<ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="315,50,0,0" VerticalAlignment="Top" Width="414" IsEditable="True"/>-->
 
                     <!--<Button Content="Report String" Width="100" Margin="10" Click="Report_Click" />
