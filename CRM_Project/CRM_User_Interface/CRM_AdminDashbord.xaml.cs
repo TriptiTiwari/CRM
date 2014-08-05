@@ -552,6 +552,7 @@ namespace CRM_User_Interface
                 str = "SELECT P.[ID],P.[DealerID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[Warranty],P.[Quantity],P.[C_Date] " +
                       ",D.[DealerFirstName] + '' + D.[DealerLastName] AS [DealerName],D.[MobileNo],D.[PhoneNo] " +
                       ",DM.[Domain_Name] + ' , ' +  PM.[Product_Name] + ' , ' + B.[Brand_Name] + ' , ' + PC.[Product_Category] + ' , ' + MN.[Model_No] + ' , ' + C.[Color] AS [Products]" +
+                      ",PP.[Price] " +
                       "FROM [Pre_Procurement] P " +
                       "INNER JOIN [tbl_DealerEntry] D ON D.[ID] = P.[DealerID] " +
                       "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
@@ -560,6 +561,7 @@ namespace CRM_User_Interface
                       "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
                       "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
                       "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+                      "INNER JOIN [Pre_Products] PP ON PP.[Model_No_ID]=P.[Model_No_ID] " +
                       "WHERE ";
                 if ((dtpAdmTo_Dealer_Search.SelectedDate != null) && (dtpAdmBetween_Dealer_Search.SelectedDate != null))
                 {
