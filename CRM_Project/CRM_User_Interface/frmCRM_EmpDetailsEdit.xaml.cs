@@ -63,9 +63,9 @@ namespace CRM_User_Interface
                     txtAdm_Emp_PhoneNo.Text = dt.Rows[0]["PhoneNo"].ToString();
                     txtAdm_Emp_Designation.Text = dt.Rows[0]["Designation"].ToString();
                     dtpAdm_Emp_DOJ.SelectedDate = Convert.ToDateTime(dt.Rows[0]["DateOfJoining"].ToString());
-                    cmbAdm_Emp_YearExp.Text = dt.Rows[0]["NoOfYears"].ToString();
+                    cmbAdm_Emp_YearExp.SelectedItem = dt.Rows[0]["NoOfYears"].ToString();
                     lblYears.Content = dt.Rows[0]["Years"].ToString();
-                    cmbAdm_Emp_Months.Text = dt.Rows[0]["NoOfMonths"].ToString();
+                    cmbAdm_Emp_Months.SelectedItem = dt.Rows[0]["NoOfMonths"].ToString();
                     lblMonths.Content = dt.Rows[0]["Months"].ToString();
                     txtAdm_Emp_Salary.Text = dt.Rows[0]["Salary"].ToString();
                 }
@@ -78,7 +78,7 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
-            btnAdmEdit_Dealer_Save.Content = "Update";
+            btnAdm_Emp_Save.Content = "Update";
         }
 
         public void LoadNoOfYears1()
@@ -118,5 +118,51 @@ namespace CRM_User_Interface
             cmbAdm_Emp_Months.Items.Add("10");
             cmbAdm_Emp_Months.Items.Add("11");
         }
+
+        //private void btnAdm_Emp_Save_Click(object sender, RoutedEventArgs e)
+        //{
+        //    try
+        //    {
+        //        bempupd.Flag = 2;
+        //        bdealerupd.id = Convert.ToInt32(txtDealerID.Text);
+        //        bdealerupd.DealerEntryID = lbl_Edit_DealerID.Content.ToString();
+        //        bdealerupd.CompanyName = txtAdmEdit_CompanyName.Text;
+        //        bdealerupd.DealerFirstName = txtAdmEdit_DealerFirstName.Text;
+        //        bdealerupd.DealerLastName = txtAdmEdit_DealerLastName.Text;
+        //        bdealerupd.DateOfBirth = Convert.ToDateTime(dtpAdmEdit_Dealer_DOB.SelectedDate);
+        //        bdealerupd.MobileNo = txtAdmEdit_Dealer_MobileNo.Text;
+        //        bdealerupd.PhoneNo = txtAdmEdit_Dealer_PhoneNo.Text;
+        //        bdealerupd.DealerAddress = txtAdmEdit_Dealer_Address.Text;
+        //        bdealerupd.City = txtAdmEdit_Dealer_City.Text;
+        //        bdealerupd.Zip = txtAdmEdit_Dealer_Zip.Text;
+        //        bdealerupd.DState = txtAdmEdit_Dealer_State.Text;
+        //        bdealerupd.Country = txtAdmEdit_Dealer_Country.Text;
+        //        bdealerupd.S_Status = "Active";
+
+        //        //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+        //        //string time = System.DateTime.Now.ToShortTimeString();
+        //        //string[] STRVAL = STRTODAYDATE.Split('-');
+        //        //string STR_DATE1 = STRVAL[0];
+        //        //string STR_MONTH = STRVAL[1];
+        //        //string STR_YEAR = STRVAL[2];
+        //        //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+        //        ////txtdate.Text = DATE;
+        //        ////txttime.Text = time;
+
+        //        //baddprd.C_Date =Convert .ToDateTime( DATE);
+        //        bdealerupd.C_Date = Convert.ToDateTime(System.DateTime.Now.ToShortDateString());
+        //        ddealerupd.EmployeeEntry_Insert_Update_Delete(bdealerupd);
+        //        MessageBox.Show("Updated Data Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //    finally
+        //    {
+        //        con.Close();
+        //    }
+        //}
     }
 }

@@ -791,6 +791,16 @@ namespace CRM_User_Interface
             }
             GetData_EmployeeDetails();
         }
+
+        private void txtAdm_EmployeeName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetData_EmployeeDetails();
+        }
+
+        private void txtAdm_EmployeeMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetData_EmployeeDetails();
+        }
     }
 }
 
