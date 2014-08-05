@@ -2557,7 +2557,7 @@ namespace CRM_User_Interface
         private void smnewwalkin_Click(object sender, RoutedEventArgs e)
         {
             GRD_Sales.Visibility = Visibility;
-            LoadTax();
+           
         }
 
         private void rdoSaleOldCustomer1_Checked(object sender, RoutedEventArgs e)
@@ -2634,6 +2634,8 @@ namespace CRM_User_Interface
 
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
         {
+            Grd_genratebill.Visibility = Visibility;
+            LoadTax();
 
         }
 
@@ -2857,7 +2859,8 @@ namespace CRM_User_Interface
         {
             if (cmbInvoice_Tax.SelectedValue == "+ <ADD Tax>")
             {
-
+                ADD_Tax tax = new ADD_Tax();
+                tax.Show();
             }
         }
         public void LoadTax()

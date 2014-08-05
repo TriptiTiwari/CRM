@@ -479,7 +479,7 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"               VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Visible"                VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="191*"/>
@@ -529,7 +529,7 @@
 
 
                 </Grid>
-                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"        Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"  Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="225,75,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
                     <Label Content="Follow_up ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
@@ -556,7 +556,7 @@
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="715,235,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerOccupation" Text="" VerticalAlignment="Top" Width="250"/>
                     <Button x:Name="btnSaleCustomerEditoccu" Content="Edit" HorizontalAlignment="Left" Margin="975,237,0,0" VerticalAlignment="Top" Width="65" Height="28" FontSize="14" Click="btnSaleCustomerEditoccu_Click" IsEnabled="False"/>
                 </Grid>
-                <Grid HorizontalAlignment="Right" Visibility="Visible" x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+                <Grid HorizontalAlignment="Right" Visibility="Visible"   x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                     <Grid HorizontalAlignment="Left" Height="545" VerticalAlignment="Top" Width="1140" Background="White" Margin="10,10,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0*"/>
@@ -581,7 +581,7 @@
                                 <TextBox x:Name="txt_Copy2" HorizontalAlignment="Left" Height="23" Margin="547,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67"/>
                                 <TextBox x:Name="txt_Copy3" HorizontalAlignment="Left" Height="23" Margin="345,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
                                 <DataGrid HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" Height="190" Width="1100"/>
-                                <ComboBox x:Name="cmbInvoice_Tax" HorizontalAlignment="Left" Margin="739,28,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged"/>
+                                <ComboBox x:Name="cmbInvoice_Tax" HorizontalAlignment="Left" Margin="739,30,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged"/>
 
                             </Grid>
                         </GroupBox>
@@ -632,7 +632,7 @@
                         <Grid x:Name="GRDInvoice_Finance" Visibility="Hidden"  HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="655" Margin="380,305,0,0" Background="#FFF0F0F0" Grid.ColumnSpan="2">
 
                         </Grid>
-                        <Grid x:Name="GRDInvoice_Installment" Visibility="Hidden"    HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="715" Margin="380,255,0,0" Background="#FFD8F2D6" Grid.ColumnSpan="2">
+                        <Grid x:Name="GRDInvoice_Installment" Visibility="Visible"  HorizontalAlignment="Left" Height="285" VerticalAlignment="Top" Width="715" Margin="380,255,0,0" Background="#FFD8F2D6" Grid.ColumnSpan="2">
 
                             <Label Content="Installment" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="330,-1,0,0" FontSize="14" FontWeight="Bold"/>
                             <Label Content="Invoice Total Amount :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,38,0,0"/>
@@ -662,7 +662,6 @@
                 </Grid>
 
             </Grid>
-            <Label Content="Warranty :" HorizontalAlignment="Left" Margin="625,325,0,0" VerticalAlignment="Top" Width="135"/>
 
 
         </Grid>

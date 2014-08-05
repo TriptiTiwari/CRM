@@ -40,6 +40,29 @@ namespace CRM_DAL
             }
             finally { con.Close(); }
         }
+    public int Add_TAX_Delete_Update(BAL_Tax bt)
+        {
+            try
+            {
+
+                con.Open();
+                cmd = new SqlCommand("SP_Tax_Save", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Flag", 2);
+                cmd.Parameters.AddWithValue("@Tax_Type", bt.Tax_Type);
+                cmd.Parameters.AddWithValue("@Tax_Percentage", bt.Tax_Percentage);
+                cmd.Parameters.AddWithValue("@S_Status", bt.S_Status);
+                cmd.Parameters.AddWithValue("@C_Date", bt.C_Date);
+                int i = cmd.ExecuteNonQuery();
+                return i;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
+        }
 
     }
 }
