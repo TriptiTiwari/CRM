@@ -1371,7 +1371,7 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
-                String str2 = "Select ID, [DealerFirstName]+''+[DealerLastName] as [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
+                String str2 = "Select ID, [DealerFirstName]+' '+[DealerLastName] as [DealerName] from tbl_DealerEntry  where  S_Status='Active' ";
                 cmd = new SqlCommand(str2, con);
                 DataSet ds = new DataSet();
                 // dt = new DataTable();

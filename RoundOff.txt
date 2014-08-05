@@ -1,0 +1,25 @@
+
+        private void Cal_RoundedOff()
+        {
+            nfi = (NumberFormatInfo)nfi.Clone();
+            nfi.CurrencySymbol = "";
+
+            double grandAmt = 0;
+            double netAmt = 0;
+            double roundDiff = 0;
+            double roundDiff1 = 0;
+
+            if (txtGrandTotal.Text.Trim().Length > 0)
+                grandAmt = Convert.ToDouble(txtGrandTotal.Text.Trim());
+            else
+                grandAmt = 0;
+
+            netAmt = Math.Round(grandAmt);
+            roundDiff = netAmt - grandAmt;
+            roundDiff1 = Math.Round(roundDiff, 2);
+
+            txtNetAmt.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(netAmt));
+            //txtRoundUp.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(roundDiff));
+            txtroundUp.Text = Convert.ToString(roundDiff1);
+
+        }
