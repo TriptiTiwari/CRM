@@ -34,6 +34,10 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@Color_ID", bapreoduct.Color_ID);
 
                 cmd.Parameters.AddWithValue("@Procurment_Price", bapreoduct.Procurment_Price);
+                cmd.Parameters.AddWithValue("@Quantity", bapreoduct.Quantity);
+                cmd.Parameters.AddWithValue("@Total_Amount", bapreoduct.Total_Amount);
+                cmd.Parameters.AddWithValue("@Round_Off", bapreoduct.Round_Off);
+
                 cmd.Parameters.AddWithValue("@Reg_Document", bapreoduct.Reg_Document);
                 cmd.Parameters.AddWithValue("@Have_Insurance", bapreoduct.Have_Insurance);
                 cmd.Parameters.AddWithValue("@Warranty", bapreoduct.Warranty);

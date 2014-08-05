@@ -9,12 +9,25 @@ CRM_User_Interface
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
+C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
+11-1091209575
+
+18-203120815
+18211200449
+Add Product\Add_Products.xaml;ADD_Tax.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;frmCRM_DealerDetailsEdit.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
+=======
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
 11-378700128
 
 18-340556594
 16-1726778839
+<<<<<<< HEAD
 Add Product\Add_Products.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;frmCRM_DealerDetailsEdit.xaml;frmCRM_EmpDetailsEdit.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
+=======
+Add Product\Add_Products.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;frmCRM_DealerDetailsEdit.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
+>>>>>>> origin/master
+>>>>>>> origin/master
 
 False
 

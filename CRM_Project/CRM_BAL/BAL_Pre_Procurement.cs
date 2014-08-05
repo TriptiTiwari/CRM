@@ -27,7 +27,11 @@ namespace CRM_BAL
      public string Color { get; set; }
      public int Color_ID { get; set; }
      public double Procurment_Price { get; set; }
+     public double Quantity { get; set; }
+     public double Total_Amount { get; set; }
+     public double Round_Off { get; set; }
      public string Reg_Document{ get; set; }
+     
      public string Have_Insurance { get; set; }
      public string Warranty { get; set; }
      public double re_ferb_cost { get; set; }

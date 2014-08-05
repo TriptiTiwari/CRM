@@ -1206,6 +1206,13 @@ namespace CRM_User_Interface
             cmbP_ModelNo.SelectedValue = null;
             cmbP_Color.SelectedValue = null;
             Load_Domain();
+            SetWarrantyYM();
+        }
+        public void SetWarrantyYM()
+        {
+            cmbPreWarrantyYM.Text = "---Select---";
+            cmbPreWarrantyYM.Items.Add("Month");
+            cmbPreWarrantyYM.Items.Add("Year");
         }
         private void smnewprocurement_Click(object sender, RoutedEventArgs e)
         {
@@ -1403,6 +1410,9 @@ namespace CRM_User_Interface
                 bpreproc.Color_ID = Convert.ToInt32(cmd_PreColor.SelectedValue.GetHashCode());
 
                 bpreproc.Procurment_Price = Convert .ToDouble (txtPrice .Text);
+                bpreproc.Quantity = Convert.ToDouble(txtQuantity.Text);
+                bpreproc.Total_Amount = Convert.ToDouble(txtTotalPrice.Text);
+                bpreproc.Round_Off = Convert.ToDouble(txtpreroundoff .Text);
             //    for (int i = 0; i < 5;i++ )
             //    { 
             //        if (chkidproof.IsChecked == true)
@@ -1423,8 +1433,10 @@ namespace CRM_User_Interface
                 {
                     bpreproc.Reg_Document = checkList;
                 }
+               
                 bpreproc.Have_Insurance = cmbPreInsurance .SelectedValue .ToString ();
-                bpreproc.Warranty = txtPreWarranty.Text;
+                string a=(txtPreWarranty .Text )+(cmbPreWarrantyYM .SelectedItem .ToString ());
+                bpreproc.Warranty = a;
                 bpreproc.re_ferb_cost =Convert .ToDouble ( txtPreFerbcost.Text);
                 bpreproc.Follow_up = cmbPreFollowup.SelectedValue.ToString();
                 bpreproc.Narration = txtnarration.Text;
@@ -2543,6 +2555,7 @@ namespace CRM_User_Interface
         private void smnewwalkin_Click(object sender, RoutedEventArgs e)
         {
             GRD_Sales.Visibility = Visibility;
+            LoadTax();
         }
 
         private void rdoSaleOldCustomer1_Checked(object sender, RoutedEventArgs e)
@@ -2831,6 +2844,38 @@ namespace CRM_User_Interface
             double balamt2 = Convert.ToDouble(txtInvoice_InstalBalanceAmount.Text);
             double calculateamt2 = Convert.ToDouble(balamt2 / m1);
             txtInvoice_Instal_InstalAmountPermonth.Text = Microsoft.VisualBasic.Strings.Format(calculateamt2, "##,###.00");
+        }
+
+        private void btnInvoice_MainExit_Click(object sender, RoutedEventArgs e)
+        {
+            Grd_genratebill.Visibility = Visibility.Hidden;
+        }
+
+        private void cmbInvoice_Tax_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbInvoice_Tax.SelectedValue == "+ <ADD Tax>")
+            {
+
+            }
+        }
+        public void LoadTax()
+        {
+            cmbInvoice_Tax.Text = "---Select---";
+            cmbInvoice_Tax.Items.Add("+ <ADD Tax>");
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LoadTax();
+        }
+
+        private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double  prc=Convert .ToDouble ( txtPrice .Text );
+            double qty=Convert .ToDouble ( txtQuantity  .Text );
+            double tamt = (prc * qty);
+            txtTotalPrice.Text = tamt.ToString ();
+            //txtpreroundoff.Text = Math.Round(0.3).ToString ();
         }
    
     }
