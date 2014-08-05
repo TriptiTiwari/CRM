@@ -38,9 +38,9 @@ namespace CRM_User_Interface
         BAL_EmployeeEntry bempupd = new BAL_EmployeeEntry();
         DAL_EmployeeUpdate dempupd = new DAL_EmployeeUpdate();
 
-        public void EmployeeID(string id)
+        public void EmployeeID(string EmpID)
         {
-            txtAdm_EmployeeID.Text = id;
+            txtAdm_EmployeeID.Text = EmpID;
         }
 
         public void FillData()
@@ -117,6 +117,11 @@ namespace CRM_User_Interface
             cmbAdm_Emp_Months.Items.Add("9");
             cmbAdm_Emp_Months.Items.Add("10");
             cmbAdm_Emp_Months.Items.Add("11");
+        }
+
+        private void btnAdm_Emp_Save_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //private void btnAdm_Emp_Save_Click(object sender, RoutedEventArgs e)

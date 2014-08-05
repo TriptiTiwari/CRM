@@ -409,7 +409,7 @@
                 </Grid>
             </Grid>
 
-            <Grid x:Name="grd_EmployeeDet" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+            <Grid x:Name="grd_EmployeeDet" Visibility="Visible"  HorizontalAlignment="Left" Height="563" Margin="22,96,0,-4" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" Grid.RowSpan="2" >
                 <Button x:Name="btnAdm_EmployeeExit" Content="Exit" HorizontalAlignment="Left" Margin="1093,0,-1,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_EmployeeExit_Click" />
                 <Label Content="Employee Details" HorizontalAlignment="Left" Margin="518,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">

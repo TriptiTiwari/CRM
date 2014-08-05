@@ -25,7 +25,7 @@ namespace CRM_DAL
                 cmd = new SqlCommand("SP_Employee", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 2);
-                cmd.Parameters.AddWithValue("@ID", baemployeeentry.id );
+                cmd.Parameters.AddWithValue("@ID", baemployeeentry.EID );
                 cmd.Parameters.AddWithValue("@EmployeeID", baemployeeentry.EmployeeID);
                 cmd.Parameters.AddWithValue("@EmployeeName", baemployeeentry.EmployeeName);
                 cmd.Parameters.AddWithValue("@DateOfBirth", baemployeeentry.DateOfBirth);

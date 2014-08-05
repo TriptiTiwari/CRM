@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace CRM_BAL
 {
@@ -10,7 +13,7 @@ namespace CRM_BAL
     {
         public int Flag { get; set; }
 
-        public int id { get; set; }
+        public int EID { get; set; }
 
         public string EmployeeID { get; set; }
 
