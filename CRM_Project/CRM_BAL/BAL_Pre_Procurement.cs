@@ -29,6 +29,7 @@ namespace CRM_BAL
      public double Procurment_Price { get; set; }
      public string Reg_Document{ get; set; }
      public string Have_Insurance { get; set; }
+     public string Warranty { get; set; }
      public double re_ferb_cost { get; set; }
      public string Follow_up { get; set; }
      public string Narration { get; set; }
