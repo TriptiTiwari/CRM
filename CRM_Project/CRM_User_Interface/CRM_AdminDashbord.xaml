@@ -407,6 +407,22 @@
                             <DataGridCheckBoxColumn Header="Add To Sale" Width="70"  x:Name="grdFinalPro_AddToSale" SortMemberPath="Warranty" Binding="{Binding addToSale, Mode=TwoWay}" />
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Grid HorizontalAlignment="Left" Height="425" Margin="502,70,0,0" VerticalAlignment="Top" Width="505" Background="#FFEE9B9B">
+                        <Grid HorizontalAlignment="Left" Height="260" Margin="10,10,0,0" VerticalAlignment="Top" Width="485" Background="#FFFCFCFC">
+                            <Label Content="Sales No:" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblSalesNo" Content="SalesNo" HorizontalAlignment="Left" Margin="107,5,0,0" VerticalAlignment="Top" Width="138"/>
+                            <Label Content="Proc Price:" HorizontalAlignment="Left" Margin="11,136,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProcePrice" Content="ProcePrice" HorizontalAlignment="Left" Margin="107,136,0,0" VerticalAlignment="Top" Width="138"/>
+                            <Label Content="Proc Date:" HorizontalAlignment="Left" Margin="11,39,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProcDate" Content="ProcDate" HorizontalAlignment="Left" Margin="107,39,0,0" VerticalAlignment="Top" Width="138"/>
+                            <Label Content="Products:" HorizontalAlignment="Left" Margin="11,74,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProducts" Content="Products" HorizontalAlignment="Left" Margin="107,74,0,0" VerticalAlignment="Top" Width="328" Height="53"/>
+                            <Label Content="Final Price:" HorizontalAlignment="Left" Margin="11,167,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_txtNewPrice" HorizontalAlignment="Left" Height="23" Margin="107,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
+                            <Label Content="Final Date:" HorizontalAlignment="Left" Margin="11,218,0,0" VerticalAlignment="Top"/>
+                            <DatePicker x:Name="dtpFinalDate" HorizontalAlignment="Left" Margin="107,220,0,0" VerticalAlignment="Top" Width="135"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
 
