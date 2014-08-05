@@ -558,7 +558,7 @@
                     <TextBox HorizontalAlignment="Left" Height="30" Margin="715,235,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerOccupation" Text="" VerticalAlignment="Top" Width="250"/>
                     <Button x:Name="btnSaleCustomerEditoccu" Content="Edit" HorizontalAlignment="Left" Margin="975,237,0,0" VerticalAlignment="Top" Width="65" Height="28" FontSize="14" Click="btnSaleCustomerEditoccu_Click" IsEnabled="False"/>
                 </Grid>
-<<<<<<< HEAD
+
 
             </Grid>
             <Grid HorizontalAlignment="Right" Visibility="Hidden" x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
@@ -713,8 +713,8 @@
                             </Grid>
                         </Grid>
                     </Grid>
-    </Border>
-=======
+    <!--</Border>-->
+
             </Grid>
         <Grid HorizontalAlignment="Right" Visibility="Hidden" x:Name="Grd_genratebill" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                 <Grid HorizontalAlignment="Right" Visibility="Hidden"   x:Name="Grd_genratebill1" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2"></Grid>
@@ -867,5 +867,5 @@
         </Grid>
                     
                 </Border>
->>>>>>> origin/master
+
 </Window>
