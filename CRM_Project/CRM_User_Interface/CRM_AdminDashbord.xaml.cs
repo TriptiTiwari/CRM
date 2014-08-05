@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Globalization;
 using CRM_BAL;
 using CRM_DAL;
 
@@ -541,6 +542,35 @@ namespace CRM_User_Interface
         }
         #endregion Fun
 
+        #region Dealer Event
+        private void smdealerDetails_Click(object sender, RoutedEventArgs e)
+        {
+            grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
+        }
+
+        private void txtAdm_CompName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            DealerDetails_LoadData();
+        }
+
+        private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+        #endregion Dealer Event
+        #endregion Function
+
         #region Final Pro
         public void Final_PreProcurement()
         {
@@ -651,36 +681,66 @@ namespace CRM_User_Interface
             cmbAdm_DealerFilter_Search.Items.Add("Color");
             cmbAdm_DealerFilter_Search.Items.Add("Products / Services");
         }
+
+        private void dgvAdm_FinalProcurement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_FinalProcurement.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                //string sqlquery = "SELECT * FROM tbl_DealerEntry where Id='" + PK_ID + "' ";
+
+                string sqlquery = "SELECT P.[ID],P.[DealerID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[Warranty],P.[Quantity],P.[C_Date],P.[Net_Amount] " +
+                      ",D.[DealerFirstName] + '' + D.[DealerLastName] AS [DealerName],D.[MobileNo],D.[PhoneNo] " +
+                      ",DM.[Domain_Name] + ' , ' +  PM.[Product_Name] + ' , ' + B.[Brand_Name] + ' , ' + PC.[Product_Category] + ' , ' + MN.[Model_No] + ' , ' + C.[Color] AS [Products]" +
+                      ",PP.[Price] " +
+                      "FROM [Pre_Procurement] P " +
+                      "INNER JOIN [tbl_DealerEntry] D ON D.[ID] = P.[DealerID] " +
+                      "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
+                      "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
+                      "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
+                      "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+                      "INNER JOIN [Pre_Products] PP ON PP.[Model_No_ID]=P.[Model_No_ID] " +
+                      "WHERE P.[ID]='" + PK_ID + "' ";
+       
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_DomainID.Text = dt.Rows[0]["Domain_ID"].ToString();
+                    txtAdm_ProductID.Text = dt.Rows[0]["Product_ID"].ToString();
+                    txtAdm_BrandID.Text = dt.Rows[0]["Brand_ID"].ToString();
+                    txtAdm_ProductCatID.Text = dt.Rows[0]["P_Category"].ToString();
+                    txtAdm_ModelID.Text = dt.Rows[0]["Model_No_ID"].ToString();
+                    txtAdm_ColorID.Text = dt.Rows[0]["Color_ID"].ToString();
+
+                    lblProcDate.Content = dt.Rows[0]["C_Date"].ToString();
+                    lblProducts.Content = dt.Rows[0]["Products"].ToString();
+                    double Abc = Convert.ToDouble(dt.Rows[0]["Net_Amount"].ToString());
+                    lblProceNetAmt.Content = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(Abc, "##,###.00"));
+                    double price = Convert.ToDouble(dt.Rows[0]["Price"].ToString());
+                    lblProcePrice.Content = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(price, "##,###.00"));
+                    double qt = Convert.ToDouble(dt.Rows[0]["Quantity"].ToString());
+                    lblProceQty.Content = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(qt, "##,###.00"));
+                }
+
+                grd_FinalizeProducts.Visibility = System.Windows.Visibility.Visible;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
         #endregion Final Pro
-
-        #region Dealer Event
-        private void smdealerDetails_Click(object sender, RoutedEventArgs e)
-        {
-            grd_DealerDetails.Visibility = System.Windows.Visibility.Visible;
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_DealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_DealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void txtAdm_CompName_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            DealerDetails_LoadData();
-        }
-
-        private void dgvAdm_Dealerdetails_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-        #endregion Dealer Event
-        #endregion Function
 
         public void GetData_EmployeeDetails()
         {
@@ -805,6 +865,61 @@ namespace CRM_User_Interface
         {
             GetData_EmployeeDetails();
         }
+
+        private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
+        {
+            grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if(txtPrice .Text =="" )
+            {
+                MessageBox .Show ("Please Insert Price",caption , MessageBoxButton.OK );
+                txtQuantity.Text = 0.ToString();
+
+            }
+            else if (txtQuantity.Text =="")
+            {
+                txtTotalPrice.Text = txtPrice.Text;
+            }
+            else if (txtPrice.Text !="" && txtQuantity .Text !="")
+            {
+                double tamt1;
+                nfi = (NumberFormatInfo)nfi.Clone();
+                nfi.CurrencySymbol = "";
+
+                double prc = Convert.ToDouble(txtPrice.Text);
+                double qty = Convert.ToDouble(txtQuantity.Text);
+                double tamt = (prc * qty);
+                txtTotalPrice.Text = tamt.ToString();
+                //  txtpreroundoff.Text = Math.Round(tamt).ToString();
+                //roundoff Method
+                if (txtTotalPrice.Text.Trim().Length > 0)
+                {
+                    tamt1 = Convert.ToDouble(txtTotalPrice.Text);
+                }
+                else
+                {
+                    tamt1 = 0;
+                }
+                double netAmt = Math.Round(tamt1);
+                double roundDiff = netAmt - tamt1;
+                double roundDiff1 = Math.Round(roundDiff, 2);
+
+                txtNetAmount.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(netAmt));
+                //txtRoundUp.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(roundDiff));
+                txtpreroundoff.Text = Convert.ToString(roundDiff1);
+
+            }
+          
+        }
+
+       
+
+
+
+
     }
 }
 
