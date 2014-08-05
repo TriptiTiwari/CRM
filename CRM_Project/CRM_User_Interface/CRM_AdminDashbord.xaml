@@ -378,10 +378,6 @@
             </Grid>
 
             <Grid x:Name="grd_FinalProcurment" Visibility="Visible"   HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
-
-
-                <Grid  HorizontalAlignment="Left" Visibility="Visible" Height="565" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
-
                     <Button x:Name="btnAdm_FinalProcurment" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_FinalProcurment_Click"/>
                     <Label Content="Final Procurement" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                     <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
@@ -412,7 +408,7 @@
                         </DataGrid>
                     </Grid>
                 </Grid>
-            </Grid>
+            
         </Grid>
     </Border>
 </Window>
