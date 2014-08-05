@@ -445,6 +445,7 @@
                             <TextBox x:Name="txtTotalPrice" HorizontalAlignment="Left" Height="23" Margin="275,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                             <TextBox x:Name="txtpreroundoff" HorizontalAlignment="Left" Height="23" Margin="365,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                             <TextBox x:Name="txtNetAmount" HorizontalAlignment="Left" Height="23" Margin="275,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+                            <TextBox x:Name="txtSaleQuantity" HorizontalAlignment="Left" Height="23" Margin="400,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                         </Grid>
                         <Grid HorizontalAlignment="Left" Height="40" Margin="10,317,0,0" VerticalAlignment="Top" Width="485" Background="White">
                             <Label Content="Service Interval:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
@@ -453,7 +454,7 @@
                             <Label Content="Months" HorizontalAlignment="Left" Margin="276,8,0,0" VerticalAlignment="Top"/>
                         </Grid>
                         <Grid HorizontalAlignment="Left" Height="45" Margin="10,363,0,0" VerticalAlignment="Top" Width="485" Background="White">
-                            <Button x:Name="btnFinalProcurement" Content="Save" HorizontalAlignment="Left" Margin="150,9,0,0" VerticalAlignment="Top" Width="75" Height="25" Foreground="White" FontWeight="Bold" FontSize="14">
+                            <Button x:Name="btnFinalProcurement" Content="Save" HorizontalAlignment="Left" Margin="150,9,0,0" VerticalAlignment="Top" Width="75" Height="25" Foreground="White" FontWeight="Bold" FontSize="14" Click="btnFinalProcurement_Click">
                                 <Button.Background>
                                     <RadialGradientBrush>
                                         <GradientStop Color="Black" Offset="0"/>

@@ -43,7 +43,8 @@ namespace CRM_User_Interface
         DAL_EmployeeEntry dempetr = new DAL_EmployeeEntry();
         BAL_DealerEntry bdealeretr = new BAL_DealerEntry();
         DAL_DealerEntry ddealeretr = new DAL_DealerEntry();
-
+        BAL_StockDetails bstockDet = new BAL_StockDetails();
+        DAL_StockDetails dstockDet = new DAL_StockDetails();
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -932,6 +933,50 @@ namespace CRM_User_Interface
                 MessageBox.Show("Please Enter Quantity", caption, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             return result;
+        }
+
+        private void btnFinalProcurement_Click(object sender, RoutedEventArgs e)
+        {
+            if (FinalPro_Validation() == true)
+                return;
+
+            try
+            {
+                bstockDet.Flag = 1;
+                bstockDet.DomainID = Convert.ToInt32(txtAdm_DomainID.Text);
+                bstockDet.ProductID= Convert.ToInt32(txtAdm_ProductID.Text);
+                bstockDet.BrandID = Convert.ToInt32(txtAdm_BrandID.Text);
+                bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
+                bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
+                bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+                bstockDet.AvilableQty = Convert.ToInt32(txtQuantity.Text);
+                bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                bstockDet.S_Status = "Active";
+
+                //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                //string time = System.DateTime.Now.ToShortTimeString();
+                //string[] STRVAL = STRTODAYDATE.Split('-');
+                //string STR_DATE1 = STRVAL[0];
+                //string STR_MONTH = STRVAL[1];
+                //string STR_YEAR = STRVAL[2];
+                //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                ////txtdate.Text = DATE;
+                ////txttime.Text = time;
+
+                //baddprd.C_Date =Convert .ToDateTime( DATE);
+                bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet );
+                MessageBox.Show("Data Save Successfully");
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
 
