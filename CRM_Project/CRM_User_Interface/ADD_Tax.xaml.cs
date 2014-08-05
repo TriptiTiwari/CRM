@@ -33,5 +33,10 @@ namespace CRM_User_Interface
         {
 
         }
+
+        private void btnTax_AddTax_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
