@@ -1424,6 +1424,7 @@ namespace CRM_User_Interface
                     bpreproc.Reg_Document = checkList;
                 }
                 bpreproc.Have_Insurance = cmbPreInsurance .SelectedValue .ToString ();
+                bpreproc.Warranty = txtPreWarranty.Text;
                 bpreproc.re_ferb_cost =Convert .ToDouble ( txtPreFerbcost.Text);
                 bpreproc.Follow_up = cmbPreFollowup.SelectedValue.ToString();
                 bpreproc.Narration = txtnarration.Text;
@@ -1829,6 +1830,7 @@ namespace CRM_User_Interface
             load_Followup();
             txtPrice.Text = "";
             chkcmpid .IsEnabled = false;
+            txtPreWarranty.Text = "";
         }
         private void btnPro_Clear_Click(object sender, RoutedEventArgs e)
         {
