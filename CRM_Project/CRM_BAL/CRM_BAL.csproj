@@ -45,6 +45,7 @@
     <Compile Include="BAL_Followup.cs" />
     <Compile Include="BAL_MainLogin.cs" />
     <Compile Include="BAL_Pre_Procurement.cs" />
+    <Compile Include="BAL_Tax.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

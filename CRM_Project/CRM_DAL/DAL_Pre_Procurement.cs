@@ -36,6 +36,7 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@Procurment_Price", bapreoduct.Procurment_Price);
                 cmd.Parameters.AddWithValue("@Quantity", bapreoduct.Quantity);
                 cmd.Parameters.AddWithValue("@Total_Amount", bapreoduct.Total_Amount);
+                cmd.Parameters.AddWithValue("@Net_Amount", bapreoduct.Net_Amount);
                 cmd.Parameters.AddWithValue("@Round_Off", bapreoduct.Round_Off);
 
                 cmd.Parameters.AddWithValue("@Reg_Document", bapreoduct.Reg_Document);

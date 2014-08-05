@@ -31,7 +31,7 @@ namespace CRM_User_Interface
     public partial class CRM_MainForm : Window
     {
 
-
+        NumberFormatInfo nfi = CultureInfo.CurrentCulture.NumberFormat;
         string caption = "Green Future Glob";
         int cid;
         double y1,m1;
@@ -1206,7 +1206,7 @@ namespace CRM_User_Interface
             cmbP_ModelNo.SelectedValue = null;
             cmbP_Color.SelectedValue = null;
             Load_Domain();
-            SetWarrantyYM();
+            
         }
         public void SetWarrantyYM()
         {
@@ -1223,7 +1223,7 @@ namespace CRM_User_Interface
             load_Insurance();
             load_Followup();
             FetchDealarname();
-
+            SetWarrantyYM(); 
           
 
         }
@@ -1353,7 +1353,7 @@ namespace CRM_User_Interface
         private void btnPro_Exit_Click(object sender, RoutedEventArgs e)
         {
             GRD_NewProcurement.Visibility = Visibility.Hidden;
-            clearallPreProcurement();
+            //clearallPreProcurement();
         }
         //=============== new pre procuremnet=================
         private void Check_Click(object sender, RoutedEventArgs e)
@@ -1412,6 +1412,7 @@ namespace CRM_User_Interface
                 bpreproc.Procurment_Price = Convert .ToDouble (txtPrice .Text);
                 bpreproc.Quantity = Convert.ToDouble(txtQuantity.Text);
                 bpreproc.Total_Amount = Convert.ToDouble(txtTotalPrice.Text);
+                bpreproc.Net_Amount = Convert.ToDouble(txtNetAmount.Text);
                 bpreproc.Round_Off = Convert.ToDouble(txtpreroundoff .Text);
             //    for (int i = 0; i < 5;i++ )
             //    { 
@@ -1435,7 +1436,7 @@ namespace CRM_User_Interface
                 }
                
                 bpreproc.Have_Insurance = cmbPreInsurance .SelectedValue .ToString ();
-                string a=(txtPreWarranty .Text )+(cmbPreWarrantyYM .SelectedItem .ToString ());
+                string a=(txtPreWarranty .Text )+""+(cmbPreWarrantyYM .SelectedItem .ToString ());
                 bpreproc.Warranty = a;
                 bpreproc.re_ferb_cost =Convert .ToDouble ( txtPreFerbcost.Text);
                 bpreproc.Follow_up = cmbPreFollowup.SelectedValue.ToString();
@@ -1836,8 +1837,9 @@ namespace CRM_User_Interface
             chk7_12.IsEnabled = false;
             chkNODOCS.IsEnabled = false;
             chk7_12.IsChecked = false;
-            cmbPreInsurance.SelectedValue = null;
-            cmbPreFollowup.SelectedValue = null;
+          
+            cmbPreInsurance.Items .Clear ();
+            cmbPreFollowup.Items.Clear ();
             load_Insurance();
             load_Followup();
             txtPrice.Text = "";
@@ -2871,11 +2873,47 @@ namespace CRM_User_Interface
 
         private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
-            double  prc=Convert .ToDouble ( txtPrice .Text );
-            double qty=Convert .ToDouble ( txtQuantity  .Text );
-            double tamt = (prc * qty);
-            txtTotalPrice.Text = tamt.ToString ();
-            //txtpreroundoff.Text = Math.Round(0.3).ToString ();
+
+            if(txtPrice .Text =="" )
+            {
+                MessageBox .Show ("Please Insert Price",caption , MessageBoxButton.OK );
+                txtQuantity.Text = 0.ToString();
+
+            }
+            else if (txtQuantity.Text =="")
+            {
+                txtTotalPrice.Text = txtPrice.Text;
+            }
+            else if (txtPrice.Text !="" && txtQuantity .Text !="")
+            {
+                double tamt1;
+                nfi = (NumberFormatInfo)nfi.Clone();
+                nfi.CurrencySymbol = "";
+
+                double prc = Convert.ToDouble(txtPrice.Text);
+                double qty = Convert.ToDouble(txtQuantity.Text);
+                double tamt = (prc * qty);
+                txtTotalPrice.Text = tamt.ToString();
+                //  txtpreroundoff.Text = Math.Round(tamt).ToString();
+                //roundoff Method
+                if (txtTotalPrice.Text.Trim().Length > 0)
+                {
+                    tamt1 = Convert.ToDouble(txtTotalPrice.Text);
+                }
+                else
+                {
+                    tamt1 = 0;
+                }
+                double netAmt = Math.Round(tamt1);
+                double roundDiff = netAmt - tamt1;
+                double roundDiff1 = Math.Round(roundDiff, 2);
+
+                txtNetAmount.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(netAmt));
+                //txtRoundUp.Text = String.Format(nfi, "{0:C}", Convert.ToDouble(roundDiff));
+                txtpreroundoff.Text = Convert.ToString(roundDiff1);
+
+            }
+          
         }
    
     }
