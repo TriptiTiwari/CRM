@@ -561,7 +561,7 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Right" Visibility="Visible"    x:Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+            <Grid HorizontalAlignment="Right" Visibility="Hidden"     x:Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                 <!--<Grid HorizontalAlignment="Right" Visibility="Visible"    x:Name="Grd_genratebill1" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
 
 
@@ -616,12 +616,12 @@
                                 <Label Content="Available Qty :" HorizontalAlignment="Left" Margin="342,-1,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Tax" HorizontalAlignment="Left" Margin="762,1,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Sub Total" HorizontalAlignment="Left" Margin="846,1,0,0" VerticalAlignment="Top"/>
-                                <ComboBox HorizontalAlignment="Left" Margin="9,31,0,0" VerticalAlignment="Top" Width="330" SelectionChanged="ComboBox_SelectionChanged"/>
+                                <ComboBox x:Name="cmbInvoiceStockProducts" HorizontalAlignment="Left" Margin="9,31,0,0" VerticalAlignment="Top" Width="330" SelectionChanged="ComboBox_SelectionChanged"/>
                                 <Label Content="Qty" HorizontalAlignment="Left" Margin="564,1,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Actual Price :" HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Price :" HorizontalAlignment="Left" Margin="649,2,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="949,29,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1034,29,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="True"/>
+                                <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="953,30,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1033,30,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="False" />
                                 <TextBox HorizontalAlignment="Left" Height="23" Margin="824,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txt_1" HorizontalAlignment="Left" Height="23" Margin="619,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
                                 <TextBox x:Name="txt_2" HorizontalAlignment="Left" Height="23" Margin="422,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
