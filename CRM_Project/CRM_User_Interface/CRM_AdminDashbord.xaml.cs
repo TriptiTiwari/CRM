@@ -46,6 +46,8 @@ namespace CRM_User_Interface
         BAL_StockDetails bstockDet = new BAL_StockDetails();
         DAL_StockDetails dstockDet = new DAL_StockDetails();
         DAL_StaockDetailsUpdate dstUpdate = new DAL_StaockDetailsUpdate();
+        BAL_FinalDealer bfinaldealer = new BAL_FinalDealer();
+        DAL_FinalDealer dfinaldealer = new DAL_FinalDealer();
 
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
@@ -906,6 +908,7 @@ namespace CRM_User_Interface
                 con.Close();
             }
         }
+
         #region Final Product Event
         private void dgvAdm_FinalProcurement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
@@ -1011,16 +1014,31 @@ namespace CRM_User_Interface
         }
 
         #endregion Final Product Event
+
+        #region DealerSales
+        public void Salesid()
+        {
+
+            int id1 = 0;
+            // SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from Final_DealerDetails", con);
+            id1 = Convert.ToInt32(cmd.ExecuteScalar());
+            id1 = id1 + 1;
+            lblDealerID.Content = "# Sales /" + id1.ToString();
+            con.Close();
+
+
+        }
+        #endregion DealerSales
+
         #endregion Final Pro
 
         private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
         {
             grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
         }
-
         
-
-
         private void btnFinalProcurement_Click(object sender, RoutedEventArgs e)
         {
             if (FinalPro_Validation() == true)
@@ -1091,6 +1109,53 @@ namespace CRM_User_Interface
                 }
             }
             
+            //final dealer
+            try
+                {
+                    bfinaldealer.Flag = 1;
+                    bfinaldealer.SalesID = lblSalesNo.Content.ToString();
+                    bfinaldealer.Domain_ID = Convert.ToInt32(txtAdm_DomainID.Text);
+                    bfinaldealer.Product_ID = Convert.ToInt32(txtAdm_ProductID.Text);
+                    bfinaldealer.Brand_ID = Convert.ToInt32(txtAdm_BrandID.Text);
+                    bfinaldealer.P_Category = Convert.ToInt32(txtAdm_ProductCatID.Text);
+                    bfinaldealer.Model_No_ID = Convert.ToInt32(txtAdm_ModelID.Text);
+                    bfinaldealer.Color_ID = Convert.ToInt32(txtAdm_ColorID.Text);
+                    bfinaldealer.ProcNetAmt = Convert.ToDouble(lblProceNetAmt.Content.ToString());
+                    bfinaldealer.ProcPrice = Convert.ToDouble(lblProcePrice.Content.ToString());
+                    bfinaldealer.ProcQty = lblProceQty.Content.ToString();
+                    bfinaldealer.FinalPrice = Convert.ToDouble(txtPrice.Text);
+                    bfinaldealer.FinalQty = txtQuantity.Text;
+                    bfinaldealer.SubTotal = Convert.ToDouble(txtTotalPrice.Text);
+                    bfinaldealer.RoundUp = Convert.ToDouble(txtpreroundoff.Text);
+                    bfinaldealer.NetAmt = Convert.ToDouble(txtNetAmount.Text);
+                    //bfinaldealer.SDefault = txtSaleQuantity.Text;
+                    //.FinalPrice = Convert.ToDouble(txtPrice.Text);
+                    //bstockDet.S_Status = "Active";
+
+                    //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                    //string time = System.DateTime.Now.ToShortTimeString();
+                    //string[] STRVAL = STRTODAYDATE.Split('-');
+                    //string STR_DATE1 = STRVAL[0];
+                    //string STR_MONTH = STRVAL[1];
+                    //string STR_YEAR = STRVAL[2];
+                    //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                    ////txtdate.Text = DATE;
+                    ////txttime.Text = time;
+
+                    //baddprd.C_Date =Convert .ToDateTime( DATE);
+                    //bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    //dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
+                    //MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
         }
 
         
