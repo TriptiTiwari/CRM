@@ -33,6 +33,7 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@ColorId", bstockdet.ColorId);
                 cmd.Parameters.AddWithValue("@AvilableQty", bstockdet.AvilableQty);
                 cmd.Parameters.AddWithValue("@SaleQty", bstockdet.SaleQty);
+                cmd.Parameters.AddWithValue("@FinalPrice", bstockdet.FinalPrice);
                 cmd.Parameters.AddWithValue("@S_Status", bstockdet.S_Status  );
                 cmd.Parameters.AddWithValue("@C_Date", bstockdet.C_Date);
                 int i = cmd.ExecuteNonQuery();

@@ -14,21 +14,22 @@ namespace CRM_DAL
     {
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
-        BAL_StockDetails bstockdet = new BAL_StockDetails();
+        BAL_StockDetails bstockdetup = new BAL_StockDetails();
 
-        public int AddStockDetailsUp_Insert_Update_Delete(BAL_StockDetails bstockdet)
+        public int AddStockDetailsUp_Insert_Update_Delete(BAL_StockDetails bstockdetup)
         {
             try
             {
 
                 con.Open();
-                cmd = new SqlCommand("SP_StockDetails", con);
+                cmd = new SqlCommand("SP_StockDetailsUpdate", con);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Flag", 2);
-                cmd.Parameters.AddWithValue("@id", bstockdet.SID);
-                cmd.Parameters.AddWithValue("@AvilableQty", bstockdet.AvilableQty);
-                cmd.Parameters.AddWithValue("@S_Status", bstockdet.S_Status);
-                cmd.Parameters.AddWithValue("@C_Date", bstockdet.C_Date);
+                cmd.Parameters.AddWithValue("@Flag", 1);
+                cmd.Parameters.AddWithValue("@id", bstockdetup.SID);
+                cmd.Parameters.AddWithValue("@AvilableQty", bstockdetup.AvilableQty);
+                cmd.Parameters.AddWithValue("@FinalPrice", bstockdetup.FinalPrice);
+                cmd.Parameters.AddWithValue("@S_Status", bstockdetup.S_Status);
+                cmd.Parameters.AddWithValue("@C_Date", bstockdetup.C_Date);
                 int i = cmd.ExecuteNonQuery();
                 return i;
             }
