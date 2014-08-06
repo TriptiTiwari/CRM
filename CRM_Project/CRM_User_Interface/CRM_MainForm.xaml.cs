@@ -2914,9 +2914,41 @@ namespace CRM_User_Interface
        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            LoadTax();
+            FetchAvailableQty();
         }
 
+        public void FetchAvailableQty()
+        {
+            try
+            {
+                con.Open();
+               // DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                cmd = new SqlCommand("select AvilableQty,FinalPrice  from StockDetails  where S_Status='Active'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+
+                    // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
+
+                    txtInvoice_AvailabeQty.Text = dt.Rows[0]["AvilableQty"].ToString();
+                    txtInvoiceActualPrice.Text = dt.Rows[0]["FinalPrice"].ToString();
+                   
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+
+
+        }
         private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -2975,6 +3007,7 @@ namespace CRM_User_Interface
         }
    public void loadStockProducts()
         {
+            cmbInvoiceStockProducts.Text = "---Select---";
             try
             {
                 con.Open();
@@ -3017,6 +3050,25 @@ namespace CRM_User_Interface
 
 
         }
+
+   private void txtInvoice_Qty_TextChanged(object sender, TextChangedEventArgs e)
+   {string  d=0;
+       if (txtInvoice_Qty.Text == "" )
+   {
+       txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
+   }
+       else if (txtInvoiceActualPrice.Text != "" && txtInvoice_Qty.Text != "")
+       {
+         double actualprice =Convert .ToDouble( txtInvoiceActualPrice.Text);
+       double q = Convert.ToDouble(txtInvoice_Qty.Text);
+       double tprice = actualprice * q;
+       txtInvoice_TotalPriceofQty.Text = tprice.ToString();
+     }
+       else if (txtInvoice_Qty.Text ==d)
+       {
+           txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
+       }
+   }
     }
 
 }
