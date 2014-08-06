@@ -45,6 +45,7 @@ namespace CRM_User_Interface
         DAL_DealerEntry ddealeretr = new DAL_DealerEntry();
         BAL_StockDetails bstockDet = new BAL_StockDetails();
         DAL_StockDetails dstockDet = new DAL_StockDetails();
+        DAL_StaockDetailsUpdate dstUpdate = new DAL_StaockDetailsUpdate();
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -253,6 +254,136 @@ namespace CRM_User_Interface
             lblMonths.Visibility = System.Windows.Visibility.Visible;
         }
         #endregion EmployeeEntry Function
+
+        #region EmployeeEdit Fun
+        public void GetData_EmployeeDetails()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[EmployeeID],[EmployeeName],[DateOfBirth],[EmpAddress],[MobileNo],[Designation],[DateOfJoining],[NoOfYears] + ' ' + [Years] + ' , ' + [NoOfMonths] + ' ' + [Months] AS [Experience],[Salary] " +
+                      "FROM [tbl_Employee] " +
+                      "WHERE ";
+                if (txtAdm_EmployeeName_Search.Text.Trim() != "")
+                {
+                    str = str + "[EmployeeName] LIKE ISNULL('" + txtAdm_EmployeeName_Search.Text.Trim() + "',[EmployeeName]) + '%' AND ";
+                }
+                if (txtAdm_EmployeeMN_Search.Text.Trim() != "")
+                {
+                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_EmployeeMN_Search.Text.Trim() + "',[MobileNo]) + '%' AND ";
+                }
+                str = str + " [S_Status] = 'Active' ORDER BY [EmployeeName] ASC ";
+                //str = str + " S_Status = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvAdm_EmployeeDetails.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void smemployeedetails_Click(object sender, RoutedEventArgs e)
+        {
+            grd_EmployeeDet.Visibility = System.Windows.Visibility.Visible;
+            GetData_EmployeeDetails();
+        }
+        #endregion EmployeeEdit Fun
+
+        #region EmployeeEdit Button Event
+        private void btnAdm_EmployeeExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_EmployeeDet.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void btndgv_EmployeeDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
+
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                //SqlConnection con = new SqlConnection(sqlstring);
+                con.Open();
+                string sqlquery = "UPDATE tbl_Employee SET S_Status='DeActive' where ID='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK, MessageBoxImage.Error);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            GetData_EmployeeDetails();
+        }
+
+        private void btndgv_EmployeeEditUp_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
+                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
+                con.Open();
+                string sqlquery = "SELECT * FROM tbl_Employee where Id='" + PK_ID + "' ";
+                SqlCommand cmd = new SqlCommand(sqlquery, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    txtAdm_EmployeeID.Text = dt.Rows[0]["ID"].ToString();
+                }
+
+                frmCRM_EmpDetailsEdit obj = new frmCRM_EmpDetailsEdit();
+                obj.EmployeeID(txtAdm_EmployeeID.Text.Trim());
+                obj.FillData();
+                obj.LoadNoOfYears1();
+                obj.LoadNoOfMonths1();
+                obj.ShowDialog();
+
+                // con.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            GetData_EmployeeDetails();
+        }
+        #endregion EmployeeEdit Button Event
+
+        #region EmployeeEdit Event
+        private void txtAdm_EmployeeName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetData_EmployeeDetails();
+        }
+
+        private void txtAdm_EmployeeMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            GetData_EmployeeDetails();
+        }
+        #endregion EmployeeEdit Event
         #endregion Employee Function
 
         #region Dealer Function
@@ -576,6 +707,27 @@ namespace CRM_User_Interface
         #endregion Function
 
         #region Final Pro
+        private bool FinalPro_Validation()
+        {
+            bool result = false;
+            if (txtPrice.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Price", caption, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (txtQuantity.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Enter Quantity", caption, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else if (dtpFinalDate.Text == "")
+            {
+                result = true;
+                MessageBox.Show("Please Select Date", caption, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            return result;
+        }
+        
         public void Final_PreProcurement()
         {
             try
@@ -686,6 +838,58 @@ namespace CRM_User_Interface
             cmbAdm_DealerFilter_Search.Items.Add("Products / Services");
         }
 
+        private bool CheckProduct()
+        {
+            try
+            {
+                bool result = false;
+                string str = "SELECT * FROM [StockDetails] WHERE [S_Status] = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (dt.Rows.Count > 0)
+                    {
+                        if (txtAdm_DomainID.Text.Trim() == dt.Rows[i]["Domain_ID"].ToString())
+                        {
+                            if (txtAdm_ProductID.Text.Trim() == dt.Rows[i]["Product_ID"].ToString())
+                            {
+                                if (txtAdm_BrandID.Text.Trim() == dt.Rows[i]["Brand_ID"].ToString())
+                                {
+                                    if (txtAdm_ProductCatID.Text.Trim() == dt.Rows[i]["P_Category"].ToString())
+                                    {
+                                        if (txtAdm_ModelID.Text.Trim() == dt.Rows[i]["Model_No_ID"].ToString())
+                                        {
+                                            if (txtAdm_ColorID.Text.Trim() == dt.Rows[i]["Color_ID"].ToString())
+                                            {
+                                                result = true;
+                                                return result;
+                                            }
+                                            else
+                                            {
+                                                result = false;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+        #region Final Product Event
         private void dgvAdm_FinalProcurement_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             try
@@ -744,150 +948,20 @@ namespace CRM_User_Interface
                 con.Close();
             }
         }
-        #endregion Final Pro
-
-        public void GetData_EmployeeDetails()
-        {
-            try
-            {
-                String str;
-                //con.Open();
-                DataSet ds = new DataSet();
-                str = "SELECT [ID],[EmployeeID],[EmployeeName],[DateOfBirth],[EmpAddress],[MobileNo],[Designation],[DateOfJoining],[NoOfYears] + ' ' + [Years] + ' , ' + [NoOfMonths] + ' ' + [Months] AS [Experience],[Salary] " +
-                      "FROM [tbl_Employee] " +
-                      "WHERE ";
-                if (txtAdm_EmployeeName_Search.Text.Trim() != "")
-                {
-                    str = str + "[EmployeeName] LIKE ISNULL('" + txtAdm_EmployeeName_Search.Text.Trim() + "',[EmployeeName]) + '%' AND ";
-                }
-                if (txtAdm_EmployeeMN_Search.Text.Trim() != "")
-                {
-                    str = str + "[MobileNo] LIKE ISNULL('" + txtAdm_EmployeeMN_Search.Text.Trim() + "',[MobileNo]) + '%' AND ";
-                }
-                str = str + " [S_Status] = 'Active' ORDER BY [EmployeeName] ASC ";
-                //str = str + " S_Status = 'Active' ";
-                SqlCommand cmd = new SqlCommand(str, con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(ds);
-
-                //if (ds.Tables[0].Rows.Count > 0)
-                //{
-                dgvAdm_EmployeeDetails.ItemsSource = ds.Tables[0].DefaultView;
-                //}
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-        }
-
-        private void smemployeedetails_Click(object sender, RoutedEventArgs e)
-        {
-            grd_EmployeeDet.Visibility = System.Windows.Visibility.Visible;
-            GetData_EmployeeDetails();
-        }
-
-        private void btnAdm_EmployeeExit_Click(object sender, RoutedEventArgs e)
-        {
-            grd_EmployeeDet.Visibility = System.Windows.Visibility.Hidden;
-        }
-
-        private void btndgv_EmployeeDelete_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem;  //Get specific ID From DataGrid after click on Delete Button.
-
-                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-                //SqlConnection con = new SqlConnection(sqlstring);
-                con.Open();
-                string sqlquery = "UPDATE tbl_Employee SET S_Status='DeActive' where ID='" + PK_ID + "' ";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Data Deleted Successfully...", caption, MessageBoxButton.OK, MessageBoxImage.Error);
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-            GetData_EmployeeDetails();
-        }
-
-        private void btndgv_EmployeeEditUp_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var id1 = (DataRowView)dgvAdm_EmployeeDetails.SelectedItem; //get specific ID from          DataGrid after click on Edit button in DataGrid   
-                PK_ID = Convert.ToInt32(id1.Row["Id"].ToString());
-                con.Open();
-                string sqlquery = "SELECT * FROM tbl_Employee where Id='" + PK_ID + "' ";
-                SqlCommand cmd = new SqlCommand(sqlquery, con);
-                SqlDataAdapter adp = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adp.Fill(dt);
-                if (dt.Rows.Count > 0)
-                {
-                    txtAdm_EmployeeID.Text = dt.Rows[0]["ID"].ToString();
-                }
-
-                frmCRM_EmpDetailsEdit obj = new frmCRM_EmpDetailsEdit();
-                obj.EmployeeID(txtAdm_EmployeeID.Text.Trim());
-                obj.FillData();
-                obj.LoadNoOfYears1();
-                obj.LoadNoOfMonths1();
-                obj.ShowDialog();
-
-                // con.Close();
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
-            GetData_EmployeeDetails();
-        }
-
-        private void txtAdm_EmployeeName_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            GetData_EmployeeDetails();
-        }
-
-        private void txtAdm_EmployeeMN_Search_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            GetData_EmployeeDetails();
-        }
-
-        private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
-        {
-            grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
-        }
 
         private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(txtPrice .Text =="" )
+            if (txtPrice.Text == "")
             {
-                MessageBox .Show ("Please Insert Price",caption , MessageBoxButton.OK );
+                MessageBox.Show("Please Insert Price", caption, MessageBoxButton.OK);
                 txtQuantity.Text = 0.ToString();
 
             }
-            else if (txtQuantity.Text =="")
+            else if (txtQuantity.Text == "")
             {
                 txtTotalPrice.Text = txtPrice.Text;
             }
-            else if (txtPrice.Text !="" && txtQuantity .Text !="")
+            else if (txtPrice.Text != "" && txtQuantity.Text != "")
             {
                 double tamt1;
                 nfi = (NumberFormatInfo)nfi.Clone();
@@ -916,68 +990,86 @@ namespace CRM_User_Interface
                 txtpreroundoff.Text = Convert.ToString(roundDiff1);
 
             }
-          
+
         }
 
-        private bool FinalPro_Validation()
+        #endregion Final Product Event
+        #endregion Final Pro
+
+
+
+        private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
         {
-            bool result = false;
-            if (txtPrice.Text == "")
-            {
-                result = true;
-                MessageBox.Show("Please Enter Price", caption, MessageBoxButton.OK,MessageBoxImage.Information);
-            }
-            else if (txtQuantity.Text == "")
-            {
-                result = true;
-                MessageBox.Show("Please Enter Quantity", caption, MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            return result;
+            grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
         }
+
+        
+
 
         private void btnFinalProcurement_Click(object sender, RoutedEventArgs e)
         {
             if (FinalPro_Validation() == true)
                 return;
 
-            try
+            if(CheckProduct() == true)
             {
-                bstockDet.Flag = 1;
-                bstockDet.DomainID = Convert.ToInt32(txtAdm_DomainID.Text);
-                bstockDet.ProductID= Convert.ToInt32(txtAdm_ProductID.Text);
-                bstockDet.BrandID = Convert.ToInt32(txtAdm_BrandID.Text);
-                bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
-                bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
-                bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
-                bstockDet.AvilableQty = Convert.ToInt32(txtQuantity.Text);
-                bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
-                bstockDet.S_Status = "Active";
+                try
+                {
+                    
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            else
+            {
+                try
+                {
+                    bstockDet.Flag = 1;
+                    bstockDet.DomainID = Convert.ToInt32(txtAdm_DomainID.Text);
+                    bstockDet.ProductID = Convert.ToInt32(txtAdm_ProductID.Text);
+                    bstockDet.BrandID = Convert.ToInt32(txtAdm_BrandID.Text);
+                    bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
+                    bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
+                    bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+                    bstockDet.AvilableQty = Convert.ToInt32(txtQuantity.Text);
+                    bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.S_Status = "Active";
 
-                //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
-                //string time = System.DateTime.Now.ToShortTimeString();
-                //string[] STRVAL = STRTODAYDATE.Split('-');
-                //string STR_DATE1 = STRVAL[0];
-                //string STR_MONTH = STRVAL[1];
-                //string STR_YEAR = STRVAL[2];
-                //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
-                ////txtdate.Text = DATE;
-                ////txttime.Text = time;
+                    //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                    //string time = System.DateTime.Now.ToShortTimeString();
+                    //string[] STRVAL = STRTODAYDATE.Split('-');
+                    //string STR_DATE1 = STRVAL[0];
+                    //string STR_MONTH = STRVAL[1];
+                    //string STR_YEAR = STRVAL[2];
+                    //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                    ////txtdate.Text = DATE;
+                    ////txttime.Text = time;
 
-                //baddprd.C_Date =Convert .ToDateTime( DATE);
-                bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
-                dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet );
-                MessageBox.Show("Data Save Successfully");
-                
+                    //baddprd.C_Date =Convert .ToDateTime( DATE);
+                    bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
+                    MessageBox.Show("Data Save Successfully");
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
-            catch (Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                con.Close();
-            }
+            
         }
+
+        
 
 
 
