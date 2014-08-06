@@ -10,6 +10,7 @@ Create Table StockDetails
  Color_ID int CONSTRAINT fk_C_StockDetailsID FOREIGN KEY REFERENCES tlb_Color NOT NULL,
  AvilableQty nvarchar(MAX) not null,
  SaleQty nvarchar(MAX) not null,
+FinalPrice money,
  S_Status nvarchar(MAX)not null,
  C_Date nvarchar(MAX) not null,
 )
@@ -43,6 +44,7 @@ ALTER PROCEDURE [dbo].[SP_StockDetails]
 	@ColorId int=null,
 	@AvilableQty nvarchar(MAX),
 	@SaleQty nvarchar(MAX),
+@FinalPrice money,
 	@S_Status nvarchar(MAX),
 	@C_Date nvarchar(MAX)
 AS
@@ -52,7 +54,7 @@ BEGIN
 	SET NOCOUNT ON;
 	if(@Flag = 1)
 	begin
-    Insert Into StockDetails(Domain_ID,Product_ID,Brand_ID,P_Category,Model_No_ID,Color_ID,AvilableQty,SaleQty,S_Status,C_Date) Values (@DomainID,@ProductID,@BrandID,@ProductCatID,@ModelID,@ColorID,@AvilableQty,@SaleQty,@S_Status,@C_Date)
+    Insert Into StockDetails(Domain_ID,Product_ID,Brand_ID,P_Category,Model_No_ID,Color_ID,AvilableQty,SaleQty,FinalPrice,S_Status,C_Date) Values (@DomainID,@ProductID,@BrandID,@ProductCatID,@ModelID,@ColorID,@AvilableQty,@SaleQty,@FinalPrice,@S_Status,@C_Date)
 	end
 	
 	if(@Flag = 2)
