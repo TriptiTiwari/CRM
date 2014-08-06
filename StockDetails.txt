@@ -1,0 +1,62 @@
+
+Create Table StockDetails
+(
+ ID int IDENTITY(1,1) CONSTRAINT pk_StockDetailsID PRIMARY KEY(ID)not null,
+ Domain_ID int CONSTRAINT fk_D_StockDetailsID FOREIGN KEY REFERENCES tb_Domain NOT NULL,
+ Product_ID int CONSTRAINT fk_P_StockDetailsID FOREIGN KEY REFERENCES tlb_Products NOT NULL,
+ Brand_ID int CONSTRAINT fk_B_StockDetailsID FOREIGN KEY REFERENCES tlb_Brand NOT NULL,
+ P_Category int CONSTRAINT fk_PC_StockDetailsID FOREIGN KEY REFERENCES tlb_P_Category NOT NULL,
+ Model_No_ID int CONSTRAINT fk_M_StockDetailsID FOREIGN KEY REFERENCES tlb_Model NOT NULL,
+ Color_ID int CONSTRAINT fk_C_StockDetailsID FOREIGN KEY REFERENCES tlb_Color NOT NULL,
+ AvilableQty nvarchar(MAX) not null,
+ SaleQty nvarchar(MAX) not null,
+ S_Status nvarchar(MAX)not null,
+ C_Date nvarchar(MAX) not null,
+)
+drop table StockDetails
+
+
+
+
+
+
+USE [DB_CRM]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_StockDetails]    Script Date: 06-08-2014 12:30:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_StockDetails]
+	@Flag int=null,
+	@id int=null,
+	@DomainID int=null,
+	@ProductID int=null,
+	@BrandID int=null,
+	@ProductCatID int=null,
+	@ModelID int=null,
+	@ColorId int=null,
+	@AvilableQty nvarchar(MAX),
+	@SaleQty nvarchar(MAX),
+	@S_Status nvarchar(MAX),
+	@C_Date nvarchar(MAX)
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+	if(@Flag = 1)
+	begin
+    Insert Into StockDetails(Domain_ID,Product_ID,Brand_ID,P_Category,Model_No_ID,Color_ID,AvilableQty,SaleQty,S_Status,C_Date) Values (@DomainID,@ProductID,@BrandID,@ProductCatID,@ModelID,@ColorID,@AvilableQty,@SaleQty,@S_Status,@C_Date)
+	end
+	
+	if(@Flag = 2)
+	begin
+	update StockDetails Set AvilableQty=@AvilableQty,S_Status=@S_Status,C_Date=@C_Date Where [ID]=@id
+	end 
+END
