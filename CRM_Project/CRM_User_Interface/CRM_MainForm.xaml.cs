@@ -2870,11 +2870,21 @@ namespace CRM_User_Interface
             //    ADD_Tax tax = new ADD_Tax();
             //    tax.Show();
             //}
-        }
-        public void LoadTax()
-        {
-            
+                    }
 
+      public void calculatetax()
+        {
+            if (txtInvoice_TotalPriceofQty.Text == "")
+          {
+              MessageBox.Show("Please Enter Quantity ");
+          }
+          else if (txtInvoice_TotalPriceofQty.Text != "" && cmbInvoice_Tax1.SelectedItem.ToString() != "")
+          {
+              double totprice = Convert.ToDouble(txtInvoice_TotalPriceofQty.Text);
+              double tx = Convert.ToDouble(cmbInvoice_Tax1.Text );
+              double stot = ((totprice * tx) / 100);
+              txtInvoice_SubToatal.Text = (totprice + stot).ToString();
+          }
         }
         public void FetchtaxDetails()
         {
@@ -3052,7 +3062,7 @@ namespace CRM_User_Interface
         }
 
    private void txtInvoice_Qty_TextChanged(object sender, TextChangedEventArgs e)
-   {string  d=0;
+   {double   d=0;
        if (txtInvoice_Qty.Text == "" )
    {
        txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
@@ -3064,11 +3074,20 @@ namespace CRM_User_Interface
        double tprice = actualprice * q;
        txtInvoice_TotalPriceofQty.Text = tprice.ToString();
      }
-       else if (txtInvoice_Qty.Text ==d)
+       else if (txtInvoice_Qty.Text ==d.ToString ())
        {
            txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
        }
+     }
+
+   private void cmbInvoice_Tax1_DropDownClosed(object sender, EventArgs e)
+   {
+       calculatetax();
    }
+
+
+
+
     }
 
 }

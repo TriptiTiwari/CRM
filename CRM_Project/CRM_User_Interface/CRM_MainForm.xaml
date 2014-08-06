@@ -627,8 +627,11 @@
                                 <TextBox x:Name="txtInvoiceActualPrice" HorizontalAlignment="Left" Height="23" Margin="421,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txtInvoice_Qty" HorizontalAlignment="Left" Height="23" Margin="547,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" TextChanged="txtInvoice_Qty_TextChanged"/>
                                 <TextBox x:Name="txtInvoice_AvailabeQty" HorizontalAlignment="Left" Height="23" Margin="344,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
-                                <DataGrid HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" Height="190" Width="1100"/>
-                                <ComboBox x:Name="cmbInvoice_Tax1" HorizontalAlignment="Left" Margin="737,30,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged" Height="24"/>
+                                <DataGrid HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" Height="190" Width="1100">
+                                    
+                                </DataGrid> 
+                                
+                                <ComboBox x:Name="cmbInvoice_Tax1" HorizontalAlignment="Left" Margin="737,30,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged" Height="24" DropDownClosed="cmbInvoice_Tax1_DropDownClosed"/>
 
                             </Grid>
                         </GroupBox>
