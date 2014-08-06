@@ -2641,8 +2641,9 @@ namespace CRM_User_Interface
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
         {
             Grd_genratebill.Visibility = Visibility;
-            LoadTax();
+           // LoadTax();
             FetchtaxDetails();
+            loadStockProducts();
 
         }
 
@@ -2864,11 +2865,11 @@ namespace CRM_User_Interface
 
         private void cmbInvoice_Tax_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cmbInvoice_Tax.SelectedValue == "+ <ADD Tax>")
-            {
-                ADD_Tax tax = new ADD_Tax();
-                tax.Show();
-            }
+            //if (cmbInvoice_Tax1.SelectedValue == "+ <ADD Tax>")
+            //{
+            //    ADD_Tax tax = new ADD_Tax();
+            //    tax.Show();
+            //}
         }
         public void LoadTax()
         {
@@ -2877,21 +2878,27 @@ namespace CRM_User_Interface
         }
         public void FetchtaxDetails()
         {
+            cmbInvoice_Tax1.Text = "---Select---";
             try
             {
                 con.Open();
                 DataSet ds = new DataSet();
-                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where  S_Status='Active'", con);
+                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where S_Status='Active'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(ds);
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    cmbInvoice_Tax.Text = "---Select---";
-                    cmbInvoice_Tax.Items.Insert(0,"+ <ADD Tax>");
+                   
+                   // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
                        
-                    cmbInvoice_Tax .ItemsSource = ds.Tables[0].DefaultView;
+                    cmbInvoice_Tax1 .ItemsSource = ds.Tables[0].DefaultView;
+                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
+                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
+                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
+                    cmbInvoice_Tax1.DisplayMemberPath = ds.Tables[0].Columns["Tax_Percentage"].ToString();
+                    
                 }
             }
             catch (Exception)
@@ -2954,7 +2961,62 @@ namespace CRM_User_Interface
             }
           
         }
-   
+
+        private void txtInvoice_C_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoce_Cash.Visibility = Visibility.Hidden;
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            ADD_Tax adt = new ADD_Tax();
+            adt.Show();
+            FetchtaxDetails();
+        }
+   public void loadStockProducts()
+        {
+            try
+            {
+                con.Open();
+                DataSet ds = new DataSet();
+                DataTable dt = new DataTable();
+                string qry = "Select  S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
+                             ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS Products " +
+                             "From StockDetails S " +
+                             "INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
+                             "INNER JOIN tlb_Products P on P.ID=S.Product_ID " +
+                             "INNER JOIN tlb_Brand B on B.ID=S.Brand_ID " +
+                             "INNER JOIN tlb_P_Category PC on PC.ID=S.P_Category " +
+                             "INNER JOIN tlb_Model M on M.ID=S.Model_No_ID " +
+                             "INNER JOIN tlb_Color C on C.ID=S.Color_ID " +
+                             "where S.S_Status='Active' ORDER BY S.C_Date ASC ";
+                cmd = new SqlCommand(qry , con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables [0].Rows .Count  > 0)
+                {
+
+                    // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
+
+                cmbInvoiceStockProducts.ItemsSource = ds.Tables[0].DefaultView;
+                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
+                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
+                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
+                cmbInvoiceStockProducts.DisplayMemberPath =ds.Tables[0].Columns["Products"].ToString();
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+
+
+        }
     }
 
 }
