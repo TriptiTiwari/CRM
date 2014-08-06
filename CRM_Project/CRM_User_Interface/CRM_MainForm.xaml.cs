@@ -2637,7 +2637,7 @@ namespace CRM_User_Interface
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
         {
             Grd_genratebill.Visibility = Visibility;
-            LoadTax();
+           // LoadTax();
             FetchtaxDetails();
 
         }
@@ -2860,11 +2860,11 @@ namespace CRM_User_Interface
 
         private void cmbInvoice_Tax_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cmbInvoice_Tax.SelectedValue == "+ <ADD Tax>")
-            {
-                ADD_Tax tax = new ADD_Tax();
-                tax.Show();
-            }
+            //if (cmbInvoice_Tax1.SelectedValue == "+ <ADD Tax>")
+            //{
+            //    ADD_Tax tax = new ADD_Tax();
+            //    tax.Show();
+            //}
         }
         public void LoadTax()
         {
@@ -2873,21 +2873,27 @@ namespace CRM_User_Interface
         }
         public void FetchtaxDetails()
         {
+            cmbInvoice_Tax1.Text = "---Select---";
             try
             {
                 con.Open();
                 DataSet ds = new DataSet();
-                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where  S_Status='Active'", con);
+                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where S_Status='Active'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(ds);
 
                 if (ds.Tables[0].Rows.Count > 0)
                 {
-                    cmbInvoice_Tax.Text = "---Select---";
-                    cmbInvoice_Tax.Items.Insert(0,"+ <ADD Tax>");
+                   
+                   // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
                        
-                    cmbInvoice_Tax .ItemsSource = ds.Tables[0].DefaultView;
+                    cmbInvoice_Tax1 .ItemsSource = ds.Tables[0].DefaultView;
+                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
+                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
+                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
+                    cmbInvoice_Tax1.DisplayMemberPath = ds.Tables[0].Columns["Tax_Percentage"].ToString();
+                    
                 }
             }
             catch (Exception)
@@ -2949,6 +2955,11 @@ namespace CRM_User_Interface
 
             }
           
+        }
+
+        private void txtInvoice_C_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            GRDInvoce_Cash.Visibility = Visibility.Hidden;
         }
    
     }
