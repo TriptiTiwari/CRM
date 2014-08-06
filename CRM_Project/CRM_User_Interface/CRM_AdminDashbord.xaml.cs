@@ -1034,10 +1034,11 @@ namespace CRM_User_Interface
                     bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
                     bstockDet.AvilableQty = txtQuantity.Text;
                     //bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
                     bstockDet.S_Status = "Active";
                     bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
                     dstUpdate.AddStockDetailsUp_Insert_Update_Delete(bstockDet);
-                    MessageBox.Show("Data Save Successfully");
+                    MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch(Exception)
                 {
@@ -1061,6 +1062,7 @@ namespace CRM_User_Interface
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
+                    bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
                     bstockDet.S_Status = "Active";
 
                     //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
