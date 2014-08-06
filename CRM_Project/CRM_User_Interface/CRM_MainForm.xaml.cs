@@ -2961,6 +2961,12 @@ namespace CRM_User_Interface
         {
             GRDInvoce_Cash.Visibility = Visibility.Hidden;
         }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            ADD_Tax adt = new ADD_Tax();
+            adt.Show();
+        }
    
     }
 

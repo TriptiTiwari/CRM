@@ -58,7 +58,7 @@ namespace CRM_User_Interface
 
         private void btnTax_AddTax_Click(object sender, RoutedEventArgs e)
         {
-            if (btnTax_AddTax.Content == "Add Tax")
+            if (btnTax_AddTax.Content.ToString ()== "Tax")
             {
                 baltax.Flag = 1;
                 baltax.Tax_Type = txtTax_TName.Text;
@@ -73,7 +73,7 @@ namespace CRM_User_Interface
                 FetchtaxDetails();
             }
 
-            else  if (btnTax_AddTax.Content == "Update")
+            else  if (btnTax_AddTax.Content.ToString () == "Update")
                 {
                     //Tax_Type ,Tax_Percentage  from tlb_AddTax where ID='" + ID + "'",
                     object item = dgrd_Tax.SelectedItem;
@@ -85,7 +85,7 @@ namespace CRM_User_Interface
                     MessageBox.Show("Data Updated Successfully", caption, MessageBoxButton.OK );
                     clear();
                     FetchtaxDetails();
-                    btnTax_AddTax.Content = "Add Tax";
+                    btnTax_AddTax.Content = "Tax";
             }
             
         }

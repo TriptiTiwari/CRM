@@ -621,7 +621,7 @@
                                 <Label Content="Actual Price :" HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Price :" HorizontalAlignment="Left" Margin="649,2,0,0" VerticalAlignment="Top"/>
                                 <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="949,29,0,0" VerticalAlignment="Top" Width="75"/>
-                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1034,29,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1034,29,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="True"/>
                                 <TextBox HorizontalAlignment="Left" Height="23" Margin="824,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txt_1" HorizontalAlignment="Left" Height="23" Margin="619,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
                                 <TextBox x:Name="txt_2" HorizontalAlignment="Left" Height="23" Margin="422,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -704,6 +704,9 @@
 
                         </Grid>
                         <Button x:Name="btnInvoice_MainExit" Grid.ColumnSpan="2" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1055,5,0,0" Click="btnInvoice_MainExit_Click"/>
+                        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Margin="754,20,0,0" Height="26" Width="40">
+                            <Hyperlink NavigateUri="ADD_Tax.xaml" Click="Hyperlink_Click" >TAX</Hyperlink>
+                        </TextBlock>
                     </Grid>
 
                 </Grid>
