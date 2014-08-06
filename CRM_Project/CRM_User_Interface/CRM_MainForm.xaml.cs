@@ -2966,6 +2966,7 @@ namespace CRM_User_Interface
         {
             ADD_Tax adt = new ADD_Tax();
             adt.Show();
+            FetchtaxDetails();
         }
    
     }
