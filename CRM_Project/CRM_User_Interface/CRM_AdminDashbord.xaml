@@ -439,13 +439,14 @@
                                 <TextBox x:Name="txtAdm_ProductCatID" HorizontalAlignment="Left" Height="23" Margin="152,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
                                 <TextBox x:Name="txtAdm_ModelID" HorizontalAlignment="Left" Height="23" Margin="5,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
                                 <TextBox x:Name="txtAdm_ColorID" HorizontalAlignment="Left" Height="23" Margin="55,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_StockID" HorizontalAlignment="Left" Height="23" Margin="100,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
                             </Grid>
                             <Label Content="Proc Net Amt:" HorizontalAlignment="Left" Margin="11,136,0,0" VerticalAlignment="Top"/>
                             <Label x:Name="lblProceNetAmt" Content="ProceNetAmt" HorizontalAlignment="Left" Margin="107,136,0,0" VerticalAlignment="Top" Width="138"/>
                             <TextBox x:Name="txtTotalPrice" HorizontalAlignment="Left" Height="23" Margin="275,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                             <TextBox x:Name="txtpreroundoff" HorizontalAlignment="Left" Height="23" Margin="365,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                             <TextBox x:Name="txtNetAmount" HorizontalAlignment="Left" Height="23" Margin="275,266,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-                            <TextBox x:Name="txtSaleQuantity" HorizontalAlignment="Left" Height="23" Margin="400,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Text="0"/>
+                            <TextBox x:Name="txtSaleQuantity" HorizontalAlignment="Left" Height="23" Margin="425,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Text="0"/>
                         </Grid>
                         <Grid HorizontalAlignment="Left" Height="40" Margin="10,317,0,0" VerticalAlignment="Top" Width="485" Background="White">
                             <Label Content="Service Interval:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>

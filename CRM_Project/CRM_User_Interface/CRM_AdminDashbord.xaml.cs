@@ -46,6 +46,7 @@ namespace CRM_User_Interface
         BAL_StockDetails bstockDet = new BAL_StockDetails();
         DAL_StockDetails dstockDet = new DAL_StockDetails();
         DAL_StaockDetailsUpdate dstUpdate = new DAL_StaockDetailsUpdate();
+
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -864,6 +865,22 @@ namespace CRM_User_Interface
                                         {
                                             if (txtAdm_ColorID.Text.Trim() == dt.Rows[i]["Color_ID"].ToString())
                                             {
+                                                //if ((txtAdm_DomainID.Text.Trim() == dt.Rows[i]["Domain_ID"].ToString()) && (txtAdm_ProductID.Text.Trim() == dt.Rows[i]["Product_ID"].ToString()) &&
+                                                //    (txtAdm_BrandID.Text.Trim() == dt.Rows[i]["Brand_ID"].ToString()) && (txtAdm_ProductCatID.Text.Trim() == dt.Rows[i]["P_Category"].ToString()) &&
+                                                //    (txtAdm_ModelID.Text.Trim() == dt.Rows[i]["Model_No_ID"].ToString()) && (txtAdm_ColorID.Text.Trim() == dt.Rows[i]["Color_ID"].ToString()))
+                                                //string qry = "Select [ID],[Domain_ID],[Product_ID],[Brand_ID],[P_Category],[Model_No_ID],[Color_ID] From [StockDetails] Where [Domain_ID] = '" + txtAdm_DomainID.Text.Trim() + "' And [Product_ID] = '" + txtAdm_ProductID.Text.Trim() + "' And [Brand_ID] = '" + txtAdm_BrandID.Text.Trim() + "' And [P_Category] = '" + txtAdm_ProductCatID.Text.Trim() + "' And [Model_No_ID] = '" + txtAdm_ModelID.Text.Trim() + "' And [Color_ID] = '" + txtAdm_ColorID.Text.Trim() + "' ";
+                                                string qry = "Select [ID] From [StockDetails] Where  [Color_ID] = '" + txtAdm_ColorID.Text.Trim() + "' ";
+                                                
+                                                SqlCommand cmd1 = new SqlCommand(qry, con);
+                                                SqlDataAdapter adp1 = new SqlDataAdapter(cmd1);
+                                                DataTable dt1 = new DataTable();
+                                                adp.Fill(dt1);
+                                                if (dt.Rows.Count > 0)
+                                                {
+                                                    txtAdm_StockID.Text = dt.Rows[0]["ID"].ToString();
+                                                }
+                                                
+
                                                 result = true;
                                                 return result;
                                             }
@@ -996,8 +1013,6 @@ namespace CRM_User_Interface
         #endregion Final Product Event
         #endregion Final Pro
 
-
-
         private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
         {
             grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
@@ -1015,7 +1030,14 @@ namespace CRM_User_Interface
             {
                 try
                 {
-                    
+                    bstockDet.Flag = 1;
+                    bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
+                    bstockDet.AvilableQty = txtQuantity.Text;
+                    //bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.S_Status = "Active";
+                    bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    dstUpdate.AddStockDetailsUp_Insert_Update_Delete(bstockDet);
+                    MessageBox.Show("Data Save Successfully");
                 }
                 catch(Exception)
                 {
@@ -1037,8 +1059,8 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
-                    bstockDet.AvilableQty = Convert.ToInt32(txtQuantity.Text);
-                    bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.AvilableQty = txtQuantity.Text;
+                    bstockDet.SaleQty = txtSaleQuantity.Text;
                     bstockDet.S_Status = "Active";
 
                     //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
@@ -1054,7 +1076,7 @@ namespace CRM_User_Interface
                     //baddprd.C_Date =Convert .ToDateTime( DATE);
                     bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
                     dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
-                    MessageBox.Show("Data Save Successfully");
+                    MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
                 catch (Exception)

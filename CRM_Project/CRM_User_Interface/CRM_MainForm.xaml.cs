@@ -301,6 +301,10 @@ namespace CRM_User_Interface
                     
                     throw;
                 }
+            finally
+                {
+                    con.Close();
+                }
             
         }
         //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
