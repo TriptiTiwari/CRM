@@ -620,15 +620,19 @@
                                 <Label Content="Qty" HorizontalAlignment="Left" Margin="564,1,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Actual Price :" HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Price :" HorizontalAlignment="Left" Margin="649,2,0,0" VerticalAlignment="Top"/>
-                                <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="953,30,0,0" VerticalAlignment="Top" Width="75"/>
+                                <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="953,30,0,0" VerticalAlignment="Top" Width="75" Click="btninvoice_addProduct_Click"/>
                                 <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1033,30,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="False" />
                                 <TextBox x:Name="txtInvoice_SubToatal" HorizontalAlignment="Left" Height="23" Margin="824,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txtInvoice_TotalPriceofQty" HorizontalAlignment="Left" Height="23" Margin="618,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
                                 <TextBox x:Name="txtInvoiceActualPrice" HorizontalAlignment="Left" Height="23" Margin="421,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txtInvoice_Qty" HorizontalAlignment="Left" Height="23" Margin="547,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" TextChanged="txtInvoice_Qty_TextChanged"/>
                                 <TextBox x:Name="txtInvoice_AvailabeQty" HorizontalAlignment="Left" Height="23" Margin="344,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="73"/>
-                                <DataGrid HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" Height="190" Width="1100"/>
-                                <ComboBox x:Name="cmbInvoice_Tax1" HorizontalAlignment="Left" Margin="737,30,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged" Height="24"/>
+                                <DataGrid x:Name="Dgrd_InvoiceADDProducts" HorizontalAlignment="Left" Margin="4,64,0,0" VerticalAlignment="Top" Height="190" Width="1100">
+                                    
+                                </DataGrid> 
+                                
+                                <ComboBox x:Name="cmbInvoice_Tax1" HorizontalAlignment="Left" Margin="737,30,0,0" VerticalAlignment="Top" Width="85" IsEditable="True" SelectionChanged="cmbInvoice_Tax_SelectionChanged" Height="24" DropDownClosed="cmbInvoice_Tax1_DropDownClosed"/>
+                                <Label x:Name="lblinvoiceSr" Content="" HorizontalAlignment="Left" Margin="123,0,0,0" VerticalAlignment="Top"/>
 
                             </Grid>
                         </GroupBox>

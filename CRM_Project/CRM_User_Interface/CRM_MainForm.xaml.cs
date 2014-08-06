@@ -57,6 +57,7 @@ namespace CRM_User_Interface
         string  bpg;
         int fetcdoc;
         List<string> checkedStuff;
+        static DataTable dtstat = new DataTable();
 
 
         BAL_Pre_Procurement bpreproc = new BAL_Pre_Procurement();
@@ -2870,11 +2871,21 @@ namespace CRM_User_Interface
             //    ADD_Tax tax = new ADD_Tax();
             //    tax.Show();
             //}
-        }
-        public void LoadTax()
-        {
-            
+                    }
 
+      public void calculatetax()
+        {
+            if (txtInvoice_TotalPriceofQty.Text == "")
+          {
+              MessageBox.Show("Please Enter Quantity ");
+          }
+          else if (txtInvoice_TotalPriceofQty.Text != "" && cmbInvoice_Tax1.SelectedItem.ToString() != "")
+          {
+              double totprice = Convert.ToDouble(txtInvoice_TotalPriceofQty.Text);
+              double tx = Convert.ToDouble(cmbInvoice_Tax1.Text );
+              double stot = ((totprice * tx) / 100);
+              txtInvoice_SubToatal.Text = (totprice + stot).ToString();
+          }
         }
         public void FetchtaxDetails()
         {
@@ -3052,7 +3063,7 @@ namespace CRM_User_Interface
         }
 
    private void txtInvoice_Qty_TextChanged(object sender, TextChangedEventArgs e)
-   {string  d=0;
+   {double   d=0;
        if (txtInvoice_Qty.Text == "" )
    {
        txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
@@ -3064,11 +3075,74 @@ namespace CRM_User_Interface
        double tprice = actualprice * q;
        txtInvoice_TotalPriceofQty.Text = tprice.ToString();
      }
-       else if (txtInvoice_Qty.Text ==d)
+       else if (txtInvoice_Qty.Text ==d.ToString ())
        {
            txtInvoice_TotalPriceofQty.Text = txtInvoiceActualPrice.Text;
        }
+     }
+
+   private void cmbInvoice_Tax1_DropDownClosed(object sender, EventArgs e)
+   {
+       calculatetax();
    }
+public void clearAllAddedProducts()
+   {
+  
+   }
+   private void btninvoice_addProduct_Click(object sender, RoutedEventArgs e)
+   {
+       if (dtstat.Rows.Count == 0)
+       {
+           dtstat.Columns.Add("SrNo");
+           dtstat.Columns.Add("Products");
+           dtstat.Columns.Add("RatePer_Product");
+           dtstat.Columns.Add("Qty");
+           dtstat.Columns.Add("Total_Price");
+           dtstat.Columns.Add("Taxes %");
+           dtstat.Columns.Add("SubTotal");
+       }
+
+       DataRow dr = dtstat.NewRow();
+      // dr["SrNo"] = lblinvoiceSr.
+       dr["Products"] = cmbInvoiceStockProducts .SelectedValue .ToString ();
+       dr["RatePer_Product"] = txtInvoiceActualPrice .Text;
+       dr["Qty"] = txtInvoice_Qty .Text;
+       dr["Total_Price"] = txtInvoice_TotalPriceofQty .Text;
+       dr["Taxes %"] = cmbInvoice_Tax1 .Text;
+       dr["SubTotal"] = txtInvoice_SubToatal .Text;
+
+       dtstat.Rows.Add(dr);
+
+       //txtSrNo.Text = (Convert.ToInt32(txtSrNo.Text) + 1).ToString();
+      // txtProduct.Text = "";
+      // cmb1();
+       //cmb2();
+       //cmbtShortCode.SelectedIndex = 1;
+       //txtQty.Text = "";
+      // txtRateAndUnit.Text = "";
+       //txtSubTotal.Text = "";
+
+       Dgrd_InvoiceADDProducts.ItemsSource = dtstat.DefaultView;
+
+       if (dtstat.Rows.Count > 0)
+       {
+           double invamt = 0.00;
+           foreach (DataRow drow in dtstat.Rows)
+           {
+
+               invamt += Convert.ToDouble(drow["SubTotal"].ToString());
+           }
+
+           txtInvoice_InvcTotalAmount.Text = Convert.ToString(invamt);
+
+       }
+
+            
+   }
+
+
+
+
     }
 
 }
