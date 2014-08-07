@@ -33,7 +33,7 @@ namespace CRM_User_Interface
 
         NumberFormatInfo nfi = CultureInfo.CurrentCulture.NumberFormat;
         string caption = "Green Future Glob";
-        int cid;
+        int cid,I;
         double y1,m1;
         string year,month;
       
@@ -68,6 +68,9 @@ namespace CRM_User_Interface
 
         BAL_Customer balc = new BAL_Customer();
         DAL_Customer dalc = new DAL_Customer();
+
+        BAL_InvoiceDetails binvd = new BAL_InvoiceDetails();
+        DAL_InvoiceDetails dinvd = new DAL_InvoiceDetails();
 
 
         public void PREPROCUREMENTid()
@@ -108,6 +111,20 @@ namespace CRM_User_Interface
             id1 = Convert.ToInt32(cmd.ExecuteScalar());
             id1 = id1 + 1;
             txtvalueid.Text  = "# Customer/" + id1.ToString();
+            con.Close();
+
+
+        }
+        public void BillID_fetch()
+        {
+
+            int id1 = 0;
+            // SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
+            id1 = Convert.ToInt32(cmd.ExecuteScalar());
+            id1 = id1 + 1;
+            txtvalueid.Text = "# Customer/" + id1.ToString();
             con.Close();
 
 
@@ -2925,7 +2942,7 @@ namespace CRM_User_Interface
           else if (txtInvoice_TotalPriceofQty.Text != "" && cmbInvoice_Tax1.SelectedItem.ToString() != "")
           {
               double totprice = Convert.ToDouble(txtInvoice_TotalPriceofQty.Text);
-              double tx = Convert.ToDouble(cmbInvoice_Tax1.Text );
+              double tx = Convert.ToDouble(cmbInvoice_Tax1.SelectedValue .GetHashCode ());
               double stot = ((totprice * tx) / 100);
               txtInvoice_SubToatal.Text = (totprice + stot).ToString();
           }
@@ -2937,7 +2954,7 @@ namespace CRM_User_Interface
             {
                 con.Open();
                 DataSet ds = new DataSet();
-                cmd = new SqlCommand("select Tax_Percentage from tlb_AddTax  where S_Status='Active'", con);
+                cmd = new SqlCommand("select Tax_Type, Tax_Percentage from tlb_AddTax  where S_Status='Active'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(ds);
@@ -2948,10 +2965,9 @@ namespace CRM_User_Interface
                    // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
                        
                     cmbInvoice_Tax1 .ItemsSource = ds.Tables[0].DefaultView;
-                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
-                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
-                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
-                    cmbInvoice_Tax1.DisplayMemberPath = ds.Tables[0].Columns["Tax_Percentage"].ToString();
+
+                    cmbInvoice_Tax1.DisplayMemberPath = ds.Tables[0].Columns["Tax_Type"].ToString();
+                    cmbInvoice_Tax1.SelectedValuePath = ds.Tables[0].Columns["Tax_Percentage"].ToString();
                     
                 }
             }
@@ -3160,7 +3176,7 @@ public void clearAllAddedProducts()
        dr["RatePer_Product"] = txtInvoiceActualPrice .Text;
        dr["Qty"] = txtInvoice_Qty .Text;
        dr["Total_Price"] = txtInvoice_TotalPriceofQty .Text;
-       dr["Taxes %"] = cmbInvoice_Tax1 .Text;
+       dr["Taxes %"] = cmbInvoice_Tax1.SelectedValue .GetHashCode ();
        dr["SubTotal"] = txtInvoice_SubToatal .Text;
 
        dtstat.Rows.Add(dr);
@@ -3292,6 +3308,31 @@ private void txtInvoice_C_PaidAmount_TextChanged(object sender, TextChangedEvent
         double zero = 0;
         txtInvoice_C_BalanceAmount.Text = zero.ToString();
     }
+}
+
+ public void FetchCustomerID()
+{
+    string q = "Select ID from tlb_Customer where Cust_ID='" + txtvalueid.Text + "'";
+    cmd = new SqlCommand(q,con );
+    DataTable dt = new DataTable();
+    SqlDataAdapter adp = new SqlDataAdapter(cmd);
+     
+    adp.Fill(dt);
+            if(dt.Rows .Count >0)
+            {
+                I =Convert .ToInt32 ( dt.Rows[0]["ID"]);
+
+            }
+    
+}
+private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
+{
+    FetchCustomerID();
+
+}
+        public void SaveInvoiceDetails()
+{
+
 }
     }
 
