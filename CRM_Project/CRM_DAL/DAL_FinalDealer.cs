@@ -42,7 +42,7 @@ namespace CRM_DAL
                 //cmd.Parameters.AddWithValue("@FinalDate", bfinaldealer.FinalDate);
                 cmd.Parameters.AddWithValue("@SDefault", bfinaldealer1.SDefault);
                 cmd.Parameters.AddWithValue("@ServiceIntervalMonth", bfinaldealer1.ServiceIntervalMonth);
-                //cmd.Parameters.AddWithValue("@Months,", bfinaldealer.Months);
+                //cmd.Parameters.AddWithValue("@FMonths,", bfinaldealer1.FMonths);
                 cmd.Parameters.AddWithValue("@S_Status", bfinaldealer1.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bfinaldealer1.C_Date);
                 int i = cmd.ExecuteNonQuery();

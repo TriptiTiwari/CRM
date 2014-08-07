@@ -50,7 +50,7 @@ namespace CRM_BAL
 
         public string ServiceIntervalMonth { get; set; }
 
-        //public string Months { get; set; }
+        //public string FMonths { get; set; }
 
         public string S_Status { get; set; }
 

@@ -1044,70 +1044,70 @@ namespace CRM_User_Interface
             if (FinalPro_Validation() == true)
                 return;
 
-            //if(CheckProduct() == true)
-            //{
-            //    try
-            //    {
-            //        bstockDet.Flag = 1;
-            //        bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
-            //        bstockDet.AvilableQty = txtQuantity.Text;
-            //        //bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
-            //        bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
-            //        bstockDet.S_Status = "Active";
-            //        bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
-            //        dstUpdate.AddStockDetailsUp_Insert_Update_Delete(bstockDet);
-            //        MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
-            //    }
-            //    catch(Exception)
-            //    {
-            //        throw;
-            //    }
-            //    finally
-            //    {
-            //        con.Close();
-            //    }
-            //}
-            //else
-            //{
-            //    try
-            //    {
-            //        bstockDet.Flag = 1;
-            //        bstockDet.DomainID = Convert.ToInt32(txtAdm_DomainID.Text);
-            //        bstockDet.ProductID = Convert.ToInt32(txtAdm_ProductID.Text);
-            //        bstockDet.BrandID = Convert.ToInt32(txtAdm_BrandID.Text);
-            //        bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
-            //        bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
-            //        bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
-            //        bstockDet.AvilableQty = txtQuantity.Text;
-            //        bstockDet.SaleQty = txtSaleQuantity.Text;
-            //        bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
-            //        bstockDet.S_Status = "Active";
+            if (CheckProduct() == true)
+            {
+                try
+                {
+                    bstockDet.Flag = 1;
+                    bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
+                    bstockDet.AvilableQty = txtQuantity.Text;
+                    //bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
+                    bstockDet.S_Status = "Active";
+                    bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    dstUpdate.AddStockDetailsUp_Insert_Update_Delete(bstockDet);
+                    MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            else
+            {
+                try
+                {
+                    bstockDet.Flag = 1;
+                    bstockDet.DomainID = Convert.ToInt32(txtAdm_DomainID.Text);
+                    bstockDet.ProductID = Convert.ToInt32(txtAdm_ProductID.Text);
+                    bstockDet.BrandID = Convert.ToInt32(txtAdm_BrandID.Text);
+                    bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
+                    bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
+                    bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+                    bstockDet.AvilableQty = txtQuantity.Text;
+                    bstockDet.SaleQty = txtSaleQuantity.Text;
+                    bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
+                    bstockDet.S_Status = "Active";
 
-            //        //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
-            //        //string time = System.DateTime.Now.ToShortTimeString();
-            //        //string[] STRVAL = STRTODAYDATE.Split('-');
-            //        //string STR_DATE1 = STRVAL[0];
-            //        //string STR_MONTH = STRVAL[1];
-            //        //string STR_YEAR = STRVAL[2];
-            //        //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
-            //        ////txtdate.Text = DATE;
-            //        ////txttime.Text = time;
+                    //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                    //string time = System.DateTime.Now.ToShortTimeString();
+                    //string[] STRVAL = STRTODAYDATE.Split('-');
+                    //string STR_DATE1 = STRVAL[0];
+                    //string STR_MONTH = STRVAL[1];
+                    //string STR_YEAR = STRVAL[2];
+                    //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                    ////txtdate.Text = DATE;
+                    ////txttime.Text = time;
 
-            //        //baddprd.C_Date =Convert .ToDateTime( DATE);
-            //        bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
-            //        dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
-            //        MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+                    //baddprd.C_Date =Convert .ToDateTime( DATE);
+                    bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
+                    MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
 
-            //    }
-            //    catch (Exception)
-            //    {
-            //        throw;
-            //    }
-            //    finally
-            //    {
-            //        con.Close();
-            //    }
-            //}
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
 
             string abc;
 
@@ -1142,7 +1142,7 @@ namespace CRM_User_Interface
                     //bfinaldealer.FinalDate = Convert.ToString(dtpFinalDate.Text);
                     bfinaldealer1.SDefault = abc;
                     bfinaldealer1.ServiceIntervalMonth = txtAdm_FinalMonths.Text;
-                    //bfinaldealer.Months = lblFinal_Months.Content.ToString();
+                    //bfinaldealer1.FMonths = lblFinal_Months.Content.ToString();
                     bfinaldealer1.S_Status = "Active";
 
                     //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
