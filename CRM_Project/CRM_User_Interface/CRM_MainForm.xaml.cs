@@ -3263,7 +3263,7 @@ public void Save_NewCustomer()
 public void UpdateFollowupStatus()
 {
     balc.Flag = 1;
-    //balc .FID =lblfollowupidfetch.
+    //balc.FID =Convet lblfollowupidfetch.Content;
 }
     }
 
