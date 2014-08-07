@@ -14,7 +14,7 @@ namespace CRM_DAL
     {
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
-        BAL_StockDetails bstockdetup = new BAL_StockDetails();
+        //BAL_StockDetails bstockdetup = new BAL_StockDetails();
 
         public int AddStockDetailsUp_Insert_Update_Delete(BAL_StockDetails bstockdetup)
         {

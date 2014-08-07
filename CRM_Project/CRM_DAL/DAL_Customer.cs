@@ -23,18 +23,12 @@ namespace CRM_DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
                 cmd.Parameters.AddWithValue("@Cust_ID", bc.Cust_ID);
-<<<<<<< HEAD
-                cmd.Parameters.AddWithValue("@F_Date", bc.F_Date);
-                cmd.Parameters.AddWithValue("@F_Message", bc.F_Message);
-                cmd.Parameters.AddWithValue("@Walkins", bc.Walkins);
-=======
                 cmd.Parameters.AddWithValue("@Name", bc.Name);
                 cmd.Parameters.AddWithValue("@Mobile_No", bc.Mobile_No);
                 cmd.Parameters.AddWithValue("@Date_Of_Birth", bc.Date_Of_Birth);
                 cmd.Parameters.AddWithValue("@Email_ID", bc.Email_ID);
                 cmd.Parameters.AddWithValue("@Address", bc.Address);
                 cmd.Parameters.AddWithValue("@Occupation", bc.Occupation);
->>>>>>> origin/master
                 cmd.Parameters.AddWithValue("@S_Status", bc.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bc.C_Date);
                 int i = cmd.ExecuteNonQuery();
@@ -49,8 +43,6 @@ namespace CRM_DAL
             }
             finally { con.Close(); }
         }
-<<<<<<< HEAD
-=======
         public int Customer_Update(BAL_Customer bc)
         {
             try
@@ -75,6 +67,5 @@ namespace CRM_DAL
             }
             finally { con.Close(); }
         }
->>>>>>> origin/master
     }
 }

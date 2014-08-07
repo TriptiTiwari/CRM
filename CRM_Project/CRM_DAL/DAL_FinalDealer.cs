@@ -14,9 +14,8 @@ namespace CRM_DAL
     {
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
-        BAL_FinalDealer bfinaldealer = new BAL_FinalDealer();
-
-        public int FinalDealer_Insert_Update_Delete(BAL_FinalDealer bfinaldealer)
+        
+        public int FinalDealer_Insert_Update_Delete(BAL_FinalDealer bfinaldealer1)
         {
             try
             {
@@ -25,27 +24,27 @@ namespace CRM_DAL
                 cmd = new SqlCommand("SP_FinalDealer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
-                cmd.Parameters.AddWithValue("@SalesID", bfinaldealer.SalesID);
-                cmd.Parameters.AddWithValue("@Domain_ID", bfinaldealer.Domain_ID);
-                cmd.Parameters.AddWithValue("@Product_ID", bfinaldealer.Product_ID);
-                cmd.Parameters.AddWithValue("@Brand_ID", bfinaldealer.Brand_ID);
-                cmd.Parameters.AddWithValue("@P_Category", bfinaldealer.P_Category);
-                cmd.Parameters.AddWithValue("@Model_No_ID", bfinaldealer.Model_No_ID);
-                cmd.Parameters.AddWithValue("@Color_ID", bfinaldealer.Color_ID);
-                cmd.Parameters.AddWithValue("@ProcNetAmt", bfinaldealer.ProcNetAmt);
-                cmd.Parameters.AddWithValue("@ProcPrice", bfinaldealer.ProcPrice);
-                cmd.Parameters.AddWithValue("@ProcQty", bfinaldealer.ProcQty);
-                cmd.Parameters.AddWithValue("@FinalPrice", bfinaldealer.FinalPrice);
-                cmd.Parameters.AddWithValue("@FinalQty", bfinaldealer.FinalQty);
-                cmd.Parameters.AddWithValue("@SubTotal", bfinaldealer.SubTotal);
-                cmd.Parameters.AddWithValue("@RoundUp", bfinaldealer.RoundUp);
-                cmd.Parameters.AddWithValue("@NetAmt", bfinaldealer.NetAmt);
+                cmd.Parameters.AddWithValue("@SalesID", bfinaldealer1.SalesID);
+                cmd.Parameters.AddWithValue("@Domain_ID", bfinaldealer1.Domain_ID);
+                cmd.Parameters.AddWithValue("@Product_ID", bfinaldealer1.Product_ID);
+                cmd.Parameters.AddWithValue("@Brand_ID", bfinaldealer1.Brand_ID);
+                cmd.Parameters.AddWithValue("@P_Category", bfinaldealer1.P_Category);
+                cmd.Parameters.AddWithValue("@Model_No_ID", bfinaldealer1.Model_No_ID);
+                cmd.Parameters.AddWithValue("@Color_ID", bfinaldealer1.Color_ID);
+                cmd.Parameters.AddWithValue("@ProcNetAmt", bfinaldealer1.ProcNetAmt);
+                cmd.Parameters.AddWithValue("@ProcPrice", bfinaldealer1.ProcPrice);
+                cmd.Parameters.AddWithValue("@ProcQty", bfinaldealer1.ProcQty);
+                cmd.Parameters.AddWithValue("@FinalPrice", bfinaldealer1.FinalPrice);
+                cmd.Parameters.AddWithValue("@FinalQty", bfinaldealer1.FinalQty);
+                cmd.Parameters.AddWithValue("@SubTotal", bfinaldealer1.SubTotal);
+                cmd.Parameters.AddWithValue("@RoundUp", bfinaldealer1.RoundUp);
+                cmd.Parameters.AddWithValue("@NetAmt", bfinaldealer1.NetAmt);
                 //cmd.Parameters.AddWithValue("@FinalDate", bfinaldealer.FinalDate);
-                cmd.Parameters.AddWithValue("@SDefault", bfinaldealer.SDefault);
-                cmd.Parameters.AddWithValue("@ServiceIntervalMonth", bfinaldealer.ServiceIntervalMonth);
+                cmd.Parameters.AddWithValue("@SDefault", bfinaldealer1.SDefault);
+                cmd.Parameters.AddWithValue("@ServiceIntervalMonth", bfinaldealer1.ServiceIntervalMonth);
                 //cmd.Parameters.AddWithValue("@Months,", bfinaldealer.Months);
-                cmd.Parameters.AddWithValue("@S_Status", bfinaldealer.S_Status);
-                cmd.Parameters.AddWithValue("@C_Date", bfinaldealer.C_Date);
+                cmd.Parameters.AddWithValue("@S_Status", bfinaldealer1.S_Status);
+                cmd.Parameters.AddWithValue("@C_Date", bfinaldealer1.C_Date);
                 int i = cmd.ExecuteNonQuery();
                 return i;
             }
