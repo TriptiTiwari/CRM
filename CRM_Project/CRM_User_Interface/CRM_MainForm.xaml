@@ -481,7 +481,7 @@
 
             </Grid>
 
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"      VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Visible" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="191*"/>
@@ -562,7 +562,7 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Right" Visibility="Hidden"  Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+            <Grid HorizontalAlignment="Right" Visibility="Visible" Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                 <!--<Grid HorizontalAlignment="Right" Visibility="Visible"    x:Name="Grd_genratebill1" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
 
 
@@ -653,7 +653,7 @@
 
                             </Grid>
                         </GroupBox>
-                        <Grid HorizontalAlignment="Left"  Name="GRDInvoce_Cash" Height="165" Visibility="Hidden"    Margin="370,345,0,0" VerticalAlignment="Top" Width="530" Background="#FFF0F0F0" Grid.ColumnSpan="2">
+                        <Grid HorizontalAlignment="Left"  Name="GRDInvoce_Cash" Height="165" Visibility="Visible"  Margin="370,345,0,0" VerticalAlignment="Top" Width="530" Background="#FFF0F0F0" Grid.ColumnSpan="2">
                             <Label Content="Invoice Total Amount :" HorizontalAlignment="Left" Margin="11,35,0,0" VerticalAlignment="Top"/>
                             <Label Content="Paid Amount :" HorizontalAlignment="Left" Margin="211,36,0,0" VerticalAlignment="Top"/>
                             <Label Content="Balance Amount :" HorizontalAlignment="Left" Margin="367,33,0,0" VerticalAlignment="Top"/>
@@ -661,7 +661,7 @@
                             <TextBox x:Name="txtInvoice_C_PaidAmount" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Margin="190,73,0,0" TextChanged="txtInvoice_C_PaidAmount_TextChanged"/>
                             <TextBox x:Name="txtInvoice_C_BalanceAmount" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="155" Margin="353,73,0,0"/>
                             <Label Content="CASH" HorizontalAlignment="Left" Margin="229,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-                            <Button x:Name="btnInvoice_C_SaveandPrint" Content="Save &amp; Print" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="80,115,0,0"/>
+                            <Button x:Name="btnInvoice_C_SaveandPrint" Content="Save &amp; Print" HorizontalAlignment="Left" VerticalAlignment="Top" Width="130" Margin="80,115,0,0" Click="btnInvoice_C_SaveandPrint_Click"/>
                             <Button x:Name="txtInvoice_C_Clear" Content="Clear" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="220,115,0,0"/>
                             <Button x:Name="txtInvoice_C_Exit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90" Margin="318,115,0,0" Click="txtInvoice_C_Exit_Click"/>
                             <Label x:Name="___No_Name_txtInvoice_C_Invoiceno" Content="Invoice No " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,6,0,0"/>
