@@ -3264,7 +3264,7 @@ public void Save_NewCustomer()
 public void UpdateFollowupStatus()
 {
     balc.Flag = 1;
-    balc.FID =Convert.ToInt32 ( lblfollowupidfetch.Content);
+    balc.F_ID =Convert.ToInt32 (lblfollowupidfetch.Content);
     balc.S_Status = "DeActive";
     balc.C_Date = System.DateTime.Now.ToShortDateString();
     dalc.Customer_Update(balc);

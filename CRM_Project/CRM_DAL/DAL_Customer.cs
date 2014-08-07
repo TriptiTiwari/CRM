@@ -52,7 +52,7 @@ namespace CRM_DAL
                 cmd = new SqlCommand("SP_Customer_Followup_Update", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
-                cmd.Parameters.AddWithValue("@FID", bc.FID);
+                cmd.Parameters.AddWithValue("@F_ID", bc.F_ID);
                 cmd.Parameters.AddWithValue("@S_Status", bc.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bc.C_Date);
                 int i = cmd.ExecuteNonQuery();

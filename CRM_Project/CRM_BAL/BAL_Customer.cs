@@ -9,7 +9,7 @@ namespace CRM_BAL
    public  class BAL_Customer
     {
        public int Flag { get; set; }
-       public int FID { get; set; }
+       public int F_ID { get; set; }
        public string Cust_ID { get; set; }
       
        public string Name { get; set; }
