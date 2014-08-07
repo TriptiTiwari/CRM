@@ -476,7 +476,7 @@
                 </Grid>
             </Grid>
 
-            <Grid x:Name="grd_EmployeeDet" Visibility="Hidden"  HorizontalAlignment="Left" Height="563" Margin="22,66,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
+            <Grid x:Name="grd_EmployeeDet" Visibility="Hidden"  HorizontalAlignment="Left" Height="563" Margin="22,67,0,0" VerticalAlignment="Top" Width="1157" Background="#FFF6F6F6" >
                 <Button x:Name="btnAdm_EmployeeExit" Content="Exit" HorizontalAlignment="Left" Margin="1093,0,-1,0" VerticalAlignment="Top" Width="65" Height="25" Click="btnAdm_EmployeeExit_Click" />
                 <Label Content="Employee Details" HorizontalAlignment="Left" Margin="518,4,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
                 <Grid HorizontalAlignment="Left" Height="491" Margin="23,47,0,0" VerticalAlignment="Top" Width="1105" Background="White">
@@ -520,7 +520,6 @@
                 </Grid>
                 <TextBox x:Name="txtAdm_DealerID2" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
             </Grid>
-            <Button x:Name="btnAdm_StockExit" Content="Exit" HorizontalAlignment="Left" Margin="1104,68,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_StockExit_Click"/>
 
         </Grid>
     </Border>
