@@ -2703,6 +2703,7 @@ namespace CRM_User_Interface
         private void btnInvoice_Cash_Click(object sender, RoutedEventArgs e)
         {
             GRDInvoce_Cash.Visibility = Visibility;
+            txtInvoice_C_InvcTotalAmount .Text = txtInvoice_InvcTotalAmount.Text;
         }
 
         private void btnInvoice_Cheque_Click(object sender, RoutedEventArgs e)
@@ -3269,6 +3270,28 @@ public void UpdateFollowupStatus()
     balc.C_Date = System.DateTime.Now.ToShortDateString();
     dalc.Customer_Update(balc);
     MessageBox.Show("Follow_up Customer DeActivated",caption ,MessageBoxButton.OK );
+}
+
+private void txtInvoice_C_PaidAmount_TextChanged(object sender, TextChangedEventArgs e)
+{
+    if(txtInvoice_C_PaidAmount.Text =="")
+    {
+        double zero = 0;
+        txtInvoice_C_BalanceAmount.Text = zero .ToString();
+    }
+    else if (txtInvoice_C_PaidAmount.Text != "")
+    {
+        double tcamt =Convert.ToDouble ( txtInvoice_C_InvcTotalAmount.Text);
+        double pcamt =Convert.ToDouble( txtInvoice_C_PaidAmount.Text);
+        double btamt = (tcamt - pcamt);
+        txtInvoice_C_BalanceAmount.Text = btamt.ToString(); ;
+    }
+    else if (txtInvoice_C_InvcTotalAmount.Text==txtInvoice_C_PaidAmount.Text)
+    {
+
+        double zero = 0;
+        txtInvoice_C_BalanceAmount.Text = zero.ToString();
+    }
 }
     }
 
