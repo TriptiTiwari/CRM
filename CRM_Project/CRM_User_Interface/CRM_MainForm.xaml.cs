@@ -2616,7 +2616,7 @@ namespace CRM_User_Interface
             MessageBox.Show(ID);
             // DGRD_SaleFollowup;
             GRD_Customer_Billing.Visibility = Visibility;
-            CustomerID_fetch();
+           // CustomerID_fetch();
 
             //txtvalueid.Text = ID;
             lblfollowupidfetch.Content = ID;
@@ -2887,7 +2887,7 @@ namespace CRM_User_Interface
             //    ADD_Tax tax = new ADD_Tax();
             //    tax.Show();
             //}
-                    }
+        }
 
       public void calculatetax()
         {
@@ -2949,21 +2949,11 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
-               // DataSet ds = new DataSet();
-                //string qry = "Select S.AvilableQty,S.FinalPrice" +
-                //             "From StockDetails S " +
-                //             "where  INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
-                //             "INNER JOIN tlb_Products P on P.ID=S.Product_ID " +
-                //             "INNER JOIN tlb_Brand B on B.ID=S.Brand_ID " +
-                //             "INNER JOIN tlb_P_Category PC on PC.ID=S.P_Category " +
-                //             "INNER JOIN tlb_Model M on M.ID=S.Model_No_ID " +
-                //             "INNER JOIN tlb_Color C on C.ID=S.Color_ID " + 
-                //             "S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
-                //               ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS  Products='"+cmbInvoiceStockProducts .SelectedValue .ToString()+"' AND S.S_Status='Active' ORDER BY S.C_Date ASC ";
-                //
+               
                 DataTable dt = new DataTable();
                // cmd = new SqlCommand(qry,con);
-               cmd = new SqlCommand("select AvilableQty,FinalPrice  from StockDetails  where S_Status='Active'", con);
+                string qry = "select ID,AvilableQty,FinalPrice  from StockDetails where [ID]= '" + cmbInvoiceStockProducts.SelectedValue.GetHashCode() + "'";
+               cmd = new SqlCommand(qry, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(dt);
@@ -3041,7 +3031,7 @@ namespace CRM_User_Interface
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             ADD_Tax adt = new ADD_Tax();
-            adt.Show();
+            adt.ShowDialog();
             FetchtaxDetails();
         }
    public void loadStockProducts()
@@ -3052,7 +3042,7 @@ namespace CRM_User_Interface
                 con.Open();
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                string qry = "Select  S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
+                string qry = "Select  S.ID,S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
                              ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS Products " +
                              "From StockDetails S " +
                              "INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
@@ -3069,14 +3059,9 @@ namespace CRM_User_Interface
 
                 if (ds.Tables [0].Rows .Count  > 0)
                 {
-
-                    // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
-
-                cmbInvoiceStockProducts.ItemsSource = ds.Tables[0].DefaultView;
-                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
-                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
-                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
-                cmbInvoiceStockProducts.DisplayMemberPath =ds.Tables[0].Columns["Products"].ToString();
+                    cmbInvoiceStockProducts.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
+                    cmbInvoiceStockProducts.ItemsSource = ds.Tables[0].DefaultView;
+                    cmbInvoiceStockProducts.DisplayMemberPath =ds.Tables[0].Columns["Products"].ToString();
 
                 }
             }
