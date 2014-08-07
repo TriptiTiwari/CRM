@@ -451,8 +451,8 @@
                         <Grid HorizontalAlignment="Left" Height="40" Margin="10,317,0,0" VerticalAlignment="Top" Width="485" Background="White">
                             <Label Content="Service Interval:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
                             <CheckBox x:Name="chbDefault" Content="Default" HorizontalAlignment="Left" Margin="116,14,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="txtAdm_txtFinalQty_Copy" HorizontalAlignment="Left" Height="23" Margin="207,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" TextChanged="txtAdm_Dealer_Filter_Search_TextChanged"/>
-                            <Label Content="Months" HorizontalAlignment="Left" Margin="276,8,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_FinalMonths" HorizontalAlignment="Left" Height="23" Margin="207,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                            <Label x:Name="lblFinal_Months" Content="Months" HorizontalAlignment="Left" Margin="276,8,0,0" VerticalAlignment="Top"/>
                         </Grid>
                         <Grid HorizontalAlignment="Left" Height="45" Margin="10,363,0,0" VerticalAlignment="Top" Width="485" Background="White">
                             <Button x:Name="btnFinalProcurement" Content="Save" HorizontalAlignment="Left" Margin="150,9,0,0" VerticalAlignment="Top" Width="75" Height="25" Foreground="White" FontWeight="Bold" FontSize="14" Click="btnFinalProcurement_Click">

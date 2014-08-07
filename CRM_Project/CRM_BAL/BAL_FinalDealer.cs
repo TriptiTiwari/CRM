@@ -42,13 +42,15 @@ namespace CRM_BAL
 
         public double RoundUp { get; set; }
 
+        //public string FinalDate { get; set; }
+
         public double NetAmt { get; set; }
 
         public string SDefault { get; set; }
 
         public string ServiceIntervalMonth { get; set; }
 
-        public string months { get; set; }
+        //public string Months { get; set; }
 
         public string S_Status { get; set; }
 
