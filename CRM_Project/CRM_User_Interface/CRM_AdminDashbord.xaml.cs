@@ -1171,7 +1171,13 @@ namespace CRM_User_Interface
                 }
         }
 
-        
+        #region StockDetails Button Event
+        private void btnAdm_StockExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_StockDetails.Visibility = System.Windows.Visibility.Hidden;
+        }
+        #endregion StockDetails Button Event
+
 
 
 

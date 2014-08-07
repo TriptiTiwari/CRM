@@ -121,53 +121,55 @@ namespace CRM_User_Interface
 
         private void btnAdm_Emp_Save_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                bempupd.Flag = 2;
+                bempupd.EID = Convert.ToInt32(txtAdm_EmployeeID.Text);
+                bempupd.EmployeeID = lblEmpID.Content.ToString();
+                bempupd.EmployeeName = txtAdm_EmpName.Text;
+                bempupd.DateOfBirth = Convert.ToDateTime(dtpAdm_Emp_DOB.SelectedDate);
+                bempupd.EmpAddress = txtAdm_Emp_Address.Text;
+                bempupd.MobileNo = txtAdm_Emp_MobileNo.Text;
+                bempupd.PhoneNo = txtAdm_Emp_PhoneNo.Text;
+                bempupd.Designation = txtAdm_Emp_Designation.Text;
+                bempupd.DateOfJoining = Convert.ToDateTime(dtpAdm_Emp_DOJ.SelectedDate);
+                bempupd.NoOfYears = cmbAdm_Emp_YearExp.Text;
+                bempupd.Years = lblYears.Content.ToString();
+                bempupd.NoOfMonths = cmbAdm_Emp_Months.Text;
+                bempupd.Months = lblMonths.Content.ToString();
+                bempupd.Salary = Convert.ToDouble(txtAdm_Emp_Salary.Text);
+                bempupd.S_Status = "Active";
+                bempupd.C_Date = Convert.ToDateTime(System.DateTime.Now.ToShortDateString());
 
+                //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
+                //string time = System.DateTime.Now.ToShortTimeString();
+                //string[] STRVAL = STRTODAYDATE.Split('-');
+                //string STR_DATE1 = STRVAL[0];
+                //string STR_MONTH = STRVAL[1];
+                //string STR_YEAR = STRVAL[2];
+                //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
+                ////txtdate.Text = DATE;
+                ////txttime.Text = time;
+
+                //baddprd.C_Date =Convert .ToDateTime( DATE);
+                dempupd.EmployeeEntry_Insert_Update_Delete(bempupd);
+                MessageBox.Show("Updated Data Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
-        //private void btnAdm_Emp_Save_Click(object sender, RoutedEventArgs e)
-        //{
-        //    try
-        //    {
-        //        bempupd.Flag = 2;
-        //        bdealerupd.id = Convert.ToInt32(txtDealerID.Text);
-        //        bdealerupd.DealerEntryID = lbl_Edit_DealerID.Content.ToString();
-        //        bdealerupd.CompanyName = txtAdmEdit_CompanyName.Text;
-        //        bdealerupd.DealerFirstName = txtAdmEdit_DealerFirstName.Text;
-        //        bdealerupd.DealerLastName = txtAdmEdit_DealerLastName.Text;
-        //        bdealerupd.DateOfBirth = Convert.ToDateTime(dtpAdmEdit_Dealer_DOB.SelectedDate);
-        //        bdealerupd.MobileNo = txtAdmEdit_Dealer_MobileNo.Text;
-        //        bdealerupd.PhoneNo = txtAdmEdit_Dealer_PhoneNo.Text;
-        //        bdealerupd.DealerAddress = txtAdmEdit_Dealer_Address.Text;
-        //        bdealerupd.City = txtAdmEdit_Dealer_City.Text;
-        //        bdealerupd.Zip = txtAdmEdit_Dealer_Zip.Text;
-        //        bdealerupd.DState = txtAdmEdit_Dealer_State.Text;
-        //        bdealerupd.Country = txtAdmEdit_Dealer_Country.Text;
-        //        bdealerupd.S_Status = "Active";
+        private void btnAdm_Emp_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
 
-        //        //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
-        //        //string time = System.DateTime.Now.ToShortTimeString();
-        //        //string[] STRVAL = STRTODAYDATE.Split('-');
-        //        //string STR_DATE1 = STRVAL[0];
-        //        //string STR_MONTH = STRVAL[1];
-        //        //string STR_YEAR = STRVAL[2];
-        //        //string DATE = STR_DATE1 + "-" + STR_MONTH + "-" + STR_YEAR;
-        //        ////txtdate.Text = DATE;
-        //        ////txttime.Text = time;
-
-        //        //baddprd.C_Date =Convert .ToDateTime( DATE);
-        //        bdealerupd.C_Date = Convert.ToDateTime(System.DateTime.Now.ToShortDateString());
-        //        ddealerupd.EmployeeEntry_Insert_Update_Delete(bdealerupd);
-        //        MessageBox.Show("Updated Data Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
-
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //    finally
-        //    {
-        //        con.Close();
-        //    }
-        //}
     }
 }
