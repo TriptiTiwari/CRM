@@ -66,6 +66,9 @@ namespace CRM_User_Interface
         BAL_Followup balfollow = new BAL_Followup();
         DAL_Followup dalfollow = new DAL_Followup();
 
+        BAL_Customer balc = new BAL_Customer();
+        DAL_Customer dalc = new DAL_Customer();
+
 
         public void PREPROCUREMENTid()
         {
@@ -2472,7 +2475,7 @@ namespace CRM_User_Interface
             //    finally { con.Close(); }
             //}
             // else if(txtsalesearchcname.Text !="" ||  txtSalecustomerno.Text =="" || cmbsalecustomerftype.SelectedValue.ToString()!="--Select--")
-            //{
+            //{                                                                                                                                                                                                                                                                        
             //    try
             //    {
             //        con.Open();
@@ -2657,11 +2660,33 @@ namespace CRM_User_Interface
 
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
         {
-            Grd_genratebill.Visibility = Visibility;
-           // LoadTax();
-            FetchtaxDetails();
-            loadStockProducts();
+            if (rdosalefollowupcustomer.IsChecked ==true )
+            {
+                Save_FollowupCustomer();
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
 
+
+            }
+            else if (rdoSaleOldCustomer1.IsChecked ==true )
+            {
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
+
+            }
+            else if (rdoSaleNewcustomer.IsChecked ==true )
+            {
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
+
+            }
+            
         }
 
         private void cmbPre_Pro_Salename_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -3105,9 +3130,9 @@ public void clearAllAddedProducts()
        txtInvoiceActualPrice.Text = "";
        txtInvoice_TotalPriceofQty.Text = "";
        txtInvoice_SubToatal.Text = "";
-       cmbInvoice_Tax1.Items.Clear();
+       cmbInvoice_Tax1.ItemsSource = null;
        FetchtaxDetails();
-       cmbInvoiceStockProducts.Items.Clear();
+       cmbInvoiceStockProducts.ItemsSource = null;
        loadStockProducts();
 
 
@@ -3118,6 +3143,7 @@ public void clearAllAddedProducts()
        if (dtstat.Rows.Count == 0)
        {
            dtstat.Columns.Add("SrNo");
+
            dtstat.Columns.Add("Products");
            dtstat.Columns.Add("RatePer_Product");
            dtstat.Columns.Add("Qty");
@@ -3166,12 +3192,79 @@ public void clearAllAddedProducts()
 
    private void cmbInvoiceStockProducts_DropDownClosed(object sender, EventArgs e)
    {
+       txtInvoice_AvailabeQty.Text = "";
+       txtInvoice_Qty.Text = "";
+       txtInvoiceActualPrice.Text = "";
+       txtInvoice_TotalPriceofQty.Text = "";
+       txtInvoice_SubToatal.Text = "";
+       cmbInvoice_Tax1.ItemsSource = null;
+       FetchtaxDetails();
        FetchAvailableQty();
+       
+
    }
 
+   private void btninvoice_clearProduct_Click(object sender, RoutedEventArgs e)
+   {
+       clearAllAddedProducts();
 
+   }
+public void Save_FollowupCustomer()
+   {
+       string caption1 = "Confirmation";
+     
+     MessageBoxResult res=  MessageBox.Show("Do You Want To Move Follow_up To Customer ?",caption1 , MessageBoxButton.YesNo );
+    if (res ==MessageBoxResult.Yes  )
+    {
+        balc.Flag = 1;
+        balc.Cust_ID = txtvalueid.Text;
+        balc.Name = txtCName.Text;
+        balc.Mobile_No = txtCMobile.Text;
+        balc.Date_Of_Birth = dpSaleCustomerDOB.Text;
+        balc.Email_ID = txtCEmailid.Text;
+        balc.Address = txtCAddress.Text;
+        balc.Occupation = txtSaleCustomerOccupation.Text;
+        balc.S_Status = "Active";
+        balc.C_Date = System.DateTime.Now.ToShortDateString();
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        MessageBox.Show("New Customer Added Successfully..",caption , MessageBoxButton.OK );
+    }
+    else if (res == MessageBoxResult.No)
+    {
+        MessageBox.Show(" You Have To First Add Customer Than Create Bill", caption, MessageBoxButton.OK);
+   }
+   }
+public void Save_NewCustomer()
+{
+    string caption1 = "Confirmation";
 
+    MessageBoxResult res = MessageBox.Show("Do You Want To Add New Customer ?", caption1, MessageBoxButton.YesNo);
+    if (res == MessageBoxResult.Yes)
+    {
+        balc.Flag = 1;
+        balc.Cust_ID = txtvalueid.Text;
+        balc.Name = txtCName.Text;
+        balc.Mobile_No = txtCMobile.Text;
+        balc.Date_Of_Birth = dpSaleCustomerDOB.Text;
+        balc.Email_ID = txtCEmailid.Text;
+        balc.Address = txtCAddress.Text;
+        balc.Occupation = txtSaleCustomerOccupation.Text;
+        balc.C_Date = System.DateTime.Now.ToShortDateString();
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        MessageBox.Show("New Customer Added Successfully..", caption, MessageBoxButton.OK);
+    }
+    else if (res == MessageBoxResult.No)
+    {
+        MessageBox.Show(" You Have To First Add Customer Than Create Bill", caption, MessageBoxButton.OK);
+    }
+}
 
+public void UpdateFollowupStatus()
+{
+    balc.Flag = 1;
+    //balc .FID =lblfollowupidfetch.
+}
     }
 
 }
