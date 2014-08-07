@@ -160,21 +160,8 @@ namespace CRM_DAL
         //        con.Open();
         //        cmd = new SqlCommand("SP_Customer", con);
         //        cmd.CommandType = CommandType.StoredProcedure;
-        //        cmd.Parameters.AddWithValue("@Flag", 2);
-        //        cmd.Parameters.AddWithValue("@Walk_in_No", balfp.Followup_ID);
-        //        cmd.Parameters.AddWithValue("@Name", balfp.Name);
-        //        cmd.Parameters.AddWithValue("@Mobile_No", balfp.Mobile_No);
-        //        cmd.Parameters.AddWithValue("@Date_Of_Birth", balfp.Date_Of_Birth);
-        //        cmd.Parameters.AddWithValue("@Email_ID", balfp.Email_ID);
-        //        cmd.Parameters.AddWithValue("@Address", balfp.Address);
-        //        cmd.Parameters.AddWithValue("@Occupation", balfp.Occupation);
-        //        cmd.Parameters.AddWithValue("@Followup_Walkin_Option", balfp.Followup_Walkin_Option);
-        //      //  cmd.Parameters.AddWithValue("@Followup_Type", balfp.Followup_Type);
-        //      //  cmd.Parameters.AddWithValue("@F_Date", balfp.F_Date);
-        //       // cmd.Parameters.AddWithValue("@F_Message", balfp.F_Message);
-        //         cmd.Parameters.AddWithValue("@Walkins", balfp.Walkins);
-        //        cmd.Parameters.AddWithValue("@Customer_Update", balfp.Folloup_Update);
-        //        cmd.Parameters.AddWithValue("@S_Status", balfp.S_Status);
+        //        cmd.Parameters.AddWithValue("@Flag", 3);
+               
         //        cmd.Parameters.AddWithValue("@C_Date", balfp.C_Date);
         //        int i = cmd.ExecuteNonQuery();
         //        return i;

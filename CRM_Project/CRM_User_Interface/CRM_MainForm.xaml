@@ -525,13 +525,13 @@
                     <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged" Grid.ColumnSpan="2"/>
                     <Button x:Name="btnsaleExit" Content="Exit" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.867,0.75" Click="btnsaleExit_Click" Grid.Column="1"/>
                     <RadioButton x:Name="rdoSaleOldCustomer1" Content="Old Customer" HorizontalAlignment="Left" Margin="665,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleOldCustomer1_Checked"/>
-                    <Grid HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="760" Margin="360,205,0,0" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>
+                    <!--<Grid HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="760" Margin="360,205,0,0" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>-->
 
 
 
 
                 </Grid>
-                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Visible"       Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Visible"         Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
                     <TextBox HorizontalAlignment="Left" Height="20" Margin="225,85,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
                     <Label Content="Customer ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
@@ -562,7 +562,7 @@
 
 
             </Grid>
-            <Grid HorizontalAlignment="Right" Visibility="Hidden" Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+            <Grid HorizontalAlignment="Right" Visibility="Hidden"     Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                 <!--<Grid HorizontalAlignment="Right" Visibility="Visible"    x:Name="Grd_genratebill1" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
 
 
@@ -622,7 +622,7 @@
                                 <Label Content="Actual Price :" HorizontalAlignment="Left" Margin="445,0,0,0" VerticalAlignment="Top"/>
                                 <Label Content="Price :" HorizontalAlignment="Left" Margin="649,2,0,0" VerticalAlignment="Top"/>
                                 <Button x:Name="btninvoice_addProduct" Content="ADD" HorizontalAlignment="Left" Margin="953,30,0,0" VerticalAlignment="Top" Width="75" Click="btninvoice_addProduct_Click"/>
-                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1033,30,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="False" />
+                                <Button x:Name="btninvoice_clearProduct" Content="Clear" HorizontalAlignment="Left" Margin="1033,30,0,0" VerticalAlignment="Top" Width="75" d:IsHidden="False" Click="btninvoice_clearProduct_Click" />
                                 <TextBox x:Name="txtInvoice_SubToatal" HorizontalAlignment="Left" Height="23" Margin="824,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                                 <TextBox x:Name="txtInvoice_TotalPriceofQty" HorizontalAlignment="Left" Height="23" Margin="618,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114"/>
                                 <TextBox x:Name="txtInvoiceActualPrice" HorizontalAlignment="Left" Height="23" Margin="421,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>

@@ -66,6 +66,9 @@ namespace CRM_User_Interface
         BAL_Followup balfollow = new BAL_Followup();
         DAL_Followup dalfollow = new DAL_Followup();
 
+        BAL_Customer balc = new BAL_Customer();
+        DAL_Customer dalc = new DAL_Customer();
+
 
         public void PREPROCUREMENTid()
         {
@@ -2472,7 +2475,7 @@ namespace CRM_User_Interface
             //    finally { con.Close(); }
             //}
             // else if(txtsalesearchcname.Text !="" ||  txtSalecustomerno.Text =="" || cmbsalecustomerftype.SelectedValue.ToString()!="--Select--")
-            //{
+            //{                                                                                                                                                                                                                                                                        
             //    try
             //    {
             //        con.Open();
@@ -2616,7 +2619,7 @@ namespace CRM_User_Interface
             MessageBox.Show(ID);
             // DGRD_SaleFollowup;
             GRD_Customer_Billing.Visibility = Visibility;
-            CustomerID_fetch();
+           // CustomerID_fetch();
 
             //txtvalueid.Text = ID;
             lblfollowupidfetch.Content = ID;
@@ -2657,11 +2660,33 @@ namespace CRM_User_Interface
 
         private void btnSaleCustomerGenrateBill_Click(object sender, RoutedEventArgs e)
         {
-            Grd_genratebill.Visibility = Visibility;
-           // LoadTax();
-            FetchtaxDetails();
-            loadStockProducts();
+            if (rdosalefollowupcustomer.IsChecked ==true )
+            {
+                Save_FollowupCustomer();
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
 
+
+            }
+            else if (rdoSaleOldCustomer1.IsChecked ==true )
+            {
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
+
+            }
+            else if (rdoSaleNewcustomer.IsChecked ==true )
+            {
+                Grd_genratebill.Visibility = Visibility;
+                // LoadTax();
+                FetchtaxDetails();
+                loadStockProducts();
+
+            }
+            
         }
 
         private void cmbPre_Pro_Salename_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -2887,7 +2912,7 @@ namespace CRM_User_Interface
             //    ADD_Tax tax = new ADD_Tax();
             //    tax.Show();
             //}
-                    }
+        }
 
       public void calculatetax()
         {
@@ -2949,21 +2974,11 @@ namespace CRM_User_Interface
             try
             {
                 con.Open();
-               // DataSet ds = new DataSet();
-                //string qry = "Select S.AvilableQty,S.FinalPrice" +
-                //             "From StockDetails S " +
-                //             "where  INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
-                //             "INNER JOIN tlb_Products P on P.ID=S.Product_ID " +
-                //             "INNER JOIN tlb_Brand B on B.ID=S.Brand_ID " +
-                //             "INNER JOIN tlb_P_Category PC on PC.ID=S.P_Category " +
-                //             "INNER JOIN tlb_Model M on M.ID=S.Model_No_ID " +
-                //             "INNER JOIN tlb_Color C on C.ID=S.Color_ID " + 
-                //             "S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
-                //               ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS  Products='"+cmbInvoiceStockProducts .SelectedValue .ToString()+"' AND S.S_Status='Active' ORDER BY S.C_Date ASC ";
-                //
+               
                 DataTable dt = new DataTable();
                // cmd = new SqlCommand(qry,con);
-               cmd = new SqlCommand("select AvilableQty,FinalPrice  from StockDetails  where S_Status='Active'", con);
+                string qry = "select ID,AvilableQty,FinalPrice  from StockDetails where [ID]= '" + cmbInvoiceStockProducts.SelectedValue.GetHashCode() + "'";
+               cmd = new SqlCommand(qry, con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(dt);
@@ -3041,7 +3056,7 @@ namespace CRM_User_Interface
         private void Hyperlink_Click(object sender, RoutedEventArgs e)
         {
             ADD_Tax adt = new ADD_Tax();
-            adt.Show();
+            adt.ShowDialog();
             FetchtaxDetails();
         }
    public void loadStockProducts()
@@ -3052,7 +3067,7 @@ namespace CRM_User_Interface
                 con.Open();
                 DataSet ds = new DataSet();
                 DataTable dt = new DataTable();
-                string qry = "Select  S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
+                string qry = "Select  S.ID,S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
                              ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS Products " +
                              "From StockDetails S " +
                              "INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
@@ -3069,14 +3084,9 @@ namespace CRM_User_Interface
 
                 if (ds.Tables [0].Rows .Count  > 0)
                 {
-
-                    // cmbInvoice_Tax1.Items.Insert(0, "---Select---");
-
-                cmbInvoiceStockProducts.ItemsSource = ds.Tables[0].DefaultView;
-                    //double a = Convert.ToDouble(ds.Tables[0].Columns["Tax_Percentage"]);
-                    //double m = Convert.ToDouble(Microsoft.VisualBasic.Strings.Format(a, "##,###.00"));
-                    //cmbInvoice_Tax1.DisplayMemberPath = m.ToString();
-                cmbInvoiceStockProducts.DisplayMemberPath =ds.Tables[0].Columns["Products"].ToString();
+                    cmbInvoiceStockProducts.SelectedValuePath = ds.Tables[0].Columns["ID"].ToString();
+                    cmbInvoiceStockProducts.ItemsSource = ds.Tables[0].DefaultView;
+                    cmbInvoiceStockProducts.DisplayMemberPath =ds.Tables[0].Columns["Products"].ToString();
 
                 }
             }
@@ -3120,9 +3130,9 @@ public void clearAllAddedProducts()
        txtInvoiceActualPrice.Text = "";
        txtInvoice_TotalPriceofQty.Text = "";
        txtInvoice_SubToatal.Text = "";
-       cmbInvoice_Tax1.Items.Clear();
+       cmbInvoice_Tax1.ItemsSource = null;
        FetchtaxDetails();
-       cmbInvoiceStockProducts.Items.Clear();
+       cmbInvoiceStockProducts.ItemsSource = null;
        loadStockProducts();
 
 
@@ -3133,6 +3143,7 @@ public void clearAllAddedProducts()
        if (dtstat.Rows.Count == 0)
        {
            dtstat.Columns.Add("SrNo");
+
            dtstat.Columns.Add("Products");
            dtstat.Columns.Add("RatePer_Product");
            dtstat.Columns.Add("Qty");
@@ -3181,12 +3192,79 @@ public void clearAllAddedProducts()
 
    private void cmbInvoiceStockProducts_DropDownClosed(object sender, EventArgs e)
    {
+       txtInvoice_AvailabeQty.Text = "";
+       txtInvoice_Qty.Text = "";
+       txtInvoiceActualPrice.Text = "";
+       txtInvoice_TotalPriceofQty.Text = "";
+       txtInvoice_SubToatal.Text = "";
+       cmbInvoice_Tax1.ItemsSource = null;
+       FetchtaxDetails();
        FetchAvailableQty();
+       
+
    }
 
+   private void btninvoice_clearProduct_Click(object sender, RoutedEventArgs e)
+   {
+       clearAllAddedProducts();
 
+   }
+public void Save_FollowupCustomer()
+   {
+       string caption1 = "Confirmation";
+     
+     MessageBoxResult res=  MessageBox.Show("Do You Want To Move Follow_up To Customer ?",caption1 , MessageBoxButton.YesNo );
+    if (res ==MessageBoxResult.Yes  )
+    {
+        balc.Flag = 1;
+        balc.Cust_ID = txtvalueid.Text;
+        balc.Name = txtCName.Text;
+        balc.Mobile_No = txtCMobile.Text;
+        balc.Date_Of_Birth = dpSaleCustomerDOB.Text;
+        balc.Email_ID = txtCEmailid.Text;
+        balc.Address = txtCAddress.Text;
+        balc.Occupation = txtSaleCustomerOccupation.Text;
+        balc.S_Status = "Active";
+        balc.C_Date = System.DateTime.Now.ToShortDateString();
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        MessageBox.Show("New Customer Added Successfully..",caption , MessageBoxButton.OK );
+    }
+    else if (res == MessageBoxResult.No)
+    {
+        MessageBox.Show(" You Have To First Add Customer Than Create Bill", caption, MessageBoxButton.OK);
+   }
+   }
+public void Save_NewCustomer()
+{
+    string caption1 = "Confirmation";
 
+    MessageBoxResult res = MessageBox.Show("Do You Want To Add New Customer ?", caption1, MessageBoxButton.YesNo);
+    if (res == MessageBoxResult.Yes)
+    {
+        balc.Flag = 1;
+        balc.Cust_ID = txtvalueid.Text;
+        balc.Name = txtCName.Text;
+        balc.Mobile_No = txtCMobile.Text;
+        balc.Date_Of_Birth = dpSaleCustomerDOB.Text;
+        balc.Email_ID = txtCEmailid.Text;
+        balc.Address = txtCAddress.Text;
+        balc.Occupation = txtSaleCustomerOccupation.Text;
+        balc.C_Date = System.DateTime.Now.ToShortDateString();
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        dalc.Customer_Save_Insert_Update_Delete(balc);
+        MessageBox.Show("New Customer Added Successfully..", caption, MessageBoxButton.OK);
+    }
+    else if (res == MessageBoxResult.No)
+    {
+        MessageBox.Show(" You Have To First Add Customer Than Create Bill", caption, MessageBoxButton.OK);
+    }
+}
 
+public void UpdateFollowupStatus()
+{
+    balc.Flag = 1;
+    //balc.FID =Convet lblfollowupidfetch.Content;
+}
     }
 
 }

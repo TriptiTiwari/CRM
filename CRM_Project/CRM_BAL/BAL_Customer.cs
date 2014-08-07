@@ -9,15 +9,16 @@ namespace CRM_BAL
    public  class BAL_Customer
     {
        public int Flag { get; set; }
-       public int ID { get; set; }
+       public int FID { get; set; }
        public string Cust_ID { get; set; }
+      
        public string Name { get; set; }
        public string Mobile_No { get; set; }
        public string  Date_Of_Birth { get; set; }
        public string Email_ID { get; set; }
        public string Address { get; set; }
        public string Occupation { get; set; }
-       public string Bill_No { get; set; }
+       //public string Bill_No { get; set; }
        public string S_Status { get; set; }
        public string C_Date { get; set; }
 
