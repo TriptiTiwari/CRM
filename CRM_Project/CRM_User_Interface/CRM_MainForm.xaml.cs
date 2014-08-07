@@ -95,6 +95,20 @@ namespace CRM_User_Interface
 
 
         }
+        public void CustomerID_fetch()
+        {
+
+            int id1 = 0;
+            // SqlConnection con = new SqlConnection(constring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
+            id1 = Convert.ToInt32(cmd.ExecuteScalar());
+            id1 = id1 + 1;
+            txtvalueid.Text  = "# Customer/" + id1.ToString();
+            con.Close();
+
+
+        }
         private void btnadminlogin_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
@@ -2602,8 +2616,10 @@ namespace CRM_User_Interface
             MessageBox.Show(ID);
             // DGRD_SaleFollowup;
             GRD_Customer_Billing.Visibility = Visibility;
+            CustomerID_fetch();
 
-            txtvalueid.Text = ID;
+            //txtvalueid.Text = ID;
+            lblfollowupidfetch.Content = ID;
 
 
             try
@@ -2925,7 +2941,7 @@ namespace CRM_User_Interface
        
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            FetchAvailableQty();
+           
         }
 
         public void FetchAvailableQty()
@@ -2934,8 +2950,20 @@ namespace CRM_User_Interface
             {
                 con.Open();
                // DataSet ds = new DataSet();
+                //string qry = "Select S.AvilableQty,S.FinalPrice" +
+                //             "From StockDetails S " +
+                //             "where  INNER JOIN tb_Domain D on D.ID=S.Domain_ID " +
+                //             "INNER JOIN tlb_Products P on P.ID=S.Product_ID " +
+                //             "INNER JOIN tlb_Brand B on B.ID=S.Brand_ID " +
+                //             "INNER JOIN tlb_P_Category PC on PC.ID=S.P_Category " +
+                //             "INNER JOIN tlb_Model M on M.ID=S.Model_No_ID " +
+                //             "INNER JOIN tlb_Color C on C.ID=S.Color_ID " + 
+                //             "S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  " +
+                //               ",D.Domain_Name + ' , ' + P.Product_Name + ' , ' + B.Brand_Name + ',' + PC.Product_Category + ',' + M.Model_No + ',' + C.Color AS  Products='"+cmbInvoiceStockProducts .SelectedValue .ToString()+"' AND S.S_Status='Active' ORDER BY S.C_Date ASC ";
+                //
                 DataTable dt = new DataTable();
-                cmd = new SqlCommand("select AvilableQty,FinalPrice  from StockDetails  where S_Status='Active'", con);
+               // cmd = new SqlCommand(qry,con);
+               cmd = new SqlCommand("select AvilableQty,FinalPrice  from StockDetails  where S_Status='Active'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 // con.Open();
                 da.Fill(dt);
@@ -3087,7 +3115,18 @@ namespace CRM_User_Interface
    }
 public void clearAllAddedProducts()
    {
-  
+       txtInvoice_AvailabeQty.Text = "";
+       txtInvoice_Qty.Text = "";
+       txtInvoiceActualPrice.Text = "";
+       txtInvoice_TotalPriceofQty.Text = "";
+       txtInvoice_SubToatal.Text = "";
+       cmbInvoice_Tax1.Items.Clear();
+       FetchtaxDetails();
+       cmbInvoiceStockProducts.Items.Clear();
+       loadStockProducts();
+
+
+
    }
    private void btninvoice_addProduct_Click(object sender, RoutedEventArgs e)
    {
@@ -3103,8 +3142,8 @@ public void clearAllAddedProducts()
        }
 
        DataRow dr = dtstat.NewRow();
-      // dr["SrNo"] = lblinvoiceSr.
-       dr["Products"] = cmbInvoiceStockProducts .SelectedValue .ToString ();
+       dr["SrNo"] = lblinvoiceSr.Content;
+       dr["Products"] = cmbInvoiceStockProducts .Text ;
        dr["RatePer_Product"] = txtInvoiceActualPrice .Text;
        dr["Qty"] = txtInvoice_Qty .Text;
        dr["Total_Price"] = txtInvoice_TotalPriceofQty .Text;
@@ -3113,7 +3152,7 @@ public void clearAllAddedProducts()
 
        dtstat.Rows.Add(dr);
 
-       //txtSrNo.Text = (Convert.ToInt32(txtSrNo.Text) + 1).ToString();
+       lblinvoiceSr.Content = (Convert.ToInt32(lblinvoiceSr.Content ) + 1).ToString();
       // txtProduct.Text = "";
       // cmb1();
        //cmb2();
@@ -3138,6 +3177,11 @@ public void clearAllAddedProducts()
        }
 
             
+   }
+
+   private void cmbInvoiceStockProducts_DropDownClosed(object sender, EventArgs e)
+   {
+       FetchAvailableQty();
    }
 
 
