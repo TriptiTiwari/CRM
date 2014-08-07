@@ -2619,7 +2619,7 @@ namespace CRM_User_Interface
             MessageBox.Show(ID);
             // DGRD_SaleFollowup;
             GRD_Customer_Billing.Visibility = Visibility;
-           // CustomerID_fetch();
+            CustomerID_fetch();
 
             //txtvalueid.Text = ID;
             lblfollowupidfetch.Content = ID;
@@ -2663,6 +2663,7 @@ namespace CRM_User_Interface
             if (rdosalefollowupcustomer.IsChecked ==true )
             {
                 Save_FollowupCustomer();
+                UpdateFollowupStatus();
                 Grd_genratebill.Visibility = Visibility;
                 // LoadTax();
                 FetchtaxDetails();
@@ -3218,11 +3219,11 @@ public void Save_FollowupCustomer()
     {
         balc.Flag = 1;
         balc.Cust_ID = txtvalueid.Text;
-        balc.Name = txtCName.Text;
-        balc.Mobile_No = txtCMobile.Text;
+        balc.Name = txtSalecustomerName.Text;
+        balc.Mobile_No = txtSaleCustomerMobileno.Text;
         balc.Date_Of_Birth = dpSaleCustomerDOB.Text;
-        balc.Email_ID = txtCEmailid.Text;
-        balc.Address = txtCAddress.Text;
+        balc.Email_ID = txtSaleCustomerEmailID.Text;
+        balc.Address = txtSaleCustomerAddress.Text;
         balc.Occupation = txtSaleCustomerOccupation.Text;
         balc.S_Status = "Active";
         balc.C_Date = System.DateTime.Now.ToShortDateString();
@@ -3263,7 +3264,11 @@ public void Save_NewCustomer()
 public void UpdateFollowupStatus()
 {
     balc.Flag = 1;
-    //balc.FID =Convet lblfollowupidfetch.Content;
+    balc.FID =Convert.ToInt32 ( lblfollowupidfetch.Content);
+    balc.S_Status = "DeActive";
+    balc.C_Date = System.DateTime.Now.ToShortDateString();
+    dalc.Customer_Update(balc);
+    MessageBox.Show("Follow_up Customer DeActivated",caption ,MessageBoxButton.OK );
 }
     }
 
