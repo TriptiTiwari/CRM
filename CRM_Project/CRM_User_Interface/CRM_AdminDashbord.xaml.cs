@@ -1108,7 +1108,18 @@ namespace CRM_User_Interface
                     con.Close();
                 }
             }
-            
+
+            string abc;
+
+            if(chbDefault.IsChecked == true)
+            {
+                abc = "Default";
+            }
+            else
+            {
+                abc = "No";
+            }
+
             //final dealer
             try
                 {
@@ -1128,9 +1139,11 @@ namespace CRM_User_Interface
                     bfinaldealer.SubTotal = Convert.ToDouble(txtTotalPrice.Text);
                     bfinaldealer.RoundUp = Convert.ToDouble(txtpreroundoff.Text);
                     bfinaldealer.NetAmt = Convert.ToDouble(txtNetAmount.Text);
-                    //bfinaldealer.SDefault = txtSaleQuantity.Text;
-                    //.FinalPrice = Convert.ToDouble(txtPrice.Text);
-                    //bstockDet.S_Status = "Active";
+                    //bfinaldealer.FinalDate = Convert.ToString(dtpFinalDate.Text);
+                    bfinaldealer.SDefault = abc;
+                    bfinaldealer.ServiceIntervalMonth = txtAdm_FinalMonths.Text;
+                    //bfinaldealer.Months = lblFinal_Months.Content.ToString();
+                    bfinaldealer.S_Status = "Active";
 
                     //string STRTODAYDATE = System.DateTime.Now.ToShortDateString();
                     //string time = System.DateTime.Now.ToShortTimeString();
@@ -1142,10 +1155,10 @@ namespace CRM_User_Interface
                     ////txtdate.Text = DATE;
                     ////txttime.Text = time;
 
-                    //baddprd.C_Date =Convert .ToDateTime( DATE);
-                    //bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
-                    //dstockDet.AddStockDetails_Insert_Update_Delete(bstockDet);
-                    //MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+                    //bfinaldealer.C_Date =Convert .ToDateTime(dtpFinalDate.SelectedDate.ToString);
+                    bfinaldealer.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
+                    dfinaldealer.FinalDealer_Insert_Update_Delete(bfinaldealer);
+                    MessageBox.Show("Data Save Successfully", caption, MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
                 catch (Exception)

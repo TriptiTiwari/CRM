@@ -9,11 +9,11 @@ using System.Configuration;
 using CRM_BAL;
 namespace CRM_DAL
 {
-  public   class DAL_Customer
-  {
-      public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
-      SqlCommand cmd;
-      public int Customer_Save_Insert_Update_Delete(BAL_Customer   bc)
+    public class DAL_Customer
+    {
+        public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
+        SqlCommand cmd;
+        public int Customer_Save_Insert_Update_Delete(BAL_Customer bc)
         {
             try
             {
@@ -23,9 +23,9 @@ namespace CRM_DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
                 cmd.Parameters.AddWithValue("@Cust_ID", bc.Cust_ID);
-             cmd.Parameters.AddWithValue("@F_Date", bc.F_Date);
+                cmd.Parameters.AddWithValue("@F_Date", bc.F_Date);
                 cmd.Parameters.AddWithValue("@F_Message", bc.F_Message);
-             cmd.Parameters.AddWithValue("@Walkins", bc.Walkins);
+                cmd.Parameters.AddWithValue("@Walkins", bc.Walkins);
                 cmd.Parameters.AddWithValue("@S_Status", bc.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bc.C_Date);
                 int i = cmd.ExecuteNonQuery();
@@ -39,5 +39,6 @@ namespace CRM_DAL
                 throw;
             }
             finally { con.Close(); }
+        }
     }
 }
