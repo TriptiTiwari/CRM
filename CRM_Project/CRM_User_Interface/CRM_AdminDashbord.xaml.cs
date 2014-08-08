@@ -1081,11 +1081,11 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
-<<<<<<< HEAD
+
                     bstockDet.Products1234 = lblProducts.Content.ToString();
-=======
-                    bstockDet.Products123= lblProducts.Content.ToString();
->>>>>>> origin/master
+
+                   // bstockDet.Products123= lblProducts.Content.ToString();
+
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
                     bstockDet.NewQty = txtQuantity.Text;
