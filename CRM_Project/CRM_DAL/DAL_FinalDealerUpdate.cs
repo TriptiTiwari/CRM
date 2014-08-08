@@ -24,7 +24,7 @@ namespace CRM_DAL
                 cmd = new SqlCommand("SP_FinalDealerUpdateStatus", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
-                cmd.Parameters.AddWithValue("@Dealer_ID", bfinaldealerup.FDealerID);
+                cmd.Parameters.AddWithValue("@DealerID", bfinaldealerup.FDealerID);
                 cmd.Parameters.AddWithValue("@S_Status", bfinaldealerup.S_Status);
                 int i = cmd.ExecuteNonQuery();
                 return i;

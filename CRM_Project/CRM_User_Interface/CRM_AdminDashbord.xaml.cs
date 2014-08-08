@@ -978,7 +978,7 @@ namespace CRM_User_Interface
         {
             if (txtPrice.Text == "")
             {
-                MessageBox.Show("Please Insert Price", caption, MessageBoxButton.OK);
+                //MessageBox.Show("Please Insert Price", caption, MessageBoxButton.OK);
                 txtQuantity.Text = 0.ToString();
 
             }
