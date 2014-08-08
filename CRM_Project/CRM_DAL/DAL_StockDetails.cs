@@ -31,7 +31,7 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@ProductCatID", bstockdet.ProductCatID);
                 cmd.Parameters.AddWithValue("@ModelID", bstockdet.ModelID);
                 cmd.Parameters.AddWithValue("@ColorId", bstockdet.ColorId);
-                cmd.Parameters.AddWithValue("@Products123", bstockdet.Products123);
+                cmd.Parameters.AddWithValue("@Products123", bstockdet.Products1234);
                 cmd.Parameters.AddWithValue("@AvilableQty", bstockdet.AvilableQty);
                 cmd.Parameters.AddWithValue("@SaleQty", bstockdet.SaleQty);
                 cmd.Parameters.AddWithValue("@NewQty", bstockdet.NewQty);
