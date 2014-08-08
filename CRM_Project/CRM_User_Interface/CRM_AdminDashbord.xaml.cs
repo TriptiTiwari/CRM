@@ -1102,16 +1102,13 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
-<<<<<<< HEAD
-
                     bstockDet.Products1234 = lblProducts.Content.ToString();
 
                    // bstockDet.Products123= lblProducts.Content.ToString();
 
-=======
+
                     bstockDet.Products1234 = lblProducts.Content.ToString();
                     //bstockDet.Products123= lblProducts.Content.ToString();
->>>>>>> origin/master
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
                     bstockDet.NewQty = txtQuantity.Text;
@@ -1246,6 +1243,22 @@ namespace CRM_User_Interface
                 con.Close();
             }
 
+            try
+            {
+                bfinaldealer1.Flag = 1;
+                bfinaldealer1.FDealerID = Convert.ToInt32(txtAdm_DealerID.Text);
+                bfinaldealer1.S_Status = "DeActive";
+                dFup.FinalUpdateD_Insert_Update_Delete(bfinaldealer1);
+                MessageBox.Show("Update Final Dealer Succesfully...", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
 
             //txtAdm_DomainID.Text = "";
             //txtAdm_ProductID.Text = "";
