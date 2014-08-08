@@ -10,21 +10,22 @@ using CRM_BAL;
 
 namespace CRM_DAL
 {
-    public class DAL_StockAddQty
+    public class DAL_FinalDealerUpdate
     {
         public SqlConnection con = new SqlConnection(ConfigurationSettings.AppSettings["ConstCRM"].ToString());
         SqlCommand cmd;
 
-        public int AddQtyStockDetails_Insert_Update_Delete(BAL_StockDetails bqtystockdet)
+        public int FinalUpdateD_Insert_Update_Delete(BAL_FinalDealer bfinaldealerup)
         {
             try
             {
+
                 con.Open();
-                cmd = new SqlCommand("SP_AddQtyStockDetails", con);
+                cmd = new SqlCommand("SP_FinalDealerUpdateStatus", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
-                cmd.Parameters.AddWithValue("@id", bqtystockdet.SID);
-                cmd.Parameters.AddWithValue("@AvilableQty", bqtystockdet.AvilableQty);
+                cmd.Parameters.AddWithValue("@Dealer_ID", bfinaldealerup.FDealerID);
+                cmd.Parameters.AddWithValue("@S_Status", bfinaldealerup.S_Status);
                 int i = cmd.ExecuteNonQuery();
                 return i;
             }
@@ -32,9 +33,10 @@ namespace CRM_DAL
             {
                 throw;
             }
-            finally { con.Close(); }
-
-
+            finally
+            {
+                con.Close();
+            }
         }
     }
 }

@@ -47,10 +47,12 @@
     <Compile Include="DAL_EmployeeEntry.cs" />
     <Compile Include="DAL_EmployeeUpdate.cs" />
     <Compile Include="DAL_FinalDealer.cs" />
+    <Compile Include="DAL_FinalDealerUpdate.cs" />
     <Compile Include="DAL_Followup.cs" />
     <Compile Include="DAL_InvoiceDetails.cs" />
     <Compile Include="DAL_Pre_Procurement.cs" />
     <Compile Include="DAL_StaockDetailsUpdate.cs" />
+    <Compile Include="DAL_StockAddQty.cs" />
     <Compile Include="DAL_StockDetails.cs" />
     <Compile Include="DAL_Tax.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

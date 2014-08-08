@@ -48,6 +48,8 @@ namespace CRM_User_Interface
         DAL_StaockDetailsUpdate dstUpdate = new DAL_StaockDetailsUpdate();
         BAL_FinalDealer bfinaldealer1 = new BAL_FinalDealer();
         DAL_FinalDealer dfinaldealer = new DAL_FinalDealer();
+        DAL_StockAddQty daddqty = new DAL_StockAddQty();
+        
 
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
@@ -1198,6 +1200,45 @@ namespace CRM_User_Interface
 
             AddQuantity_Check();
             AddQuantity();
+
+            try
+            {
+                bstockDet.Flag = 1;
+                bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
+                //bstockDet.Products123 = lblProducts.Content.ToString();
+                bstockDet.AvilableQty = Convert.ToString(add);
+                daddqty.AddQtyStockDetails_Insert_Update_Delete(bstockDet);
+                MessageBox.Show("Quantity Save Succesfully...",caption, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+            try
+            {
+                bstockDet.Flag = 1;
+                bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
+                //bstockDet.Products123 = lblProducts.Content.ToString();
+                bstockDet.AvilableQty = Convert.ToString(add);
+                daddqty.AddQtyStockDetails_Insert_Update_Delete(bstockDet);
+                MessageBox.Show("Quantity Save Succesfully...", caption, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
             //txtAdm_DomainID.Text = "";
             //txtAdm_ProductID.Text = "";
             txtAdm_StockID.Text = "";
@@ -1314,6 +1355,9 @@ namespace CRM_User_Interface
         }
 
         string abc;
+        int aviQty;
+        int newQty;
+        int add;
 
         public void AddQuantity_Check()
         {
@@ -1346,10 +1390,7 @@ namespace CRM_User_Interface
         public void AddQuantity()
         {
             try
-            { 
-                int aviQty;
-                int newQty;
-                int add;
+            {         
                 aviQty = Convert.ToInt32(txtAdm_AvilableQty.Text);
                 newQty = Convert.ToInt32(txtQuantity.Text);
                 add = aviQty + newQty;
