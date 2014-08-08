@@ -2682,9 +2682,9 @@ namespace CRM_User_Interface
                 Save_FollowupCustomer();
                 UpdateFollowupStatus();
                 Grd_genratebill.Visibility = Visibility;
-                // LoadTax();
-                FetchtaxDetails();
                 loadStockProducts();
+                FetchtaxDetails();
+              
 
 
             }
