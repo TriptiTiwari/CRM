@@ -49,7 +49,7 @@ namespace CRM_User_Interface
         BAL_FinalDealer bfinaldealer1 = new BAL_FinalDealer();
         DAL_FinalDealer dfinaldealer = new DAL_FinalDealer();
         DAL_StockAddQty daddqty = new DAL_StockAddQty();
-        
+        DAL_FinalDealerUpdate dFup = new DAL_FinalDealerUpdate();
 
         private void btnadminexit_Click(object sender, RoutedEventArgs e)
         {
