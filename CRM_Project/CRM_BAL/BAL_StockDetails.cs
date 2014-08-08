@@ -13,6 +13,8 @@ namespace CRM_BAL
     {
         public int Flag { get; set; }
 
+
+
         public int SID { get; set; }
 
         public int DomainID { get; set; }
@@ -27,9 +29,13 @@ namespace CRM_BAL
 
         public int ColorId { get; set; }
 
+        public string Products123 { get; set; }
+
         public string AvilableQty { get; set; }
 
         public string SaleQty { get; set; }
+
+        public string NewQty { get; set; }
 
         public double FinalPrice { get; set; }
 

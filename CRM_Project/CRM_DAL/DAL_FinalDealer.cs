@@ -24,6 +24,7 @@ namespace CRM_DAL
                 cmd = new SqlCommand("SP_FinalDealer", con);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
+                cmd.Parameters.AddWithValue("@Dealer_ID", bfinaldealer1.FDealerID);
                 cmd.Parameters.AddWithValue("@SalesID", bfinaldealer1.SalesID);
                 cmd.Parameters.AddWithValue("@Domain_ID", bfinaldealer1.Domain_ID);
                 cmd.Parameters.AddWithValue("@Product_ID", bfinaldealer1.Product_ID);
