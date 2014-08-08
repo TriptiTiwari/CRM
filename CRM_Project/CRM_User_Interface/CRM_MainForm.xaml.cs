@@ -3328,12 +3328,32 @@ private void txtInvoice_C_PaidAmount_TextChanged(object sender, TextChangedEvent
 private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
 {
     FetchCustomerID();
-
+    SaveInvoiceDetails();
 }
         public void SaveInvoiceDetails()
-{
-
-}
+        {  if (dtstat.Rows.Count > 0)
+          {
+             binvd.Flag = 1;
+             binvd.Customer_ID = I;
+             binvd.Bill_No =I.ToString ();
+             binvd.Domain_ID = I;
+             binvd.Product_ID = I;
+             binvd.Brand_ID = I;
+             binvd.P_Category = I;
+             binvd.Model_No_ID = I;
+             binvd.Color_ID = I;
+             binvd.Per_Product_Price = I;
+             binvd.Qty = I;
+             binvd.C_Price = I;
+             binvd.Tax_Name = I.ToString ();
+             binvd.Tax = I;
+             binvd.Total_Price = I;
+            binvd.S_Status = "Active";
+            binvd.C_Date = System.DateTime.Now.ToShortDateString();
+            dinvd.InvoiceDetails_Save(binvd);
+        }
+       
+          }
     }
 
 }
