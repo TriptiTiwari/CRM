@@ -35,7 +35,7 @@ namespace CRM_User_Interface
         string caption = "Green Future Glob";
         int cid,I;
         double y1,m1;
-        string year,month;
+        string year,month,g;
       
         public CRM_MainForm()
         {
@@ -2942,7 +2942,7 @@ namespace CRM_User_Interface
           else if (txtInvoice_TotalPriceofQty.Text != "" && cmbInvoice_Tax1.SelectedItem.ToString() != "")
           {
               double totprice = Convert.ToDouble(txtInvoice_TotalPriceofQty.Text);
-              double tx = Convert.ToDouble(cmbInvoice_Tax1.SelectedValue .GetHashCode ());
+              double tx = Convert.ToDouble(cmbInvoice_Tax1.SelectedValue.ToString ());
               double stot = ((totprice * tx) / 100);
               txtInvoice_SubToatal.Text = (totprice + stot).ToString();
           }
@@ -3163,9 +3163,11 @@ public void clearAllAddedProducts()
            dtstat.Columns.Add("SrNo");
 
            dtstat.Columns.Add("Products");
+      
            dtstat.Columns.Add("RatePer_Product");
            dtstat.Columns.Add("Qty");
            dtstat.Columns.Add("Total_Price");
+           dtstat.Columns.Add("Tax Name");
            dtstat.Columns.Add("Taxes %");
            dtstat.Columns.Add("SubTotal");
        }
@@ -3176,7 +3178,9 @@ public void clearAllAddedProducts()
        dr["RatePer_Product"] = txtInvoiceActualPrice .Text;
        dr["Qty"] = txtInvoice_Qty .Text;
        dr["Total_Price"] = txtInvoice_TotalPriceofQty .Text;
-       dr["Taxes %"] = cmbInvoice_Tax1.SelectedValue .GetHashCode ();
+       dr["Tax Name"] = cmbInvoice_Tax1.Text ;
+       dr["Taxes %"] = cmbInvoice_Tax1.SelectedValue.ToString();
+     
        dr["SubTotal"] = txtInvoice_SubToatal .Text;
 
        dtstat.Rows.Add(dr);
@@ -3189,8 +3193,9 @@ public void clearAllAddedProducts()
        //txtQty.Text = "";
       // txtRateAndUnit.Text = "";
        //txtSubTotal.Text = "";
-
+      
        Dgrd_InvoiceADDProducts.ItemsSource = dtstat.DefaultView;
+      // Dgrd_InvoiceADDProducts.Columns[0].Visibility = Visibility.Hidden;
 
        if (dtstat.Rows.Count > 0)
        {
@@ -3332,28 +3337,65 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
 }
         public void SaveInvoiceDetails()
         {  if (dtstat.Rows.Count > 0)
-          {
+        {
+            g = dtstat.Rows[0]["Products"].ToString();
+            FetchProductsID();
+            // string s = "  Select  S.ID,S.Domain_ID , S.Product_ID ,S.Brand_ID ,S.P_Category ,S.Model_No_ID ,S.Color_ID  From StockDetails S where ID='"+cmbInvoiceStockProducts .SelectedItem .GetHashCode ()+"' and  S.S_Status='Active' ORDER BY S.C_Date ASC";
+            DataSet ds = new DataSet();
+            string qry = "Select  Domain_ID , Product_ID ,Brand_ID ,P_Category ,Model_No_ID ,Color_ID From StockDetails S where ID='"+txtid .Text +"' and  S.S_Status='Active' ";
+            cmd = new SqlCommand(qry, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // con.Open();
+            da.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtd.Text = ds.Tables[0].Columns["Domain_ID"].ToString();
+                txtP.Text = ds.Tables[0].Columns["Product_ID"].ToString();
+                txtB.Text = ds.Tables[0].Columns["Brand_ID"].ToString();
+                txtPC.Text = ds.Tables[0].Columns["P_Category"].ToString();
+                txtM.Text = ds.Tables[0].Columns["Model_No_ID"].ToString();
+                txtC.Text = ds.Tables[0].Columns["Color_ID"].ToString();
+            }
+           
              binvd.Flag = 1;
              binvd.Customer_ID = I;
              binvd.Bill_No =I.ToString ();
-             binvd.Domain_ID = I;
-             binvd.Product_ID = I;
-             binvd.Brand_ID = I;
-             binvd.P_Category = I;
-             binvd.Model_No_ID = I;
-             binvd.Color_ID = I;
-             binvd.Per_Product_Price = I;
-             binvd.Qty = I;
-             binvd.C_Price = I;
-             binvd.Tax_Name = I.ToString ();
-             binvd.Tax = I;
-             binvd.Total_Price = I;
+             binvd.Domain_ID = Convert .ToInt32(txtd.Text );
+             binvd.Product_ID = Convert.ToInt32(txtP.Text);
+             binvd.Brand_ID = Convert.ToInt32(txtB.Text);
+             binvd.P_Category = Convert.ToInt32(txtPC.Text);
+             binvd.Model_No_ID = Convert.ToInt32(txtM.Text);
+             binvd.Color_ID = Convert.ToInt32(txtC.Text);
+             binvd .Products123= dtstat.Rows[0]["Products123"].ToString();
+             binvd.Per_Product_Price = Convert.ToDouble(dtstat.Rows[0]["RatePer_Product"].ToString());
+             binvd.Qty =Convert.ToDouble( dtstat.Rows[0]["Qty"].ToString());
+             binvd.C_Price =Convert.ToDouble( dtstat.Rows[0]["Total_Price"].ToString());
+             binvd.Tax_Name = dtstat.Rows[0]["Tax Name"].ToString();
+             binvd.Tax =Convert.ToDouble( dtstat.Rows[0]["Taxes %"].ToString());
+             binvd.Total_Price =Convert.ToDouble( dtstat.Rows[0]["SubTotal"].ToString());
             binvd.S_Status = "Active";
             binvd.C_Date = System.DateTime.Now.ToShortDateString();
             dinvd.InvoiceDetails_Save(binvd);
+            MessageBox.Show("Done");
         }
        
           }
+        public void FetchProductsID()
+        {
+           
+            DataSet ds = new DataSet();
+            string qry = "Select ID from StockDetails where Products123='" + g + "' and  S_Status='Active'  ";
+            cmd = new SqlCommand(qry, con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            // con.Open();
+            da.Fill(ds);
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                txtid.Text = ds.Tables[0].Columns["ID"].ToString();
+            }
+        }
     }
 
 }
