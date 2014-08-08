@@ -13,8 +13,6 @@ namespace CRM_BAL
     {
         public int Flag { get; set; }
 
-
-
         public int SID { get; set; }
 
         public int DomainID { get; set; }
