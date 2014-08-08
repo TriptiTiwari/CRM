@@ -120,11 +120,11 @@ namespace CRM_User_Interface
 
             int id1 = 0;
             // SqlConnection con = new SqlConnection(constring);
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
-            id1 = Convert.ToInt32(cmd.ExecuteScalar());
+           // con.Open();
+           // SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
+           // id1 = Convert.ToInt32(cmd.ExecuteScalar());
             id1 = id1 + 1;
-            txtvalueid.Text = "# Customer/" + id1.ToString();
+            txtvalueid.Text = "Bill No 786/ " + id1.ToString();
             con.Close();
 
 

@@ -1040,6 +1040,25 @@ namespace CRM_User_Interface
         private void btnFinalProcurement_Close_Click(object sender, RoutedEventArgs e)
         {
             grd_FinalizeProducts.Visibility = System.Windows.Visibility.Hidden;
+            txtAdm_BrandID.Text = "";
+            txtAdm_AvilableQty.Text = "";
+            txtAdm_ColorID.Text = "";
+            txtAdm_DomainID.Text = "";
+            txtAdm_ProductCatID.Text = "";
+            txtAdm_ProductID.Text = "";
+            txtAdm_DealerID.Text = "";
+            lblSalesNo.Content = "";
+            lblProcDate.Content = "";
+            lblProducts.Content = "";
+            lblProceNetAmt.Content = "";
+            lblProcePrice.Content = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            dtpFinalDate.Text = "";
+            txtTotalPrice.Text = "";
+            txtpreroundoff.Text = "";
+            txtNetAmount.Text = "";
+            txtAdm_StockID.Text = "";
         }
         
         private void btnFinalProcurement_Click(object sender, RoutedEventArgs e)
@@ -1081,11 +1100,16 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+<<<<<<< HEAD
 
                     bstockDet.Products1234 = lblProducts.Content.ToString();
 
                    // bstockDet.Products123= lblProducts.Content.ToString();
 
+=======
+                    bstockDet.Products1234 = lblProducts.Content.ToString();
+                    //bstockDet.Products123= lblProducts.Content.ToString();
+>>>>>>> origin/master
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
                     bstockDet.NewQty = txtQuantity.Text;
@@ -1185,6 +1209,24 @@ namespace CRM_User_Interface
             //txtAdm_DomainID.Text = "";
             //txtAdm_ProductID.Text = "";
             txtAdm_StockID.Text = "";
+            txtAdm_BrandID.Text = "";
+            txtAdm_AvilableQty.Text = "";
+            txtAdm_ColorID.Text = "";
+            txtAdm_DomainID.Text = "";
+            txtAdm_ProductCatID.Text = "";
+            txtAdm_ProductID.Text = "";
+            txtAdm_DealerID.Text = "";
+            lblSalesNo.Content = "";
+            lblProcDate.Content = "";
+            lblProducts.Content = "";
+            lblProceNetAmt.Content = "";
+            lblProcePrice.Content = "";
+            txtPrice.Text = "";
+            txtQuantity.Text = "";
+            dtpFinalDate.Text = "";
+            txtTotalPrice.Text = "";
+            txtpreroundoff.Text = "";
+            txtNetAmount.Text = "";
 
             Salesid();
         }
