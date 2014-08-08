@@ -940,6 +940,7 @@ namespace CRM_User_Interface
                 adp.Fill(dt);
                 if (dt.Rows.Count > 0)
                 {
+                    txtAdm_DealerID.Text = dt.Rows[0]["DealerID"].ToString();
                     txtAdm_DomainID.Text = dt.Rows[0]["Domain_ID"].ToString();
                     txtAdm_ProductID.Text = dt.Rows[0]["Product_ID"].ToString();
                     txtAdm_BrandID.Text = dt.Rows[0]["Brand_ID"].ToString();
@@ -1050,8 +1051,8 @@ namespace CRM_User_Interface
                 {
                     bstockDet.Flag = 1;
                     bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
-                    bstockDet.AvilableQty = txtQuantity.Text;
-                    //bstockDet.SaleQty = Convert.ToInt32(txtSaleQuantity.Text);
+                    bstockDet.Products123 = lblProducts.Content.ToString();
+                    bstockDet.NewQty = txtQuantity.Text;
                     bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
                     bstockDet.S_Status = "Active";
                     bstockDet.C_Date = Convert.ToString(System.DateTime.Now.ToShortDateString());
@@ -1078,8 +1079,10 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+                    bstockDet.Products123 = lblProducts.Content.ToString();
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
+                    bstockDet.NewQty = txtQuantity.Text;
                     bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
                     bstockDet.S_Status = "Active";
 
@@ -1124,6 +1127,7 @@ namespace CRM_User_Interface
             try
                 {
                     bfinaldealer1.Flag = 1;
+                    bfinaldealer1.FDealerID = Convert.ToInt32(txtAdm_DealerID.Text);
                     bfinaldealer1.SalesID = lblSalesNo.Content.ToString();
                     bfinaldealer1.Domain_ID = Convert.ToInt32(txtAdm_DomainID.Text);
                     bfinaldealer1.Product_ID = Convert.ToInt32(txtAdm_ProductID.Text);
@@ -1175,6 +1179,91 @@ namespace CRM_User_Interface
        
         #endregion StockDetails Button Event
 
+        public void Final_DealerDetails()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT P.[ID],P.[SalesID],P.[Dealer_ID],P.[Domain_ID],P.[Product_ID],P.[Brand_ID],P.[P_Category],P.[Model_No_ID],P.[Color_ID],P.[FinalQty],P.[NetAmt],P.[SDefault],P.[ServiceIntervalMonth],P.[C_Date] " +
+                      ",D.[DealerFirstName] + '' + D.[DealerLastName] AS [DealerName],D.[MobileNo],D.[PhoneNo] " +
+                      ",DM.[Domain_Name] + ' , ' +  PM.[Product_Name] + ' , ' + B.[Brand_Name] + ' , ' + PC.[Product_Category] + ' , ' + MN.[Model_No] + ' , ' + C.[Color] AS [Products]" +
+                      ",PP.[Price] " +
+                      "FROM [Final_DealerDetails] P " +
+                      "INNER JOIN [tbl_DealerEntry] D ON D.[ID] = P.[Dealer_ID] " +
+                      "INNER JOIN [tb_Domain] DM ON DM.[ID]=P.[Domain_ID] " +
+                      "INNER JOIN [tlb_Products] PM ON PM.[ID]=P.[Product_ID] " +
+                      "INNER JOIN [tlb_Brand] B ON B.[ID]=P.[Brand_ID] " +
+                      "INNER JOIN [tlb_P_Category] PC ON PC.[ID]=P.[P_Category]" +
+                      "INNER JOIN [tlb_Model] MN ON MN.[ID]=P.[Model_No_ID] " +
+                      "INNER JOIN [tlb_Color] C ON C.[ID]=P.[Color_ID] " +
+                      "INNER JOIN [Pre_Products] PP ON PP.[Model_No_ID]=P.[Model_No_ID] " +
+                      "WHERE ";
+                if ((dtpAdm_From_FinalDealer.SelectedDate != null) && (dtpAdm_To_FinalDealer.SelectedDate != null))
+                {
+                    DateTime StartDate = Convert.ToDateTime(dtpAdm_From_FinalDealer.Text.Trim() + " 00:00:00.000");
+                    DateTime EndDate = Convert.ToDateTime(dtpAdm_To_FinalDealer.Text.Trim() + " 23:59:59.999");
+                    str = str + "P.[C_Date] Between '" + StartDate + "' AND '" + EndDate + "'  AND ";
+                }
+
+                if (txtAdm_FDealerName_Search.Text.Trim() != "")
+                {
+                    str = str + "D.[DealerFirstName] LIKE ISNULL('" + txtAdm_FDealerName_Search.Text.Trim() + "',D.[DealerFirstName]) + '%' AND ";
+                }
+                
+                if (txtAdm_Dealer_Filter_Search.Text.Trim() != "")
+                {
+                    str = str + "D.[MobileNo] LIKE ISNULL('" + txtAdm_FDealerMN_Search.Text.Trim() + "',D.[MobileNo]) + '%' AND ";
+                }
+                str = str + " P.[S_Status] = 'Active' ORDER BY P.[C_Date] ASC ";
+                //str = str + " S_Status = 'Active' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
+
+                //if (ds.Tables[0].Rows.Count > 0)
+                //{
+                dgvAdm_FDealerDetails.ItemsSource = ds.Tables[0].DefaultView;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        private void finaldealerDetails_Click(object sender, RoutedEventArgs e)
+        {
+            grd_FinalDealerDetails.Visibility = System.Windows.Visibility.Visible;
+            Final_DealerDetails();
+        }
+
+        private void btnAdm_FinalDealerExit_Click(object sender, RoutedEventArgs e)
+        {
+            grd_FinalDealerDetails.Visibility = System.Windows.Visibility.Hidden;
+        }
+
+        private void txtAdm_FDealerName_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Final_DealerDetails();
+        }
+
+        private void txtAdm_FDealerMN_Search_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Final_DealerDetails();
+        }
+
+        private void btnAdm_FDealerRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            txtAdm_FDealerMN_Search.Text = "";
+            txtAdm_FDealerName_Search.Text = "";
+            Final_DealerDetails();
+        }
 
 
 

@@ -26,7 +26,9 @@ namespace CRM_DAL
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Flag", 1);
                 cmd.Parameters.AddWithValue("@id", bstockdetup.SID);
-                cmd.Parameters.AddWithValue("@AvilableQty", bstockdetup.AvilableQty);
+                cmd.Parameters.AddWithValue("@Products123", bstockdetup.Products123);
+                //cmd.Parameters.AddWithValue("@AvilableQty", bstockdetup.AvilableQty);
+                cmd.Parameters.AddWithValue("@NewQty", bstockdetup.NewQty);
                 cmd.Parameters.AddWithValue("@FinalPrice", bstockdetup.FinalPrice);
                 cmd.Parameters.AddWithValue("@S_Status", bstockdetup.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bstockdetup.C_Date);

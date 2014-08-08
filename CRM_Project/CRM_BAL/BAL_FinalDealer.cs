@@ -14,6 +14,8 @@ namespace CRM_BAL
 
         public int Flag { get; set; }
 
+        public int FDealerID { get; set; }
+
         public string SalesID { get; set; }
 
         public int Domain_ID { get; set; }
