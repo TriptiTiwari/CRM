@@ -27,7 +27,7 @@ namespace CRM_BAL
 
         public int ColorId { get; set; }
 
-        public string Products123 { get; set; }
+        public string Products1234 { get; set; }
 
         public string AvilableQty { get; set; }
 
