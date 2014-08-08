@@ -390,6 +390,7 @@ namespace CRM_User_Interface
         #endregion Employee Function
 
         #region Dealer Function
+
         #region Dealer Button Event
         private void btnAdm_Dealer_Save_Click(object sender, RoutedEventArgs e)
         {
@@ -871,7 +872,7 @@ namespace CRM_User_Interface
                                                 //    (txtAdm_BrandID.Text.Trim() == dt.Rows[i]["Brand_ID"].ToString()) && (txtAdm_ProductCatID.Text.Trim() == dt.Rows[i]["P_Category"].ToString()) &&
                                                 //    (txtAdm_ModelID.Text.Trim() == dt.Rows[i]["Model_No_ID"].ToString()) && (txtAdm_ColorID.Text.Trim() == dt.Rows[i]["Color_ID"].ToString()))
                                                 //string qry = "Select [ID],[Domain_ID],[Product_ID],[Brand_ID],[P_Category],[Model_No_ID],[Color_ID] From [StockDetails] Where [Domain_ID] = '" + txtAdm_DomainID.Text.Trim() + "' And [Product_ID] = '" + txtAdm_ProductID.Text.Trim() + "' And [Brand_ID] = '" + txtAdm_BrandID.Text.Trim() + "' And [P_Category] = '" + txtAdm_ProductCatID.Text.Trim() + "' And [Model_No_ID] = '" + txtAdm_ModelID.Text.Trim() + "' And [Color_ID] = '" + txtAdm_ColorID.Text.Trim() + "' ";
-                                                string qry = "Select [ID] From [StockDetails] Where  [Color_ID] = '" + txtAdm_ColorID.Text.Trim() + "' ";
+                                                string qry = "Select [ID],[Products123] From [StockDetails] Where  [Products123] = '" + lblProducts.Content.ToString() + "' ";
                                                 
                                                 SqlCommand cmd1 = new SqlCommand(qry, con);
                                                 SqlDataAdapter adp1 = new SqlDataAdapter(cmd1);
@@ -968,6 +969,7 @@ namespace CRM_User_Interface
             {
                 con.Close();
             }
+            Salesid();
         }
 
         private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
@@ -1026,7 +1028,7 @@ namespace CRM_User_Interface
             SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from Final_DealerDetails", con);
             id1 = Convert.ToInt32(cmd.ExecuteScalar());
             id1 = id1 + 1;
-            lblDealerID.Content = "# Sales /" + id1.ToString();
+            lblSalesNo.Content = "# Sales /" + id1.ToString();
             con.Close();
 
 
@@ -1051,7 +1053,7 @@ namespace CRM_User_Interface
                 {
                     bstockDet.Flag = 1;
                     bstockDet.SID = Convert.ToInt32(txtAdm_StockID.Text);
-                    bstockDet.Products123 = lblProducts.Content.ToString();
+                    //bstockDet.Products123 = lblProducts.Content.ToString();
                     bstockDet.NewQty = txtQuantity.Text;
                     bstockDet.FinalPrice = Convert.ToDouble(txtPrice.Text);
                     bstockDet.S_Status = "Active";
@@ -1173,6 +1175,14 @@ namespace CRM_User_Interface
                 {
                     con.Close();
                 }
+
+            AddQuantity_Check();
+            AddQuantity();
+            //txtAdm_DomainID.Text = "";
+            //txtAdm_ProductID.Text = "";
+            txtAdm_StockID.Text = "";
+
+            Salesid();
         }
 
         #region StockDetails Button Event
@@ -1265,8 +1275,56 @@ namespace CRM_User_Interface
             Final_DealerDetails();
         }
 
+        string abc;
 
+        public void AddQuantity_Check()
+        {
+            try
+            {
+                String str;
+                //con.Open();
+                DataSet ds = new DataSet();
+                str = "SELECT [ID],[AvilableQty] From [StockDetails] Where [ID]='" + txtAdm_StockID.Text.Trim() + "' ";
+                SqlCommand cmd = new SqlCommand(str, con);
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                if(dt.Rows.Count > 0)
+                {
+                    txtAdm_AvilableQty.Text = dt.Rows[0]["AvilableQty"].ToString();
+                }
+               
+            }
+                catch(Exception)
+            {
+                    throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
+        public void AddQuantity()
+        {
+            try
+            { 
+                int aviQty;
+                int newQty;
+                int add;
+                aviQty = Convert.ToInt32(txtAdm_AvilableQty.Text);
+                newQty = Convert.ToInt32(txtQuantity.Text);
+                add = aviQty + newQty;
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
 
     }
 }
