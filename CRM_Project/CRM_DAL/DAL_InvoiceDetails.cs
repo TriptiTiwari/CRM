@@ -27,19 +27,20 @@ namespace CRM_DAL
                cmd.Parameters.AddWithValue("@Bill_No", balid.Bill_No);
                cmd.Parameters.AddWithValue("@Domain_ID", balid.Domain_ID);
                cmd.Parameters.AddWithValue("@Product_ID", balid.Product_ID);
-               cmd.Parameters.AddWithValue("@Email_ID", balid.Brand_ID );
-               cmd.Parameters.AddWithValue("@Address", balid.P_Category );
-               cmd.Parameters.AddWithValue("@Occupation", balid.Model_No_ID );
-               cmd.Parameters.AddWithValue("@Product_Details", balid.Color_ID );
+               cmd.Parameters.AddWithValue("@Brand_ID", balid.Brand_ID);
+               cmd.Parameters.AddWithValue("@P_Category", balid.P_Category);
+               cmd.Parameters.AddWithValue("@Model_No_ID", balid.Model_No_ID);
+               cmd.Parameters.AddWithValue("@Color_ID", balid.Color_ID);
+               cmd.Parameters.AddWithValue("@Products123", balid.Products123);
                //  cmd.Parameters.AddWithValue("@Followup_Walkin_Option", balfp.Followup_Walkin_Option);
 
-               cmd.Parameters.AddWithValue("@Followup_Type", balid.Per_Product_Price );
-               cmd.Parameters.AddWithValue("@F_Date", balid.Qty );
-               cmd.Parameters.AddWithValue("@F_Message", balid.C_Price );
+               cmd.Parameters.AddWithValue("@Per_Product_Price", balid.Per_Product_Price);
+               cmd.Parameters.AddWithValue("@Qty", balid.Qty);
+               cmd.Parameters.AddWithValue("@C_Price", balid.C_Price);
                // cmd.Parameters.AddWithValue("@Walkins", balfp.Walkins);
-               cmd.Parameters.AddWithValue("@Folloup_Update", balid.Tax_Name );
-               cmd.Parameters.AddWithValue("@Folloup_Update", balid.Tax );
-               cmd.Parameters.AddWithValue("@Folloup_Update", balid.Total_Price );
+               cmd.Parameters.AddWithValue("@Tax_Name", balid.Tax_Name);
+               cmd.Parameters.AddWithValue("@Tax", balid.Tax);
+               cmd.Parameters.AddWithValue("@Total_Price", balid.Total_Price);
               
                cmd.Parameters.AddWithValue("@S_Status", balid.S_Status);
                cmd.Parameters.AddWithValue("@C_Date", balid.C_Date);

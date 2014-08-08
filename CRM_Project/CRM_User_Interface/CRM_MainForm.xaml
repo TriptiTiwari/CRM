@@ -712,6 +712,13 @@
                         <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Left" TextWrapping="Wrap"  VerticalAlignment="Top" Margin="754,20,0,0" Height="26" Width="40">
                             <Hyperlink NavigateUri="ADD_Tax.xaml" Click="Hyperlink_Click" >TAX</Hyperlink>
                         </TextBlock>
+                        <TextBox x:Name="txtd" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="19,6,0,0"/>
+                        <TextBox x:Name="txtP" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="64,6,0,0"/>
+                        <TextBox x:Name="txtB" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="109,6,0,0"/>
+                        <TextBox x:Name="txtPC" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="154,6,0,0"/>
+                        <TextBox x:Name="txtM" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="199,6,0,0"/>
+                        <TextBox x:Name="txtC" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="249,6,0,0"/>
+                        <TextBox x:Name="txtid" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="35" Margin="299,6,0,0"/>
                     </Grid>
 
                 </Grid>
