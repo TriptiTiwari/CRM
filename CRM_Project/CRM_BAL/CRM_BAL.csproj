@@ -47,6 +47,7 @@
     <Compile Include="BAL_Followup.cs" />
     <Compile Include="BAL_InvoiceDetails.cs" />
     <Compile Include="BAL_MainLogin.cs" />
+    <Compile Include="BAL_PaymentModes.cs" />
     <Compile Include="BAL_Pre_Procurement.cs" />
     <Compile Include="BAL_StockDetails.cs" />
     <Compile Include="BAL_Tax.cs" />
