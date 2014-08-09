@@ -1,0 +1,40 @@
+Create Table tlb_Bill_No
+(
+ID int identity(1,1) constraint  pk_Billid primary key (ID) not null,
+Customer_ID int CONSTRAINT fkbID FOREIGN KEY REFERENCES tlb_Customer NOT NULL,
+Bill_No nvarchar(MAX) not null,
+Payment_Mode nvarchar(MAX) null,
+S_Status nvarchar(MAX)not null,
+C_Date nvarchar(MAX) not null,
+)
+sp==================================================
+USE [DB_CRM]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Bill_No]    Script Date: 08/09/2014 19:09:42 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_Bill_No]
+	@Flag int=null,
+	@Customer_ID int = NULL,
+@Bill_No nvarchar(MAX) ,
+@Payment_Mode nvarchar(MAX),
+@S_Status nvarchar(MAX),
+@C_Date nvarchar(MAX) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+   if(@Flag =1)
+   begin
+   insert into tlb_Bill_No(Customer_ID,Bill_No,Payment_Mode,S_Status,C_Date) values(@Customer_ID ,@Bill_No,@Payment_Mode,@S_Status ,@C_Date )
+   end
+END

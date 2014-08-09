@@ -12,8 +12,13 @@ DEBUG;TRACE
 C:\Users\Dexter\Documents\GitHub\CRM\CRM_Project\CRM_User_Interface\App.xaml
 12-1627536616
 
+<<<<<<< HEAD
 19-221982873
 18-1976053850
+=======
+19862874182
+18211200449
+>>>>>>> origin/master
 Add Product\Add_Products.xaml;ADD_Tax.xaml;AdminLogin.xaml;Admin_Dashbord.xaml;CRM_AdminDashbord.xaml;CRM_MainDashbord.xaml;CRM_MainForm.xaml;CSS.xaml;frmCRM_DealerDetailsEdit.xaml;frmCRM_EmpDetailsEdit.xaml;MainWindow.xaml;CRM_Main_Login.xaml;
 
 False

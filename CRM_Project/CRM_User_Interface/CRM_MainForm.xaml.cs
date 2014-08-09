@@ -130,7 +130,11 @@ namespace CRM_User_Interface
 
             lblbillno .Content   = "Bill No/" + id1.ToString();
 
+<<<<<<< HEAD
             txtvalueid.Text = "Bill No 786/ " + id1.ToString();
+=======
+          //  txtvalueid.Text = "Bill No 786/ " + id1.ToString();
+>>>>>>> origin/master
 
             con.Close();
 
@@ -3487,6 +3491,7 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
                 btnInvoice_Cheque.Visibility =Visibility ;
                 pm_ch ="Cheque";
                  btnInvoice_CH_InvcTAmount.Text = txtInvoice_InvcTotalAmount.Text;
+                 FetchBankName();
             }
             else if((sender as Button) == btnInvoice_Finance)
             {
@@ -3513,6 +3518,55 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
             }
         }
 
+        private void btnInvoice_CH_SaveandPrint_Click(object sender, RoutedEventArgs e)
+        {
+            FetchCustomerID();
+            SaveInvoiceDetails();
+            Save_CommonBill();
+            SaveCheque();
+        }
+        public void SaveCheque()
+        {
+            balpm.Flag = 1;
+            balpm.Customer_ID = I;
+            balpm.Bill_No = lblbillno.Content.ToString();
+            balpm.Total_Price = Convert.ToDouble(btnInvoice_CH_InvcTAmount.Text);
+            balpm.Cheque_Amount  = Convert.ToDouble(btnInvoice_CH_Amount.Text);
+            balpm.Cheque_No = btnInvoice_CH_chequeno.Text;
+            balpm.Cheque_Date  =dpInvoice_CH_ChequeDate .SelectedDate .ToString ();
+            balpm.Cheque_Bank_Name = cmbInvoic_CH_BankName.Text;
+            balpm.S_Status = "Active";
+            balpm.C_Date = System.DateTime.Now.ToShortDateString();
+            dalpm.Save_Cheque(balpm);
+            MessageBox.Show("Cheque details added succssfully");
+            FetchBankName();
+        }
+        public void FetchBankName()
+        {
+            cmbInvoic_CH_BankName.Text = "Select Bank Name";
+            try
+            {
+                con.Open();
+                DataSet ds = new DataSet();
+                cmd = new SqlCommand("select Cheque_Bank_Name from tlb_Cheque  where S_Status='Active'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                // con.Open();
+                da.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    cmbInvoic_CH_BankName .ItemsSource = ds.Tables[0].DefaultView;
+                    cmbInvoic_CH_BankName.DisplayMemberPath = ds.Tables["Cheque_Bank_Name"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally { con.Close(); }
+        }
     }
 
 }
