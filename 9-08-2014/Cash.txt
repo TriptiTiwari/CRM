@@ -1,0 +1,49 @@
+Create Table tlb_Cash
+(ID int IDENTITY(1,1) CONSTRAINT PKCasdid PRIMARY KEY(ID) NOT NULL,
+Customer_ID int CONSTRAINT fk_cashID FOREIGN KEY REFERENCES tlb_Customer NOT NULL,
+Bill_No nvarchar(MAX) not null,
+Total_Price money not null,
+Paid_Amount money not null,
+Balance_Amount money not null,
+S_Status nvarchar(MAX)not null,
+C_Date nvarchar(MAX) not null,
+)
+
+Drop table tlb_Cash
+Select * From tlb_Cash
+
+
+sp==========================
+USE [DB_CRM]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_PaymentMode]    Script Date: 08/09/2014 19:07:05 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[SP_PaymentMode]
+	@Flag int=null,
+	@Customer_ID int=NULL,
+@Bill_No nvarchar(MAX),
+@Total_Price money ,
+@Paid_Amount money ,
+@Balance_Amount money ,
+@S_Status nvarchar(MAX),
+@C_Date nvarchar(MAX) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	if(@Flag =1)
+	begin
+	insert into tlb_Cash (Customer_ID,Bill_No,Total_Price,Paid_Amount,Balance_Amount,S_Status,C_Date) values(@Customer_ID ,@Bill_No ,@Total_Price ,@Paid_Amount ,@Balance_Amount ,@S_Status ,@C_Date ) 
+	end
+END
