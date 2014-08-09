@@ -1152,6 +1152,16 @@ namespace CRM_User_Interface
         {
             Final_DealerDetails();
         }
+
+        private void dtpAdm_From_FinalDealer_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_DealerDetails();
+        }
+
+        private void dtpAdm_To_FinalDealer_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Final_DealerDetails();
+        }
         #endregion Final Product Event
 
         #region DealerSales
@@ -1254,7 +1264,10 @@ namespace CRM_User_Interface
                     bstockDet.ProductCatID = Convert.ToInt32(txtAdm_ProductCatID.Text);
                     bstockDet.ModelID = Convert.ToInt32(txtAdm_ModelID.Text);
                     bstockDet.ColorId = Convert.ToInt32(txtAdm_ColorID.Text);
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
                     bstockDet.Products1234 = lblProducts.Content.ToString();
 
                     // bstockDet.Products123= lblProducts.Content.ToString();
@@ -1262,7 +1275,10 @@ namespace CRM_User_Interface
 
                     bstockDet.Products1234 = lblProducts.Content.ToString();
                     //bstockDet.Products123= lblProducts.Content.ToString();
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/master
                     bstockDet.AvilableQty = txtQuantity.Text;
                     bstockDet.SaleQty = txtSaleQuantity.Text;
                     bstockDet.NewQty = txtQuantity.Text;
@@ -1616,6 +1632,29 @@ namespace CRM_User_Interface
             cmbAdm_StockFilter_Search.Items.Add("Color");
        }
 
+        //private void ChangeColor()
+        //{
+        //    DataSet ds = new DataSet();
+        //    for (int i = 0; i < dgvAdm_StockDetails.Rows.Count; i++)
+        //    {
+        //        try
+        //        {
+        //            if (Convert.ToDouble(dgvAdm_StockDetails.Rows[i].Cells["BalanceQuantity"].Value.ToString()) <= Convert.ToDouble(dgvDetails.Rows[i].Cells["ReorderQuantity"].Value.ToString()))
+        //            {
+        //                dgvDetails.Rows[i].DefaultCellStyle.BackColor = Color.Salmon;
+        //                //dgvDetails.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+        //            }
+
+        //            if (Convert.ToDouble(dgvDetails.Rows[i].Cells["BalanceQuantity"].Value.ToString()) > Convert.ToDouble(dgvDetails.Rows[i].Cells["MaxQuantity"].Value.ToString()))
+        //            {
+        //                dgvDetails.Rows[i].DefaultCellStyle.BackColor = Color.YellowGreen;
+        //                //dgvDetails.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+        //            }
+
+        //        }
+        //        catch { }
+        //    }
+        //}
         #endregion StockDet
 
         #region Stock Event
@@ -1629,8 +1668,11 @@ namespace CRM_User_Interface
             StockDetails();
         }
         #endregion Stock Event
+
+        
         #endregion StockDetails
 
+        
     }
 }
 
