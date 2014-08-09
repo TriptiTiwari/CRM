@@ -95,7 +95,7 @@
                     <MenuItem Header="Employee Details" x:Name="smemployeedetails" Click="smemployeedetails_Click"/>
                     <MenuItem Header="Dealer Details" x:Name="smdealerDetails" Click="smdealerDetails_Click"  />
                     <MenuItem Header="Final Dealer Details" x:Name="finaldealerDetails" Click="finaldealerDetails_Click"  />
-                    <MenuItem Header=" Stock" x:Name="smstock"/>
+                    <MenuItem Header=" Stock" x:Name="smstock" Click="smstock_Click"/>
 
                 </MenuItem>
                 <MenuItem Width="85">
@@ -559,6 +559,96 @@
                 <TextBox x:Name="txtAdm_DealerID3" HorizontalAlignment="Left" Height="23" Margin="953,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" TextChanged="txtAdm_DealerMN_Search_TextChanged" Visibility="Hidden"/>
                 <DatePicker x:Name="dtpAdm_From_FinalDealer" HorizontalAlignment="Left" Margin="118,65,0,0" VerticalAlignment="Top" Width="122"/>
                 <DatePicker x:Name="dtpAdm_To_FinalDealer" HorizontalAlignment="Left" Margin="271,65,0,0" VerticalAlignment="Top" Width="122"/>
+            </Grid>
+            <Grid x:Name="grd_StockDetails" Visibility="Visible"   HorizontalAlignment="Left" Height="565" Margin="20,67,0,0" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+                <Button x:Name="btnAdm_StockDetails_Exit" Content="Exit" HorizontalAlignment="Left" Margin="1084,0,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="btnAdm_StockDetails_Exit_Click"/>
+                <Label Content="Stock Details" HorizontalAlignment="Left" Margin="2,2,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+                <Grid HorizontalAlignment="Left" Height="510" Margin="18,40,0,0" VerticalAlignment="Top" Width="1120" Background="#FFFEFEFE">
+                    <GroupBox x:Name="grpDealer_Search4" Header="Search" HorizontalAlignment="Left" Margin="3,-1,0,0" VerticalAlignment="Top" Width="1114" Height="64" Background="#FFF0F0F0" BorderBrush="#FF19319C"/>
+                    <Grid HorizontalAlignment="Left" Height="43" Margin="5,17,0,0" VerticalAlignment="Top" Width="1107"/>
+                    <Label Content="Filter By:" HorizontalAlignment="Left" Margin="366,26,0,0" VerticalAlignment="Top" Width="57"/>
+                    <ComboBox x:Name="cmbAdm_StockFilter_Search" HorizontalAlignment="Left" Margin="429,27,0,0" VerticalAlignment="Top" Width="254" IsEditable="True"/>
+                    <TextBox x:Name="txtAdm_Stock_Filter_Search" HorizontalAlignment="Left" Height="23" Margin="706,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="262" TextChanged="txtAdm_Stock_Filter_Search_TextChanged"/>
+                    <Button x:Name="btnAdm_StockD_Refresh" Content="Refresh" HorizontalAlignment="Left" Margin="1006,26,0,0" VerticalAlignment="Top" Width="75" Click="btnAdm_StockD_Refresh_Click"/>
+                    <DataGrid x:Name="dgvAdm_StockDetails" Margin="7,70,8,0" VerticalAlignment="Top" Height="438" AutoGenerateColumns="False" RowHeight="25" SelectedCellsChanged="dgvAdm_FinalProcurement_SelectedCellsChanged">
+                        <DataGrid.Columns>
+                            <!--<DataGridTextColumn Header="ID" Width="30"  x:Name="grdFinalPro_ID1" Visibility="Visible" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />-->
+                            <DataGridTextColumn Header="Domain Name" Width="142"  x:Name="grdFinalPro_C_Date1" SortMemberPath="Domain_Name" Binding="{Binding Domain_Name, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Product Type" Width="142"  x:Name="grdFinalPro_Name1" SortMemberPath="Product_Name" Binding="{Binding Product_Name, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Brand Name" Width="142"  x:Name="grdFinalPro_MobileNo1" SortMemberPath="Brand_Name" Binding="{Binding Brand_Name, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Product Category" Width="141"  x:Name="grdFinalPro_PhoneNo1" SortMemberPath="Product_Category" Binding="{Binding Product_Category, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Model No" Width="140"  x:Name="grdFinalPro_Products1" SortMemberPath="Model_No" Binding="{Binding Model_No, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Colour" Width="120"  x:Name="grdFinalPro_Qty1" SortMemberPath="Color" Binding="{Binding Color, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Avilable Qty" Width="75"  x:Name="grdFinalPro_NFDate1" SortMemberPath="AvilableQty" Binding="{Binding AvilableQty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Sale Qty" Width="60"  x:Name="grdFinalPro_Warranty1" SortMemberPath="SaleQty" Binding="{Binding SaleQty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="New Qty" Width="60"  x:Name="grdFinalPro_AddToSale1" SortMemberPath="NewQty" Binding="{Binding NewQty, Mode=TwoWay}" />
+                            <DataGridTextColumn Header="Price" Width="80"  x:Name="grdFinalPro_FinalPrice" SortMemberPath="FinalPrice" Binding="{Binding FinalPrice, Mode=TwoWay}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Grid x:Name="grd_FinalizeProducts1" Visibility="Hidden" HorizontalAlignment="Left" Height="384" Margin="536,106,0,0" VerticalAlignment="Top" Width="505" Background="#FF01060C">
+                        <Grid HorizontalAlignment="Left" Height="276" Margin="10,10,0,0" VerticalAlignment="Top" Width="485" Background="White">
+                            <Label Content="Sales No:" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblSalesNo1" Content="SalesNo" HorizontalAlignment="Left" Margin="107,5,0,0" VerticalAlignment="Top" Width="106"/>
+                            <Label Content="Proc Price:" HorizontalAlignment="Left" Margin="11,145,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProcePrice1" Content="ProcePrice" HorizontalAlignment="Left" Margin="107,145,0,0" VerticalAlignment="Top" Width="138"/>
+                            <Label Content="Proc Date:" HorizontalAlignment="Left" Margin="11,39,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProcDate1" Content="ProcDate" HorizontalAlignment="Left" Margin="107,39,0,0" VerticalAlignment="Top" Width="73"/>
+                            <Label Content="Products:"  HorizontalAlignment="Left" Margin="11,74,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProducts1" Content="Products"  HorizontalAlignment="Left" Margin="107,74,0,0" VerticalAlignment="Top" Width="368" Height="32"/>
+                            <Label Content="Final Price:" HorizontalAlignment="Left" Margin="11,175,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtPrice1" HorizontalAlignment="Left" Height="23" Margin="107,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138"/>
+                            <Label Content="Final Date:" HorizontalAlignment="Left" Margin="11,215,0,0" VerticalAlignment="Top"/>
+                            <DatePicker x:Name="dtpFinalDate1" HorizontalAlignment="Left" Margin="107,217,0,0" VerticalAlignment="Top" Width="135"/>
+                            <Label Content="Proc Qty:" HorizontalAlignment="Left" Margin="260,144,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProceQty1" Content="ProceQty" HorizontalAlignment="Left" Margin="356,144,0,0" VerticalAlignment="Top" Width="89"/>
+                            <Label Content="Final Qty:" HorizontalAlignment="Left" Margin="260,175,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtQuantity1" HorizontalAlignment="Left" Height="23" Margin="356,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="99" TextChanged="txtQuantity_TextChanged"/>
+                            <Grid HorizontalAlignment="Left" Height="60" Visibility="Hidden"  Margin="215,5,0,0" VerticalAlignment="Top" Width="260" Background="#FFF06969">
+                                <TextBox x:Name="txtAdm_DomainID1" HorizontalAlignment="Left" Height="23" Margin="5,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_ProductID1" HorizontalAlignment="Left" Height="23" Margin="54,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_BrandID1" HorizontalAlignment="Left" Height="23" Margin="101,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_ProductCatID1" HorizontalAlignment="Left" Height="23" Margin="152,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_ModelID1" HorizontalAlignment="Left" Height="23" Margin="5,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_ColorID1" HorizontalAlignment="Left" Height="23" Margin="55,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_StockID1" HorizontalAlignment="Left" Height="23" Margin="100,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_DealerID4" HorizontalAlignment="Left" Height="23" Margin="152,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40"/>
+                                <TextBox x:Name="txtAdm_AvilableQty1" HorizontalAlignment="Left" Height="23" Margin="208,2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" Background="#FFA6A3DC"/>
+                                <TextBox x:Name="txtSaleQuantity1" HorizontalAlignment="Left" Height="23" Margin="211,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" Text="0"/>
+                            </Grid>
+                            <Label Content="Proc Net Amt:" HorizontalAlignment="Left" Margin="11,114,0,0" VerticalAlignment="Top"/>
+                            <Label x:Name="lblProceNetAmt1" Content="ProceNetAmt" HorizontalAlignment="Left" Margin="107,114,0,0" VerticalAlignment="Top" Width="138"/>
+                            <TextBox x:Name="txtTotalPrice1" HorizontalAlignment="Left" Height="23" Margin="275,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Visibility="Hidden"/>
+                            <TextBox x:Name="txtpreroundoff1" HorizontalAlignment="Left" Height="23" Margin="365,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" Visibility="Hidden"/>
+                            <TextBox x:Name="txtNetAmount1" HorizontalAlignment="Left" Height="23" Margin="275,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Visibility="Hidden"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Height="40" Margin="10,287,0,0" VerticalAlignment="Top" Width="485" Background="White">
+                            <Label Content="Service Interval:" HorizontalAlignment="Left" Margin="10,6,0,0" VerticalAlignment="Top"/>
+                            <CheckBox x:Name="chbDefault1" Content="Default" HorizontalAlignment="Left" Margin="116,14,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtAdm_FinalMonths1" HorizontalAlignment="Left" Height="23" Margin="207,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60"/>
+                            <Label x:Name="lblFinal_Months1" Content="Months" HorizontalAlignment="Left" Margin="276,8,0,0" VerticalAlignment="Top"/>
+                        </Grid>
+                        <Grid HorizontalAlignment="Left" Height="45" Margin="10,328,0,0" VerticalAlignment="Top" Width="485" Background="White">
+                            <Button x:Name="btnFinalProcurement1" Content="Save" HorizontalAlignment="Left" Margin="150,9,0,0" VerticalAlignment="Top" Width="75" Height="25" Foreground="White" FontWeight="Bold" FontSize="14" Click="btnFinalProcurement_Click">
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FF7DF977" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="btnFinalProcurement_Close1" Content="Exit" HorizontalAlignment="Left" Margin="263,9,0,0" VerticalAlignment="Top" Width="75" Height="25" Foreground="White" FontWeight="Bold" FontSize="14" Click="btnFinalProcurement_Close_Click">
+                                <Button.Background>
+                                    <RadialGradientBrush>
+                                        <GradientStop Color="Black" Offset="0"/>
+                                        <GradientStop Color="#FFD81212" Offset="1"/>
+                                    </RadialGradientBrush>
+                                </Button.Background>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Label Content="Price:" HorizontalAlignment="Left" Margin="51,26,0,0" VerticalAlignment="Top" Width="57"/>
+                    <TextBox x:Name="txtAdm_Stock_Filter_Search_Price" HorizontalAlignment="Left" Height="23" Margin="104,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="233" TextChanged="txtAdm_Stock_Filter_Search_Price_TextChanged"/>
+                </Grid>
             </Grid>
 
         </Grid>
