@@ -972,6 +972,8 @@ namespace CRM_User_Interface
                 con.Close();
             }
             Salesid();
+
+            //Final_PreProcurement();
         }
 
         private void txtQuantity_TextChanged(object sender, TextChangedEventArgs e)
@@ -1061,6 +1063,7 @@ namespace CRM_User_Interface
             txtpreroundoff.Text = "";
             txtNetAmount.Text = "";
             txtAdm_StockID.Text = "";
+
         }
         
         private void btnFinalProcurement_Click(object sender, RoutedEventArgs e)
@@ -1281,6 +1284,8 @@ namespace CRM_User_Interface
             txtTotalPrice.Text = "";
             txtpreroundoff.Text = "";
             txtNetAmount.Text = "";
+
+            Final_PreProcurement();
 
             Salesid();
         }
