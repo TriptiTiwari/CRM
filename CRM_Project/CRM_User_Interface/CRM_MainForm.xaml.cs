@@ -124,7 +124,7 @@ namespace CRM_User_Interface
            // SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
            // id1 = Convert.ToInt32(cmd.ExecuteScalar());
             id1 = id1 + 1;
-            lblbillno.Content = "Bill No GFG_" + id1.ToString();
+            txtvalueid.Text = "Bill No 786/ " + id1.ToString();
             con.Close();
 
 
