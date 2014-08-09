@@ -2087,6 +2087,14 @@ namespace CRM_User_Interface {
         #line default
         #line hidden
         
+        
+        #line 722 "..\..\CRM_MainForm.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label lblbillno;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -3642,6 +3650,9 @@ namespace CRM_User_Interface {
             return;
             case 258:
             this.txtid = ((System.Windows.Controls.TextBox)(target));
+            return;
+            case 259:
+            this.lblbillno = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;
