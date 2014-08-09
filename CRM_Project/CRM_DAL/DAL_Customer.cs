@@ -29,6 +29,7 @@ namespace CRM_DAL
                 cmd.Parameters.AddWithValue("@Email_ID", bc.Email_ID);
                 cmd.Parameters.AddWithValue("@Address", bc.Address);
                 cmd.Parameters.AddWithValue("@Occupation", bc.Occupation);
+                
                 cmd.Parameters.AddWithValue("@S_Status", bc.S_Status);
                 cmd.Parameters.AddWithValue("@C_Date", bc.C_Date);
                 int i = cmd.ExecuteNonQuery();

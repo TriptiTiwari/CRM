@@ -26,7 +26,7 @@ namespace CRM_BAL
       public string Tax_Name { get; set; }
       public double Tax { get; set; }
       public double Total_Price { get; set; }
-
+      public string Payment_Mode { get; set; }
       public string S_Status { get; set; }
       public string C_Date { get; set; }
 

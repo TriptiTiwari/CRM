@@ -35,7 +35,8 @@ namespace CRM_User_Interface
         string caption = "Green Future Glob";
         int cid,I;
         double y1,m1;
-        string year,month,g;
+        string year,month,g,pm_c,pm_ch,pm_f,pm_ins;
+        public Button targetButton;
       
         public CRM_MainForm()
         {
@@ -58,6 +59,7 @@ namespace CRM_User_Interface
         int fetcdoc;
         List<string> checkedStuff;
         static DataTable dtstat = new DataTable();
+       
 
 
         BAL_Pre_Procurement bpreproc = new BAL_Pre_Procurement();
@@ -72,7 +74,8 @@ namespace CRM_User_Interface
         BAL_InvoiceDetails binvd = new BAL_InvoiceDetails();
         DAL_InvoiceDetails dinvd = new DAL_InvoiceDetails();
 
-
+        BAL_PaymentModes balpm = new BAL_PaymentModes();
+        DAL_PaymentMode dalpm = new DAL_PaymentMode();
         public void PREPROCUREMENTid()
         {
 
@@ -117,16 +120,19 @@ namespace CRM_User_Interface
         }
         public void BillID_fetch()
         {
-
+           
             int id1 = 0;
-            // SqlConnection con = new SqlConnection(constring);
-           // con.Open();
-           // SqlCommand cmd = new SqlCommand("select (COUNT(ID)) from tlb_Customer", con);
-           // id1 = Convert.ToInt32(cmd.ExecuteScalar());
+            
+           con.Open();
+            SqlCommand cmd = new SqlCommand("Select (COUNT(ID)) from tlb_Bill_No", con);
+            id1 = Convert.ToInt32(cmd.ExecuteScalar());
             id1 = id1 + 1;
+<<<<<<< HEAD
+            lblbillno .Content   = "Bill No/" + id1.ToString();
+=======
             txtvalueid.Text = "Bill No 786/ " + id1.ToString();
+>>>>>>> origin/master
             con.Close();
-
 
         }
         private void btnadminlogin_Click(object sender, RoutedEventArgs e)
@@ -2679,11 +2685,14 @@ namespace CRM_User_Interface
         {
             if (rdosalefollowupcustomer.IsChecked ==true )
             {
+                targetButton = btnInvoice_Cash;
                 Save_FollowupCustomer();
                 UpdateFollowupStatus();
                 Grd_genratebill.Visibility = Visibility;
                 loadStockProducts();
                 FetchtaxDetails();
+                BillID_fetch();
+
               
 
 
@@ -3325,7 +3334,8 @@ private void txtInvoice_C_PaidAmount_TextChanged(object sender, TextChangedEvent
     adp.Fill(dt);
             if(dt.Rows .Count >0)
             {
-                I =Convert .ToInt32 ( dt.Rows[0]["ID"]);
+               I =Convert .ToInt32 ( dt.Rows[0]["ID"]);
+
 
             }
     
@@ -3334,6 +3344,8 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
 {
     FetchCustomerID();
     SaveInvoiceDetails();
+    Save_CommonBill();
+    SaveCash();
 }
         public void SaveInvoiceDetails()
         {
@@ -3365,7 +3377,7 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
 
                     binvd.Flag = 1;
                     binvd.Customer_ID = I;
-                    binvd.Bill_No = I.ToString();
+                    binvd.Bill_No = lblbillno.Content.ToString ();
                     binvd.Domain_ID = Convert.ToInt32(txtd.Text);
                     binvd.Product_ID = Convert.ToInt32(txtP.Text);
                     binvd.Brand_ID = Convert.ToInt32(txtB.Text);
@@ -3379,6 +3391,22 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
                     binvd.Tax_Name = dtstat.Rows[0]["Tax Name"].ToString();
                     binvd.Tax = Convert.ToDouble(dtstat.Rows[0]["Taxes %"].ToString());
                     binvd.Total_Price = Convert.ToDouble(dtstat.Rows[0]["SubTotal"].ToString());
+                    if (pm_c == "Cash")
+                    {
+                        binvd.Payment_Mode = "Cash";
+                    }
+                    else if (pm_ch =="Cheque")
+                    {
+                         binvd.Payment_Mode = "Cheque";
+                    }
+                    else if( pm_f =="Finance")
+                    {
+                        binvd .Payment_Mode ="Finance";
+                    }
+                    else if(pm_ins =="Installment")
+                    {
+                        binvd .Payment_Mode ="Installment";
+                    }
                     binvd.S_Status = "Active";
                     binvd.C_Date = System.DateTime.Now.ToShortDateString();
                     dinvd.InvoiceDetails_Save(binvd);
@@ -3402,6 +3430,89 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
                 txtid.Text = ds.Tables[0].Rows[0]["ID"].ToString();
             }
         }
+        public void SaveCash()
+        {
+            balpm.Flag = 1;
+            balpm.Customer_ID = I;
+            balpm.Bill_No = lblbillno.Content.ToString();
+            balpm.Total_Price =Convert .ToDouble ( txtInvoice_C_PaidAmount.Text);
+            balpm.Paid_Amount = Convert.ToDouble(txtInvoice_C_PaidAmount.Text);
+            balpm.Balance_Amount = Convert.ToDouble(txtInvoice_C_BalanceAmount.Text);
+            balpm.S_Status = "Active";
+            balpm.C_Date = System.DateTime.Now.ToShortDateString();
+            dalpm.Save_Cash(balpm);
+            MessageBox.Show("Cash Value Added Successfully");
+        }
+        public void Save_CommonBill()
+        {
+            binvd.Flag = 1;
+            binvd.Customer_ID = I;
+            binvd.Bill_No = lblbillno .Content.ToString () ;
+            if (pm_c == "Cash")
+                    {
+                        binvd.Payment_Mode = "Cash";
+                    }
+                    else if (pm_ch =="Cheque")
+                    {
+                         binvd.Payment_Mode = "Cheque";
+                    }
+                    else if( pm_f =="Finance")
+                    {
+                        binvd .Payment_Mode ="Finance";
+                    }
+                    else if(pm_ins =="Installment")
+                    {
+                        binvd .Payment_Mode ="Installment";
+                    }
+            binvd.S_Status = "Active";
+            binvd.C_Date = System.DateTime.Now.ToShortDateString();
+            dinvd.CommonBillNo_Save(binvd);
+            MessageBox.Show("Common bill Added",caption , MessageBoxButton.OK);
+
+        }
+
+        private void PaymentMode_Button_Click(object sender, RoutedEventArgs e)
+        {
+            if ((sender as Button) == targetButton)
+            {
+
+                targetButton.Visibility = Visibility;
+                GRDInvoce_Cash.Visibility = Visibility;
+                pm_c = "Cash";
+ txtInvoice_C_InvcTotalAmount.Text = txtInvoice_InvcTotalAmount.Text;
+            }
+            else if((sender as Button) == btnInvoice_Cheque)
+            {
+                GRDInvoice_Cheque.Visibility =Visibility ;
+                btnInvoice_Cheque.Visibility =Visibility ;
+                pm_ch ="Cheque";
+                 btnInvoice_CH_InvcTAmount.Text = txtInvoice_InvcTotalAmount.Text;
+            }
+            else if((sender as Button) == btnInvoice_Finance)
+            {
+                btnInvoice_Finance.Visibility =Visibility ;
+                 GRDInvoice_Finance.Visibility = Visibility; 
+                pm_f ="Finance";
+                //Text = txtInvoice_InvcTotalAmount.Text;
+
+            }
+            else if((sender as Button) == btnInvoice_Installment)
+            {
+                GRDInvoice_Installment.Visibility =Visibility ;
+                btnInvoice_Installment.Visibility =Visibility ;
+                pm_ins ="Installment";
+                 txtInvoice_InstalTotalAmount.Text = txtInvoice_InvcTotalAmount.Text;
+            }
+
+              
+            else
+            {
+
+                MessageBox.Show("Wrong");
+
+            }
+        }
+
     }
 
 }

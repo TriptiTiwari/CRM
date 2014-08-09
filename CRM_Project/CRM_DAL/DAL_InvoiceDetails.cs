@@ -41,7 +41,7 @@ namespace CRM_DAL
                cmd.Parameters.AddWithValue("@Tax_Name", balid.Tax_Name);
                cmd.Parameters.AddWithValue("@Tax", balid.Tax);
                cmd.Parameters.AddWithValue("@Total_Price", balid.Total_Price);
-              
+               cmd.Parameters.AddWithValue("@Payment_Mode", balid.Payment_Mode);
                cmd.Parameters.AddWithValue("@S_Status", balid.S_Status);
                cmd.Parameters.AddWithValue("@C_Date", balid.C_Date);
                int i = cmd.ExecuteNonQuery();
@@ -56,5 +56,32 @@ namespace CRM_DAL
            }
            finally { con.Close(); }
        }
+       public int CommonBillNo_Save(BAL_InvoiceDetails balid)
+       {
+           try
+           {
+
+               con.Open();
+               cmd = new SqlCommand("SP_Bill_No", con);
+               cmd.CommandType = CommandType.StoredProcedure;
+               cmd.Parameters.AddWithValue("@Flag", 1);
+               cmd.Parameters.AddWithValue("@Customer_ID", balid.Customer_ID);
+               cmd.Parameters.AddWithValue("@Bill_No", balid.Bill_No);
+               cmd.Parameters.AddWithValue("@Payment_Mode", balid.Payment_Mode);
+               cmd.Parameters.AddWithValue("@S_Status", balid.S_Status);
+               cmd.Parameters.AddWithValue("@C_Date", balid.C_Date);
+               int i = cmd.ExecuteNonQuery();
+               return i;
+
+
+           }
+           catch (Exception)
+           {
+
+               throw;
+           }
+           finally { con.Close(); }
+       }
+     
     }
 }
