@@ -130,11 +130,9 @@ namespace CRM_User_Interface
 
             lblbillno .Content   = "Bill No/" + id1.ToString();
 
-<<<<<<< HEAD
+
             txtvalueid.Text = "Bill No 786/ " + id1.ToString();
-=======
           //  txtvalueid.Text = "Bill No 786/ " + id1.ToString();
->>>>>>> origin/master
 
             con.Close();
 
