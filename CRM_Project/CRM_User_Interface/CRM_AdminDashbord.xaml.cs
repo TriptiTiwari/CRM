@@ -1795,7 +1795,15 @@ namespace CRM_User_Interface
             AllProducts_Details();
         }
         #endregion AllProduct Event
+
         #endregion AllProduct Function
+
+
+        private void smnewprocurement_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+        }
     }
 }
 
