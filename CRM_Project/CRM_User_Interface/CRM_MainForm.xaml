@@ -382,7 +382,7 @@
 
             </Grid>
             <Button Content="Admin" Name="btnadminl" Foreground="White"  HorizontalAlignment="Left" Margin="980,10,0,0" VerticalAlignment="Top" Width="75" Background="#FF302D2D" Click="btnadminl_Click"/>
-            <Grid HorizontalAlignment="Left" Visibility="Hidden"    Name="GRD_NewProcurement" Height="560" Margin="25,65,0,0" VerticalAlignment="Top" Width="1155" Background="#FFF0F0F0">
+            <Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_NewProcurement" Height="560" Margin="21,65,0,0" VerticalAlignment="Top" Width="1159" Background="#FFF0F0F0">
                 <Grid HorizontalAlignment="Left" Height="530" Margin="70,20,0,0" VerticalAlignment="Top" Width="1035" Background="White" >
                     <Label Content="Pre-Procurement No :" HorizontalAlignment="Left" Margin="85,34,0,0" VerticalAlignment="Top" Width="146"/>
                     <Label Content="Dealer Name :" HorizontalAlignment="Left" Margin="89,63,0,0" VerticalAlignment="Top" Width="85"/>
@@ -429,7 +429,7 @@
 
                     <ComboBox x:Name="cmbPre_Pro_Salename" HorizontalAlignment="Left" Margin="239,67,0,0" VerticalAlignment="Top" Width="296" SelectionChanged="cmbPre_Pro_Salename_SelectionChanged" IsEditable="True"/>
                     <TextBox x:Name="txtPreWarranty" HorizontalAlignment="Left" Height="23" Margin="688,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"/>
-                    <Label Content="Pre-Procurement :" HorizontalAlignment="Left" Margin="415,0,0,0" VerticalAlignment="Top" Width="146"/>
+                    <Label Content="Pre-Procurement" HorizontalAlignment="Left" Margin="415,0,0,0" VerticalAlignment="Top" Width="164" FontWeight="Bold" FontSize="18"/>
                     <Label Content="QTY :" HorizontalAlignment="Left" Margin="90,270,0,0" VerticalAlignment="Top" Width="135"/>
                     <TextBox x:Name="txtQuantity" HorizontalAlignment="Left" Height="23" Margin="240,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" TextChanged="txtQuantity_TextChanged"/>
                     <Label Content="Total Amount :" HorizontalAlignment="Left" Margin="90,305,0,0" VerticalAlignment="Top" Width="105"/>
@@ -445,7 +445,7 @@
                         </StackPanel>-->
                 </Grid>
             </Grid>
-            <Grid HorizontalAlignment="Left" Height="565" Margin="25,10,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"        VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" >
+            <Grid HorizontalAlignment="Left" Height="565" Margin="20,65,0,0" Name="GRD_Follwupandnew"  Visibility="Hidden"        VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0" >
                 <Grid HorizontalAlignment="Left" Height="485" Name="grd_addfollowupandwalkin" Margin="206,40,0,0" VerticalAlignment="Top" Width="720" Background="White">
                     <Label Content="Follow up Details" HorizontalAlignment="Left" Margin="293,10,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
                     <Label Content="Follow_up ID :" HorizontalAlignment="Left" Margin="95,47,0,0" VerticalAlignment="Top" Width="90"/>
@@ -482,7 +482,11 @@
 
             </Grid>
 
+<<<<<<< HEAD
             <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"  VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+=======
+            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+>>>>>>> origin/master
                 <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="191*"/>
@@ -532,7 +536,11 @@
 
 
                 </Grid>
+<<<<<<< HEAD
                 <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"   Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+=======
+                <Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+>>>>>>> origin/master
                     <TextBox HorizontalAlignment="Left" Height="20" Margin="225,85,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
                     <Label Content="Customer ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
                     <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
