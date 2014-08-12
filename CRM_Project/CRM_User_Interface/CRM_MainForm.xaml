@@ -483,95 +483,96 @@
             </Grid>
 
 
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"  VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+            <  HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden"  VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
 
-            <Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">
+                <!--<Grid HorizontalAlignment="Left" Height="565" Margin="24,65,0,0" Name="GRD_Sales"  Visibility="Hidden" VerticalAlignment="Top" Width="1160" Background="#FFF0F0F0">-->
 
-                <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="191*"/>
-                        <ColumnDefinition Width="38*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
-                    <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="148" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
-                    <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="840,21,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked" Grid.ColumnSpan="2"/>
-                    <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" IsReadOnly="False" Margin="10,100,0,0" VerticalAlignment="Top" Height="435" Width="1125" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False" SelectedCellsChanged="DGRD_SaleFollowup_SelectedCellsChanged" MouseDoubleClick="DGRD_SaleFollowup_MouseDoubleClick" Grid.ColumnSpan="2">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID"  x:Name="grdid" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Followup_ID"  x:Name="grdfid" SortMemberPath="VisitorName" Binding="{Binding Followup_ID, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Name" x:Name="grdName" SortMemberPath="MobileNo" Binding="{Binding Name, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Mobile_No"  x:Name="grdmobile" SortMemberPath="PhoneNo" Binding="{Binding Mobile_No, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Date_Of_Birth"  x:Name="grddob" SortMemberPath="VisitorAddress" Binding="{Binding Date_Of_Birth, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Email_ID" x:Name="grdeid" SortMemberPath="AvgBuget" Binding="{Binding Email_ID, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Address" x:Name="grdaddress" SortMemberPath="AvgBuget" Binding="{Binding Address, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Product_Details" x:Name="grdprodetails" SortMemberPath="AvgBuget" Binding="{Binding Product_Details, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Followup_Type" x:Name="grdfollowuptype" SortMemberPath="AvgBuget" Binding="{Binding Followup_Type, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="F_Date" x:Name="grdfdate" SortMemberPath="AvgBuget" Binding="{Binding F_Date, Mode=TwoWay}" />
-                            <DataGridTextColumn Header="Issude_Date" x:Name="grdcdate" SortMemberPath="AvgBuget" Binding="{Binding C_Date, Mode=TwoWay}" />
-                            <!--<DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />-->
-                            <DataGridTemplateColumn Header="IsInterested" x:Name="isInterested" >
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <CheckBox Checked="CheckBox_Checked" Name="chkisinterested" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="25" Margin="156,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged" KeyDown="txtsalesearchcname_KeyDown"/>
-                    <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
-                    <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
-                    <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="25" Margin="590,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
-                    <DataGrid x:Name="DGRD_SaleCustomer" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" Visibility="Hidden"  AutoGenerateColumns="False" Grid.ColumnSpan="2"/>
-                    <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
+                    <Grid HorizontalAlignment="Left" Height="545" Margin="6,10,0,0" VerticalAlignment="Top" Width="1145" Background="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="191*"/>
+                            <ColumnDefinition Width="38*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Please Select Any One Option :" HorizontalAlignment="Left" Margin="152,10,0,0" VerticalAlignment="Top" Width="310" FontSize="16" FontWeight="Bold" Height="35"/>
+                        <RadioButton x:Name="rdosalefollowupcustomer" Content="Follow_up Customer " HorizontalAlignment="Left" Margin="487,20,0,0" VerticalAlignment="Top" Height="20" Width="148" GroupName="Sale_cust" Checked="rdosalefollowupcustomer_Checked"/>
+                        <RadioButton x:Name="rdoSaleNewcustomer" Content="New Customer" HorizontalAlignment="Left" Margin="840,21,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleNewcustomer_Checked" Grid.ColumnSpan="2"/>
+                        <DataGrid x:Name="DGRD_SaleFollowup" HorizontalAlignment="Left" IsReadOnly="False" Margin="10,100,0,0" VerticalAlignment="Top" Height="435" Width="1125" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" AutoGenerateColumns="False" SelectedCellsChanged="DGRD_SaleFollowup_SelectedCellsChanged" MouseDoubleClick="DGRD_SaleFollowup_MouseDoubleClick" Grid.ColumnSpan="2">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID"  x:Name="grdid" SortMemberPath="ID" Binding="{Binding ID, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Followup_ID"  x:Name="grdfid" SortMemberPath="VisitorName" Binding="{Binding Followup_ID, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Name" x:Name="grdName" SortMemberPath="MobileNo" Binding="{Binding Name, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Mobile_No"  x:Name="grdmobile" SortMemberPath="PhoneNo" Binding="{Binding Mobile_No, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Date_Of_Birth"  x:Name="grddob" SortMemberPath="VisitorAddress" Binding="{Binding Date_Of_Birth, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Email_ID" x:Name="grdeid" SortMemberPath="AvgBuget" Binding="{Binding Email_ID, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Address" x:Name="grdaddress" SortMemberPath="AvgBuget" Binding="{Binding Address, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Product_Details" x:Name="grdprodetails" SortMemberPath="AvgBuget" Binding="{Binding Product_Details, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Followup_Type" x:Name="grdfollowuptype" SortMemberPath="AvgBuget" Binding="{Binding Followup_Type, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="F_Date" x:Name="grdfdate" SortMemberPath="AvgBuget" Binding="{Binding F_Date, Mode=TwoWay}" />
+                                <DataGridTextColumn Header="Issude_Date" x:Name="grdcdate" SortMemberPath="AvgBuget" Binding="{Binding C_Date, Mode=TwoWay}" />
+                                <!--<DataGridCheckBoxColumn Header="IsInterested" x:Name="isInterested" SortMemberPath="IsInterested" Binding="{Binding IsInterested, Mode=TwoWay}" />-->
+                                <DataGridTemplateColumn Header="IsInterested" x:Name="isInterested" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Checked="CheckBox_Checked" Name="chkisinterested" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <TextBox x:Name="txtsalesearchcname" HorizontalAlignment="Left" Height="25" Margin="156,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" IsEnabled="False" TextChanged="txtsalesearchcname_TextChanged" KeyDown="txtsalesearchcname_KeyDown"/>
+                        <Label Content="Enter Customer Name:" HorizontalAlignment="Left" Margin="21,59,0,0" VerticalAlignment="Top" Width="144"/>
+                        <Label Content="Enter Customer Phone No:" HorizontalAlignment="Left" Margin="435,59,0,0" VerticalAlignment="Top" Width="155"/>
+                        <TextBox x:Name="txtSalecustomerno" HorizontalAlignment="Left" Height="25" Margin="590,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" IsEnabled="False" TextChanged="txtSalecustomerno_TextChanged"/>
+                        <DataGrid x:Name="DGRD_SaleCustomer" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Height="430" Width="1110" SelectionChanged="DataGrid_SelectionChanged" IsEnabled="False" Visibility="Hidden"  AutoGenerateColumns="False" Grid.ColumnSpan="2"/>
+                        <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_SaleCustomer" Height="420" VerticalAlignment="Top" Width="1100" Margin="15,105,0,0" Background="White">
                         
                     </Grid>-->
-                    <Label Content="Select Followup Type :" HorizontalAlignment="Left" Margin="800,60,0,0" VerticalAlignment="Top" Width="155"/>
-                    <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged" Grid.ColumnSpan="2"/>
-                    <Button x:Name="btnsaleExit" Content="Exit" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.867,0.75" Click="btnsaleExit_Click" Grid.Column="1"/>
-                    <RadioButton x:Name="rdoSaleOldCustomer1" Content="Old Customer" HorizontalAlignment="Left" Margin="665,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleOldCustomer1_Checked"/>
-                    <!--<Grid HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="760" Margin="360,205,0,0" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>-->
+                        <Label Content="Select Followup Type :" HorizontalAlignment="Left" Margin="800,60,0,0" VerticalAlignment="Top" Width="155"/>
+                        <ComboBox x:Name="cmbsalecustomerftype" HorizontalAlignment="Left" VerticalAlignment="Top" Width="165" Margin="940,63,0,0" IsEditable="True" IsReadOnly="True" SelectionChanged="cmbsalecustomerftype_SelectionChanged" Grid.ColumnSpan="2"/>
+                        <Button x:Name="btnsaleExit" Content="Exit" HorizontalAlignment="Left" Margin="95,10,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.867,0.75" Click="btnsaleExit_Click" Grid.Column="1"/>
+                        <RadioButton x:Name="rdoSaleOldCustomer1" Content="Old Customer" HorizontalAlignment="Left" Margin="665,20,0,0" VerticalAlignment="Top" Height="20" Width="130" GroupName="Sale_cust" Checked="rdoSaleOldCustomer1_Checked"/>
+                        <!--<Grid HorizontalAlignment="Left" Height="330" VerticalAlignment="Top" Width="760" Margin="360,205,0,0" Grid.ColumnSpan="2" Background="#FFF0F0F0"/>-->
 
 
 
 
-                </Grid>
+                    </Grid>
 
-                <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"   Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
+                    <Grid HorizontalAlignment="Left" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Visibility="Hidden"   Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">
 
-                <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">-->
+                        <!--<Grid HorizontalAlignment="Left" Visibility="Hidden" Name="GRD_Customer_Billing" Height="436" VerticalAlignment="Top"  Width="1125" Margin="16,110,0,0" Background="#FFF0F0F0">-->
 
-                    <TextBox HorizontalAlignment="Left" Height="20" Margin="225,85,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
-                    <Label Content="Customer ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
-                    <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="225,115,0,0"  TextWrapping="Wrap" x:Name="txtSalecustomerName" Text="" VerticalAlignment="Top" Width="360"/>
-                    <Label Content="Address :" HorizontalAlignment="Left" Margin="95,234,0,0" VerticalAlignment="Top" Width="90"/>
-                    <TextBox HorizontalAlignment="Left" Height="52" Margin="225,233,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerAddress" Text="" VerticalAlignment="Top" Width="360"/>
-                    <Label Content="Mobile No :" HorizontalAlignment="Left" Margin="95,155,0,0" VerticalAlignment="Top" Width="90"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="225,155,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerMobileno" Text="" VerticalAlignment="Top" Width="360"/>
-                    <Label Content="Email ID :" HorizontalAlignment="Left" Margin="95,196,0,0" VerticalAlignment="Top" Width="90"/>
-                    <TextBox HorizontalAlignment="Left" Height="25" Margin="225,195,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerEmailID" Text="" VerticalAlignment="Top" Width="360"/>
-                    <Button x:Name="btnSaleNewCustomerSale" Content="Save New Customer" HorizontalAlignment="Left" Margin="245,362,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="14" IsEnabled="False"/>
-                    <Button x:Name="btnSaleCustomerEdit" Content="Edit" HorizontalAlignment="Left" Margin="406,362,0,0" VerticalAlignment="Top" Width="89" Height="23" FontSize="14" Click="btnSaleCustomerEdit_Click"/>
-                    <Button x:Name="btnSaleCustomerUpdate" Content="Update" HorizontalAlignment="Left" Margin="510,362,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Height="23" IsEnabled="False"/>
-                    <Button x:Name="btnSaleCustomerDelete" Content="Delete" HorizontalAlignment="Left" Margin="600,365,0,0" VerticalAlignment="Top" Width="75" Height="25" IsEnabled="False"/>
-                    <Label Content="Customer Details ..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,21,0,0" FontSize="18" FontWeight="Bold" Width="230"/>
-                    <Button x:Name="btnSaleCustomerGenrateBill" Content="Genrate Bill" HorizontalAlignment="Left" Margin="690,360,0,0" VerticalAlignment="Top" Width="145" Height="25" FontSize="18" Click="btnSaleCustomerGenrateBill_Click"/>
-                    <Button x:Name="btnSaleCustomerBack" Content="Back" HorizontalAlignment="Left" Margin="130,362,0,0" VerticalAlignment="Top" Width="105" Height="23" FontSize="14" Click="btnSaleCustomerBack_Click"/>
-                    <Label Content="Date Of Birth :" HorizontalAlignment="Left" Margin="605,200,0,0" VerticalAlignment="Top" Width="120"/>
-                    <Label Content="Occupation :" HorizontalAlignment="Left" Margin="604,240,0,0" VerticalAlignment="Top" Width="135"/>
-                    <RadioButton x:Name="rdoSaleCustomerBusiness" Content="Business " HorizontalAlignment="Left" Margin="713,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
-                    <RadioButton x:Name="rdoSaleCustomerPrivate" Content="Private Employee" HorizontalAlignment="Left" Margin="805,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
-                    <RadioButton x:Name="rdoSaleCustomergovt" Content="GOVT Employee" HorizontalAlignment="Left" Margin="945,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
-                    <DatePicker x:Name="dpSaleCustomerDOB" HorizontalAlignment="Left" Margin="715,201,0,0" VerticalAlignment="Top" Width="290"/>
-                    <TextBox HorizontalAlignment="Left" Height="30" Margin="715,235,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerOccupation" Text="" VerticalAlignment="Top" Width="250"/>
-                    <Button x:Name="btnSaleCustomerEditoccu" Content="Edit" HorizontalAlignment="Left" Margin="975,237,0,0" VerticalAlignment="Top" Width="65" Height="28" FontSize="14" Click="btnSaleCustomerEditoccu_Click" IsEnabled="False"/>
-                    <Label x:Name="lblfollowupidfetch" Content="" HorizontalAlignment="Left" Margin="485,75,0,0" VerticalAlignment="Top" Width="90"/>
-                <!--</Grid>
+                        <TextBox HorizontalAlignment="Left" Height="20" Margin="225,85,0,0"  TextWrapping="Wrap" Name="txtvalueid" Text="" VerticalAlignment="Top" Width="250"/>
+                        <Label Content="Customer ID :" HorizontalAlignment="Left" Margin="95,75,0,0" VerticalAlignment="Top" Width="90"/>
+                        <Label Content="Name :" HorizontalAlignment="Left" Margin="97,117,0,0" VerticalAlignment="Top" Width="90"/>
+                        <TextBox HorizontalAlignment="Left" Height="25" Margin="225,115,0,0"  TextWrapping="Wrap" x:Name="txtSalecustomerName" Text="" VerticalAlignment="Top" Width="360"/>
+                        <Label Content="Address :" HorizontalAlignment="Left" Margin="95,234,0,0" VerticalAlignment="Top" Width="90"/>
+                        <TextBox HorizontalAlignment="Left" Height="52" Margin="225,233,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerAddress" Text="" VerticalAlignment="Top" Width="360"/>
+                        <Label Content="Mobile No :" HorizontalAlignment="Left" Margin="95,155,0,0" VerticalAlignment="Top" Width="90"/>
+                        <TextBox HorizontalAlignment="Left" Height="25" Margin="225,155,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerMobileno" Text="" VerticalAlignment="Top" Width="360"/>
+                        <Label Content="Email ID :" HorizontalAlignment="Left" Margin="95,196,0,0" VerticalAlignment="Top" Width="90"/>
+                        <TextBox HorizontalAlignment="Left" Height="25" Margin="225,195,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerEmailID" Text="" VerticalAlignment="Top" Width="360"/>
+                        <Button x:Name="btnSaleNewCustomerSale" Content="Save New Customer" HorizontalAlignment="Left" Margin="245,362,0,0" VerticalAlignment="Top" Width="150" Height="25" FontSize="14" IsEnabled="False"/>
+                        <Button x:Name="btnSaleCustomerEdit" Content="Edit" HorizontalAlignment="Left" Margin="406,362,0,0" VerticalAlignment="Top" Width="89" Height="23" FontSize="14" Click="btnSaleCustomerEdit_Click"/>
+                        <Button x:Name="btnSaleCustomerUpdate" Content="Update" HorizontalAlignment="Left" Margin="510,362,0,0" VerticalAlignment="Top" Width="75" FontSize="14" Height="23" IsEnabled="False"/>
+                        <Button x:Name="btnSaleCustomerDelete" Content="Delete" HorizontalAlignment="Left" Margin="600,365,0,0" VerticalAlignment="Top" Width="75" Height="25" IsEnabled="False"/>
+                        <Label Content="Customer Details ..." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="440,21,0,0" FontSize="18" FontWeight="Bold" Width="230"/>
+                        <Button x:Name="btnSaleCustomerGenrateBill" Content="Genrate Bill" HorizontalAlignment="Left" Margin="690,360,0,0" VerticalAlignment="Top" Width="145" Height="25" FontSize="18" Click="btnSaleCustomerGenrateBill_Click"/>
+                        <Button x:Name="btnSaleCustomerBack" Content="Back" HorizontalAlignment="Left" Margin="130,362,0,0" VerticalAlignment="Top" Width="105" Height="23" FontSize="14" Click="btnSaleCustomerBack_Click"/>
+                        <Label Content="Date Of Birth :" HorizontalAlignment="Left" Margin="605,200,0,0" VerticalAlignment="Top" Width="120"/>
+                        <Label Content="Occupation :" HorizontalAlignment="Left" Margin="604,240,0,0" VerticalAlignment="Top" Width="135"/>
+                        <RadioButton x:Name="rdoSaleCustomerBusiness" Content="Business " HorizontalAlignment="Left" Margin="713,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
+                        <RadioButton x:Name="rdoSaleCustomerPrivate" Content="Private Employee" HorizontalAlignment="Left" Margin="805,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
+                        <RadioButton x:Name="rdoSaleCustomergovt" Content="GOVT Employee" HorizontalAlignment="Left" Margin="945,278,0,0" VerticalAlignment="Top" GroupName="bb" IsEnabled="False"/>
+                        <DatePicker x:Name="dpSaleCustomerDOB" HorizontalAlignment="Left" Margin="715,201,0,0" VerticalAlignment="Top" Width="290"/>
+                        <TextBox HorizontalAlignment="Left" Height="30" Margin="715,235,0,0"  TextWrapping="Wrap" x:Name="txtSaleCustomerOccupation" Text="" VerticalAlignment="Top" Width="250"/>
+                        <Button x:Name="btnSaleCustomerEditoccu" Content="Edit" HorizontalAlignment="Left" Margin="975,237,0,0" VerticalAlignment="Top" Width="65" Height="28" FontSize="14" Click="btnSaleCustomerEditoccu_Click" IsEnabled="False"/>
+                        <Label x:Name="lblfollowupidfetch" Content="" HorizontalAlignment="Left" Margin="485,75,0,0" VerticalAlignment="Top" Width="90"/>
+                        <!--</Grid>
 ghh-->
 
-            </Grid>
-            <Grid HorizontalAlignment="Right" Visibility="Hidden"    Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
+                    </Grid>
+                </>
+                <Grid HorizontalAlignment="Right" Visibility="Hidden"    Name="Grd_genratebill" Height="565" Margin="0,55,13,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
                 <!--<Grid HorizontalAlignment="Right" Visibility="Visible"    x:Name="Grd_genratebill1" Height="565" Margin="-4,0,4,0" VerticalAlignment="Top" Width="1160" Background="#FFEEEEF2">
 
 
@@ -804,7 +805,7 @@ ghh-->
 
             </Grid>
 
-
+        </Grid>
 
     </Border>
 
