@@ -35,7 +35,7 @@ namespace CRM_User_Interface
         string caption = "Green Future Glob";
         int cid,I;
         double y1,m1;
-        string year,month,g,pm_c,pm_ch,pm_f,pm_ins;
+        string   yarvalue, year,month,g,pm_c,pm_ch,pm_f,pm_ins;
         public Button targetButton;
       
         public CRM_MainForm()
@@ -76,6 +76,9 @@ namespace CRM_User_Interface
 
         BAL_PaymentModes balpm = new BAL_PaymentModes();
         DAL_PaymentMode dalpm = new DAL_PaymentMode();
+
+        BAL_Installment bins = new BAL_Installment();
+        DAL_Installment dins = new DAL_Installment();
         public void PREPROCUREMENTid()
         {
 
@@ -131,7 +134,7 @@ namespace CRM_User_Interface
             lblbillno .Content   = "Bill No/" + id1.ToString();
 
 
-            txtvalueid.Text = "Bill No 786/ " + id1.ToString();
+           // txtvalueid.Text = "Bill No 786/ " + id1.ToString();
           //  txtvalueid.Text = "Bill No 786/ " + id1.ToString();
 
             con.Close();
@@ -3337,8 +3340,6 @@ private void txtInvoice_C_PaidAmount_TextChanged(object sender, TextChangedEvent
             if(dt.Rows .Count >0)
             {
                I =Convert .ToInt32 ( dt.Rows[0]["ID"]);
-
-
             }
     
 }
@@ -3564,6 +3565,76 @@ private void btnInvoice_C_SaveandPrint_Click(object sender, RoutedEventArgs e)
                 throw;
             }
             finally { con.Close(); }
+        }
+
+        private void btnInvoice_InstalSaveandPrint_Click(object sender, RoutedEventArgs e)
+        {
+            FetchCustomerID();
+            SaveInvoiceDetails();
+            Save_CommonBill();
+            SaveInstallment();
+        }
+        public void SaveInstallment()
+        {
+            bins.Flag = 1;
+            bins.Customer_ID = I;
+            bins.Bill_No = lblbillno.Content.ToString();
+            bins.Total_Price = Convert.ToDouble(txtInvoice_InstalTotalAmount.Text);
+            bins.Paid_Amount = Convert.ToDouble(txtInvoice_InstalPaidAmount.Text);
+            bins.Balance_Amount = Convert.ToDouble(txtInvoice_InstalBalanceAmount.Text);
+            bins.Balance_Amount = Convert.ToDouble(txtInvoice_Instal_InstalAmountPermonth.Text);
+            if (rdo_Invoice_Yearlyinstallment.IsChecked ==true )
+            {string yearins=cmdInvoice_InstalYear.SelectedValue.ToString();
+            
+            if (yearins == "1 Year")
+            {
+                yarvalue = "12";
+            }
+            if (yearins == "2 Year")
+            {
+                yarvalue = "24";
+            }
+            if (yearins == "3 Year")
+            {
+                yarvalue = "36";
+            }
+            if (yearins == "4 Year")
+            {
+                yarvalue = "48";
+            }
+            if (yearins == "5 Year")
+            {
+                yarvalue = "60";
+            }
+
+            bins.Installment_Year = yarvalue;
+            bins.Installment_Month = "";
+
+            }
+            else if (rdoInvoice_rdo_Invoice_Monthlyinstallment.IsChecked==true)
+            {
+                bins.Installment_Year = "";
+                bins.Installment_Month = cmdInvoice_InstalMonth.SelectedValue.ToString();
+
+            }
+           
+           
+            bins.Installment_Date = dpInvoice_Instalpermonth.SelectedDate .ToString();
+            bins.S_Status = "Active";
+            bins.C_Date = System.DateTime.Now.ToShortDateString();
+            dins.Save_Installment(bins);
+            MessageBox.Show("Installment Added Succsessfully ");
+
+        }
+
+        private void smaddinstallment_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnInstall_ExitInstallment_Click(object sender, RoutedEventArgs e)
+        {
+            GRD_Installment.Visibility = Visibility.Hidden;
         }
     }
 
