@@ -16,3 +16,8 @@ C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_B
 C:\Users\Nazia Tabassum\Documents\GitHub\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.pdb
 =======
 >>>>>>> origin/master
+C:\Users\GYAN\Documents\GitHub\CRM\CRM_Project\CRM_BAL\bin\Debug\CRM_BAL.dll
+C:\Users\GYAN\Documents\GitHub\CRM\CRM_Project\CRM_BAL\bin\Debug\CRM_BAL.pdb
+C:\Users\GYAN\Documents\GitHub\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.csprojResolveAssemblyReference.cache
+C:\Users\GYAN\Documents\GitHub\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.dll
+C:\Users\GYAN\Documents\GitHub\CRM\CRM_Project\CRM_BAL\obj\Debug\CRM_BAL.pdb
